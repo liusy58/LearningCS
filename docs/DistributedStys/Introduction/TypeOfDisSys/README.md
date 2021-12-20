@@ -8,3 +8,4 @@ We make a distinction between distributed computing systems, distributed informa
 Here we give two examples about cluster computing:
 
 ???+info "Beowulf clusters"
+    
