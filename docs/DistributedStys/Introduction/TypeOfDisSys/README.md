@@ -13,5 +13,6 @@ Here we give two examples about cluster computing:
 
 ???+info "MOSIX system"
     
+    
 
 
