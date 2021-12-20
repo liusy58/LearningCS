@@ -1,1 +1,1 @@
-We make a distinction between 
+We make a distinction between distributed 
