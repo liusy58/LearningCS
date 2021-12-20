@@ -50,8 +50,8 @@ markdown_extensions:
       emoji_generator: !!python/name:materialx.emoji.to_svg
   
 nav:
-  - 概览: "index.md"
-
+  - The art of Command Line: "TheArtOfCommandLine/README.md"
+  
 # nav:
 #   - 概览: "index.md"
 #   - 编译链接基础知识:
