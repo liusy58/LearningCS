@@ -9,6 +9,6 @@ Here we give two examples about cluster computing:
 
 ???+info "Beowulf clusters"
     Apart from the master node, the compute nodes are seen to be highly identical. The master handles the allocation of nodes and manages the jobs and provides an interface for the users of the systems.
-    ![](../img/01-07.)
+    ![](../img/01-07.png)
 
 
