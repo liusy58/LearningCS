@@ -12,7 +12,7 @@ Here we give two examples about cluster computing:
     ![](img/01-07.png)
 
 ???+info "MOSIX system"
-    MOSIX attemps to provide a single-system image 
+    MOSIX attemps to provide a single-system image by 
     
 
 
