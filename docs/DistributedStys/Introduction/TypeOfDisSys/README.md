@@ -1,1 +1,1 @@
-We make a distinction between distributed computing systems, distributed 
+We make a distinction between distributed computing systems, distributed information systems
