@@ -21,7 +21,7 @@ However, several morden cluster computers have moved to more hybrid solutions wh
 ???+info "Architecture"
     A traditional architecture is shown below. This architecture consists of 4 layers. 
     * The fabric layer provides tailored interfaces to allow sharing resources within a virtual organization. 
-    
+    * 
     ![](img/01-08.png)
 
 
