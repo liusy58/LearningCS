@@ -20,12 +20,17 @@ However, several morden cluster computers have moved to more hybrid solutions wh
 
 ???+info "Architecture"
     A traditional architecture is shown below. This architecture consists of 4 layers. 
-    - The fabric layer provides tailored interfaces to allow sharing resources within a virtual organization. 
-    - The connectivity layer consists of communication protocols for supportinggrid transactions
-    - The resource layer is responsible for managing a single resource.
-    - The collective layer deals with handling access to multiple resources.
-    - The application layer consists of the applications that operate within a virtual organization
+
+    The **fabric layer** provides tailored interfaces to allow sharing resources within a virtual organization. 
+
+    The **connectivity layer** consists of communication protocols for supportinggrid transactions. 
     
+    The **resource layer** is responsible for managing a single resource. 
+
+    The **collective layer** deals with handling access to multiple resources. 
+    
+    The **application layer** consists of the applications that operate within a virtual organization
+
     <img src="img/01-08.png" alt="drawing" style="width:200px;"/>
     <img src="img/grid.png" alt="drawing" style="width:200px;"/>
 
@@ -37,5 +42,8 @@ Utility computing, which means a customer could upload tasks to a data center an
 
 ???+info "Architecture"
     In practice, clouds are organized into four layers.
-    
+
+    The Infrastructure deployes virtualization techniques to provide customers an infrastructure
+
+    <img src="img/01-09.png" alt="drawing" style="width:200px;"/>
 
