@@ -1,1 +1,1 @@
-We make a distinction between distributed c
+We make a distinction between distributed computing
