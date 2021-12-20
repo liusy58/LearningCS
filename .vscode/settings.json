@@ -1,0 +1,35 @@
+{
+    "workbench.colorTheme": "GitHub Dark Default",
+    "explorer.confirmDelete": false,
+    "files.autoSave": "afterDelay",
+    "git.autofetch": true,
+    "C_Cpp.autocompleteAddParentheses": true,
+    "C_Cpp.updateChannel": "Insiders",
+    "cmake.copyCompileCommands": "",
+    "tabnine.experimentalAutoImports": true,
+    "kite.showWelcomeNotificationOnStartup": false,
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "files.exclude": {
+        "**/.classpath": true,
+        "**/.project": true,
+        "**/.settings": true,
+        "**/.factorypath": true
+    },
+    "gitlens.defaultDateFormat": null,
+    "C_Cpp.default.cppStandard": "c++17",
+    "debug.onTaskErrors": "debugAnyway",
+    "emeraldwalk.runonsave": {
+
+    
+        "commands": [
+               {
+                   "match": "\\.md$",
+                   "cmd": " bash update.sh"
+               }
+        ]
+    },
+    "explorer.confirmDragAndDrop": false,
+    "cmake.mergedCompileCommands": "",
+    "github.allowUnsafeSSL": true
+}

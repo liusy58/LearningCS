@@ -9,15 +9,12 @@ This is a very good repo that I think every programmer need to master every item
 `pgrep` is a command-line utility that allows you to find the process IDs of a running program based on the given criteria.Here I give some examples of how to use it.
 
 
-???+example1 use `-l` option to show the process name along with its ID:
+???+note use `-l` option to show the process name along with its ID:
 
 ```bash
 ## example 1:
 ## use -l option to show the process name along with its ID:
 pgrep -l "ssh"
-
-
-
 
 ```
 
