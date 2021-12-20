@@ -51,8 +51,10 @@ markdown_extensions:
   
 nav:
   - The art of Command Line: "TheArtOfCommandLine/README.md"
-  
-# nav:
+  - Distributed System: 
+    - Introduction:
+      - Types of distributed systems : "DistributedStys/Introduction/TypeOfDisSys/README.md"
+  # nav:
 #   - 概览: "index.md"
 #   - 编译链接基础知识:
 #     - 概览: "basics/index.md"
