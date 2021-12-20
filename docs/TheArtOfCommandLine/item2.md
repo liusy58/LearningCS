@@ -12,4 +12,4 @@
     `ctrl-l` : clear the screen.
 
     
-
+See `man readline` for all the default keybindings in Bash.
