@@ -8,4 +8,4 @@ We make a distinction between distributed computing systems, distributed informa
 Here we give two examples about cluster computing:
 
 ???+info "Beowulf clusters"
-    Apart from the master node, the compute nodes are seen to be highly ide
+    Apart from the master node, the compute nodes are seen to be highly iden
