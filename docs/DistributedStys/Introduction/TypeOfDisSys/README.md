@@ -1,1 +1,1 @@
-We make a distinction between distributed computing
+We make a distinction between distributed computing systems, 
