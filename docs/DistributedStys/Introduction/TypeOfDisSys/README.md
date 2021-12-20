@@ -12,6 +12,6 @@ Here we give two examples about cluster computing:
     ![](../img/01-07.png)
 
 ???+info "MOSIX system"
- 
+    
 
 
