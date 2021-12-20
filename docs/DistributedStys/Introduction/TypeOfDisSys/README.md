@@ -60,3 +60,5 @@ Cloud-computing providers offer these layers to their customers through various 
     Software-as-a-Service (SaaS) in which their applications are covered.
 
 
+### Distributed information systems
+

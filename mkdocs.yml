@@ -50,7 +50,9 @@ markdown_extensions:
       emoji_generator: !!python/name:materialx.emoji.to_svg
   
 nav:
-  - The art of Command Line: "TheArtOfCommandLine/README.md"
+  - The art of Command Line:
+    - Bash Autocompletion: "TheArtOfCommandLine/item1.md"
+    - move cursor: "TheArtOfCommandLine/item2.md"
   - Distributed System: 
     - Introduction:
       - Types of distributed systems : "DistributedStys/Introduction/TypeOfDisSys/README.md"
