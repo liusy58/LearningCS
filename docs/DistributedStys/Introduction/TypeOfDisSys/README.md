@@ -19,7 +19,7 @@ However, several morden cluster computers have moved to more hybrid solutions wh
 ### Grid computing
 
 ???+info "Architecture"
-    A traditional architecture is shown below. This architecture consists of 4 layers. The fabric layer provides tailinterfaces 
+    A traditional architecture is shown below. This architecture consists of 4 layers. The fabric layer provides tailored interfaces 
     ![](img/01-08.png)
 
 
