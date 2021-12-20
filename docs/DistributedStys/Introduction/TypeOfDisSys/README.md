@@ -27,5 +27,5 @@ However, several morden cluster computers have moved to more hybrid solutions wh
     - The application layer consists of the applications that operate within a virtual organization
     ![](img/01-08.png)![](img/grid.png)
 
-
+### 
 
