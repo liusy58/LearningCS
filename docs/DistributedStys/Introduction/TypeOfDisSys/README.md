@@ -49,3 +49,14 @@ Utility computing, which means a customer could upload tasks to a data center an
 
     <img src="img/01-09.png" alt="drawing" style="width:500px;"/>
 
+
+Cloud-computing providers offer these layers to their customers through various interface , leading to three different types to service.
+
+???+info "different types of services"
+    Infrastructure-as-a-Service (IaaS) covering the hardware and infrastructure layer.
+
+    Platform-as-a-Service (PaaS) covering the platform layer.
+    
+    Software-as-a-Service (SaaS) in which their applications are covered.
+
+
