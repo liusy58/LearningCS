@@ -15,6 +15,5 @@ This is a very good repo that I think every programmer need to master every item
     ## example 1:
     ## use -l option to show the process name along with its ID:
     pgrep -l "ssh"
-
     ```
 
