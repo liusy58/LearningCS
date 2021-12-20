@@ -1,1 +1,2 @@
-We make a distinction between distributed computing systems, distributed information systems, and pervasive systems. The
+We make a distinction between distributed computing systems, distributed information systems, and pervasive systems. 
+
