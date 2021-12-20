@@ -53,7 +53,9 @@ nav:
   - The art of Command Line:
     - Bash Autocompletion: "TheArtOfCommandLine/item1.md"
     - move cursor: "TheArtOfCommandLine/item2.md"
-    - `history`: "TheArtOfCommandLine/item3.md"
+    - history: "TheArtOfCommandLine/item3.md"
+    - save command: "TheArtOfCommandLine/item4.md"
+    - xarg: "TheArtOfCommandLine/item5.md"
   - Distributed System: 
     - Introduction:
       - Types of distributed systems : "DistributedStys/Introduction/TypeOfDisSys/README.md"
