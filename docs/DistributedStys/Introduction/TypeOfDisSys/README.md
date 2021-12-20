@@ -17,3 +17,4 @@ Here we give two examples about cluster computing:
 However, several morden cluster computers have moved to more hybrid solutions where middleware is functionally patitioned across different nodes, becuase compute nodes with dedicated middleware will most likely provide optimal performance.
 
 
+
