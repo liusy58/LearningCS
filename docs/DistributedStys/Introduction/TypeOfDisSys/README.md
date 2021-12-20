@@ -23,8 +23,7 @@ However, several morden cluster computers have moved to more hybrid solutions wh
     - The fabric layer provides tailored interfaces to allow sharing resources within a virtual organization. 
     - The connectivity layer consists of communication protocols for supportinggrid transactions
     - The resource layer is responsible for managing a single resource.
-    - The collective layer deals with handling
-access to multiple resources
+    - The collective layer deals with handling access to multiple resources
     ![](img/01-08.png)
 
 
