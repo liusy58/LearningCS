@@ -19,16 +19,6 @@
     "gitlens.defaultDateFormat": null,
     "C_Cpp.default.cppStandard": "c++17",
     "debug.onTaskErrors": "debugAnyway",
-    "emeraldwalk.runonsave": {
-
-    
-        "commands": [
-               {
-                   "match": "\\.md$",
-                   "cmd": " bash update.sh"
-               }
-        ]
-    },
     "explorer.confirmDragAndDrop": false,
     "cmake.mergedCompileCommands": "",
     "github.allowUnsafeSSL": true
