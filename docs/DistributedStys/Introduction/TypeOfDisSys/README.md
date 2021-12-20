@@ -29,7 +29,7 @@ However, several morden cluster computers have moved to more hybrid solutions wh
 ![](img/01-08.png)![](img/grid.png)
 
 ### Cloud computing
-Utility computing formed the basis for what is now called cloud computing. That's to say 
+Utility computing formed the basis for what is now called cloud computing. 
 
 
 ???+info "Architecture"
