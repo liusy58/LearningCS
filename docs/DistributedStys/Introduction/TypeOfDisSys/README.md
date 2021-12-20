@@ -18,6 +18,7 @@ However, several morden cluster computers have moved to more hybrid solutions wh
 
 ### Grid computing
 
-???+info "Ar"
+???+info "Architecture"
+    
 
 
