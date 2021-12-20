@@ -22,7 +22,7 @@ However, several morden cluster computers have moved to more hybrid solutions wh
     A traditional architecture is shown below. This architecture consists of 4 layers. 
     - The fabric layer provides tailored interfaces to allow sharing resources within a virtual organization. 
     - The connectivity layer consists of communication protocols for supportinggrid transactions
-    - The resource layer 
+    - The resource layer is responsible for managing a single resource.
     ![](img/01-08.png)
 
 
