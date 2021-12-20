@@ -30,6 +30,8 @@ However, several morden cluster computers have moved to more hybrid solutions wh
 
 ### Cloud computing
 Utility computing formed the basis for what is now called cloud computing.
+
+
 ???+info "Architecture"
 
 
