@@ -43,7 +43,9 @@ Utility computing, which means a customer could upload tasks to a data center an
 ???+info "Architecture"
     In practice, clouds are organized into four layers.
 
-    The Infrastructure deployes virtualization techniques to provide customers an infrastructure
+    The Infrastructure deployes virtualization techniques to provide customers an infrastructure consisting of virtual storage and computing resources. 
 
-    <img src="img/01-09.png" alt="drawing" style="width:200px;"/>
+    The platform layer provides to a cloud-computing customer what an operating system provides to application developers, namely the means to easily develop and deploy applications that need to run in a cloud, somewhat like `exec` command in Unix. 
+
+    <img src="img/01-09.png" alt="drawing" style="width:500px;"/>
 
