@@ -25,7 +25,7 @@ However, several morden cluster computers have moved to more hybrid solutions wh
     - The resource layer is responsible for managing a single resource.
     - The collective layer deals with handling access to multiple resources.
     - The application layer consists of the applications that operate within a virtual organization
-    <img src="drawing.jpg" alt="drawing" style="width:200px;"/>
+    <img src="img/01-08.png" alt="drawing" style="width:200px;"/>
 
 ![](img/01-08.png)![](img/grid.png)
 
