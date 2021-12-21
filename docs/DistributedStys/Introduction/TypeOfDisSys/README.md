@@ -87,4 +87,11 @@ The need for interapplication communication led to many different communication 
 
     An RMI is essentially the same as an RPC, except that it operates on objects instead of functions.
     <img src="img/rpc.png" alt="drawing" style="width:500px;"/>
-    
+    RPC and RMI have the disadvantage that the caller and callee both need to be up and running at the time of communication. In addition, they need to know exactly how to refer to each other. -> **solution**:  message-oriented middleware.
+
+### Pervasive systems
+
+
+
+
+
