@@ -56,10 +56,15 @@ nav:
     - history: "TheArtOfCommandLine/item3.md"
     - save command: "TheArtOfCommandLine/item4.md"
     - xarg: "TheArtOfCommandLine/item5.md"
-    - pstree: ""
-    - pgrep and pkill: ""
-    - nohub/disown: ""
-    
+    - pstree: "TheArtOfCommandLine/item6.md"
+    - pgrep and pkill: "TheArtOfCommandLine/item7.md"
+    - send signals: "TheArtOfCommandLine/item8.md"
+    - nohub/disown: "TheArtOfCommandLine/item9.md"
+    - netstat/ss: ""
+    - lsof/fuser: ""
+    - uptime/w: ""
+    - alias: ""
+    - ~/.bashrc: ""
 
   - Distributed System: 
     - Introduction:

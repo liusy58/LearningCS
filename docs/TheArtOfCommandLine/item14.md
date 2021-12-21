@@ -1,0 +1,1 @@
+???+note "Save aliases, shell settings, and functions you commonly use in `~/.bashrc`, and arrange for login shells to source it. This will make your setup available in all your shell sessions."

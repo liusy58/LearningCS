@@ -1,0 +1,1 @@
+???+note "See `uptime` or `w` to know how long the system has been running."
