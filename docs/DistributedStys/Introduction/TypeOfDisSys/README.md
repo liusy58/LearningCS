@@ -62,3 +62,29 @@ Cloud-computing providers offer these layers to their customers through various 
 
 ### Distributed information systems
 
+#### Distributed transaction processing 
+
+???+note "ACID"
+    Atomic: To the outside world, the transaction happens indivisibly.
+
+    Consistent: The transaction does not violate system invariants.
+
+    Isolated: Concurrent transactions do not interfere with each other.
+
+    Durable: Once a transaction commits, the changes are permanent.
+
+???+note "nested transaction"
+    In distributed systems, transactions are often constructed as a number of subtransactions, jointly forming a nested transaction as shown below. The top-level transaction may fork off children that run in parallel with one another, on different machines, to gain performnance or simplify programming. Each of these children may also execute one or more subtractions, or fork off its own children.
+    <img src="img/01-11.png" alt="drawing" style="width:500px;"/>
+
+#### Enterprise application integration
+
+The need for interapplication communication led to many different communication models. The main idea was that existing applications could directlyexchange information.
+<img src="img/01-13.png" alt="drawing" style="width:500px;"/>
+
+???+note "RPC vs RMI"
+    With RPC, an application component can effectively send a request to another application component by doing a local procedure call, which results in the request being packaged as a message and sent to th calle. Likewise, the result will be sent back and returned to the application as the result of procedure call.
+
+    An RMI is essentially the same as an RPC, except that it operates on objects instead of functions.
+    <img src="img/rpc.png" alt="drawing" style="width:500px;"/>
+    
