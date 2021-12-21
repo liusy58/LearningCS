@@ -60,11 +60,11 @@ nav:
     - pgrep and pkill: "TheArtOfCommandLine/item7.md"
     - send signals: "TheArtOfCommandLine/item8.md"
     - nohub/disown: "TheArtOfCommandLine/item9.md"
-    - netstat/ss: ""
-    - lsof/fuser: ""
-    - uptime/w: ""
-    - alias: ""
-    - ~/.bashrc: ""
+    - netstat/ss: "TheArtOfCommandLine/item10.md"
+    - lsof/fuser: "TheArtOfCommandLine/item11.md"
+    - uptime/w: "TheArtOfCommandLine/item12.md"
+    - alias: "TheArtOfCommandLine/item14.md"
+    - ~/.bashrc: "TheArtOfCommandLine/item15.md"
 
   - Distributed System: 
     - Introduction:
