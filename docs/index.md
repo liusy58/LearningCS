@@ -1,1 +1,32 @@
+I will update my reading notes every day. 
 
+So far, I will update the books shown below:
+
+* Math/Theory
+    * The Princeton Companion to Mathematics (Timothy Gowers Ed.)
+    * Probability and Computing (Michael Mitzenmacher and Eli Upfal)
+    * Quantum Computing Since Democritus (Scott Aaronson)
+    * The Nature of Computation (Cristopher Moore and Stephan Mertens)
+    * Computational Complexity: A Modern Approach (Sanjeev Arora and Boaz Barak)
+    * Principles of Distributed Computing (Roger Wattenhofer)
+    * Ideas That Created the Future Classic Papers of Computer Science (Harry R. Lewis Ed.)
+* Algorithms
+    * The Art of Computer Programming (Donald E. Knuth)
+    * The Art of Multiprocessor Programming (Maurice Herlihy and Nir Shavit)
+    * Convex Optimization (Stephen Boyd and Lieven Vandenberghe)
+    * Combinatorial Optimization: Algorithms and Complexity (Christos H. Papadimitriou and Kenneth Steiglitz)
+    * Heuristic Search: Theory and Applications (Stefan Edelkamp and Stefan Schroedl)
+* Programming Language
+    * Logic in Computer Science: Modelling and Reasoning about Systems. (Michael Huth and Mark Ryan)
+    * [Software Foundations](https://softwarefoundations.cis.upenn.edu/) 
+    * Static Program Analysis (Anders Møller and Michael I. Schwartzbach)
+    * Theories of Programming Languages (John C. Reynolds)
+    * Types and Programming Languages (Benjamin C. Pierce)
+* Computer System
+    * Computer Architecture: A Quantitative Approach (John L. Hennessy and David A. Patterson)
+    * Parallel and Distributed Computing: Numerical Methods (Dimitri P. Bertsekas and John N. Tsitsiklis)
+    * Is Parallel Programming Hard, And, If So, What Can You Do About It? (Paul E. McKenny Ed.)
+    * The Design and Implementation of the 4.4BSD Operating System (Marshall Kirk McKusick, Keith Bostic, Michael J. Karels, and John S. Quarterman)
+* Database system
+    * Readings in Database Systems (Peter Bailis, Joseph M. Hellerstein, and Michael Stonebraker Ed.)
+    * Transaction Processing (Jim Gray)
