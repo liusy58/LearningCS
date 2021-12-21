@@ -56,6 +56,11 @@ nav:
     - history: "TheArtOfCommandLine/item3.md"
     - save command: "TheArtOfCommandLine/item4.md"
     - xarg: "TheArtOfCommandLine/item5.md"
+    - pstree: ""
+    - pgrep and pkill: ""
+    - nohub/disown: ""
+    
+
   - Distributed System: 
     - Introduction:
       - Types of distributed systems : "DistributedStys/Introduction/TypeOfDisSys/README.md"
