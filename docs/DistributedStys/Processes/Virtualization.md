@@ -30,5 +30,6 @@
     |Software-as-a-Service (SaaS)|containing actual applications|
 
     <img src="../img/saas-vs-paas-vs-iaas.png" alt="l" style="width:200px;"/>
-    <img src="../img/cloud-service-models-iaas-paas-saas-stackscale.png" alt="l" style="width:200px;"/>
+    <img src="../img/cloud-service-models-iaas-paas-saas-stackscale.jpg" alt="l" style="width:200px;"/>
 
+Virtualization plays a key role in IaaS. Instead of renting out a physical machine, a cloud provider will rent out a virtual machine (monitor) that may, or may not, be sharing a physical machine with other customers. 
