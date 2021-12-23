@@ -17,9 +17,11 @@
     |A native virtual machine monitor| Interface offered by a virtual machine monitor can be offered simultaneously to different programs|different guest operating systems can run independently and concurrently on the same platform.|
     |A hosted virtual machine monitor|Make use of existing facilities provided by that host operating system|Easy to implement|
 
-    <img src="img/03-08a.png" alt="drawing" style="width:300px;"/>
-    <img src="img/03-08b.png" alt="drawing" style="width:300px;"/>
-    <img src="img/03-08c.png" alt="drawing" style="width:300px;"/>
+    <img src="img/03-08a.png" alt="l" style="width:300px;"/>
+
+    <img src="img/03-08b.png" alt="s" style="width:300px;"/>
+
+    <img src="img/03-08c.png" alt="y" style="width:300px;"/>
 
 
 ### Application of virtual machines to distributed systems
