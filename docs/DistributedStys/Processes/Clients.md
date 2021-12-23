@@ -7,3 +7,5 @@
     |thin-client| provide direct access to remote services by offering only a convenient user interface, this means that the client machine is used only as a terminal with no need for local storage|ATM|<img src="../img/03-10b.png" alt="l" style="width:200px;"/>|
 
 
+### Example: The X window system
+
