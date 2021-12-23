@@ -73,6 +73,8 @@ nav:
       - Threads : "DistributedStys/Processes/Threads.md"
       - Virtualization : "DistributedStys/Processes/Virtualization.md"
       - Clients : "DistributedStys/Processes/Clients.md"
+      - Servers : "DistributedStys/Processes/Servers.md"
+      
   # nav:
 #   - 概览: "index.md"
 #   - 编译链接基础知识:
