@@ -12,7 +12,7 @@
     |type|characteristics||
     |-|-|-|
     | Client-to-server binding using a daemon|The daemon keeps track of the current end point of each service implemented by a co-located server. The daemon itself listens to a well-known end point. A client will first contact the daemon, request the end point, and then contact the specific server.|<img src="../img/03-13a.png" alt="l" style="width:300px;"/>|
-    | Client-to-server binding using a superserver|have a single superserver listening to each end point associated with a specific service.When a request comes in, the daemon forks a process to handle it. |<img src="../img/03-13b.png" alt="l" style="width:300px;"/>|
+    | Client-to-server binding using a superserver|have a single superserver listening to each end point associated with a specific service.When a request comes in, the daemon forks a process to handle it. (eg,inetd)|<img src="../img/03-13b.png" alt="l" style="width:300px;"/>|
 
 
 ###  Interrupting a server
@@ -31,6 +31,15 @@
     |soft state| The server promises to maintain state on behalf of the client, but only for a limited time|A server promising to keep a client informed about updates, but only for a limited time. |
     |stateful server|maintains persistent information on its clients| A file server that allows a client to keep a local copy of a file, even for performing update operations. |
 
-    
 
+???+info "cookies"
+    Information that often transparently stored by the client’s browser will be sent to the server. 
+
+
+### Object   servers
+  
  
+
+
+### Example: The Apache Web server
+
