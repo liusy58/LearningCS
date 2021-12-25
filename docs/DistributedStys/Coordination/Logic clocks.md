@@ -20,4 +20,8 @@
 
 ### Vector clocks
 
+???+note "vector clocks"
+    A vector clock is a data structure used for determining the partial ordering of events in a distributed system and detecting causality violations.
+
+
 
