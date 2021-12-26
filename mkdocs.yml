@@ -74,7 +74,11 @@ nav:
       - Virtualization : "DistributedStys/Processes/Virtualization.md"
       - Clients : "DistributedStys/Processes/Clients.md"
       - Servers : "DistributedStys/Processes/Servers.md"
-      
+
+  - Distributed System(Cambridge):
+    - Introduction: "Distributed Systems/Introduction/About distributed systems.md"
+
+
   # nav:
 #   - 概览: "index.md"
 #   - 编译链接基础知识:
