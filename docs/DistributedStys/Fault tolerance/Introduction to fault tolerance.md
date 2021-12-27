@@ -14,7 +14,7 @@
     |Maintainability|It refers to how easily a failed system can be repaired.|
 
 ???+note "fault vs. error vs. failure" 
-    A fault causes an error and an error result in a failure. 
+    A fault causes an error and an error results in a failure. 
 
 
 ### Failure models
@@ -28,6 +28,6 @@
     |Information redundancy|Extra bits are added to allow recovery from garbled bits. (eg. hamming code)|
     |Time redundancy|An action is performed, and then, if need be, it is performed again. (TCP)|
     |Physical Redundancy|Extra equipment or processes are added to make it possible for the system as a whole to tolerate the loss or malfunctioning of some components.|  
-    
-      
+
+
 
