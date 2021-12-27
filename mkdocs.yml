@@ -74,7 +74,8 @@ nav:
       - Virtualization : "DistributedStys/Processes/Virtualization.md"
       - Clients : "DistributedStys/Processes/Clients.md"
       - Servers : "DistributedStys/Processes/Servers.md"
-
+    - Fault tolerance:
+      - Introduction to fault tolerance: "DistributedStys/Fault tolerance/Introduction to fault tolerance.md"
   - Distributed System(Cambridge):
     - Introduction: "Distributed Systems/Introduction/About distributed systems.md"
 
