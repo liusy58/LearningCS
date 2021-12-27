@@ -42,4 +42,28 @@
 
     The popularity of REST is due to the fact that JavaScript code running in a web browser can easily make this type of HTTP request.
 
-    
+???+note "IDL"
+    When different programming languages are used, the RPC framework needs to convert datatypes such that the caller’s arguments are understood by the code being called, and likewise for the function’s return value. A typical solution is to use an Interface Definition Language (IDL) to provide language-independent type signatures of the functions that are being made available over RPC. From the IDL, software developers can then automatically generate marshalling/unmarshalling code and RPC stubs for the respective programming languages of each service and its clients.    
+
+    ```grpc
+    message PaymentRequest {
+    message Card {
+        required string cardNumber = 1;
+        optional int32 expiryMonth = 2;
+        optional int32 expiryYear = 3;
+        optional int32 CVC = 4;
+    }
+    enum Currency { GBP = 1; USD = 2; }
+        required Card card= 1;
+        required int64 amount= 2;
+        required Currency currency = 3;
+    }
+    message PaymentStatus {
+        required bool success = 1;
+        optional string errorMessage = 2;
+    }
+    service PaymentService {
+        rpc ProcessPayment(PaymentRequest) returns(PaymentStatus) {}
+    }
+
+    ```
