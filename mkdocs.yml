@@ -78,8 +78,10 @@ nav:
       - Introduction to fault tolerance: "DistributedStys/Fault tolerance/Introduction to fault tolerance.md"
   - Distributed System(Cambridge):
     - Introduction: "Distributed Systems/Introduction/About distributed systems.md"
-  - Is Parallel Programming Hard, And, If so, What Can You Do About It? :
-    
+  - Static Program Analysis:
+    - introduction: "Static Program Analysis/introduction.md" 
+  # - Is Parallel Programming Hard, And, If so, What Can You Do About It? :
+
 
   # nav:
 #   - 概览: "index.md"
