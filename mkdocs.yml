@@ -80,7 +80,7 @@ nav:
     - Introduction: "Distributed Systems/Introduction/About distributed systems.md"
   - Static Program Analysis:
     - introduction: "Static Program Analysis/introduction.md" 
-    
+    - IR: "Static Program Analysis/IR.md"
   # - Is Parallel Programming Hard, And, If so, What Can You Do About It? :
 
 
