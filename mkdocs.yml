@@ -82,6 +82,8 @@ nav:
     - introduction: "Static Program Analysis/introduction.md" 
     - IR: "Static Program Analysis/IR.md"
     - DFA-AP: "Static Program Analysis/DFA-AP.md"
+    - DFA-FD: "Static Program Analysis/DFA-FD.md"
+    - Inter: "Static Program Analysis/Inter.md"
   # - Is Parallel Programming Hard, And, If so, What Can You Do About It? :
 
 
