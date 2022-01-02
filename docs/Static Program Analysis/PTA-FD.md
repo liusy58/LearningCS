@@ -9,7 +9,7 @@
     
 
 ???+note "Understand pointer analysis rule for method call"
-        <img src="../img/call.png" alt="l" style="width:500px;"/>
+    <img src="../img/call.png" alt="l" style="width:500px;"/>
 
 
 ???+note "Understand inter-procedural pointer analysis algorithm"
