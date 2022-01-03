@@ -21,8 +21,10 @@
     ||Type|Transfer Function|Control Flow|Algorithm|
     |-|-|-|-|-|
     |Reaching Definition Analysis|may analysis<img src="../img/P1.png" alt="l" style="width:500px;"/>|<img src="../img/RDTF.png" alt="l" style="width:500px;"/>|<img src="../img/CF.png" alt="l" style="width:500px;"/>|<img src="../img/algorithm1.png" alt="l" style="width:500px;"/>|
-    |Live Variables Analysis|may analysis<img src="../img/P2.png" alt="l" style="width:500px;"/>|<img src="../img/P4.png" alt="l" style="width:500px;"/>|<img src="../img/P3.png" alt="l" style="width:500px;"/>|<img src="../img/P5.png" alt="l" style="width:500px;"/>|
-    |Available Expressions Analysis|must analysis|<img src="../img/P6.png" alt="l" style="width:500px;"/>|<img src="../img/P7.png" alt="l" style="width:500px;"/>||
+    |Live Variables Analysis|may analysis<img src="../img/P2.png" alt="l" style="width:500px;"/>|<img src="../img/P4.png" alt="l" style="width:500px;"/>|<img src="../img/P3.png" alt="l" style="width:500px;"/>|<img src="../img/P5.png" alt="l" style="width:500px;"/>(gen->kill)|
+    |Available Expressions Analysis|must analysis|<img src="../img/P6.png" alt="l" style="width:500px;"/>|<img src="../img/P7.png" alt="l" style="width:500px;"/>|<img src="../img/P8.png" alt="l" style="width:500px;"/>(kill->gen)|
+
+    <img src="../img/P9.png" alt="l" style="width:500px;"/>
 
 
 
