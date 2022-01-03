@@ -20,7 +20,8 @@
 
 
 ???+note "How to summarize may and must analyses in lattices"
-    
+    <img src="../img/P14t.png" alt="l" style="width:500px;"/>
+
 
 
 
