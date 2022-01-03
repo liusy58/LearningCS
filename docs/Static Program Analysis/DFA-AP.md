@@ -33,5 +33,5 @@
 
 
 ???+note "Understand the iterative algorithm and can tell why it is able to terminate"
-    Set of facts is finite. 
+    Out will not shrink. Set of facts is finite. 
 

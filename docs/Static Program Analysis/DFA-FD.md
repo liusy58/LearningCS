@@ -1,17 +1,27 @@
 ???+note "Understand the functional view of iterative algorithm"
-    
+    The iterative algorithm reaches a fixed point. 
+
+
 
 
 
 ???+note "The definitions of lattice and complete lattice"
-    Given a poset (P, ⊑), ∀a, b ∈ P, if a ⊔ b and a ⊓ b exist, then(P, ⊑) is called a lattice. A poset is a lattice if every pair of its elements has a least upper bound and a greatest lower bound. 
 
-    Given a lattice (P, ⊑), for arbitrary subset S of P, if ⊔S and ⊓S exist, then (P, ⊑) is called a complete lattice
+    <img src="../img/P10.png" alt="l" style="width:500px;"/>
+
+    <img src="../img/P11.png" alt="l" style="width:500px;"/>
+
+    <img src="../img/P12.png" alt="l" style="width:500px;"/>
+
+
+    
 
 
 
 
 ???+note "How to summarize may and must analyses in lattices"
+    
+
 
 
 
@@ -33,6 +43,6 @@
 
 
 ???+note "Worklist algorithm"
-    
+
 
 
