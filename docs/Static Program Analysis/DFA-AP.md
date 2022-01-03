@@ -17,7 +17,13 @@
 
     An expression x op y is available at program point p if (1) allpaths from the entry to p mustpass through the evaluation of x op y, and (2) after the last evaluation of x op y, there is no redefinition of x or y
 
-???+note "Can tell the differences and similarities of the three data flow analyses"    
+???+note "Can tell the differences and similarities of the three data flow analyses" 
+    ||Type|Transfer Function|Control Flow|Algorithm|
+    |-|-|-|-|-|
+    |Reaching Definition Analysis|may analysis<img src="../img/P1.png" alt="l" style="width:500px;"/>|<img src="../img/RDTF.png" alt="l" style="width:500px;"/>|<img src="../img/CF.png" alt="l" style="width:500px;"/>|<img src="../img/algorithm1.png" alt="l" style="width:500px;"/>|
+    |Live Variables Analysis|<img src="../img/P2.png" alt="l" style="width:500px;"/>||||
+
+
     
 
 

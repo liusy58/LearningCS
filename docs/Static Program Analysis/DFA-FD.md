@@ -1,5 +1,5 @@
 ???+note "Understand the functional view of iterative algorithm"
-    F(x) = x;   fixed point
+    
 
 
 
@@ -33,5 +33,6 @@
 
 
 ???+note "Worklist algorithm"
+    
 
 
