@@ -1,15 +1,20 @@
 ???+note "Concept of information flow security"
-    if the information in variable x is transferred to variable y, then there is information flow x → y  
+    Tracks how information flows through the program to make sure that the program handles the information securely. Concerns how information is propagated.
+
 
 ???+note "Confidentiality and integrity"
-    Confidentiality: Prevent secret information from being leaked
+    |||||
+    |-|-|-|-|
+    |Confidentiality|Prevent secret information from being leaked|<img src="../img/P17.png" alt="l" style="width:500px;"/>||
+    |Integrity|Prevent untrusted information from corrupting (trusted) critical information|<img src="../img/P18.png" alt="l" style="width:500px;"/>|Command injection,SQL injection,XSS attacks|
+    
 
-    Integrity: Prevent untrusted information from corrupting (trusted) critical information
 
 
 
 ???+note "Explicit flows and covert channels"
-    Explicit flow:information flows through direct copying.
+
+    Explicit flow: information flows through direct copying.
 
     Channels that exploit a mechanism whose primary purpose is not information transfer are called covert channels
 

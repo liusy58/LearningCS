@@ -20,6 +20,7 @@
 ???+note "How to summarize may and must analyses in lattices"
     <img src="../img/P14.png" alt="l" style="width:500px;"/>
 
+    <img src="../img/P16.png" alt="l" style="width:500px;"/>
 
 
 
@@ -29,9 +30,7 @@
 
 
 ???+note "The relation between MOP and the solution produced by the iterative algorithm"
-    MOP: F(x) ⊔ F(y)
-    
-    ours: F(x ⊔ y)
+     
 
 
 
