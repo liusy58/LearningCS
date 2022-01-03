@@ -17,17 +17,15 @@
     
 
 
-
-
 ???+note "How to summarize may and must analyses in lattices"
-    <img src="../img/P14t.png" alt="l" style="width:500px;"/>
+    <img src="../img/P14.png" alt="l" style="width:500px;"/>
 
 
 
 
 
 ???+note "Understand the fixed-point theorem"
-    <img src="../img/fixed-point.png" alt="l" style="width:500px;"/>
+    <img src="../img/P15.png" alt="l" style="width:500px;"/>
 
 
 ???+note "The relation between MOP and the solution produced by the iterative algorithm"
