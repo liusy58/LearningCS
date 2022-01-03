@@ -21,3 +21,5 @@
 
 ???+note "Use taint analysis to detect unwanted information flow"
     Taint analysis tracks how tainted data flow through the program and observes if they can flow to locations of interest (called sinks). In practice, sinks are usually some sensitive methods.
+    
+    <img src="../img/P19.png" alt="l" style="width:400px;"/>
