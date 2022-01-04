@@ -4,10 +4,10 @@
 
 
 ???+note "Understand the key factors of pointer analysis"
-    <img src="../img/32.png" alt="l" style="width:500px;"/>
-    <img src="../img/33.png" alt="l" style="width:500px;"/>
-    <img src="../img/34.png" alt="l" style="width:500px;"/>
-    <img src="../img/35.png" alt="l" style="width:500px;"/>
+    <img src="../img/P32.png" alt="l" style="width:500px;"/>
+    <img src="../img/P33.png" alt="l" style="width:500px;"/>
+    <img src="../img/P34.png" alt="l" style="width:500px;"/>
+    <img src="../img/P35.png" alt="l" style="width:500px;"/>
 
 
 
