@@ -14,5 +14,5 @@
     <img src="../img/P26.png" alt="l" style="width:300px;"/>
 
 ???+note "How to implement taint analysis via Datalog"
-
+    <img src="../img/P29.png" alt="l" style="width:300px;"/>
 

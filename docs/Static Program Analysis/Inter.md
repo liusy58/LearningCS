@@ -12,8 +12,9 @@
 
 
 ???+note "Concept of interprocedural data-flow analysis"
+    <img src="../img/P30.png" alt="l" style="width:500px;"/>
 
 
 
 ???+note "Interprocedural constant propagation"
-
+    <img src="../img/P31.png" alt="l" style="width:500px;"/>

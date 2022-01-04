@@ -4,13 +4,10 @@
 
 
 ???+note "Understand the key factors of pointer analysis"
-    Heap abstraction
-
-    Context sensitivity
-
-    Flow senditivity
-
-    Analysis scope
+    <img src="../img/32.png" alt="l" style="width:500px;"/>
+    <img src="../img/33.png" alt="l" style="width:500px;"/>
+    <img src="../img/34.png" alt="l" style="width:500px;"/>
+    <img src="../img/35.png" alt="l" style="width:500px;"/>
 
 
 
