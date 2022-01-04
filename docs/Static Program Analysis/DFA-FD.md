@@ -30,7 +30,7 @@
 
 
 ???+note "The relation between MOP and the solution produced by the iterative algorithm"
-     <img src="../img/P37.png" alt="l" style="width:500px;"/>
+    <img src="../img/P37.png" alt="l" style="width:500px;"/>
 
 
 
@@ -41,6 +41,7 @@
 
 
 ???+note "Worklist algorithm"
+    <img src="../img/P38.png" alt="l" style="width:500px;"/>
 
 
 
