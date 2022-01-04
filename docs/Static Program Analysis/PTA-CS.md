@@ -42,7 +42,9 @@
 
 
 ???+note "Differences and relationship among common context sensitivity variants"
-    In practice, object sensitivity generally outperforms  call-site sensitivity for OO languages (like Java)166Tian Tan @ Nanjing University
+    In practice, object sensitivity generally outperforms  call-site sensitivity for OO languages (like Java)
+
+    Under the same k-limiting, the precision of type sensitivity is no better than object sensitivity
 
     
 
