@@ -14,6 +14,6 @@
 ???+note "Understand what we analyze in pointer analysis"
     We only focus on pointer-affecting statements
 
-    <img src="../img/36.png" alt="l" style="width:500px;"/>
+    <img src="../img/P36.png" alt="l" style="width:500px;"/>
 
 
