@@ -4,6 +4,8 @@
 ???+note "Understand pointer flow graph"
     We use a graph to connect  related pointers, When pt(𝑥) changes, propagate the changed part to 𝑥’s successors
 
+    <img src="../img/P39.png" alt="l" style="width:500px;"/>
+
 ???+note "Understand pointer analysis algorithms"
     <img src="../img/pointerAnalysis.png" alt="l" style="width:500px;"/>
     
