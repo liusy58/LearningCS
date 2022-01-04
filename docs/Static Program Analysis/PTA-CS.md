@@ -27,10 +27,13 @@
 
 ???+note "Common context sensitivity variants"
     Call-site sensitivity
-    
+    <img src="../img/P41.png" alt="l" style="width:500px;"/>
+
     Object sensitivity
+    <img src="../img/P42.png" alt="l" style="width:500px;"/>
 
     Type Sensitivity
+    <img src="../img/P43.png" alt="l" style="width:500px;"/>
 
 
 
@@ -39,6 +42,8 @@
 
 
 ???+note "Differences and relationship among common context sensitivity variants"
+    In practice, object sensitivity generally outperforms  call-site sensitivity for OO languages (like Java)166Tian Tan @ Nanjing University
+
     
 
 
