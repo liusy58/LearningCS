@@ -3,7 +3,8 @@
 
 
 ???+note "Understand soundness, completeness, false negatives, and false positives."
-    ![](../img/1.png)
+    <img src="../img/1.png" alt="l" style="width:500px;"/>
+    
 
 ???+note "Why soundness is usually required by static analysis?"
     Soundness is also preferable to other (static-analysis) applications for which soundness is not demanded, e.g., bug detection, as better soundness implies more bugs could be found.
