@@ -13,7 +13,7 @@
     Soundness is also preferable to other (static-analysis) applications for which soundness is not demanded, e.g., bug detection, as better soundness implies more bugs could be found.
 
 ???+note "How to understand abstraction and over-approximation?"    
-    Abstraction: Model the problem?
+    Abstraction: Application-specific data
     
     Over-approximation: Not miss any bug!
 
