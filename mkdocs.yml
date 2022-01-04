@@ -85,6 +85,12 @@ nav:
     - DFA-FD: "Static Program Analysis/DFA-FD.md"
     - Inter: "Static Program Analysis/Inter.md"
     - PTA: "Static Program Analysis/PTA.md"
+    - PTA-FD: "Static Program Analysis/PTA-FD.md"
+    - PTA-CS: "Static Program Analysis/PTA-CS.md"
+    - Security: "Static Program Analysis/Security.md"
+    - Datalog: "Static Program Analysis/Datalog.md"
+    - IFDS: "Static Program Analysis/IFDS.md"
+    
   # - Is Parallel Programming Hard, And, If so, What Can You Do About It? :
 
 
