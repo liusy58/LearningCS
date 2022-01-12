@@ -44,7 +44,10 @@
     |function template||
     |member template|<img src="../img/member-template.png" alt="l" style="width:500px;"/>|
     
-    
+
+???+note "partial specialization"
 
 
+???+note "template template parameter"
+    <img src="../img/template template parameter.png" alt="l" style="width:500px;"/>
 
