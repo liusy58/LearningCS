@@ -32,8 +32,19 @@
     ```C++
     template <class T>
     struct less {
-        bool operator() (const T&x,const T&y)const {return x < y;>}
+        bool operator() (const T&x,const T&y)const {return x < y;}
     }
     ```
+
+
+???+note "template"
+    ||example|
+    |-|-|
+    |class template|```c++  ```|
+    |function template||
+    |member template|<img src="../img/member-template.png" alt="l" style="width:500px;"/>|
+    
+    
+
 
 
