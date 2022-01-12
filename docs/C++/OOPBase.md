@@ -40,7 +40,7 @@
 ???+note "template"
     ||example|
     |-|-|
-    |class template|```c++  ```|
+    |class template||
     |function template||
     |member template|<img src="../img/member-template.png" alt="l" style="width:500px;"/>|
     
@@ -50,4 +50,10 @@
 
 ???+note "template template parameter"
     <img src="../img/template template parameter.png" alt="l" style="width:500px;"/>
+
+???+note "Static Binding VS. Dynamic Binding"
+    Dynamic Binding: virtual function + pointer + upper cast (*(p->vptr[n]))(p)
+
+    
+
 
