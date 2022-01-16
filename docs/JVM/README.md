@@ -1,3 +1,9 @@
 ???+info "bang mechanism"
     The VM handles stack overflow by framing the stack arena with inaccessible guard pages, and intercepting the accesses to those guard pages to detect the case where a stack overflow occurred. That also requires and additional logic of actually probing the stack when putting a new activation record on it: by touching the stack down trying to trigger the guard page fault. This mechanism has a fancy name of "stack banging", and if we want to do anything below stack pointer, we need to communicate the additional banging to the runtime.
-    
+
+
+
+lir_std_entry
+    build_frame()
+        generate_stack_overflow_check()
+        
