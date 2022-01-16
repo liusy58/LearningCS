@@ -95,9 +95,10 @@ nav:
     - Bookmarks: "Bookmarks/README.md"
   - Papers:
     - Papers: "Papers/README.md" 
-    
-    
-  # - Is Parallel Programming Hard, And, If so, What Can You Do About It? :
+
+  - Is Parallel Programming Hard, And, If so, What Can You Do About It? :
+    - Chapter 4 Tools of the Trade : 
+      - POSIX Multiprocessing: "Is Parallel Programming Hard?/Tools of the Trade/POSIX Multiprocessing.md"
 
 
   # nav:
