@@ -93,9 +93,8 @@ nav:
     - OOPBase: "C++/OOPBase.md"
   - Bookmark:    
     - Bookmarks: "Bookmarks/README.md"
-
   - Papers:
-    - Papers: "Papars/README.md" 
+    - Papers: "Papers/README.md" 
     
   # - Is Parallel Programming Hard, And, If so, What Can You Do About It? :
 
