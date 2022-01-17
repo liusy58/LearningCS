@@ -77,3 +77,17 @@
     30 return EXIT_SUCCESS;
     31 }
     ```  
+
+#### 4.2.3 POSIX Locking
+
+???+note "primitives"
+    |||
+    |-|-|
+    |`pthread_mutex_lock()`|"acquires" the specified lock|
+    |`pthread_mutex_unlock()`|"releases” the specified lock. |
+    |`pthread_mutex_init()`||
+    |`PTHREAD_MUTEX_INITIALIZER`||
+
+
+
+    
