@@ -1,3 +1,9 @@
+### 4.1 Scripting Language
+???+note "Is there a simpler way to create a parallel shell script? If so, how? If not, why not?"
+    ``
+
+
+
 #### 4.2.1 POSIX Process Creation and Destruction
 
 ???+note "primitives"
