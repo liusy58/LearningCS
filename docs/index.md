@@ -1,5 +1,13 @@
 I will update my reading notes every day. 
 
+I am now studying the following courses in my step:
+
+* [UIUC CS241 System Programming](http://cs241.cs.illinois.edu/coursebook/index.html)
+* [CS 6120 Advanced Compilers](https://www.cs.cornell.edu/courses/cs6120/2020fa/)
+
+
+
+
 So far, I will update the books shown below:
 
 * Math/Theory
