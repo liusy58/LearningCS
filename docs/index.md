@@ -38,3 +38,10 @@ So far, I will update the books shown below:
 * Database system
     * Readings in Database Systems (Peter Bailis, Joseph M. Hellerstein, and Michael Stonebraker Ed.)
     * Transaction Processing (Jim Gray)
+
+
+
+I have finished the following awesome courses:
+
+* [mit 6.s081 operating system]()
+* [stanford cs144 Introduction to networking]()
