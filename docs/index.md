@@ -3,7 +3,7 @@ I will update my reading notes every day.
 I am now studying the following courses on my step:
 
 * [UIUC CS241 System Programming](http://cs241.cs.illinois.edu/coursebook/index.html)
-* [CS 6120 Advanced Compilers](https://www.cs.cornell.edu/courses/cs6120/2020fa/)
+* [Cornell CS 6120 Advanced Compilers](https://www.cs.cornell.edu/courses/cs6120/2020fa/)
 
 
 
