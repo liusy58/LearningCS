@@ -4,7 +4,7 @@ I am now studying the following courses on my step:
 
 * [UIUC CS241 System Programming](http://cs241.cs.illinois.edu/coursebook/index.html)
 * [Cornell CS 6120 Advanced Compilers](https://www.cs.cornell.edu/courses/cs6120/2020fa/)
-
+* [UIUC CS 598CM Machine Learning for Compilers and Architecture](https://charithm.web.illinois.edu/cs598cm/fa2021/)
 
 
 
