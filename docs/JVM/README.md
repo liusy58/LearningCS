@@ -29,4 +29,32 @@
 
 ???+note "XMM registers"
     XMM registers are separate registers introduced with SSE(Data transfer Instructions) and still widely used nowadays. They are 128 bits wide, with instructions that can treat them as arrays of 64, 32(integer and floating point), 16 or 8 bit(integer only) values. You have 8 of them in 32 bit mode, 16 in 64 bit.
+
+
+       
+        
+```mermaid
+classDiagram
+      Animal <|-- Duck
+      Animal <|-- Fish
+      Animal <|-- Zebra
+      Animal : +int age
+      Animal : +String gender
+      Animal: +isMammal()
+      Animal: +mate()
+      class Duck{
+          +String beakColor
+          +swim()
+          +quack()
+      }
+      class Fish{
+          -int sizeInFeet
+          -canEat()
+      }
+      class Zebra{
+          +bool is_wild
+          +run()
+      }
+```
+
         
