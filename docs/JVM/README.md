@@ -45,4 +45,4 @@ graph LR
 
 ???+info "How to create a Symbol"
     `SymbolTable::new_symbols`
-        
+    
