@@ -105,6 +105,9 @@ const Register IC_Klass    = rax;   // where the IC klass is cached
 |`0X8B`|movl|
 |||
 
+
+#### x86 instruction format 
+
 <table border="1">
     <tbody><tr><td>000000</td><td>00001</td><td>00010</td><td>00011</td><td>00000</td><td>100000</td></tr>
     <tr><td>Opcode</td><td>Rs</td>   <td>Rt</td>   <td>Rd</td>   <td>Sh. Amt.</td><td>Operation</td></tr>
