@@ -33,7 +33,8 @@ plugins:
       type: iso_datetime
       timezone: Asia/Shanghai
 markdown_extensions:
-  - pymdownx.highlight
+  - pymdownx.highlight:
+      anchor_linenums: true
   - pymdownx.details
   - pymdownx.superfences:
       custom_fences:
