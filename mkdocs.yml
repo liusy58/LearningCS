@@ -107,7 +107,8 @@ nav:
       - POSIX Multiprocessing: "Is Parallel Programming Hard?/Tools of the Trade/POSIX Multiprocessing.md"
   - JVM:
     - JVM : "JVM/README.md"
-
+  - CSAPP:
+    - Linking : "CSAPP/Linking.md"
   # nav:
 #   - 概览: "index.md"
 #   - 编译链接基础知识:
