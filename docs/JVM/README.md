@@ -131,3 +131,15 @@ const Register IC_Klass    = rax;   // where the IC klass is cached
     <tbody><tr><th>Field</th><td colspan="4"><code>0100</code></td><td>W</td><td>R</td><td>X</td><td>B</td></tr>
     <tr><th>Bits</th><td colspan="4">7,6,5,4</td><td>3</td><td>2</td><td>1</td><td>0</td></tr>
 </tbody></table>
+
+
+
+
+### MacroAssembler
+
+|||  
+|-|-|
+|Stack frame creation/removal|`void enter();` `void leave();`|
+|||
+
+
