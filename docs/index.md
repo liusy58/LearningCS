@@ -45,3 +45,11 @@ I have finished the following awesome courses:
 
 * [mit 6.s081 operating system]()
 * [stanford cs144 Introduction to networking]()
+
+
+
+I will also recommend you some useful materials that will save your time during your study. 
+
+|books|materials|
+|-|-|
+|CSAPP|[ebook](https://hansimov.gitbook.io/csapp/) [solutions](https://dreamanddead.github.io/CSAPP-3e-Solutions/)|
