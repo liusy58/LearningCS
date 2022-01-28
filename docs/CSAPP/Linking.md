@@ -26,7 +26,7 @@
     ```
 
 === "output by `gcc -v -Og -o prog main.c sum.c`"
-    ```py hl_lines="10"
+    ```py hl_lines="11 "
     Using built-in specs.
     COLLECT_GCC=gcc
     COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/9/lto-wrapper
