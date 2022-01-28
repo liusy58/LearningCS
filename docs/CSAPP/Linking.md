@@ -2,7 +2,7 @@
 
 === "main.c"
 
-    ```
+    ```c
     int sum(int*a,int b);
 
     int array[2] = {1,2};
@@ -15,7 +15,7 @@
 
 === "sum.c"
 
-    ```
+    ```c
     int sum(int*a,int n){
         int i,s = 0;
         for(i = 0;i<n;++i){
