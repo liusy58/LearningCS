@@ -45,4 +45,86 @@ graph LR
 
 ???+info "How to create a Symbol"
     `SymbolTable::new_symbols`
-    
+
+```java
+public abstract class AbstractCoder {
+    public abstract int abstractWork(byte[] data);
+}
+
+public interface Coder {
+    int work(byte[] data);
+}
+
+public class Coder0 extends AbstractCoder implements Coder {
+    public static int staticWork(byte[] data) {
+        return data.length;
+    }
+
+    @Override
+    public int work(byte[] data) {
+        return data.length;
+    }
+
+    @Override
+    public int abstractWork(byte[] data) {
+        return data.length;
+    }
+}
+```
+
+
+
+```
+LIR:
+B1 [0, 0] sux: B0 
+__id_Instruction___________________________________________
+   0 label [label:0x00007f2d44363f60]
+   2 std_entry 
+
+B0 std [0, 0] preds: B1 
+__id_Instruction___________________________________________
+   8 label [label:0x00007f2d44363680]
+  10 return   
+```
+
+
+```
+void LIR_OpLabel::emit_code
+
+
+
+
+```
+
+const Register IC_Klass    = rax;   // where the IC klass is cached
+
+
+
+|opcode||
+|-|-|
+|`0X8B`|movl|
+|||
+
+<table border="1">
+    <tbody><tr><td>000000</td><td>00001</td><td>00010</td><td>00011</td><td>00000</td><td>100000</td></tr>
+    <tr><td>Opcode</td><td>Rs</td>   <td>Rt</td>   <td>Rd</td>   <td>Sh. Amt.</td><td>Operation</td></tr>
+</tbody></table>
+
+
+
+[x86 instruction format](http://staffwww.fullcoll.edu/aclifton/cs241/lecture-instruction-format.html)
+
+
+#### X86 prefix
+
+|prefix|||
+|-|-|-|
+|REX|0x4||
+
+
+#### PEX prefix
+
+<table border="1">
+    <tbody><tr><th>Field</th><td colspan="4"><code>0100</code></td><td>W</td><td>R</td><td>X</td><td>B</td></tr>
+    <tr><th>Bits</th><td colspan="4">7,6,5,4</td><td>3</td><td>2</td><td>1</td><td>0</td></tr>
+</tbody></table>
