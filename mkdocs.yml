@@ -114,6 +114,7 @@ nav:
       - 静态链接: "CSAPP/Linking/Static Linking.md" 
       - 目标文件: "CSAPP/Linking/objectfile.md"
       - 可重定位目标文件: "CSAPP/Linking/relocobj.md"
+      - 符号和符号表: "CSAPP/Linking/Symbols.md"
   # nav:
 #   - 概览: "index.md"
 #   - 编译链接基础知识:
