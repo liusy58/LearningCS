@@ -66,17 +66,17 @@ Linux链接器处理多重定义符号名的规则
 ???+note "如何创建一个静态库？"
 
     === "addvec.c"
-
+    
     ```C
     int addcnt = 0;
-
+    
     void addvec(int *x, int *y,
             int *z, int n) 
     {
         int i;
-
+    
         addcnt++;
-
+    
         for (i = 0; i < n; i++)
         z[i] = x[i] + y[i];
     }
@@ -84,22 +84,61 @@ Linux链接器处理多重定义符号名的规则
 
 
 
-    === "mulvec.c"
-
+    === "multvec.c"
+    
     ```C
     int multcnt = 0;
-
+    
     void multvec(int *x, int *y, 
             int *z, int n) 
     {
         int i;
-
+    
         multcnt++;
-
+    
         for (i = 0; i < n; i++)
         z[i] = x[i] * y[i];
     }
     ```
+    
+    === "command"
+    
+    ```bash
+    gcc -c addvec.c multvec.c
+    ar rcs libvector.a addvec.o multvec.o
+    ```
 
+??? + note "如何使用上面创建的库呢？"
 
+    === "main.c"
+
+    ```C
+    #include <stdio.h>
+    #include "vector.h"
+
+    int x[2] = {1, 2};
+    int y[2] = {3, 4};
+    int z[2];
+
+    int main() 
+    {
+        addvec(x, y, z, 2);
+        printf("z = [%d %d]\n", z[0], z[1]);
+        return 0;
+    }
+    ```
+
+    === "command1"
+
+    ```bash
+    gcc -c main.c 
+    gcc -static -o main main.o ./libvector.a
+    ```
+
+    === "command2"
+
+    ```bash
+    gcc -c main.c 
+    gcc -static -o main main.o -L. -lvector
+    ```
 
