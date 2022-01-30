@@ -140,5 +140,6 @@ Linux链接器处理多重定义符号名的规则
     ```bash
     gcc -c main.c 
     gcc -static -o main main.o -L. -lvector
+    // -lvector 参数是 libvector.a 的缩写, -L. 参数告诉链接器在当前目录下查找 libvector.a。
     ```
 
