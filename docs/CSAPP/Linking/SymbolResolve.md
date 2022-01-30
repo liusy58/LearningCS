@@ -108,7 +108,7 @@
     ar rcs libvector.a addvec.o multvec.o
     ```
 
-??? + note "如何使用上面创建的库呢？"
+???+note "如何使用上面创建的库呢？"
 
     === "main.c"
     
