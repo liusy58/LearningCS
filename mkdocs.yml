@@ -115,6 +115,7 @@ nav:
       - 目标文件: "CSAPP/Linking/objectfile.md"
       - 可重定位目标文件: "CSAPP/Linking/relocobj.md"
       - 符号和符号表: "CSAPP/Linking/Symbols.md"
+      - 符号解析: "CSAPP/Linking/SymbolResolve.md"
   # nav:
 #   - 概览: "index.md"
 #   - 编译链接基础知识:
