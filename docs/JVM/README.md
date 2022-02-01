@@ -143,3 +143,5 @@ const Register IC_Klass    = rax;   // where the IC klass is cached
 |||
 
 
+
+[JVM之Klass模型](https://lonelyrookie.github.io/2020/08/22/Klass%E6%A8%A1%E5%9E%8B/)
