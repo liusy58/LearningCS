@@ -270,7 +270,21 @@ void parse_file(const char *filename){
 }
 
 
+void free_cache_set(cache_set *set){
+    cache_item* item = set->head;
+    while(item!=NULL){
+        cache_item* temp = item;
+        item = item->next;
+        free(temp);
+    }
+}
 
+void free_cache_simulator(){
+    for(int i=0;i<sets_num;++i){
+        free_cache_set(&(cache.sets[i]));
+    }
+    free(cache.sets);
+}
 
 int main(int argc, char* argv[])
 {
@@ -284,5 +298,7 @@ int main(int argc, char* argv[])
     initialize_cache();
     parse_file(tracefile);
     printSummary(hits, misses, evictions);
+    free_cache_simulator();
+
     return 0;
 }
