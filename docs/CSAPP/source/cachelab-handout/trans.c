@@ -10,6 +10,8 @@
 #include <stdio.h>
 #include "cachelab.h"
 
+#define min(a,b) (((a) < (b)) ? (a) : (b))
+
 int is_transpose(int M, int N, int A[N][M], int B[M][N]);
 
 /* 
@@ -19,16 +21,46 @@ int is_transpose(int M, int N, int A[N][M], int B[M][N]);
  *     searches for that string to identify the transpose function to
  *     be graded. 
  */
+// char transpose_submit_desc[] = "Transpose submission";
+// void transpose_submit(int M, int N, int A[N][M], int B[M][N])
+// {
+
+// }
+
+/*
+    • 32 × 32: 8 points if m < 300, 0 points if m > 600
+    • 64 × 64: 8 points if m < 1, 300, 0 points if m > 2, 000
+    • 61 × 67: 10 points if m < 2, 000, 0 points if m > 3, 000
+*/
+
 char transpose_submit_desc[] = "Transpose submission";
 void transpose_submit(int M, int N, int A[N][M], int B[M][N])
 {
-
-}
-
-char transpose_32_desc[] = "Transpose 32*32";
-void transpose_32(int M, int N, int A[N][M], int B[M][N])
-{
-    
+    int a0,a1,a2,a3,a4,a5,a6,a7;
+    int i,j;
+    int offset = 8;
+    for(i=0;i<N;i=min(i+offset,N)){
+        for(j=0;j<M;j=min(j+offset,M)){
+            for(int k=i;k<min(i+offset,N);k++){
+                a0 = A[k][j];
+                a1 = A[k][j+1];
+                a2 = A[k][j+2];
+                a3 = A[k][j+3];
+                a4 = A[k][j+4];
+                a5 = A[k][j+5];
+                a6 = A[k][j+6];
+                a7 = A[k][j+7];
+                B[j][k] = a0;
+                B[j+1][k] = a1;
+                B[j+2][k] = a2;
+                B[j+3][k] = a3;
+                B[j+4][k] = a4;
+                B[j+5][k] = a5;
+                B[j+6][k] = a6;
+                B[j+7][k] = a7;
+            }
+        }
+    }
 }
 
 /* 
@@ -63,11 +95,11 @@ void trans(int M, int N, int A[N][M], int B[M][N])
 void registerFunctions()
 {
     /* Register your solution function */
-    // registerTransFunction(transpose_submit, transpose_submit_desc); 
+    registerTransFunction(transpose_submit, transpose_submit_desc); 
 
     /* Register any additional transpose functions */
     registerTransFunction(trans, trans_desc); 
-
+    // registerTransFunction(transpose_32, transpose_32_desc); 
 }
 
 /* 
