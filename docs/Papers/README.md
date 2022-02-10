@@ -5,4 +5,4 @@ Here I will record papers I will read or have read.
 - [ ] [Is Parallel Programming Hard, And, If So, What Can You Do About It?](https://mirrors.edge.kernel.org/pub/linux/kernel/people/paulmck/perfbook/perfbook.html)
 - [ ] [Erik Rigtorp's blogs about C++](https://rigtorp.se/)
 
-- [x][Optimizing Declarative Graph Queries at Large Scale](https://www.cis.upenn.edu/~qizhen/sigmod19-zhang.pdf)
+- [x] [Optimizing Declarative Graph Queries at Large Scale](https://www.cis.upenn.edu/~qizhen/sigmod19-zhang.pdf)
