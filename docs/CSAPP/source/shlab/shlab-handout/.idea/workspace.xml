@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
+    <generated>
+      <config projectName="shlab-handout" targetName="rtest01" />
+      <config projectName="shlab-handout" targetName="tsh" />
+      <config projectName="shlab-handout" targetName="rtest03" />
+      <config projectName="shlab-handout" targetName="rtest02" />
+      <config projectName="shlab-handout" targetName="rtest05" />
+      <config projectName="shlab-handout" targetName="rtest04" />
+      <config projectName="shlab-handout" targetName="myint" />
+      <config projectName="shlab-handout" targetName="test10" />
+      <config projectName="shlab-handout" targetName="test14" />
+      <config projectName="shlab-handout" targetName="test13" />
+      <config projectName="shlab-handout" targetName="test12" />
+      <config projectName="shlab-handout" targetName="test11" />
+      <config projectName="shlab-handout" targetName="test16" />
+      <config projectName="shlab-handout" targetName="test15" />
+      <config projectName="shlab-handout" targetName="rtest10" />
+      <config projectName="shlab-handout" targetName="mysplit" />
+      <config projectName="shlab-handout" targetName="rtest12" />
+      <config projectName="shlab-handout" targetName="test09" />
+      <config projectName="shlab-handout" targetName="rtest11" />
+      <config projectName="shlab-handout" targetName="test08" />
+      <config projectName="shlab-handout" targetName="rtest14" />
+      <config projectName="shlab-handout" targetName="rtest13" />
+      <config projectName="shlab-handout" targetName="rtest16" />
+      <config projectName="shlab-handout" targetName="rtest15" />
+      <config projectName="shlab-handout" targetName="all" />
+      <config projectName="shlab-handout" targetName="handin" />
+      <config projectName="shlab-handout" targetName="rtest07" />
+      <config projectName="shlab-handout" targetName="test03" />
+      <config projectName="shlab-handout" targetName="rtest06" />
+      <config projectName="shlab-handout" targetName="test02" />
+      <config projectName="shlab-handout" targetName="rtest09" />
+      <config projectName="shlab-handout" targetName="test01" />
+      <config projectName="shlab-handout" targetName="rtest08" />
+      <config projectName="shlab-handout" targetName="test07" />
+      <config projectName="shlab-handout" targetName="test06" />
+      <config projectName="shlab-handout" targetName="test05" />
+      <config projectName="shlab-handout" targetName="myspin" />
+      <config projectName="shlab-handout" targetName="mystop" />
+      <config projectName="shlab-handout" targetName="test04" />
+    </generated>
+  </component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" ENABLED="true" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="e06e647a-7a87-4148-8f14-67f578d72e14" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../../shlab-handout/tsh" beforeDir="false" afterPath="$PROJECT_DIR$/../../shlab-handout/tsh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../shlab-handout/tsh.c" beforeDir="false" afterPath="$PROJECT_DIR$/../../shlab-handout/tsh.c" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../../.." />
+  </component>
+  <component name="MakefileLocalSettings">
+    <option name="availableProjects">
+      <map>
+        <entry>
+          <key>
+            <ExternalProjectPojo>
+              <option name="name" value="shlab-handout" />
+              <option name="path" value="$PROJECT_DIR$" />
+            </ExternalProjectPojo>
+          </key>
+          <value>
+            <list>
+              <ExternalProjectPojo>
+                <option name="name" value="shlab-handout" />
+                <option name="path" value="$PROJECT_DIR$" />
+              </ExternalProjectPojo>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="projectSyncType">
+      <map>
+        <entry key="$PROJECT_DIR$" value="RE_IMPORT" />
+      </map>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectApplicationVersion">
+    <option name="ide" value="CLion" />
+    <option name="majorVersion" value="2021" />
+    <option name="minorVersion" value="3.3" />
+  </component>
+  <component name="ProjectId" id="252OEbDqPcZnqd8BhmKSXLDBJlp" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="cf.first.check.clang-format" value="false" />
+    <property name="cidr.known.project.marker" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+  </component>
+  <component name="RunManager" selected="Makefile Application.all">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="all" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="shlab-handout" TARGET_NAME="all" CONFIG_NAME="all" version="1">
+      <method v="2">
+        <option name="CLION.COMPOUND.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="handin" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="shlab-handout" TARGET_NAME="handin" CONFIG_NAME="handin" version="1">
+      <method v="2">
+        <option name="CLION.COMPOUND.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="myint" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="shlab-handout" TARGET_NAME="myint" CONFIG_NAME="myint" version="1">
+      <method v="2">
+        <option name="CLION.COMPOUND.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="myspin" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="shlab-handout" TARGET_NAME="myspin" CONFIG_NAME="myspin" version="1">
+      <method v="2">
+        <option name="CLION.COMPOUND.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="mysplit" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="shlab-handout" TARGET_NAME="mysplit" CONFIG_NAME="mysplit" version="1">
+      <method v="2">
+        <option name="CLION.COMPOUND.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="mystop" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="shlab-handout" TARGET_NAME="mystop" CONFIG_NAME="mystop" version="1">
+      <method v="2">
+        <option name="CLION.COMPOUND.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="rtest01" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="shlab-handout" TARGET_NAME="rtest01" CONFIG_NAME="rtest01" version="1">
+      <method v="2">
+        <option name="CLION.COMPOUND.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="rtest02" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="shlab-handout" TARGET_NAME="rtest02" CONFIG_NAME="rtest02" version="1">
+      <method v="2">
+        <option name="CLION.COMPOUND.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="rtest03" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="shlab-handout" TARGET_NAME="rtest03" CONFIG_NAME="rtest03" version="1">
+      <method v="2">
+        <option name="CLION.COMPOUND.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="rtest04" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="shlab-handout" TARGET_NAME="rtest04" CONFIG_NAME="rtest04" version="1">
+      <method v="2">
+        <option name="CLION.COMPOUND.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="rtest05" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="shlab-handout" TARGET_NAME="rtest05" CONFIG_NAME="rtest05" version="1">
+      <method v="2">
+        <option name="CLION.COMPOUND.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="rtest06" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="shlab-handout" TARGET_NAME="rtest06" CONFIG_NAME="rtest06" version="1">
+      <method v="2">
+        <option name="CLION.COMPOUND.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="rtest07" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="shlab-handout" TARGET_NAME="rtest07" CONFIG_NAME="rtest07" version="1">
+      <method v="2">
+        <option name="CLION.COMPOUND.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="rtest08" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="shlab-handout" TARGET_NAME="rtest08" CONFIG_NAME="rtest08" version="1">
+      <method v="2">
+        <option name="CLION.COMPOUND.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="rtest09" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="shlab-handout" TARGET_NAME="rtest09" CONFIG_NAME="rtest09" version="1">
+      <method v="2">
+        <option name="CLION.COMPOUND.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="rtest10" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="shlab-handout" TARGET_NAME="rtest10" CONFIG_NAME="rtest10" version="1">
+      <method v="2">
+        <option name="CLION.COMPOUND.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="rtest11" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="shlab-handout" TARGET_NAME="rtest11" CONFIG_NAME="rtest11" version="1">
+      <method v="2">
+        <option name="CLION.COMPOUND.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="rtest12" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="shlab-handout" TARGET_NAME="rtest12" CONFIG_NAME="rtest12" version="1">
+      <method v="2">
+        <option name="CLION.COMPOUND.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="rtest13" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="shlab-handout" TARGET_NAME="rtest13" CONFIG_NAME="rtest13" version="1">
+      <method v="2">
+        <option name="CLION.COMPOUND.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="rtest14" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="shlab-handout" TARGET_NAME="rtest14" CONFIG_NAME="rtest14" version="1">
+      <method v="2">
+        <option name="CLION.COMPOUND.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="rtest15" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="shlab-handout" TARGET_NAME="rtest15" CONFIG_NAME="rtest15" version="1">
+      <method v="2">
+        <option name="CLION.COMPOUND.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="rtest16" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="shlab-handout" TARGET_NAME="rtest16" CONFIG_NAME="rtest16" version="1">
+      <method v="2">
+        <option name="CLION.COMPOUND.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test01" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="shlab-handout" TARGET_NAME="test01" CONFIG_NAME="test01" version="1">
+      <method v="2">
+        <option name="CLION.COMPOUND.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test02" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="shlab-handout" TARGET_NAME="test02" CONFIG_NAME="test02" version="1">
+      <method v="2">
+        <option name="CLION.COMPOUND.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test03" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="shlab-handout" TARGET_NAME="test03" CONFIG_NAME="test03" version="1">
+      <method v="2">
+        <option name="CLION.COMPOUND.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test04" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="shlab-handout" TARGET_NAME="test04" CONFIG_NAME="test04" version="1">
+      <method v="2">
+        <option name="CLION.COMPOUND.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test05" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="shlab-handout" TARGET_NAME="test05" CONFIG_NAME="test05" version="1">
+      <method v="2">
+        <option name="CLION.COMPOUND.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test06" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="shlab-handout" TARGET_NAME="test06" CONFIG_NAME="test06" version="1">
+      <method v="2">
+        <option name="CLION.COMPOUND.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test07" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="shlab-handout" TARGET_NAME="test07" CONFIG_NAME="test07" version="1">
+      <method v="2">
+        <option name="CLION.COMPOUND.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test08" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="shlab-handout" TARGET_NAME="test08" CONFIG_NAME="test08" version="1">
+      <method v="2">
+        <option name="CLION.COMPOUND.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test09" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="shlab-handout" TARGET_NAME="test09" CONFIG_NAME="test09" version="1">
+      <method v="2">
+        <option name="CLION.COMPOUND.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test10" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="shlab-handout" TARGET_NAME="test10" CONFIG_NAME="test10" version="1">
+      <method v="2">
+        <option name="CLION.COMPOUND.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test11" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="shlab-handout" TARGET_NAME="test11" CONFIG_NAME="test11" version="1">
+      <method v="2">
+        <option name="CLION.COMPOUND.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test12" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="shlab-handout" TARGET_NAME="test12" CONFIG_NAME="test12" version="1">
+      <method v="2">
+        <option name="CLION.COMPOUND.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test13" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="shlab-handout" TARGET_NAME="test13" CONFIG_NAME="test13" version="1">
+      <method v="2">
+        <option name="CLION.COMPOUND.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test14" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="shlab-handout" TARGET_NAME="test14" CONFIG_NAME="test14" version="1">
+      <method v="2">
+        <option name="CLION.COMPOUND.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test15" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="shlab-handout" TARGET_NAME="test15" CONFIG_NAME="test15" version="1">
+      <method v="2">
+        <option name="CLION.COMPOUND.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test16" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="shlab-handout" TARGET_NAME="test16" CONFIG_NAME="test16" version="1">
+      <method v="2">
+        <option name="CLION.COMPOUND.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="tsh" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="shlab-handout" TARGET_NAME="tsh" CONFIG_NAME="tsh" version="1">
+      <method v="2">
+        <option name="CLION.COMPOUND.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Makefile Application.all" />
+      <item itemvalue="Makefile Application.handin" />
+      <item itemvalue="Makefile Application.myint" />
+      <item itemvalue="Makefile Application.myspin" />
+      <item itemvalue="Makefile Application.mysplit" />
+      <item itemvalue="Makefile Application.mystop" />
+      <item itemvalue="Makefile Application.rtest01" />
+      <item itemvalue="Makefile Application.rtest02" />
+      <item itemvalue="Makefile Application.rtest03" />
+      <item itemvalue="Makefile Application.rtest04" />
+      <item itemvalue="Makefile Application.rtest05" />
+      <item itemvalue="Makefile Application.rtest06" />
+      <item itemvalue="Makefile Application.rtest07" />
+      <item itemvalue="Makefile Application.rtest08" />
+      <item itemvalue="Makefile Application.rtest09" />
+      <item itemvalue="Makefile Application.rtest10" />
+      <item itemvalue="Makefile Application.rtest11" />
+      <item itemvalue="Makefile Application.rtest12" />
+      <item itemvalue="Makefile Application.rtest13" />
+      <item itemvalue="Makefile Application.rtest14" />
+      <item itemvalue="Makefile Application.rtest15" />
+      <item itemvalue="Makefile Application.rtest16" />
+      <item itemvalue="Makefile Application.test01" />
+      <item itemvalue="Makefile Application.test02" />
+      <item itemvalue="Makefile Application.test03" />
+      <item itemvalue="Makefile Application.test04" />
+      <item itemvalue="Makefile Application.test05" />
+      <item itemvalue="Makefile Application.test06" />
+      <item itemvalue="Makefile Application.test07" />
+      <item itemvalue="Makefile Application.test08" />
+      <item itemvalue="Makefile Application.test09" />
+      <item itemvalue="Makefile Application.test10" />
+      <item itemvalue="Makefile Application.test11" />
+      <item itemvalue="Makefile Application.test12" />
+      <item itemvalue="Makefile Application.test13" />
+      <item itemvalue="Makefile Application.test14" />
+      <item itemvalue="Makefile Application.test15" />
+      <item itemvalue="Makefile Application.test16" />
+      <item itemvalue="Makefile Application.tsh" />
+    </list>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e06e647a-7a87-4148-8f14-67f578d72e14" name="Changes" comment="" />
+      <created>1644721604731</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1644721604731</updated>
+      <workItem from="1644721608334" duration="7263000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
