@@ -1,5 +1,18 @@
 I will update my reading notes every day. 
 
+TODO:
+
+- [ ] 2022.2
+    - [ ] [Morden CPP](https://changkun.de/modern-cpp/zh-cn/00-preface/)
+    - [ ] []()
+
+
+
+- [ ] [What Every Programmer Should Know About Memory](http://faculty.cs.niu.edu/~winans/CS532/cpumemory.pdf)
+- [ ] []()
+
+
+
 I am now studying the following courses on my step:
 
 * [UIUC CS241 System Programming](http://cs241.cs.illinois.edu/coursebook/index.html)
