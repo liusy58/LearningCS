@@ -4,12 +4,8 @@ TODO:
 
 - [ ] 2022.2
     - [ ] [Morden CPP](https://changkun.de/modern-cpp/zh-cn/00-preface/)
+    - [ ] [What Every Programmer Should Know About Memory](http://faculty.cs.niu.edu/~winans/CS532/cpumemory.pdf)
     - [ ] []()
-
-
-
-- [ ] [What Every Programmer Should Know About Memory](http://faculty.cs.niu.edu/~winans/CS532/cpumemory.pdf)
-- [ ] []()
 
 
 
