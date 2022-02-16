@@ -23,16 +23,16 @@
  * provide your team information in the following struct.
  ********************************************************/
 team_t team = {
-    /* Team name */
-    "ateam",
-    /* First member's full name */
-    "siyu liu",
-    /* First member's email address */
-    "liusy58@smail.nju.edu.cn",
-    /* Second member's full name (leave blank if none) */
-    "",
-    /* Second member's email address (leave blank if none) */
-    ""
+        /* Team name */
+        "ateam",
+        /* First member's full name */
+        "Siyu Liu",
+        /* First member's email address */
+        "liusy58@smail.nju.edu.cn",
+        /* Second member's full name (leave blank if none) */
+        "",
+        /* Second member's email address (leave blank if none) */
+        ""
 };
 
 /* single word (4) or double word (8) alignment */
@@ -45,62 +45,38 @@ team_t team = {
 #define SIZE_T_SIZE (ALIGN(sizeof(size_t)))
 
 
-
-
 #define WSIZE 4
 #define DSIZE 8
-#define INITCHUNKSIZE (1<<6)
-#define CHUNKSIZE (1<<12)
 
-#define LISTLIMIT    20
-#define REALLOC_BUFFER  (1<<7)
-
-
+#define LISTSZ 20
 
 #define MAX(x,y) ((x)>(y)?(x):(y))
-#define MIX(x,y) ((x)<(y)?(x):(y))
+#define MIN(x,y) ((x)<(y)?(x):(y))
+#define INITCHUNKSZ (1<<6)
 
-// pack a size and allocated bit into a word
-#define PACK(size,alloc) ((size) | (alloc))
-
-//read and write a word at address p
-#define GET(p) (*(unsigned int*)p)
-// put a value with its previous tag
-#define PUT(p,val) (*(unsigned int*)(p) = (val)|(GET_TAG(p)))
-#define PUT_NOTAG(p,val) (*(unsigned int*)(p) = (val))
-
-//store predcessor or successor pointer for free blocks
-#define SET_PTR(p,ptr) (*(unsigned int*)(p) = (unsigned int)(ptr))
-
-// read the size and alllcation bit from address p
-#define GET_SIZE(p) (GET(p) & ~0x7)
-#define GET_ALLOC(p) (GET(p) & 0x1)
-#define GET_TAG(p) (GET(p) & 0x2)
-#define SET_RATAG(p) (GET(p) |= 0x2)
-#define RM_RATAG(p) (GET(p) &= ~0x2)
-
-// address of block's header and footer
-#define HDRP(ptr) ((char*)(ptr) - WSIZE)
-#define FTRP(ptr) ((char*)(ptr) + GET_SIZE(HDRP(ptr)) - DSIZE)
+static char *segregated_free_lists[LISTSZ];
+static char *heap_start_pointer;
 
 
-// Address of (physically) next and previous blocks
-#define NEXT_BLKP(ptr) ((char *)(ptr) + GET_SIZE((char *)(ptr) - WSIZE))
-#define PREV_BLKP(ptr) ((char *)(ptr) - GET_SIZE((char *)(ptr) - DSIZE))
+#define ALLOCATED 1
+#define FREE 0
 
-// Address of free block's predecessor and successor entries
-#define PRED_PTR(ptr) ((char *)(ptr))
-#define SUCC_PTR(ptr) ((char *)(ptr) + WSIZE)
+#define SIZE(ptr) (((unsigned int*)ptr) & ~0x7)
+#define PUT(ptr,value) (((unsigned int*)ptr) = ((unsigned int)value))
+#define PACK(size,tag) ((size) | (tag))
+#define HDPTR(ptr) (((char*)(ptr) - WSIZE))
+#define FTPTR(ptr) (((char*)(ptr) + SIZE(HDPTR(ptr)) - DSIZE))
+#define GETSIZE(ptr) (SIZE(HDPTR(ptr)))
+// physically
+#define NEXTBLOCKHEADPTR(ptr) (((char*)(ptr) + SIZE(HDPTR(ptr)) - WSIZE))
 
-// Address of free block's predecessor and successor on the segregated list
-#define PRED(ptr) (*(char **)(ptr))
-#define SUCC(ptr) (*(char **)(SUCC_PTR(ptr)))
+#define SETPTR(ptr,val) ((unsigned int*)(ptr) = val)
 
-// Global var
-void *segregated_free_lists[LISTLIMIT];
+#define NEXTBLOCKINFREELIST(ptr) ((char*)(ptr) + WSIZE)
+#define PREVBLOCKINFREELIST(ptr) ((char*)(ptr))
 
 
-// Functions
+// helper functions
 static void *extend_heap(size_t size);
 static void *coalesce(void *ptr);
 static void *place(void *ptr, size_t asize);
@@ -109,36 +85,72 @@ static void delete_node(void *ptr);
 
 
 
+/*               <- ptr
+ * |            |
+ * |            |
+ * |            |
+ * |            |
+ * |            |
+ *               ________: footer pointer
+ * |            |
+ *               ________: header pointer
+ * |            |
+ *               --------: ptr + sz
+ */
+
+void *coalesce(void *ptr){
+    
+}
 
 void insert_node(void *ptr, size_t size){
     int index = 0;
-    void search_ptr = ptr;
-    void insert_ptr = NULL;
-
-    while( (index < LISTLIMIT - 1) && (size > 1) ){
-        size >>= 1;
+    size_t sz = size;
+    while(sz > 1){
         index++;
+        sz >>= 1;
     }
-    search_ptr = segregated_free_lists[index];
-
-    while()
+    index = MIN(index,LISTSZ-1);
+    char* prev = NULL, *current = segregated_free_lists[index];
+    while(current != NULL && size > GETSIZE(current)){
+        prev = current;
+        current = NEXTBLOCKINFREELIST(current);
+    }
+    if(current == NULL){
+        if(prev == NULL){
+            segregated_free_lists[index] = ptr;
+            SETPTR(PREVBLOCKINFREELIST(ptr),NULL);
+            SETPTR(NEXTBLOCKINFREELIST(ptr),NULL);
+        }else{
+            SETPTR(NEXTBLOCKINFREELIST(prev),ptr);
+            SETPTR(NEXTBLOCKINFREELIST(ptr),NULL);
+            SETPTR(PREVBLOCKINFREELIST(ptr),prev);
+        }
+    }else {
+        if(prev == NULL){
+            segregated_free_lists[index] = ptr;
+            SETPTR(NEXTBLOCKINFREELIST(ptr),current);
+            SETPTR(PREVBLOCKINFREELIST(ptr),NULL);
+            SETPTR(PREVBLOCKINFREELIST(current),ptr);
+        }else{
+            SETPTR(NEXTBLOCKINFREELIST(prev),ptr);
+            SETPTR(PREVBLOCKINFREELIST(ptr),prev);
+            SETPTR(PREVBLOCKINFREELIST(current),ptr);
+            SETPTR(NEXTBLOCKINFREELIST(ptr),current);
+        }
+    }
 }
 
-
 void *extend_heap(size_t size){
-    void *ptr;
-    size_t  asize = ALIGN(size);
-
-    if((ptr = mem_sbrk(asize)) == (void*)-1){
+    char* ptr;
+    if((ptr = mem_sbrk(size)) == (void)-1){
         return NULL;
     }
 
-    // set header and footer
+    PUT(HDPTR(ptr), size);
+    PUT(FTPTR(ptr), size);
+    PUT(NEXTBLOCKHEADPTR(ptr),0);
 
-    PUT_NOTAG(HDRP(ptr), PACK(asize,0));
-    PUT_NOTAG(FTRP(ptr), PACK(asize,0));
-    PUT_NOTAG(HDRP(NEXT_BLKP(ptr)), PACK(0,1)); // ?
-    insert_node(ptr,asize);
+    insert_node(ptr,size);
 
     return coalesce(ptr);
 }
@@ -149,22 +161,21 @@ void *extend_heap(size_t size){
  */
 int mm_init(void)
 {
-    int index ;
-    char * heap_start;
+    for(int i = 0;i<LISTSZ;++i){
+        segregated_free_lists[i] = NULL;
+    }
+    if((heap_start_pointer = mem_sbrk(4 * WSIZE)) == (void)-1){
+        return -1;
+    }
+    PUT(heap_start_pointer + 0 * WSIZE, 0);
+    PUT(heap_start_pointer + 1 * WSIZE, 0);
+    PUT(heap_start_pointer + 2 * WSIZE, 0);
+    PUT(heap_start_pointer + 3 * WSIZE, 0);
 
-    for(index=0;index<LISTLIMIT;++index){
-        segregated_free_lists[index] = NULL;
-    }
-    if((heap_start = mem_sbrk(4 * WSIZE) ) == (void*)-1){
+    if(extend_heap(INITCHUNKSZ) == NULL){
         return -1;
     }
-    PUT_NOTAG(head_start + (0 * WSIZE), 0);
-    PUT_NOTAG(head_start + (1 * WSIZE), PACK(DSIZE, 1));
-    PUT_NOTAG(head_start + (2 * WSIZE), PACK(DSIZE, 1));
-    PUT_NOTAG(head_start + (3 * WSIZE), PACK(0, 1));
-    if(extend_heap(INITCHUNKSIZE) == NULL){
-        return -1;
-    }
+
     return 0;
 }
 
@@ -177,7 +188,7 @@ void *mm_malloc(size_t size)
     int newsize = ALIGN(size + SIZE_T_SIZE);
     void *p = mem_sbrk(newsize);
     if (p == (void *)-1)
-	return NULL;
+        return NULL;
     else {
         *(size_t *)p = size;
         return (void *)((char *)p + SIZE_T_SIZE);
@@ -189,6 +200,7 @@ void *mm_malloc(size_t size)
  */
 void mm_free(void *ptr)
 {
+
 }
 
 /*
@@ -202,25 +214,14 @@ void *mm_realloc(void *ptr, size_t size)
 
     newptr = mm_malloc(size);
     if (newptr == NULL)
-      return NULL;
+        return NULL;
     copySize = *(size_t *)((char *)oldptr - SIZE_T_SIZE);
     if (size < copySize)
-      copySize = size;
+        copySize = size;
     memcpy(newptr, oldptr, copySize);
     mm_free(oldptr);
     return newptr;
 }
-
-
-
-
-
-
-
-
-
-
-
 
 
 
