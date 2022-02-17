@@ -14,6 +14,15 @@
   <component name="ChangeListManager">
     <list default="true" id="b6d67fab-9ac2-46b0-b089-8a57db1a0ce2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clock.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fcyc.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fsecs.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ftimer.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mdriver" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mdriver.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/memlib.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm.c" beforeDir="false" afterPath="$PROJECT_DIR$/mm.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm.o" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,9 +105,9 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
-        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
   </component>
@@ -112,7 +121,8 @@
       <updated>1644803926846</updated>
       <workItem from="1644803928149" duration="12344000" />
       <workItem from="1644888182051" duration="12838000" />
-      <workItem from="1644927605601" duration="6680000" />
+      <workItem from="1644927605601" duration="10654000" />
+      <workItem from="1645101714234" duration="5701000" />
     </task>
     <servers />
   </component>

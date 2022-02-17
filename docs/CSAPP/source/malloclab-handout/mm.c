@@ -53,6 +53,9 @@ team_t team = {
 #define MAX(x,y) ((x)>(y)?(x):(y))
 #define MIN(x,y) ((x)<(y)?(x):(y))
 #define INITCHUNKSZ (1<<6)
+#define MINBLOCKSIZE 16
+
+
 
 static char *segregated_free_lists[LISTSZ];
 static char *heap_start_pointer;
@@ -60,14 +63,20 @@ static char *heap_start_pointer;
 
 #define ALLOCATED 1
 #define FREE 0
+#define MINBLOCKSIZE 16
+
 
 #define SIZE(ptr) (((unsigned int*)ptr) & ~0x7)
+#define TAG(ptr) (((unsigned int*)ptr) & 0x1)
 #define PUT(ptr,value) (((unsigned int*)ptr) = ((unsigned int)value))
 #define PACK(size,tag) ((size) | (tag))
 #define HDPTR(ptr) (((char*)(ptr) - WSIZE))
 #define FTPTR(ptr) (((char*)(ptr) + SIZE(HDPTR(ptr)) - DSIZE))
 #define GETSIZE(ptr) (SIZE(HDPTR(ptr)))
 // physically
+
+#define PREVBLOCK(ptr) (((char*)(ptr)) - SIZE((char*)(ptr) - DSIZE))
+#define NEXTBLOCK(ptr) ((char*)(ptr) + SIZE(HDPTR(ptr)))
 #define NEXTBLOCKHEADPTR(ptr) (((char*)(ptr) + SIZE(HDPTR(ptr)) - WSIZE))
 
 #define SETPTR(ptr,val) ((unsigned int*)(ptr) = val)
@@ -83,8 +92,6 @@ static void *place(void *ptr, size_t asize);
 static void insert_node(void *ptr, size_t size);
 static void delete_node(void *ptr);
 
-
-
 /*               <- ptr
  * |            |
  * |            |
@@ -98,8 +105,100 @@ static void delete_node(void *ptr);
  *               --------: ptr + sz
  */
 
+void *place(void *ptr, size_t asize){
+    size_t before_size = SIZE(HDPTR(ptr));
+    if(before_size - asize < MINBLOCKSIZE){
+        SETPTR(HDPTR(ptr), PACK(before_size,ALLOCATED));
+        delete_node(ptr);
+        return ptr;
+    }
+    size_t new_size = before_size - asize;
+    SETPTR(HDPTR(ptr),PACK(asize,ALLOCATED));
+    SETPTR(FTPTR(ptr),PACK(asize,ALLOCATED));
+    SETPTR(HDPTR(NEXTBLOCK(ptr)),new_size);
+    SETPTR(FTPTR(NEXTBLOCK(ptr)),new_size);
+    delete_node(ptr);
+    insert_node(NEXTBLOCK(ptr),new_size);
+    return ptr;
+}
+
+void delete_node(void *ptr){
+    size_t sz = SIZE(HDPTR(ptr));
+    int index = 0;
+    while(sz > 1){
+        index++;
+        sz >>= 1;
+    }
+    char* prev = NULL, *current = segregated_free_lists[index];
+    while(current != NULL && current != ptr){
+        prev = current;
+        current = NEXTBLOCKINFREELIST(current);
+    }
+
+    char* next = NEXTBLOCKINFREELIST(ptr);
+    if(prev == NULL){
+        if(next == NULL){
+            segregated_free_lists[index] = NULL;
+        }else{
+            segregated_free_lists[index] = next;
+            SETPTR(PREVBLOCKINFREELIST(next) ,NULL);
+        }
+    }else{
+        if(next == NULL){
+            SETPTR(NEXTBLOCKINFREELIST(prev),NULL);
+        }else{
+            SETPTR(NEXTBLOCKINFREELIST(prev),next);
+            SETPTR(PREVBLOCKINFREELIST(next),prev);
+        }
+    }
+}
+
 void *coalesce(void *ptr){
-    
+
+    size_t prev_block_size = SIZE(HDPTR(PREVBLOCK(ptr)));
+    int prev_block_allocated = TAG(HDPTR(PREVBLOCK(ptr)));
+
+
+    size_t next_block_size = SIZE(HDPTR(NEXTBLOCK(ptr)));
+    int next_block_allocated = TAG(HDPTR(NEXTBLOCK(ptr)));
+
+    int prev_need_coalesce = (!prev_block_allocated) && (prev_block_size > 0);
+    int next_need_coalesce = (!next_block_allocated) && (next_block_size > 0);
+
+    size_t size = SIZE(HDPTR(ptr));
+
+    if(!prev_need_coalesce && !next_need_coalesce){
+        return ptr;
+    }else if(!prev_need_coalesce && next_need_coalesce){
+        char* new_header = HDPTR(ptr);
+        char* new_footer = FTPTR(NEXTBLOCK(ptr));
+        size_t new_size = size + next_block_size;
+        SETPTR(new_header,size);
+        SETPTR(new_footer,size);
+        delete_node(NEXTBLOCK(ptr));
+        delete_node(ptr);
+        insert_node(new_header,new_size);
+    }else if(prev_need_coalesce && !next_need_coalesce){
+        char* new_header = HDPTR(PREVBLOCK(ptr));
+        char* new_footer = FTPTR(ptr);
+        size_t new_size = size + prev_block_size;
+        SETPTR(new_header,size);
+        SETPTR(new_footer,size);
+        delete_node(PREVBLOCK(ptr));
+        delete_node(ptr);
+        insert_node(new_header,new_size);
+    }else {
+        char* new_header = HDPTR(PREVBLOCK(ptr));
+        char* new_footer = FTPTR(NEXTBLOCK(ptr));
+        size_t new_size = size + next_block_size + prev_block_size;
+        SETPTR(new_header,size);
+        SETPTR(new_footer,size);
+        delete_node(PREVBLOCK(ptr));
+        delete_node(ptr);
+        delete_node(NEXTBLOCK(ptr));
+        insert_node(new_header,new_size);
+    }
+    return NULL;
 }
 
 void insert_node(void *ptr, size_t size){
@@ -149,9 +248,7 @@ void *extend_heap(size_t size){
     PUT(HDPTR(ptr), size);
     PUT(FTPTR(ptr), size);
     PUT(NEXTBLOCKHEADPTR(ptr),0);
-
     insert_node(ptr,size);
-
     return coalesce(ptr);
 }
 
@@ -185,14 +282,42 @@ int mm_init(void)
  */
 void *mm_malloc(size_t size)
 {
-    int newsize = ALIGN(size + SIZE_T_SIZE);
-    void *p = mem_sbrk(newsize);
-    if (p == (void *)-1)
+//    int newsize = ALIGN(size + SIZE_T_SIZE);
+//    void *p = mem_sbrk(newsize);
+//    if (p == (void *)-1)
+//        return NULL;
+//    else {
+//        *(size_t *)p = size;
+//        return (void *)((char *)p + SIZE_T_SIZE);
+//    }
+    if( size == 0){
         return NULL;
-    else {
-        *(size_t *)p = size;
-        return (void *)((char *)p + SIZE_T_SIZE);
     }
+
+    size_t new_size = MAX(MINBLOCKSIZE, ALIGN(size + DSIZE));
+    int index = 0;
+    size_t sz = new_size;
+    while(sz > 1){
+        index++;
+        sz >>= 1;
+    }
+    char * ptr = NULL;
+    while(index < LISTSZ){
+        char * ptr = segregated_free_lists[index];
+        while(ptr!=NULL && new_size > SIZE(HDPTR(ptr))){
+            ptr = NEXTBLOCKINFREELIST(ptr);
+        }
+        if(ptr != NULL){
+            break;
+        }
+        ++index;
+    }
+    if(ptr != NULL){
+        return place(ptr,new_size);
+    }else{
+        printf("error");
+    }
+    return NULL;
 }
 
 /*
@@ -200,7 +325,11 @@ void *mm_malloc(size_t size)
  */
 void mm_free(void *ptr)
 {
-
+    size_t size = SIZE(HDPTR(ptr));
+    PUT(HDPTR(ptr),size);
+    PUT(FTPTR(ptr),size);
+    insert_node(ptr,size);
+    coalesce(ptr);
 }
 
 /*
