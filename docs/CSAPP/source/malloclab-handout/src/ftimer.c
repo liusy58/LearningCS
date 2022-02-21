@@ -10,7 +10,7 @@
  */
 #include <stdio.h>
 #include <sys/time.h>
-#include "ftimer.h"
+#include "../include/ftimer.h"
 
 /* function prototypes */
 static void init_etime(void);

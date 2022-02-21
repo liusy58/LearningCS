@@ -1,0 +1,3 @@
+/home/bigdataflow/lsy/LearningCS/docs/CSAPP/source/malloclab-handout/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/bigdataflow/lsy/LearningCS/docs/CSAPP/source/malloclab-handout/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/bigdataflow/lsy/LearningCS/docs/CSAPP/source/malloclab-handout/cmake-build-debug/CMakeFiles/mdriver.dir

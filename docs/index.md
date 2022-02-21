@@ -2,10 +2,15 @@ I will update my reading notes every day.
 
 TODO:
 
-- [ ] 2022.2
+- [ ] 2022
     - [x] [Morden CPP](https://changkun.de/modern-cpp/zh-cn/00-preface/)
     - [ ] [What Every Programmer Should Know About Memory](http://faculty.cs.niu.edu/~winans/CS532/cpumemory.pdf)
     - [ ] [DDIA](https://vonng.gitbooks.io/ddia-cn/content/)
+    - [ ] [CPP Concurrency in Action](https://github.com/downdemo/Cpp-Concurrency-in-Action-2ed)
+    - [ ] [Guru of the Week](http://www.gotw.ca/gotw/) is a regular series of C++ programming problems created and written by Herb Sutter.
+    - [ ] [CPP best practices](https://lefticus.gitbooks.io/cpp-best-practices/content/)
+    - [ ] [C++ patterns](https://cpppatterns.com/)
+     
 
 
 

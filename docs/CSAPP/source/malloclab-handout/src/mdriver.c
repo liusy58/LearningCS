@@ -16,10 +16,10 @@
 #include <float.h>
 #include <time.h>
 
-#include "mm.h"
-#include "memlib.h"
-#include "fsecs.h"
-#include "config.h"
+#include "../include/mm.h"
+#include "../include/memlib.h"
+#include "../include/fsecs.h"
+#include "../include/config.h"
 
 /**********************
  * Constants and macros
@@ -289,6 +289,7 @@ int main(int argc, char **argv)
 
     /* Evaluate student's mm malloc package using the K-best scheme */
     for (i=0; i < num_tracefiles; i++) {
+        printf("check file %d %s\n",i,tracefiles[i]);
 	trace = read_trace(tracedir, tracefiles[i]);
 	mm_stats[i].ops = trace->num_ops;
 	if (verbose > 1)

@@ -1,28 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="AutoImportSettings">
-    <option name="autoReloadType" value="SELECTIVE" />
-  </component>
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
-    <generated />
+    <generated>
+      <config projectName="mdriver" targetName="mdriver" />
+    </generated>
   </component>
-  <component name="CMakeSettings">
+  <component name="CMakeSettings" AUTO_RELOAD="true">
     <configurations>
       <configuration PROFILE_NAME="Debug" ENABLED="true" CONFIG_NAME="Debug" />
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b6d67fab-9ac2-46b0-b089-8a57db1a0ce2" name="Changes" comment="">
+    <list default="true" id="52191ae9-e7c0-4160-b63e-05411b937148" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/malloclab-handout.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../C++/MordenCPP.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../../C++/MordenCPP.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clock.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fcyc.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fsecs.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ftimer.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mdriver" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mdriver.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/memlib.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mm.c" beforeDir="false" afterPath="$PROJECT_DIR$/mm.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mm.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clock.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/clock.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clock.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/clock.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/config.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fcyc.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/fcyc.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fcyc.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/fcyc.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fsecs.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/fsecs.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fsecs.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/fsecs.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ftimer.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/ftimer.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ftimer.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/ftimer.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mdriver.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/mdriver.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/memlib.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/memlib.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/memlib.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/memlib.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/mm.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/mm.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mmothers.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/mmothers.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,48 +44,9 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
-  <component name="ExternalProjectsData">
-    <projectState path="$PROJECT_DIR$">
-      <ProjectState />
-    </projectState>
-  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
-  </component>
-  <component name="GitSEFilterConfiguration">
-    <file-type-list>
-      <filtered-out-file-type name="LOCAL_BRANCH" />
-      <filtered-out-file-type name="REMOTE_BRANCH" />
-      <filtered-out-file-type name="TAG" />
-      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
-    </file-type-list>
-  </component>
-  <component name="MakefileLocalSettings">
-    <option name="availableProjects">
-      <map>
-        <entry>
-          <key>
-            <ExternalProjectPojo>
-              <option name="name" value="malloclab-handout" />
-              <option name="path" value="$PROJECT_DIR$" />
-            </ExternalProjectPojo>
-          </key>
-          <value>
-            <list>
-              <ExternalProjectPojo>
-                <option name="name" value="malloclab-handout" />
-                <option name="path" value="$PROJECT_DIR$" />
-              </ExternalProjectPojo>
-            </list>
-          </value>
-        </entry>
-      </map>
-    </option>
-    <option name="projectSyncType">
-      <map>
-        <entry key="$PROJECT_DIR$" value="RE_IMPORT" />
-      </map>
-    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -83,7 +56,7 @@
     <option name="majorVersion" value="2021" />
     <option name="minorVersion" value="3.3" />
   </component>
-  <component name="ProjectId" id="25555lPl3OG1C7s9O9viBF0xqXH" />
+  <component name="ProjectId" id="25MDII7qWAEUbzN2TIURKItoR12" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -93,19 +66,22 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="cf.first.check.clang-format" value="false" />
     <property name="cidr.known.project.marker" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="cmake.loaded.for.project" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/trace" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/trace" />
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+    <configuration name="mdriver" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="-f ../traces/realloc2-bal.rep" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="mdriver" TARGET_NAME="mdriver" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="mdriver" RUN_TARGET_NAME="mdriver">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -114,30 +90,19 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="b6d67fab-9ac2-46b0-b089-8a57db1a0ce2" name="Changes" comment="" />
-      <created>1644803926846</created>
+      <changelist id="52191ae9-e7c0-4160-b63e-05411b937148" name="Changes" comment="" />
+      <created>1645327981578</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1644803926846</updated>
-      <workItem from="1644803928149" duration="12344000" />
-      <workItem from="1644888182051" duration="12838000" />
-      <workItem from="1644927605601" duration="10654000" />
-      <workItem from="1645101714234" duration="5701000" />
+      <updated>1645327981578</updated>
+      <workItem from="1645327982727" duration="10924000" />
+      <workItem from="1645406730727" duration="4677000" />
+      <workItem from="1645421169186" duration="23000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.History.Properties">
-    <option name="COLUMN_ID_ORDER">
-      <list>
-        <option value="Default.Root" />
-        <option value="Default.Author" />
-        <option value="Default.Date" />
-        <option value="Default.Subject" />
-      </list>
-    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -149,5 +114,21 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/mm.c</url>
+          <line>374</line>
+          <option name="timeStamp" value="32" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/mm.c</url>
+          <line>379</line>
+          <option name="timeStamp" value="33" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -2,11 +2,11 @@
  * High-level timing wrappers
  ****************************/
 #include <stdio.h>
-#include "fsecs.h"
-#include "fcyc.h"
-#include "clock.h"
-#include "ftimer.h"
-#include "config.h"
+#include "../include/fsecs.h"
+#include "../include/fcyc.h"
+#include "../include/clock.h"
+#include "../include/ftimer.h"
+#include "../include/config.h"
 
 static double Mhz;  /* estimated CPU clock frequency */
 

@@ -18,8 +18,8 @@
 #include <unistd.h>
 #include <string.h>
 
-#include "mm.h"
-#include "memlib.h"
+#include "include/mm.h"
+#include "include/memlib.h"
 
 
 /* single word (4) or double word (8) alignment */

@@ -11,8 +11,8 @@
 #include <sys/times.h>
 #include <stdio.h>
 
-#include "fcyc.h"
-#include "clock.h"
+#include "../include/fcyc.h"
+#include "../include/clock.h"
 
 /* Default values */
 #define K 3                  /* Value of K in K-best scheme */

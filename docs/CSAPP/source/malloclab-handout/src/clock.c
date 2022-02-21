@@ -10,7 +10,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <sys/times.h>
-#include "clock.h"
+#include "../include/clock.h"
 
 
 /******************************************************* 

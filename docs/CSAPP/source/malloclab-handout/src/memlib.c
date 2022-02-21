@@ -11,8 +11,8 @@
 #include <string.h>
 #include <errno.h>
 
-#include "memlib.h"
-#include "config.h"
+#include "../include/memlib.h"
+#include "../include/config.h"
 
 /* private variables */
 static char *mem_start_brk;  /* points to first byte of heap */
