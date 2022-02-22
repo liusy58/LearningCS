@@ -12,29 +12,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="52191ae9-e7c0-4160-b63e-05411b937148" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/malloclab-handout.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../C++/MordenCPP.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../../C++/MordenCPP.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clock.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/clock.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clock.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/clock.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/config.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fcyc.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/fcyc.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fcyc.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/fcyc.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fsecs.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/fsecs.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fsecs.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/fsecs.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ftimer.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/ftimer.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ftimer.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/ftimer.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mdriver.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/mdriver.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/memlib.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/memlib.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/memlib.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/memlib.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mm.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/mm.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mm.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/mm.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mmothers.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/mmothers.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/mdriver.dir/src/mm.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/mdriver.dir/src/mm.c.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/mdriver" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/mdriver" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mm.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/mm.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,6 +63,10 @@
       <recent name="$PROJECT_DIR$/trace" />
       <recent name="$PROJECT_DIR$" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/src" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="mdriver" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="-f ../traces/realloc2-bal.rep" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="mdriver" TARGET_NAME="mdriver" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="mdriver" RUN_TARGET_NAME="mdriver">
@@ -98,6 +86,7 @@
       <workItem from="1645327982727" duration="10924000" />
       <workItem from="1645406730727" duration="4677000" />
       <workItem from="1645421169186" duration="23000" />
+      <workItem from="1645496694892" duration="1884000" />
     </task>
     <servers />
   </component>
@@ -120,12 +109,12 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/src/mm.c</url>
-          <line>374</line>
+          <line>383</line>
           <option name="timeStamp" value="32" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/src/mm.c</url>
-          <line>379</line>
+          <line>388</line>
           <option name="timeStamp" value="33" />
         </line-breakpoint>
       </breakpoints>

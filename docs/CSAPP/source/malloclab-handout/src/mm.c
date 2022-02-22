@@ -130,6 +130,16 @@ void *place(void *ptr, size_t asize){
     }
     size_t new_size = before_size - asize;
     delete_node(ptr);
+
+    if(asize >= 100){
+        SETPTR(HDPTR(ptr), PACK(new_size,0));
+        SETPTR(FTPTR(ptr), PACK(new_size,0));
+        SETPTR(HDPTR(NEXTBLOCK(ptr)), PACK(asize,1));
+        SETPTR(FTPTR(NEXTBLOCK(ptr)),PACK(asize,1));
+        insert_node(ptr,new_size);
+        return NEXTBLOCK(ptr);
+    }
+
     SETPTR(HDPTR(ptr),PACK(asize,ALLOCATED));
     SETPTR(FTPTR(ptr),PACK(asize,ALLOCATED));
     SETPTR(HDPTR(NEXTBLOCK(ptr)),new_size);
@@ -342,7 +352,6 @@ void *mm_malloc(size_t size)
         }else{
             printf("error\n");
         }
-
     }
 //    printf("in malloc res_pr = %p size = %d\n",res_ptr,new_size);
     return res_ptr;
