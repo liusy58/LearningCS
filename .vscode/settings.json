@@ -21,5 +21,9 @@
     "debug.onTaskErrors": "debugAnyway",
     "explorer.confirmDragAndDrop": false,
     "cmake.mergedCompileCommands": "",
-    "github.allowUnsafeSSL": true
+    "github.allowUnsafeSSL": true,
+    "files.associations": {
+        "iostream": "cpp",
+        "atomic": "cpp"
+    }
 }
