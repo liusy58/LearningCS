@@ -10,6 +10,7 @@ TODO:
     - [ ] [Guru of the Week](http://www.gotw.ca/gotw/) is a regular series of C++ programming problems created and written by Herb Sutter.
     - [ ] [CPP best practices](https://lefticus.gitbooks.io/cpp-best-practices/content/)
     - [ ] [C++ patterns](https://cpppatterns.com/)
+    - [ ] [Crafting Interpreters ](http://craftinginterpreters.com/acknowledgements.html)
      
 
 
@@ -21,6 +22,7 @@ I am now studying the following courses on my step:
 * [Cornell CS 6120 Advanced Compilers](https://www.cs.cornell.edu/courses/cs6120/2020fa/)
 * [UIUC CS 598CM Machine Learning for Compilers and Architecture](https://charithm.web.illinois.edu/cs598cm/fa2021/)
 * [MIT 6.858](https://css.csail.mit.edu/6.858/2022/schedule.html)
+* 
 
 
 
