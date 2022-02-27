@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1645855061 "/home/bigdataflow/lsy/LearningCS/docs/Compiler/CS143/HW/WA1/answer.tex" "/home/bigdataflow/lsy/LearningCS/docs/Compiler/CS143/HW/WA1/answer.pdf" "answer" 1645855062
+["pdflatex"] 1645855061 "/home/bigdataflow/lsy/LearningCS/docs/Compiler/CS143/HW/WA1/answer.tex" "/home/bigdataflow/lsy/LearningCS/docs/Compiler/CS143/HW/WA1/answer.pdf" "answer" 1645946284
   "/etc/texmf/web2c/texmf.cnf" 1638000636 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/home/bigdataflow/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1095.600pk" 1645854520 12644 23ce6bd1d0b514833aa673e104fc1369 ""
   "/home/bigdataflow/lsy/LearningCS/docs/Compiler/CS143/HW/WA1/answer.aux" 1645855062 8 a94a2480d3289e625eea47cd1b285758 ""
@@ -122,8 +122,8 @@
   "answer.aux" 1645855062 8 a94a2480d3289e625eea47cd1b285758 "pdflatex"
   "answer.tex" 1645855061 7783 dd641dfbf5fb942881700aa34f4c10ea ""
   (generated)
-  "answer.aux"
+  "/home/bigdataflow/lsy/LearningCS/docs/Compiler/CS143/HW/WA1/answer.log"
+  "answer.log"
   "/home/bigdataflow/lsy/LearningCS/docs/Compiler/CS143/HW/WA1/answer.pdf"
   "answer.pdf"
-  "answer.log"
-  "/home/bigdataflow/lsy/LearningCS/docs/Compiler/CS143/HW/WA1/answer.log"
+  "answer.aux"
