@@ -1,9 +1,9 @@
 # Fdb version 3
-["pdflatex"] 1645855061 "/home/bigdataflow/lsy/LearningCS/docs/Compiler/CS143/HW/WA1/answer.tex" "/home/bigdataflow/lsy/LearningCS/docs/Compiler/CS143/HW/WA1/answer.pdf" "answer" 1645946284
+["pdflatex"] 1646023824 "/home/bigdataflow/lsy/LearningCS/docs/Compiler/CS143/HW/WA1/answer.tex" "/home/bigdataflow/lsy/LearningCS/docs/Compiler/CS143/HW/WA1/answer.pdf" "answer" 1646023825
   "/etc/texmf/web2c/texmf.cnf" 1638000636 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/home/bigdataflow/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1095.600pk" 1645854520 12644 23ce6bd1d0b514833aa673e104fc1369 ""
-  "/home/bigdataflow/lsy/LearningCS/docs/Compiler/CS143/HW/WA1/answer.aux" 1645855062 8 a94a2480d3289e625eea47cd1b285758 ""
-  "/home/bigdataflow/lsy/LearningCS/docs/Compiler/CS143/HW/WA1/answer.tex" 1645855061 7783 dd641dfbf5fb942881700aa34f4c10ea ""
+  "/home/bigdataflow/lsy/LearningCS/docs/Compiler/CS143/HW/WA1/answer.aux" 1646023825 8 a94a2480d3289e625eea47cd1b285758 ""
+  "/home/bigdataflow/lsy/LearningCS/docs/Compiler/CS143/HW/WA1/answer.tex" 1646023824 7815 66036d09b1780b7e6fb96576a84bff39 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/tcrm1095.tfm" 1136768653 1536 02c06700a42be0f5a28664c7273f82e7 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm" 1136768653 1328 c834bbb027764024c09d3d2bf908b5f0 ""
@@ -119,11 +119,11 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1581979058 38841 ce3692aa899bb693b90b87eaa5d4d84e ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1638028714 128028 f533b797fba58d231669ea19e894e23e ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1638028721 4791333 8fb309d518da1a897b834af9636b6838 ""
-  "answer.aux" 1645855062 8 a94a2480d3289e625eea47cd1b285758 "pdflatex"
-  "answer.tex" 1645855061 7783 dd641dfbf5fb942881700aa34f4c10ea ""
+  "answer.aux" 1646023825 8 a94a2480d3289e625eea47cd1b285758 "pdflatex"
+  "answer.tex" 1646023824 7815 66036d09b1780b7e6fb96576a84bff39 ""
   (generated)
-  "/home/bigdataflow/lsy/LearningCS/docs/Compiler/CS143/HW/WA1/answer.log"
-  "answer.log"
   "/home/bigdataflow/lsy/LearningCS/docs/Compiler/CS143/HW/WA1/answer.pdf"
   "answer.pdf"
   "answer.aux"
+  "answer.log"
+  "/home/bigdataflow/lsy/LearningCS/docs/Compiler/CS143/HW/WA1/answer.log"
