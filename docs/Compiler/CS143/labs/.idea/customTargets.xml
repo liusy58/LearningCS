@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CLionExternalBuildManager">
+    <target id="760103d3-0fb7-4d5b-a4fa-6199b8e4b9e4" name="lexer" defaultType="TOOL">
+      <configuration id="680c9fb1-46ce-45d6-adc8-30b4aa3df514" name="lexer">
+        <build type="TOOL">
+          <tool actionId="Tool_External Tools_make lexer" />
+        </build>
+        <clean type="TOOL">
+          <tool actionId="Tool_External Tools_clean lexer" />
+        </clean>
+      </configuration>
+    </target>
+  </component>
+</project>

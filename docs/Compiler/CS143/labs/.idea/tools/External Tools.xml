@@ -1,0 +1,16 @@
+<toolSet name="External Tools">
+  <tool name="make lexer" description="make lexer" showInMainMenu="false" showInEditor="false" showInProject="false" showInSearchPopup="false" disabled="false" useConsole="true" showConsoleOnStdOut="false" showConsoleOnStdErr="false" synchronizeAfterRun="true">
+    <exec>
+      <option name="COMMAND" value="make" />
+      <option name="PARAMETERS" value="lexer" />
+      <option name="WORKING_DIRECTORY" value="$USER_HOME$/lsy/LearningCS/docs/Compiler/CS143/labs/assignments/PA2" />
+    </exec>
+  </tool>
+  <tool name="clean lexer" description="clean lexer" showInMainMenu="false" showInEditor="false" showInProject="false" showInSearchPopup="false" disabled="false" useConsole="true" showConsoleOnStdOut="false" showConsoleOnStdErr="false" synchronizeAfterRun="true">
+    <exec>
+      <option name="COMMAND" value="make " />
+      <option name="PARAMETERS" value="clean" />
+      <option name="WORKING_DIRECTORY" value="$USER_HOME$/lsy/LearningCS/docs/Compiler/CS143/labs/assignments/PA2" />
+    </exec>
+  </tool>
+</toolSet>
