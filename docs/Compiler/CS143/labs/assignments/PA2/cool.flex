@@ -38,9 +38,9 @@ char * unmatched_block_comments = "Unmatched *)";
 char * eof_in_string = "EOF in string constant";
 char * eof_in_comment = "EOF in comment";
 char * string_too_long = "String constant too long";
-char * string_has_null = "String contains null character";
+char * string_has_null = "String contains null character ";
 char * string_has_newline = "Unterminated string constant";
-
+int block_comment_depth = 0;
 
 extern int curr_lineno;
 extern int verbose_flag;
@@ -72,7 +72,7 @@ ELSE            [eE][lL][sS][eE]
 FI              [fF][iI]
 IF              [iI][fF]
 IN              [iI][nN]
-INHERIT         [iI][nN][hH][eE][rR][iI][tT]
+INHERITS         [iI][nN][hH][eE][rR][iI][tT][sS]
 ISVOID          [iI][sS][vV][oO][iI][dD]
 LET             [lL][eE][tT]
 LOOP            [lL][oO][oO][pP]
@@ -84,8 +84,8 @@ ESAC            [eE][sS][aA][cC]
 NEW             [nN][eE][wW]
 OF              [oO][fF]
 NOT             [nN][oO][tT]
-TRUE            true
-FALSE           false
+TRUE            t[rR][uU][eE]
+FALSE           f[aA][lL][sS][eE]
 
 OPS             "+"|"/"|"-"|"*"|"="|"<"|"."|"~"|","|";"|":"|"("|")"|"@"|"{"|"}"
 BLANK           "\t"|" "|"\f"|"\r"|"\t"|"\v"
@@ -97,10 +97,15 @@ TYPE            [A-Z][a-zA-Z0-9_]*
 OBJECT          [a-z][a-zA-Z0-9_]*
 INTCONST        [0-9]+
 STRINGOP        \"
+NULLCHAR        \\0
+
+
 
 %Start LINE_COMMENT
 %Start BLOCK_COMMENT
 %Start STRING
+%Start STRINGTOOLONG
+%Start STRINGHASNULL
 
 %%
 
@@ -120,37 +125,56 @@ STRINGOP        \"
   */
 
 
-<INITIAL>{BLOCKCOMBEGIN} {BEGIN(BLOCK_COMMENT);}
-<BLOCK_COMMENT>{BLOCKCOMEND} {BEGIN(INITIAL);}
+<INITIAL>{BLOCKCOMBEGIN} {block_comment_depth++; BEGIN(BLOCK_COMMENT);}
+<BLOCK_COMMENT>\\. {}
+<BLOCK_COMMENT>{BLOCKCOMBEGIN} {++block_comment_depth;}
+<BLOCK_COMMENT>{BLOCKCOMEND} {if(--block_comment_depth == 0){ BEGIN(INITIAL);}}
 <BLOCK_COMMENT><<EOF>> {BEGIN(INITIAL);cool_yylval.error_msg = eof_in_comment;return ERROR;}
 
 
 <INITIAL>{LINECOMMENT} {BEGIN(LINE_COMMENT);}
 <LINE_COMMENT>{NEWLINE} {BEGIN(INITIAL);curr_lineno++;}
+<LINE_COMMENT>. {}
+
 
 <BLOCK_COMMENT>{NEWLINE} {curr_lineno++;}
 <BLOCK_COMMENT>. { }
 
 
+
+<STRING>\\\0 {BEGIN(STRINGHASNULL); }
 <STRING>{STRINGOP} {BEGIN(INITIAL); *string_buf_ptr ='\0'; cool_yylval.symbol = inttable.add_string(strdup(string_buf));return STR_CONST;}
+<STRING>\\{NEWLINE} {curr_lineno++; if(string_buf_ptr - string_buf >= MAX_STR_CONST-1){BEGIN(STRINGTOOLONG);cool_yylval.error_msg = string_too_long;return ERROR;}
+    *string_buf_ptr++ = '\n';}
 <STRING>{NEWLINE} {BEGIN(INITIAL);curr_lineno++;cool_yylval.error_msg = string_has_newline;return ERROR;}
 <STRING><<EOF>> {BEGIN(INITIAL);cool_yylval.error_msg = eof_in_string;return ERROR;}
 
-<STRING><<EOF>> {BEGIN(INITIAL);cool_yylval.error_msg = eof_in_string;return ERROR;}
-<STRING>\\b {if(string_buf_ptr - string_buf >= MAX_STR_CONST-1){BEGIN(INITIAL);cool_yylval.error_msg = string_too_long;return ERROR;}
+<STRING>\\b {if(string_buf_ptr - string_buf >= MAX_STR_CONST-1){BEGIN(STRINGTOOLONG);cool_yylval.error_msg = string_too_long;return ERROR;}
 *string_buf_ptr++ = '\b';}
-<STRING>\\t {if(string_buf_ptr - string_buf >= MAX_STR_CONST-1){BEGIN(INITIAL);cool_yylval.error_msg = string_too_long;return ERROR;}
+<STRING>\\t {if(string_buf_ptr - string_buf >= MAX_STR_CONST-1){BEGIN(STRINGTOOLONG);cool_yylval.error_msg = string_too_long;return ERROR;}
 *string_buf_ptr++ = '\t';}
-<STRING>\\n {if(string_buf_ptr - string_buf >= MAX_STR_CONST-1){BEGIN(INITIAL);cool_yylval.error_msg = string_too_long;return ERROR;}
+<STRING>\\n {if(string_buf_ptr - string_buf >= MAX_STR_CONST-1){BEGIN(STRINGTOOLONG);cool_yylval.error_msg = string_too_long;return ERROR;}
 *string_buf_ptr++ = '\n';}
-<STRING>\\f {if(string_buf_ptr - string_buf >= MAX_STR_CONST-1){BEGIN(INITIAL);cool_yylval.error_msg = string_too_long;return ERROR;}
+<STRING>\\f {if(string_buf_ptr - string_buf >= MAX_STR_CONST-1){BEGIN(STRINGTOOLONG);cool_yylval.error_msg = string_too_long;return ERROR;}
 *string_buf_ptr++ = '\f';}
-<STRING>\\. {if(string_buf_ptr - string_buf >= MAX_STR_CONST-1){BEGIN(INITIAL);cool_yylval.error_msg = string_too_long;return ERROR;}
-*string_buf_ptr++ = *(++yytext);}
-<STRING>. {if(string_buf_ptr - string_buf >= MAX_STR_CONST-1){BEGIN(INITIAL);cool_yylval.error_msg = string_too_long;return ERROR;}
-            *string_buf_ptr++ = *yytext;}
+<STRING>\\. {if(string_buf_ptr - string_buf >= MAX_STR_CONST-1){BEGIN(STRINGTOOLONG);cool_yylval.error_msg = string_too_long;return ERROR;}
+*string_buf_ptr++ = *(++yytext); }
 
 
+<STRING>. {if(*yytext == 0){BEGIN(STRINGHASNULL); }else{  if(string_buf_ptr - string_buf >= MAX_STR_CONST-1){BEGIN(STRINGTOOLONG);cool_yylval.error_msg = string_too_long;return ERROR;}
+            *string_buf_ptr++ = *yytext;}}
+
+
+<STRINGTOOLONG>{STRINGOP} { BEGIN(INITIAL);}
+<STRINGTOOLONG>\\{NEWLINE} {curr_lineno++;}
+<STRINGTOOLONG>. {}
+
+
+
+<STRINGHASNULL>{STRINGOP} {BEGIN(INITIAL);cool_yylval.error_msg = string_has_null;return ERROR;}
+<STRINGHASNULL>\\{NEWLINE} {curr_lineno++;}
+<STRINGHASNULL>{NEWLINE} {curr_lineno++; BEGIN(INITIAL);cool_yylval.error_msg = string_has_null;return ERROR; }
+<STRINGHASNULL>. { }
 
 
 <INITIAL>{CLASS} {return (CLASS);}
@@ -158,7 +182,7 @@ STRINGOP        \"
 <INITIAL>{FI} {return (FI);}
 <INITIAL>{IF} {return (IF);}
 <INITIAL>{IN} {return (IN);}
-<INITIAL>{INHERIT} {return (INHERITS);}
+<INITIAL>{INHERITS} {return (INHERITS);}
 <INITIAL>{ISVOID} {return (ISVOID);}
 <INITIAL>{LET} {return (LET);}
 <INITIAL>{LOOP} {return (LOOP);}
@@ -170,7 +194,8 @@ STRINGOP        \"
 <INITIAL>{NEW} {return (NEW);}
 <INITIAL>{OF} {return (OF);}
 <INITIAL>{NOT} {return (NOT);}
-<INITIAL>{TRUE}|{FALSE} {return BOOL_CONST;}
+<INITIAL>{TRUE} {cool_yylval.boolean = 1; return BOOL_CONST;}
+<INITIAL>{FALSE} {cool_yylval.boolean = 0; return BOOL_CONST;}
 <INITIAL>{OPS} {return *yytext;}
 <INITIAL>{BLANK} {}
 <INITIAL>{NEWLINE} {curr_lineno++;}
@@ -181,6 +206,7 @@ STRINGOP        \"
 <INITIAL>{OBJECT} {cool_yylval.symbol = idtable.add_string(yytext); return OBJECTID;}
 <INITIAL>{INTCONST} {cool_yylval.symbol = inttable.add_string(yytext); return INT_CONST;}
 <INITIAL>{STRINGOP} {string_buf_ptr = string_buf;BEGIN(STRING);}
+<INITIAL>{BLOCKCOMEND} {cool_yylval.error_msg = unmatched_block_comments; return ERROR;}
 
 
 <INITIAL>. {cool_yylval.error_msg = yytext; return ERROR;}

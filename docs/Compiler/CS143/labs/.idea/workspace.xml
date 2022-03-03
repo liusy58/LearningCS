@@ -13,14 +13,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="37f2ed9e-ef2c-4cd5-afd8-16cfd1145aa4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/bin/test.cl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Compilers Principles, Techniques,  Tools by Alfred V. Aho, Monica S. Lam, Ravi Sethi, Jeffrey D. Ullman (z-lib.org).pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HW/WA1/answer.aux" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HW/WA1/answer.fdb_latexmk" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HW/WA1/answer.fls" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HW/WA1/answer.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HW/WA1/answer.synctex.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA2/README" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA2/README" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA2/comment1.cl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA2/comments.cl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA2/cool-lex.cc" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA2/cool-lex.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA2/cool-lex.o" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA2/cool-lex.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA2/cool.flex" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA2/cool.flex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA2/lexer" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA2/lexer" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,6 +88,7 @@
     <property name="cidr.known.project.marker" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/bin" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
@@ -104,11 +105,6 @@
         <option name="CLION.EXTERNAL.BUILD" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -120,7 +116,8 @@
       <updated>1646185762018</updated>
       <workItem from="1646185764543" duration="2225000" />
       <workItem from="1646190496972" duration="5512000" />
-      <workItem from="1646198809824" duration="12188000" />
+      <workItem from="1646198809824" duration="12797000" />
+      <workItem from="1646268618950" duration="6721000" />
     </task>
     <servers />
   </component>

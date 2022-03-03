@@ -112,4 +112,17 @@ Write-up for PA2
 
 2. there should be no empty between <> and {}
 
+I add a few tests from other's repos and you can directly run the command `perl pa2-grading.pl` to check your answer.
+
+3."I'm about to excape a newline \
+  "
+```
+#6 STR_CONST "I'm about to excape a newline \n"
+```
+
+4. (*  nested
+use a variable to mark the depth
+
+5. String too long
+
 
