@@ -13,4 +13,18 @@
       <option name="WORKING_DIRECTORY" value="$USER_HOME$/lsy/LearningCS/docs/Compiler/CS143/labs/assignments/PA2" />
     </exec>
   </tool>
+  <tool name="make parser" description="make parser" showInMainMenu="false" showInEditor="false" showInProject="false" showInSearchPopup="false" disabled="false" useConsole="true" showConsoleOnStdOut="false" showConsoleOnStdErr="false" synchronizeAfterRun="true">
+    <exec>
+      <option name="COMMAND" value="make " />
+      <option name="PARAMETERS" value="parser" />
+      <option name="WORKING_DIRECTORY" value="$USER_HOME$/lsy/LearningCS/docs/Compiler/CS143/labs/assignments/PA3" />
+    </exec>
+  </tool>
+  <tool name="clean parser" description="clean parser" showInMainMenu="false" showInEditor="false" showInProject="false" showInSearchPopup="false" disabled="false" useConsole="true" showConsoleOnStdOut="false" showConsoleOnStdErr="false" synchronizeAfterRun="true">
+    <exec>
+      <option name="COMMAND" value="make" />
+      <option name="PARAMETERS" value="clean" />
+      <option name="WORKING_DIRECTORY" value="$USER_HOME$/lsy/LearningCS/docs/Compiler/CS143/labs/assignments/PA3" />
+    </exec>
+  </tool>
 </toolSet>

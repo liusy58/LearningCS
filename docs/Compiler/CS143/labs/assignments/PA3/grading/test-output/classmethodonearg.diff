@@ -1,0 +1,24 @@
+1,21c1
+< 
+< _program
+< 
+<   _class
+<     Hello
+<     Object
+<     filename
+<     (
+< 
+<     _method
+<       cow
+< 
+<       _formal
+<         a
+<         Int
+<       SELF_TYPE
+< 
+<       _object
+<         self
+<       : _no_type
+<     )
+---
+> sh: 1: ./myparser: not found

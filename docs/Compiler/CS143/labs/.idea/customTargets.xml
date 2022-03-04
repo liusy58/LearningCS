@@ -11,5 +11,15 @@
         </clean>
       </configuration>
     </target>
+    <target id="6fe96e70-6c72-4a89-9a1a-b60066c223a1" name="parser" defaultType="TOOL">
+      <configuration id="a411f23d-30c9-4e94-8351-509eb19f734d" name="parser">
+        <build type="TOOL">
+          <tool actionId="Tool_External Tools_make parser" />
+        </build>
+        <clean type="TOOL">
+          <tool actionId="Tool_External Tools_clean parser" />
+        </clean>
+      </configuration>
+    </target>
   </component>
 </project>

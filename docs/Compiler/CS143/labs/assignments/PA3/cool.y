@@ -130,10 +130,18 @@
     documentation for details). */
     
     /* Declare types for the grammar's non-terminals. */
+    /* non-terminal class_list has type classes. */
     %type <program> program
     %type <classes> class_list
     %type <class_> class
-    
+    %type <features> feature_list
+    %type <formal> formal
+    %type <formals> formal_list
+    %type <formals> formal_list_with_comma_ahead
+    %type <expressions> expr_list
+    %type <expression> expr
+    %type <expressions> expr_list_with_semicolon_ahead
+
     /* You will want to change the following line. */
     %type <features> dummy_feature_list
     
@@ -146,6 +154,64 @@
     */
     program	: class_list	{ @$ = @1; ast_root = program($1); }
     ;
+
+    class_list : class  { $$ = single_Classes($1); parse_results = $$; }
+               | class_list class  { $$ = append_Classes($1,single_Classes($1)); parse_results = $$; }
+               ;
+
+
+    class : CLASS TYPEID '{' feature_list '}' ';' {  $$ = class_($2,idtable.add_string("Object"),$4,
+                                                         stringtable.add_string(curr_filename));}
+            | CLASS TYPEID INHERITS TYPEID '{' feature_list '}' ';'  {  $$ = class_($2, $4, $6,
+                                                                         stringtable.add_string(curr_filename));}
+            ;
+
+
+
+    feature_list :    { $$ = nil_Features();}
+                 | feature { $$ = single_Features($1);}
+                 | feature_list feature { $$ = append_Features($1,single_Features($2));}
+
+
+    feature :  OBJECTID '(' formal_list ')' ':' TYPEID '{' expr '}' {}
+
+
+    formal_list : formal formal_list_with_comma_ahead {}
+
+
+    formal_list_with_comma_ahead :    {}
+                                 |  ',' formal formal_list_with_comma_ahead {}
+
+    formal : OBJECTID ':' TYPEID {}
+
+    expr : OBJECTID ASSIGN expr {}
+         | expr '@' TYPEID '.' OBJECTID '(' ')' {}
+         | expr '@' TYPEID '.' OBJECTID '(' expr_list ')' {}
+
+
+
+
+
+
+    expr_list : expr  expr_list_with_semicolon_ahead {}
+
+    expr_list_with_semicolon_ahead : {}
+                                   | ',' expr expr_list_with_semicolon_ahead {}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     
     class_list
     : class			/* single class */

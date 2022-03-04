@@ -3,16 +3,16 @@
   <component name="CompDBSettings">
     <option name="linkedExternalProjectsSettings">
       <CompDBProjectSettings>
-        <option name="externalProjectPath" value="$PROJECT_DIR$/assignments/PA2" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/assignments/PA3" />
         <option name="modules">
           <set>
-            <option value="$PROJECT_DIR$/assignments/PA2" />
+            <option value="$PROJECT_DIR$/assignments/PA3" />
           </set>
         </option>
       </CompDBProjectSettings>
     </option>
   </component>
-  <component name="CompDBWorkspace" PROJECT_DIR="$PROJECT_DIR$/assignments/PA2">
+  <component name="CompDBWorkspace" PROJECT_DIR="$PROJECT_DIR$/assignments/PA3">
     <contentRoot DIR="$PROJECT_DIR$" />
   </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />

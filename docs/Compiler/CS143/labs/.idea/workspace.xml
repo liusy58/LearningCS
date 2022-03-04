@@ -13,14 +13,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="37f2ed9e-ef2c-4cd5-afd8-16cfd1145aa4" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/customTargets.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/customTargets.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/tools/External Tools.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/tools/External Tools.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assignments/PA2/README" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA2/README" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assignments/PA2/comment1.cl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assignments/PA2/comments.cl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assignments/PA2/cool-lex.cc" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA2/cool-lex.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assignments/PA2/cool-lex.o" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA2/cool-lex.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assignments/PA2/cool.flex" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA2/cool.flex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assignments/PA2/lexer" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA2/lexer" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/README" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA3/README" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/cool-parse.d" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA3/cool-parse.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/cool.output" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA3/cool.output" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/cool.tab.h" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA3/cool.tab.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/cool.y" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA3/cool.y" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +35,22 @@
   <component name="CompDBLocalSettings">
     <option name="availableProjects">
       <map>
+        <entry>
+          <key>
+            <ExternalProjectPojo>
+              <option name="name" value="labs" />
+              <option name="path" value="$PROJECT_DIR$/assignments/PA3" />
+            </ExternalProjectPojo>
+          </key>
+          <value>
+            <list>
+              <ExternalProjectPojo>
+                <option name="name" value="labs" />
+                <option name="path" value="$PROJECT_DIR$/assignments/PA3" />
+              </ExternalProjectPojo>
+            </list>
+          </value>
+        </entry>
         <entry>
           <key>
             <ExternalProjectPojo>
@@ -54,11 +72,15 @@
     <option name="projectSyncType">
       <map>
         <entry key="$PROJECT_DIR$/assignments/PA2" value="RE_IMPORT" />
+        <entry key="$PROJECT_DIR$/assignments/PA3" value="RE_IMPORT" />
       </map>
     </option>
   </component>
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$/assignments/PA2">
+      <ProjectState />
+    </projectState>
+    <projectState path="$PROJECT_DIR$/assignments/PA3">
       <ProjectState />
     </projectState>
   </component>
@@ -86,10 +108,10 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="cf.first.check.clang-format" value="false" />
     <property name="cidr.known.project.marker" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/bin" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/assignments/PA3" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="CLionExternalConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -100,6 +122,11 @@
     </key>
   </component>
   <component name="RunManager">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="lexer" type="CLionExternalRunConfiguration" factoryName="Application" PROGRAM_PARAMS="test.cl" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" WORKING_DIR="file://$PROJECT_DIR$/assignments/PA2" PASS_PARENT_ENVS_2="true" PROJECT_NAME="labs" TARGET_NAME="lexer" CONFIG_NAME="lexer" RUN_PATH="$PROJECT_DIR$/assignments/PA2/lexer">
       <method v="2">
         <option name="CLION.EXTERNAL.BUILD" enabled="true" />
@@ -117,7 +144,8 @@
       <workItem from="1646185764543" duration="2225000" />
       <workItem from="1646190496972" duration="5512000" />
       <workItem from="1646198809824" duration="12797000" />
-      <workItem from="1646268618950" duration="6721000" />
+      <workItem from="1646268618950" duration="7368000" />
+      <workItem from="1646357213078" duration="13211000" />
     </task>
     <servers />
   </component>

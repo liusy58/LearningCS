@@ -1,0 +1,6 @@
+1,3c1
+< filename, line 2: syntax error at or near LOCATION
+< filename, line 8: syntax error at or near LOCATION
+< Compilation halted due to lex and syntax errors
+---
+> sh: 1: ./myparser: not found

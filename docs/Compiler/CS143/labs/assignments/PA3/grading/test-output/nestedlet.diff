@@ -1,0 +1,89 @@
+1,86c1
+< 
+< _program
+< 
+<   _class
+<     A
+<     Object
+<     filename
+<     (
+< 
+<     _method
+<       f
+< 
+<       _formal
+<         x
+<         Int
+<       Object
+< 
+<       _let
+<         x
+<         Int
+< 
+<         _int
+<           3
+<         : _no_type
+< 
+<         _let
+<           y
+<           Bool
+< 
+<           _no_expr
+<           : _no_type
+< 
+<           _let
+<             z
+<             Object
+< 
+<             _no_expr
+<             : _no_type
+< 
+<             _let
+<               a
+<               Object
+< 
+<               _no_expr
+<               : _no_type
+< 
+<               _let
+<                 b
+<                 Object
+< 
+<                 _no_expr
+<                 : _no_type
+< 
+<                 _let
+<                   c
+<                   Object
+< 
+<                   _no_expr
+<                   : _no_type
+< 
+<                   _let
+<                     d
+<                     Int
+< 
+<                     _int
+<                       6
+<                     : _no_type
+< 
+<                     _plus
+< 
+<                       _object
+<                         d
+<                       : _no_type
+< 
+<                       _int
+<                         5
+<                       : _no_type
+<                     : _no_type
+<                   : _no_type
+<                 : _no_type
+<               : _no_type
+<             : _no_type
+<           : _no_type
+<         : _no_type
+<       : _no_type
+<     )
+---
+> sh: 1: ./myparser: not found

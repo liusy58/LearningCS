@@ -1,0 +1,35 @@
+1,32c1
+< 
+< _program
+< 
+<   _class
+<     Test
+<     Object
+<     filename
+<     (
+< 
+<     _attr
+<       foo
+<       Test
+< 
+<       _no_expr
+<       : _no_type
+< 
+<     _method
+<       baz
+<       String
+< 
+<       _let
+<         x
+<         Int
+< 
+<         _no_expr
+<         : _no_type
+< 
+<         _object
+<           x
+<         : _no_type
+<       : _no_type
+<     )
+---
+> sh: 1: ./myparser: not found

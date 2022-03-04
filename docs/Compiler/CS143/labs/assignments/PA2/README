@@ -114,6 +114,10 @@ Write-up for PA2
 
 I add a few tests from other's repos and you can directly run the command `perl pa2-grading.pl` to check your answer.
 
+you can directly type ` perl pa2-grading.pl` to get your score.
+
+
+
 3."I'm about to excape a newline \
   "
 ```
