@@ -55,3 +55,8 @@ sudo apt-get install -y bison
   * IntEntry
   * StringEntry
 
+
+
+5. how to write let grammar?
+
+6. 

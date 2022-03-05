@@ -13,16 +13,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="37f2ed9e-ef2c-4cd5-afd8-16cfd1145aa4" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/customTargets.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/customTargets.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/tools/External Tools.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/tools/External Tools.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assignments/PA2/README" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA2/README" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assignments/PA3/README" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA3/README" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assignments/PA3/cool-parse.d" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA3/cool-parse.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA3/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/compile_commands.json" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA3/compile_commands.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/cool-parse.cc" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA3/cool-parse.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/cool-parse.o" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA3/cool-parse.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assignments/PA3/cool.output" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA3/cool.output" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assignments/PA3/cool.tab.h" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA3/cool.tab.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assignments/PA3/cool.y" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA3/cool.y" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/parser" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA3/parser" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,27 +49,10 @@
             </list>
           </value>
         </entry>
-        <entry>
-          <key>
-            <ExternalProjectPojo>
-              <option name="name" value="labs" />
-              <option name="path" value="$PROJECT_DIR$/assignments/PA2" />
-            </ExternalProjectPojo>
-          </key>
-          <value>
-            <list>
-              <ExternalProjectPojo>
-                <option name="name" value="labs" />
-                <option name="path" value="$PROJECT_DIR$/assignments/PA2" />
-              </ExternalProjectPojo>
-            </list>
-          </value>
-        </entry>
       </map>
     </option>
     <option name="projectSyncType">
       <map>
-        <entry key="$PROJECT_DIR$/assignments/PA2" value="RE_IMPORT" />
         <entry key="$PROJECT_DIR$/assignments/PA3" value="RE_IMPORT" />
       </map>
     </option>
@@ -108,7 +89,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="cf.first.check.clang-format" value="false" />
     <property name="cidr.known.project.marker" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/assignments/PA3" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="CLionExternalConfigurable" />
@@ -146,6 +127,8 @@
       <workItem from="1646198809824" duration="12797000" />
       <workItem from="1646268618950" duration="7368000" />
       <workItem from="1646357213078" duration="13211000" />
+      <workItem from="1646398364556" duration="2773000" />
+      <workItem from="1646449991841" duration="12540000" />
     </task>
     <servers />
   </component>
