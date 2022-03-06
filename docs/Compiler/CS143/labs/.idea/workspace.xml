@@ -13,13 +13,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="37f2ed9e-ef2c-4cd5-afd8-16cfd1145aa4" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/labs.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assignments/PA3/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA3/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assignments/PA3/compile_commands.json" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA3/compile_commands.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assignments/PA3/cool-parse.cc" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA3/cool-parse.cc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assignments/PA3/cool-parse.o" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA3/cool-parse.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assignments/PA3/cool.output" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA3/cool.output" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assignments/PA3/cool.y" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA3/cool.y" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/myparser" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA3/myparser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assignments/PA3/parser" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA3/parser" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -86,33 +87,39 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="cf.first.check.clang-format" value="false" />
     <property name="cidr.known.project.marker" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/assignments/PA3" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="CLionExternalConfigurable" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/assignments/PA3" />
       <recent name="$PROJECT_DIR$/bin" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/assignments/PA2" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Custom Build Application.parser">
     <configuration name="lexer" type="CLionExternalRunConfiguration" factoryName="Application" PROGRAM_PARAMS="test.cl" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" WORKING_DIR="file://$PROJECT_DIR$/assignments/PA2" PASS_PARENT_ENVS_2="true" PROJECT_NAME="labs" TARGET_NAME="lexer" CONFIG_NAME="lexer" RUN_PATH="$PROJECT_DIR$/assignments/PA2/lexer">
       <method v="2">
         <option name="CLION.EXTERNAL.BUILD" enabled="true" />
       </method>
     </configuration>
+    <configuration name="parser" type="CLionExternalRunConfiguration" factoryName="Application" nameIsGenerated="true" REDIRECT_INPUT="true" REDIRECT_INPUT_PATH="$PROJECT_DIR$/assignments/PA3/input.txt" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" WORKING_DIR="file://$PROJECT_DIR$/assignments/PA3" PASS_PARENT_ENVS_2="true" PROJECT_NAME="labs" TARGET_NAME="parser" CONFIG_NAME="parser" RUN_PATH="$PROJECT_DIR$/assignments/PA3/parser">
+      <method v="2">
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Custom Build Application.lexer" />
+      <item itemvalue="Custom Build Application.parser" />
+    </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -129,6 +136,7 @@
       <workItem from="1646357213078" duration="13211000" />
       <workItem from="1646398364556" duration="2773000" />
       <workItem from="1646449991841" duration="12540000" />
+      <workItem from="1646533330956" duration="6174000" />
     </task>
     <servers />
   </component>
@@ -153,6 +161,16 @@
           <url>file://$PROJECT_DIR$/assignments/PA2/lextest.cc</url>
           <line>80</line>
           <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/assignments/PA3/parser-phase.cc</url>
+          <line>37</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/assignments/PA3/tree.cc</url>
+          <line>29</line>
+          <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -183,11 +183,11 @@
                 ;
 
     class :
-            CLASS TYPEID INHERITS TYPEID '{' features '}'
+            CLASS TYPEID INHERITS TYPEID '{' features '}' ';'
             {
                 $$ = class_($2, $4, $6, stringtable.add_string(curr_filename));
             }
-            | CLASS TYPEID '{' features '}'
+            | CLASS TYPEID '{' features '}' ';'
             {
                 $$ = class_($2, idtable.add_string("Object") , $4, stringtable.add_string(curr_filename));
             }
