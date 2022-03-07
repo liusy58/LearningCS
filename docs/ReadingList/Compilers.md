@@ -14,7 +14,7 @@
 * [15-411 Compiler Design](https://www.cs.cmu.edu/~janh/courses/411/18/index.html) at CMU.
 * [15-745 Optimizing Compilers for Modern Architectures](https://www.cs.cmu.edu/afs/cs/academic/class/15745-s19/www/index.html) at CMU.
 * [CS 293S: Advanced Compiler Optimizations](https://sites.cs.ucsb.edu/~yufeiding/cs293s/schedule.html) at UCSB.
-* [CS 738: Advanced Compiler Optimizations](https://karkare.github.io/cs738/) 
-* [CSE 231: Advanced Compilers](https://cseweb.ucsd.edu/classes/fa12/cse231-a/)
-* [UCB CS294-113: Virtual Machines and Managed Runtimes](http://www.wolczko.com/CS294/) 
+* [CS 738: Advanced Compiler Optimizations](https://karkare.github.io/cs738/) at iitk
+* [CSE 231: Advanced Compilers](https://ucsd-pl.github.io/cse231/wi20/) at UCSB
+* [CS294-113: Virtual Machines and Managed Runtimes](http://www.wolczko.com/CS294/) at UCB  
 
