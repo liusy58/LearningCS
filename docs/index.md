@@ -71,3 +71,4 @@ I will also recommend you some useful materials that will save your time during 
 |books|materials|
 |-|-|
 |CSAPP|[ebook](https://hansimov.gitbook.io/csapp/) [solutions](https://dreamanddead.github.io/CSAPP-3e-Solutions/)|
+|OSTEP|[ebook](https://pages.cs.wisc.edu/~remzi/OSTEP/) [hw-solutions](https://github.com/xxyzz/ostep-hw) [ostep-projects](https://github.com/remzi-arpacidusseau/ostep-projects)|

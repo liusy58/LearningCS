@@ -1,0 +1,182 @@
+[
+    {
+        "arguments": [
+            "g++",
+            "-c",
+            "-g",
+            "-Wall",
+            "-Wno-unused",
+            "-Wno-write-strings",
+            "-Wno-deprecated",
+            "-I.",
+            "-I../../include/PA4",
+            "-I../../src/PA4",
+            "-DDEBUG",
+            "ast-parse.cc"
+        ],
+        "directory": "/home/bigdataflow/lsy/LearningCS/docs/Compiler/CS143/labs/assignments/PA4",
+        "file": "ast-parse.cc"
+    },
+    {
+        "arguments": [
+            "g++",
+            "-c",
+            "-g",
+            "-Wall",
+            "-Wno-unused",
+            "-Wno-write-strings",
+            "-Wno-deprecated",
+            "-I.",
+            "-I../../include/PA4",
+            "-I../../src/PA4",
+            "-DDEBUG",
+            "semant.cc"
+        ],
+        "directory": "/home/bigdataflow/lsy/LearningCS/docs/Compiler/CS143/labs/assignments/PA4",
+        "file": "semant.cc"
+    },
+    {
+        "arguments": [
+            "g++",
+            "-c",
+            "-g",
+            "-Wall",
+            "-Wno-unused",
+            "-Wno-write-strings",
+            "-Wno-deprecated",
+            "-I.",
+            "-I../../include/PA4",
+            "-I../../src/PA4",
+            "-DDEBUG",
+            "tree.cc"
+        ],
+        "directory": "/home/bigdataflow/lsy/LearningCS/docs/Compiler/CS143/labs/assignments/PA4",
+        "file": "tree.cc"
+    },
+    {
+        "arguments": [
+            "g++",
+            "-c",
+            "-g",
+            "-Wall",
+            "-Wno-unused",
+            "-Wno-write-strings",
+            "-Wno-deprecated",
+            "-I.",
+            "-I../../include/PA4",
+            "-I../../src/PA4",
+            "-DDEBUG",
+            "stringtab.cc"
+        ],
+        "directory": "/home/bigdataflow/lsy/LearningCS/docs/Compiler/CS143/labs/assignments/PA4",
+        "file": "stringtab.cc"
+    },
+    {
+        "arguments": [
+            "g++",
+            "-c",
+            "-g",
+            "-Wall",
+            "-Wno-unused",
+            "-Wno-write-strings",
+            "-Wno-deprecated",
+            "-I.",
+            "-I../../include/PA4",
+            "-I../../src/PA4",
+            "-DDEBUG",
+            "utilities.cc"
+        ],
+        "directory": "/home/bigdataflow/lsy/LearningCS/docs/Compiler/CS143/labs/assignments/PA4",
+        "file": "utilities.cc"
+    },
+    {
+        "arguments": [
+            "g++",
+            "-c",
+            "-g",
+            "-Wall",
+            "-Wno-unused",
+            "-Wno-write-strings",
+            "-Wno-deprecated",
+            "-I.",
+            "-I../../include/PA4",
+            "-I../../src/PA4",
+            "-DDEBUG",
+            "dumptype.cc"
+        ],
+        "directory": "/home/bigdataflow/lsy/LearningCS/docs/Compiler/CS143/labs/assignments/PA4",
+        "file": "dumptype.cc"
+    },
+    {
+        "arguments": [
+            "g++",
+            "-c",
+            "-g",
+            "-Wall",
+            "-Wno-unused",
+            "-Wno-write-strings",
+            "-Wno-deprecated",
+            "-I.",
+            "-I../../include/PA4",
+            "-I../../src/PA4",
+            "-DDEBUG",
+            "handle_flags.cc"
+        ],
+        "directory": "/home/bigdataflow/lsy/LearningCS/docs/Compiler/CS143/labs/assignments/PA4",
+        "file": "handle_flags.cc"
+    },
+    {
+        "arguments": [
+            "g++",
+            "-c",
+            "-g",
+            "-Wall",
+            "-Wno-unused",
+            "-Wno-write-strings",
+            "-Wno-deprecated",
+            "-I.",
+            "-I../../include/PA4",
+            "-I../../src/PA4",
+            "-DDEBUG",
+            "cool-tree.cc"
+        ],
+        "directory": "/home/bigdataflow/lsy/LearningCS/docs/Compiler/CS143/labs/assignments/PA4",
+        "file": "cool-tree.cc"
+    },
+    {
+        "arguments": [
+            "g++",
+            "-c",
+            "-g",
+            "-Wall",
+            "-Wno-unused",
+            "-Wno-write-strings",
+            "-Wno-deprecated",
+            "-I.",
+            "-I../../include/PA4",
+            "-I../../src/PA4",
+            "-DDEBUG",
+            "semant-phase.cc"
+        ],
+        "directory": "/home/bigdataflow/lsy/LearningCS/docs/Compiler/CS143/labs/assignments/PA4",
+        "file": "semant-phase.cc"
+    },
+    {
+        "arguments": [
+            "g++",
+            "-c",
+            "-g",
+            "-Wall",
+            "-Wno-unused",
+            "-Wno-write-strings",
+            "-Wno-deprecated",
+            "-I.",
+            "-I../../include/PA4",
+            "-I../../src/PA4",
+            "-DDEBUG",
+            "ast-lex.cc"
+        ],
+        "directory": "/home/bigdataflow/lsy/LearningCS/docs/Compiler/CS143/labs/assignments/PA4",
+        "file": "ast-lex.cc"
+    }
+]

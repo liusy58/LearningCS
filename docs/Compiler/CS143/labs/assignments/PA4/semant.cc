@@ -82,6 +82,11 @@ static void initialize_constants(void)
 }
 
 
+void raise_error() {
+    cerr << "Compilation halted due to static semantic errors." << endl;
+    exit(1);
+}
+
 
 ClassTable::ClassTable(Classes classes) : semant_errors(0) , error_stream(cerr) {
 
@@ -188,6 +193,14 @@ void ClassTable::install_basic_classes() {
 						      Str, 
 						      no_expr()))),
 	       filename);
+
+
+    this->name2class_definition[Object] = Object_class;
+    this->name2class_definition[Str] = Str_class;
+    this->name2class_definition[Bool] = Bool_class;
+    this->name2class_definition[Int] = Int_class;
+    this->name2class_definition[IO] = IO_class;
+
 }
 
 ////////////////////////////////////////////////////////////////////
@@ -245,11 +258,59 @@ void program_class::semant()
     ClassTable *classtable = new ClassTable(classes);
 
     /* some semantic analysis code may go here */
+    if(!classtable->install_custom_classes(classes)){
+        raise_error();
+    }
+
+    if(!classtable->build_inheritance_graph()){
+        raise_error();
+    }
+
 
     if (classtable->errors()) {
 	cerr << "Compilation halted due to static semantic errors." << endl;
 	exit(1);
     }
 }
+
+
+
+bool ClassTable::install_custom_classes(Classes classes){
+    for(int i = classes->first(); classes->more(i); i = classes->next(i)){
+        auto current_class = classes->nth(i);
+        Symbol current_class_name = current_class->get_name();
+        if(current_class_name == Int ||
+            current_class_name == Bool ||
+            current_class_name == Str ||
+            current_class_name == Object ){
+            semant_error(current_class) << "Redefinition;" ;
+            return false;
+        }
+        if(name2class_definition.count(current_class_name)){
+            semant_error(current_class) << "Redefinition;" ;
+            return false;
+        }
+
+        name2class_definition[current_class_name] = current_class;
+    }
+    return true;
+}
+
+bool ClassTable::build_inheritance_graph() {
+    for(auto &[name,class_defnition]:name2class_definition){
+        auto class_parent_name = class_defnition->get_parent();
+        name2parent_name[name] = class_parent_name;
+        if(!name2class_definition[class_parent_name]){
+            semant_error(class_defnition) << "parent's type no declared" ;
+            return false;
+        }
+    }
+    return true;
+}
+
+bool ClassTable::is_inheritance_graph_valid(){
+
+}
+
 
 
