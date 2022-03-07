@@ -16,5 +16,5 @@
 * [CS 293S: Advanced Compiler Optimizations](https://sites.cs.ucsb.edu/~yufeiding/cs293s/schedule.html) at UCSB.
 * [CS 738: Advanced Compiler Optimizations](https://karkare.github.io/cs738/) 
 * [CSE 231: Advanced Compilers](https://cseweb.ucsd.edu/classes/fa12/cse231-a/)
- 
+* [UCB CS294-113: Virtual Machines and Managed Runtimes](http://www.wolczko.com/CS294/) 
 
