@@ -1,10 +1,10 @@
-#1
+#6
 _program
   #1
   _class
     Test
     Object
-    "./grading/casemultiplebranch.test"
+    "casemultiplebranch.test"
     (
     #2
     _attr

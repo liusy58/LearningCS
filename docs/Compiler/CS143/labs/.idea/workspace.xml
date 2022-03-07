@@ -13,15 +13,228 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="37f2ed9e-ef2c-4cd5-afd8-16cfd1145aa4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/labs.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assignments/PA3/compile_commands.json" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA3/compile_commands.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assignments/PA3/cool-parse.cc" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA3/cool-parse.cc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assignments/PA3/cool-parse.o" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA3/cool-parse.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assignments/PA3/cool.output" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA3/cool.output" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/cool.tab.h" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA3/cool.tab.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assignments/PA3/cool.y" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA3/cool.y" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assignments/PA3/myparser" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA3/myparser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/RESULTS" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA3/grading/RESULTS" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/SCORE" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA3/grading/SCORE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/addedlet.diff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/addedlet.test.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/addedlet.test.out.unfilt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/arithprecedence.diff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/arithprecedence.test.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/arithprecedence.test.out.unfilt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/assigngetstype.diff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/assigngetstype.test.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/assigngetstype.test.out.unfilt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/assignment.diff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/assignment.test.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/assignment.test.out.unfilt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/assignseq.diff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/assignseq.test.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/assignseq.test.out.unfilt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/associativity+.diff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/associativity+.test.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/associativity+.test.out.unfilt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/associativity-.diff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/associativity-.test.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/associativity-.test.out.unfilt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/associativity-times.diff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/associativity-times.test.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/associativity-times.test.out.unfilt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/associativitydiv.diff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/associativitydiv.test.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/associativitydiv.test.out.unfilt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/atoi.diff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/atoi.test.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/atoi.test.out.unfilt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/attrcapitalname.diff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/attrcapitalname.test.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/attrcapitalname.test.out.unfilt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/badblock.diff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/badblock.test.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/badblock.test.out.unfilt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/baddispatch1.diff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/baddispatch1.test.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/baddispatch1.test.out.unfilt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/baddispatch2.diff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/baddispatch2.test.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/baddispatch2.test.out.unfilt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/baddispatch3.diff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/baddispatch3.test.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/baddispatch3.test.out.unfilt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/baddispatch4.diff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/baddispatch4.test.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/baddispatch4.test.out.unfilt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/badexprlist.diff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/badexprlist.test.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/badexprlist.test.out.unfilt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/badfeaturenames.diff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/badfeaturenames.test.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/badfeaturenames.test.out.unfilt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/badfeatures.diff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/badfeatures.test.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/badfeatures.test.out.unfilt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/casemultiplebranch.diff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/casemultiplebranch.test.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/casemultiplebranch.test.out.unfilt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/casenoexpr.diff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/casenoexpr.test.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/casenoexpr.test.out.unfilt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/classbadinherits.diff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/classbadinherits.test.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/classbadinherits.test.out.unfilt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/classbadname.diff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/classbadname.test.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/classbadname.test.out.unfilt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/classmethodonearg.diff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/classmethodonearg.test.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/classmethodonearg.test.out.unfilt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/classnoname.diff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/classnoname.test.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/classnoname.test.out.unfilt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/classonefield.diff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/classonefield.test.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/classonefield.test.out.unfilt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/classtwofields.diff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/classtwofields.test.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/classtwofields.test.out.unfilt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/comparisons-assoc.diff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/comparisons-assoc.test.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/comparisons-assoc.test.out.unfilt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/complex.diff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/complex.test.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/complex.test.out.unfilt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/dispatcharglist.diff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/dispatcharglist.test.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/dispatcharglist.test.out.unfilt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/dispatchnoargs.diff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/dispatchnoargs.test.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/dispatchnoargs.test.out.unfilt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/dispatchonearg.diff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/dispatchonearg.test.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/dispatchonearg.test.out.unfilt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/emptyassign.diff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/emptyassign.test.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/emptyassign.test.out.unfilt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/emptymethodbody.diff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/emptymethodbody.test.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/emptymethodbody.test.out.unfilt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/emptyprogram.diff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/emptyprogram.test.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/emptyprogram.test.out.unfilt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/emptystaticdispatch.diff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/emptystaticdispatch.test.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/emptystaticdispatch.test.out.unfilt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/equalsassociativity.diff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/equalsassociativity.test.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/equalsassociativity.test.out.unfilt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/extrasemicolonblock.diff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/extrasemicolonblock.test.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/extrasemicolonblock.test.out.unfilt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/firstbindingerrored.diff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/firstbindingerrored.test.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/firstbindingerrored.test.out.unfilt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/firstclasserrored.diff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/firstclasserrored.test.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/firstclasserrored.test.out.unfilt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/formallists.diff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/formallists.test.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/formallists.test.out.unfilt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/ifexpressionblock.diff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/ifexpressionblock.test.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/ifexpressionblock.test.out.unfilt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/ifnested.diff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/ifnested.test.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/ifnested.test.out.unfilt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/ifnoelse.diff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/ifnoelse.test.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/ifnoelse.test.out.unfilt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/ifnoelsebranch.diff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/ifnoelsebranch.test.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/ifnoelsebranch.test.out.unfilt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/ifnofi.diff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/ifnofi.test.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/ifnofi.test.out.unfilt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/ifnothenbranch.diff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/ifnothenbranch.test.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/ifnothenbranch.test.out.unfilt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/isvoidbadtype.diff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/isvoidbadtype.test.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/isvoidbadtype.test.out.unfilt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/letassociativity.diff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/letassociativity.test.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/letassociativity.test.out.unfilt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/letinit.diff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/letinit.test.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/letinit.test.out.unfilt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/letinitmultiplebindings.diff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/letinitmultiplebindings.test.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/letinitmultiplebindings.test.out.unfilt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/letnoinit.diff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/letnoinit.test.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/letnoinit.test.out.unfilt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/letparens.diff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/letparens.test.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/letparens.test.out.unfilt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/lteassociativity.diff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/lteassociativity.test.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/lteassociativity.test.out.unfilt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/multipleatdispatches.diff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/multipleatdispatches.test.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/multipleatdispatches.test.out.unfilt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/multipleattributes.diff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/multipleattributes.test.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/multipleattributes.test.out.unfilt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/multipleclasses.diff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/multipleclasses.test.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/multipleclasses.test.out.unfilt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/multipledispatches.diff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/multipledispatches.test.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/multipledispatches.test.out.unfilt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/multiplemethoderrors.diff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/multiplemethoderrors.test.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/multiplemethoderrors.test.out.unfilt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/nestedblocks.diff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/nestedblocks.test.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/nestedblocks.test.out.unfilt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/nestedlet.diff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/nestedlet.test.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/nestedlet.test.out.unfilt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/newbadtype.diff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/newbadtype.test.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/newbadtype.test.out.unfilt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/returntypebad.diff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/returntypebad.test.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/returntypebad.test.out.unfilt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/secondbindingerrored.diff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/secondbindingerrored.test.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/secondbindingerrored.test.out.unfilt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/staticdispatchnoargs.diff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/staticdispatchnoargs.test.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/staticdispatchnoargs.test.out.unfilt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/unaryassociativity.diff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/unaryassociativity.test.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/unaryassociativity.test.out.unfilt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/while.diff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/while.test.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/while.test.out.unfilt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/whileexpressionblock.diff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/whileexpressionblock.test.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/whileexpressionblock.test.out.unfilt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/whilenoloop.diff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/whilenoloop.test.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/whilenoloop.test.out.unfilt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/whileoneexpression.diff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/whileoneexpression.test.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/grading/test-output/whileoneexpression.test.out.unfilt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/assignments/PA3/parser" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA3/parser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/score.py" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA3/score.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA3/temp.txt" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA3/temp.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,6 +329,11 @@
         <option name="CLION.EXTERNAL.BUILD" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Custom Build Application.lexer" />
       <item itemvalue="Custom Build Application.parser" />
@@ -137,6 +355,8 @@
       <workItem from="1646398364556" duration="2773000" />
       <workItem from="1646449991841" duration="12540000" />
       <workItem from="1646533330956" duration="6174000" />
+      <workItem from="1646545014869" duration="2870000" />
+      <workItem from="1646616477381" duration="1694000" />
     </task>
     <servers />
   </component>

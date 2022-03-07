@@ -150,21 +150,23 @@
 
     /* You will want to change the following line. */
 
-    
+
     /* Precedence declarations go here. */
 
-    %right ASSIGN
-    %precedence NOT
-    %nonassoc '<' '=' LE
-    %left '+' '-'
-    %left '*' '/'
-    %precedence ISVOID
-    %precedence '~'
-    %precedence '@'
-    %precedence '.'
-    
+	%right FLAG
+	%right ASSIGN
+	%right NOT
+	%nonassoc '<' '=' LE
+	%left '+' '-'
+	%left '*' '/'
+	%left ISVOID
+	%left '~'
+	%left '@'
+	%left '.'
+
+
     %%
-    /* 
+    /*
     Save the root of the abstract syntax tree in a global variable.
     */
     program	: class_list	{ @$ = @1; ast_root = program($1); }
@@ -191,6 +193,7 @@
             {
                 $$ = class_($2, idtable.add_string("Object") , $4, stringtable.add_string(curr_filename));
             }
+            | error ';' { }
             ;
 
     features :
@@ -205,6 +208,7 @@
             {
                 $$ = append_Features($1,single_Features($2));
             }
+            | error ';' { }
             ;
 
     feature :
@@ -387,6 +391,7 @@
              {
                 $$ = let($1, $3, no_expr(), $5);
              }
+             | error ',' { yyerrok; }
              ;
 
 
@@ -399,6 +404,7 @@
                 {
                     $$ = append_Expressions($1, single_Expressions($2));
                 }
+                | error ';' { }
                 ;
 
     dispatch_expression :
@@ -432,7 +438,7 @@
            }
            ;
 
-    
+
     /* end of grammar */
     %%
     
