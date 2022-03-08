@@ -17,4 +17,4 @@
 * [CS 738: Advanced Compiler Optimizations](https://karkare.github.io/cs738/) at iitk
 * [CSE 231: Advanced Compilers](https://ucsd-pl.github.io/cse231/wi20/) at UCSB
 * [CS294-113: Virtual Machines and Managed Runtimes](http://www.wolczko.com/CS294/) at UCB  
-
+* [Crafting Interpreters](http://craftinginterpreters.com/acknowledgements.html) 

@@ -26,6 +26,8 @@ private:
 
   std::map<Symbol,Class__class*> name2class_definition;
   std::map<Symbol,Symbol> name2parent_name;
+  std::map<Symbol,method_class*>classname2methods;
+
   int semant_errors;
   void install_basic_classes();
 
@@ -36,7 +38,13 @@ public:
     bool install_custom_classes(Classes classes);
     bool build_inheritance_graph();
     bool is_inheritance_graph_valid();
-  ClassTable(Classes);
+    bool is_inheritance_graph_acyclic(Symbol name);
+    bool is_basic_class(Symbol name);
+    bool is_type_defined(Symbol name);
+    ClassTable(Classes);
+    void register_methods();
+    void register_class_and_its_methods(Class__class* );
+    std::map<Symbol,method_class*> get_class_methods(Class__class*class_defnition);
   int errors() { return semant_errors; }
   ostream& semant_error();
   ostream& semant_error(Class_ c);

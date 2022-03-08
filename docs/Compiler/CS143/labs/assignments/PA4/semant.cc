@@ -266,6 +266,17 @@ void program_class::semant()
         raise_error();
     }
 
+    if(!classtable->is_inheritance_graph_valid()){
+        raise_error();
+    }
+
+    if(classtable->errors()){
+        raise_error();
+    }
+
+    classtable->register_methods();
+
+
 
     if (classtable->errors()) {
 	cerr << "Compilation halted due to static semantic errors." << endl;
@@ -309,8 +320,86 @@ bool ClassTable::build_inheritance_graph() {
 }
 
 bool ClassTable::is_inheritance_graph_valid(){
+    for(auto &[name,class_defnition]:name2class_definition){
+        if(!is_inheritance_graph_acyclic(name)){
+            return false;
+        }
+    }
 
+    if(!is_type_defined(Main)){
+        return false;
+    }
+    return true;
 }
 
 
 
+/*
+ *
+ * function hasCycle(head) {
+    let fast = head
+    let slow = head
+    while (fast && fast.next) {
+        fast = fast.next.next
+        slow = slow.next
+        if (fast == slow) return true
+    }
+    return false
+}
+ */
+bool ClassTable::is_inheritance_graph_acyclic(Symbol name){
+    Symbol fast = name;
+    Symbol slow = name;
+    while(!is_basic_class(fast) && !is_basic_class(this->name2parent_name[fast])){
+        fast = this->name2parent_name[fast];
+        fast = this->name2parent_name[fast];
+        slow = this->name2parent_name[slow];
+        if(fast == slow){
+            return false;
+        }
+    }
+    return true;
+}
+
+bool ClassTable::is_basic_class(Symbol name){
+    return name == Object;
+}
+
+bool ClassTable::is_type_defined(Symbol name){
+    return this->name2class_definition.count(name);
+}
+
+
+void ClassTable::register_methods() {
+    for(auto &[name,class_defnition]:name2class_definition){
+        this->register_class_and_its_methods(class_defnition);
+    }
+}
+
+
+void ClassTable::register_class_and_its_methods(Class__class* class_defnition){
+
+}
+
+std::map<Symbol,method_class*> ClassTable::get_class_methods(Class__class*class_defnition){
+    std::map<Symbol, method_class*> class_methods;
+    Symbol name = class_defnition->get_name();
+    Features features = class_defnition->get_features();
+
+    for(int i=features->first(); features->more(i); i = features->next(i)){
+        Feature feature = features->nth(i);
+        if(!feature->is_method()){
+            continue;
+        }
+
+        auto* method = static_cast<method_class*>(feature);
+        Symbol method_name = method->get_name();
+
+        if(class_methods.count(method_name)){
+            // TODO: error here
+        }else{
+            class_methods[method_name] = method;
+        }
+    }
+    return class_methods;
+}
