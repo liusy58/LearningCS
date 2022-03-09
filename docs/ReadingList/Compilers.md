@@ -21,4 +21,6 @@
 * [Advanced Compiler Construction](http://misailo.web.engr.illinois.edu/courses/526-sp20/) (SP20) at UIUC
 * [CMSC 838E: Advanced Compilers](https://www.cs.umd.edu/class/spring2021/cmsc838E/index.html) at UMD 
 * [CS350: SECURE COMPILATION](http://theory.stanford.edu/~mp/mp/CS350-2018.html) at Stanford.
-
+* [CS 397/497: Advanced Topics in Compilers](https://users.cs.northwestern.edu/~simonec/ATC.html) at Northestern University.
+* [Advanced Compiler Design](http://user.it.uu.se/~kostis/Teaching/KT2-12/)
+* [CS252: Advanced Topics in PL](https://groups.seas.harvard.edu/courses/cs252/2020sp/reading_paper.html) at Harvard.
