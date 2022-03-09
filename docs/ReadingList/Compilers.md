@@ -19,3 +19,4 @@
 * [CS294-113: Virtual Machines and Managed Runtimes](http://www.wolczko.com/CS294/) at UCB  
 * [Crafting Interpreters](http://craftinginterpreters.com/acknowledgements.html) 
 * [Advanced Compiler Construction](http://misailo.web.engr.illinois.edu/courses/526-sp20/) (SP20) at UIUC
+* [CMSC 838E: Advanced Compilers](https://www.cs.umd.edu/class/spring2021/cmsc838E/index.html) at UMD 
