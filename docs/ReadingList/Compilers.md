@@ -18,3 +18,4 @@
 * [CSE 231: Advanced Compilers](https://ucsd-pl.github.io/cse231/wi20/) at UCSB
 * [CS294-113: Virtual Machines and Managed Runtimes](http://www.wolczko.com/CS294/) at UCB  
 * [Crafting Interpreters](http://craftinginterpreters.com/acknowledgements.html) 
+* [Advanced Compiler Construction](http://misailo.web.engr.illinois.edu/courses/526-sp20/) (SP20) at UIUC
