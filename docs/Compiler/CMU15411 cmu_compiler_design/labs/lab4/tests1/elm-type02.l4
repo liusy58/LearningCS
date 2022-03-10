@@ -1,0 +1,15 @@
+#test error
+//return type
+struct s {
+  k: int;
+};
+
+int main() {
+  return getNum();
+}
+
+int getNum() {
+ var y: s*;
+ y = new(s);
+ return y;
+}

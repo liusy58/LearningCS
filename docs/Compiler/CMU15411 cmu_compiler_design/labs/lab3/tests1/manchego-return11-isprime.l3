@@ -1,0 +1,42 @@
+#test return 1
+
+int main() {
+	return isprime(15411 + 2);
+}
+
+int isprime(a : int) {
+	var n, isprime : int;
+
+	isprime = !false();
+	n = 2;
+
+	while(1) {
+		if (square(n) > a) break;
+		
+		if (divides(n, a)) {
+			isprime = false();
+			break;
+		}
+	
+		n = inc(n);	
+	}
+
+	return isprime;
+}
+
+/* Return 1 if x divides y, 0 otherwise. */
+int divides(x : int, y : int) {
+	return !(y % x);
+}
+
+int inc(n : int) {
+	return n + 1;
+}
+
+int square(n : int) {
+	return n * n;
+}
+
+int false() {
+	return 0;
+}

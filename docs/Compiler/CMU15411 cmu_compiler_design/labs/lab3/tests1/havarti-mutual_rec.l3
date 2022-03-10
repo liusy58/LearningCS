@@ -1,0 +1,21 @@
+#test return 42
+
+int fun1(a : int)
+{
+    if (a == 0) return 42;
+    return fun2(a/2);
+}
+int fun2(a : int)
+{
+    if (a % 2 == 1) return fun3(a);
+    return fun1(a);
+}
+int fun3(a : int)
+{
+    return fun2(a-1);
+}
+
+int main()
+{
+    return fun1(100020203);
+}

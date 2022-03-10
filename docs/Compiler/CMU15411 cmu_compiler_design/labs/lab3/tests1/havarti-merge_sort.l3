@@ -1,0 +1,83 @@
+#test return 1
+
+/**
+ * Do merge sort on an array represented by an integer.
+ * We do it on an 16 element array (nice power of 2) with
+ * integers 0,1,2, or 3.
+ */
+int main()
+{
+    var input : int;
+    var sorted : int;
+    var c : int;
+    
+    // 1, 2, 0, 3, 3, 2, 1, 2, 0, 0, 2, 3, 2, 3, 2, 1 : 1860213705
+    // 0, 0, 0, 1, 1, 1, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3 : -5593792
+    input = 1860213705;
+    c = (merge_sort(input)) == -5593792;
+    
+    // 2, 0, 0, 1, 3, 2, 2, 1, 0, 0, 3, 3, 1, 2, 3, 1 : 2045799234
+    // 0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3 : -5614336
+    input = 2045799234;
+    c = c && (merge_sort(input) == -5614336);
+    
+    return c;
+}
+
+int merge_sort(A : int)
+{
+    var i, R, j, s, li, ri, cli, cri, k, Al, Ar : int;
+
+    // Groups of size 2, 4, 8
+    for (i = 2; i <= 16; i *= 2)
+    {
+	R = 0;
+	// Number of groups
+	for (j = 0; j < 16 / i; j += 1)
+	{
+
+	    // Left and right starts.
+	    s  = i / 2;
+	    li = 0 + j * i;
+	    ri = s + j * i;
+	    
+	    cli = li;
+	    cri = ri;
+	    k   = cli;
+
+	    // Exhaust one of the lists
+	    while ((cli < s + li) && (cri < s + ri))
+	    {
+		Al = (A >> (2*cli)) & 3;
+		Ar = (A >> (2*cri)) & 3;
+		if (Al < Ar)
+		{
+		    R |= (Al << (2*k));
+		    cli += 1;
+		}
+		else
+		{
+		    R |= (Ar << (2*k));
+		    cri += 1;
+		}
+		k += 1;
+	    }
+	    // Finish off the left
+	    for (; cli < s + li; cli += 1)
+	    {
+		Al = (A >> (2*cli)) & 3;
+		R |= (Al << (2*k));
+		k += 1;
+	    }
+	    // Finish off the right
+	    for (; cri < s + ri; cri += 1)
+	    {
+		Ar = (A >> (2*cri)) & 3;
+		R |= (Ar << (2*k));
+		k += 1;
+	    }
+	}
+	A = R;
+    }
+    return A;
+}

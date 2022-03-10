@@ -1,0 +1,17 @@
+#test return 50
+/* Team Blue
+ * Fiddle with loop variable
+ */
+
+int main() {
+	var i, accum: int;
+	accum = 0;
+	for (i = 0; i < 100; i += 3) {
+		if ((i % 2) == 0)
+			i -= 2;
+		
+		accum += 1;
+	}
+	
+	return accum;
+}

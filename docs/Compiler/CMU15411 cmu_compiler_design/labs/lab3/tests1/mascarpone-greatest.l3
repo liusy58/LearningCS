@@ -1,0 +1,46 @@
+#test return 26
+int main () {
+  var a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z:int;
+  var sum1, sum2:int;
+
+  a = 1;
+  b = a + 1;
+  c = b + 1;
+  d = c + 1;
+  e = d + 1;
+  f = e + 1;
+  g = f + 1;
+  h = g + 1;
+  i = h + 1;
+  j = i + 1;
+  k = j + 1;
+  l = k + 1;
+  m = l + 1;
+  n = m + 1;
+  o = n + 1;
+  p = o + 1;
+  q = p + 1;
+  r = q + 1;
+  s = r + 1;
+  t = s + 1;
+  u = t + 1;
+  v = u + 1;
+  w = v + 1;
+  x = w + 1;
+  y = x + 1;
+  z = y + 1;
+
+  return greater(greater(greater(greater(greater(a,b), greater(c,d)), greater(greater(e,f), greater(g,h))),
+         greater(greater(greater(i,j), greater(k,l)), greater(greater(m,n), greater(o,p)))),
+         greater(greater(greater(greater(q,r), greater(s,t)), greater(greater(u,v), greater(w,x))),
+         greater(y,z)));
+}
+
+int greater(a:int, b:int)
+{
+  if (a > b)
+    return a;
+  else 
+    return b;
+}
+

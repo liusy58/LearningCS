@@ -1,0 +1,18 @@
+#test exception 8
+// do you evaluate left-to-right?
+
+int f( a:int, b:int, c:int, d:int, e:int )
+{
+    return a+b+c+d+e;
+}
+
+int main()
+{
+    return f( 7 + 4, 1 / 0, 6, the_void(), 15 );
+}
+
+int the_void()
+{
+    return the_void();
+}
+

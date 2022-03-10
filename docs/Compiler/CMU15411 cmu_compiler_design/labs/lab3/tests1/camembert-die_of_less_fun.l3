@@ -1,0 +1,23 @@
+#test return 1987
+
+int main()
+{
+    return f0(1987);
+}
+int f0(aaa:int){ return f1(aaa);} 
+int f1(aaa:int){ return f2(aaa);} 
+int f2(aaa:int){ return f3(aaa);} 
+int f3(aaa:int){ return f4(aaa);} 
+int f4(aaa:int){ return f5(aaa);} 
+int f5(aaa:int){ return f6(aaa);} 
+int f6(aaa:int){ return f7(aaa);} 
+int f7(aaa:int){ return f8(aaa);} 
+int f8(aaa:int){ return f9(aaa);} 
+int f9(aaa:int){ return f10(aaa);} 
+int f10(aaa:int){ return f11(aaa);} 
+int f11(aaa:int){ return f12(aaa);} 
+int f12(aaa:int){ return f13(aaa);} 
+int f13(aaa:int){ return f14(aaa);} 
+int f14(aaa:int){ return f15(aaa);} 
+int f15(aaa:int){ return f16(aaa);} 
+int f16(aaa:int){ return aaa;} 

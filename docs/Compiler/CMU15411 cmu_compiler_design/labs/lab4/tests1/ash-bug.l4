@@ -1,0 +1,13 @@
+#test error
+
+// *NULL now disallowed, for typing reasons
+
+int foo() {
+  // the statement *NULL causes the compiler to crash ! (some weird optimization perhaps ?)
+  *NULL;
+  return 0;
+}
+
+int main() {
+  return 7;
+}

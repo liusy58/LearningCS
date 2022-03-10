@@ -1,0 +1,14 @@
+#test return 1
+struct a { b: b; };
+struct b { c: c; };
+struct c { d: d; };
+struct d { e: e; };
+struct e { f: f; };
+struct f { g: g; };
+struct g { h: h; };
+struct h { a: a *; };
+int main() {
+	var a: a*;
+	a = new(a);
+	return (a->b.c.d.e.f.g.h.a == NULL) ? 1 : 0;
+}

@@ -1,0 +1,35 @@
+#test return 50000
+int a(b:int,c:int) {
+  if(b == c)
+    return b;
+  if(b > c) {
+    return b(b+1, c-1);
+  } else {
+    return c(b-1, c+1);
+  }
+}
+int b(a:int,c:int) {
+  if(a == c)
+    return a;
+  if(a > c) {
+    return a(c+2, a-2);
+  } else {
+    return c(c-2, a+2);
+  }
+}
+int c(a:int,b:int) {
+  if(a == b)
+    return a;
+  if(a > b) {
+    return a(b+4, a-4);
+  } else {
+    return b(b-4, a+4);
+  }
+}
+
+int main() {
+  var x,y:int;
+  x = 0;
+  y = 100000;
+  return a(x,y);
+}

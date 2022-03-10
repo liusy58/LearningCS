@@ -1,0 +1,9 @@
+#test exception 8
+int main() {
+	var foo:int[];
+	var bar:int*;
+	bar = NULL;
+	foo = new(int[43534]);
+	foo[1/0] = *bar;
+	return 0;
+}

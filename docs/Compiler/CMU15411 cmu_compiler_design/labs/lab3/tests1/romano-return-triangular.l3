@@ -1,0 +1,13 @@
+#test return 105
+// Computes the 14th triangular number
+int main() {
+  return triangle(14);
+}
+
+int triangle(n : int) {
+  var tnum, x : int;
+  tnum = 0;
+  for (x = 1; x <= n; x += 1)
+    tnum += x;
+  return tnum;
+}

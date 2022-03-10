@@ -1,0 +1,16 @@
+#test return 426
+
+int main() {
+	return add(15, 411);
+}
+
+int add(x : int, y : int) {
+	if (x <= 0) {
+		if (y <= 0)
+			return 0;
+		else
+			return 1 + add(0, y - 1);
+	}
+	else
+		return 1 + add(x - 1, y);
+}

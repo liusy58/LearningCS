@@ -1,0 +1,21 @@
+#test return 2048
+
+// Pascal's triangle
+int pascal(n : int, k : int) {
+  if (k == 0 || k == n) return 1;
+  else return pascal(n - 1, k - 1) + pascal(n - 1, k);
+}
+
+int sum(n : int) {
+  var sum, k : int;
+  sum = 0;
+  for (k = 0; k <= n; k += 1)
+    sum += pascal(n, k);
+  return sum;
+}
+
+int main() {
+  return sum(11);
+}
+
+ 

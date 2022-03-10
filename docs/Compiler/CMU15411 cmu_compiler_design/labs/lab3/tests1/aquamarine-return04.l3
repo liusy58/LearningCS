@@ -1,0 +1,23 @@
+#test return 16
+
+int add (x : int, y : int) {
+	return x + y;
+}
+
+int mult(x : int, y : int) {
+	var w : int;
+	var z : int;
+	w = 0;
+	for (z = 0; z < x; z += 1) {
+		w = add(w, y);
+	}
+	return w;
+}
+
+int square(x : int) {
+	return mult(x, x);
+}
+
+int main() {
+	return square(4);
+}

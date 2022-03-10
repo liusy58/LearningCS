@@ -1,0 +1,12 @@
+#test return 0
+//boring 
+{
+  x = -50;
+  y = 0;
+  while(y != x)
+  {
+    x += 1;
+    y = x * x;
+  }
+  return x;
+}

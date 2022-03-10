@@ -1,0 +1,14 @@
+#test return 1
+{
+  // return true if the given number is perfect
+
+  in = 8128;
+  sumdivisors = 0;
+  for (i = 1; i < in; i += 1) {
+    if (in % i == 0) {
+      sumdivisors += i;
+    }
+  }
+
+  return (in == sumdivisors);
+}

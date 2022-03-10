@@ -1,0 +1,17 @@
+#test exception 8
+
+int b(a:int) {
+	return 0;
+}
+
+int a(b:int) {
+	return 1;
+}
+
+int c(g:int) {
+	return a(0) && (a(0)/b(0));
+}
+
+int main() {
+	return c(0);
+}

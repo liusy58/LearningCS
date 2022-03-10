@@ -1,0 +1,18 @@
+#test return 41
+// Number of knights you can place on a N x N chessboard
+// such that they do not threaten each other.
+{
+  N = 9;
+
+  sum = 0;
+  if (N % 2) line = (N + 1) / 2;
+  else line = N / 2;
+
+  for (i = 0; i < N; i+=1)  {
+    sum += line;
+    line = - line + N;
+  }
+
+  return sum;
+}
+

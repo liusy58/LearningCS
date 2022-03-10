@@ -1,0 +1,10 @@
+#test exception 8
+// gcd using Euclidean algorithm except without base case
+
+int main () {
+  return gcd(1000,8329); // 8329 prime
+}
+
+int gcd(a:int, b:int) {
+  return gcd(b, a%b);
+}

@@ -1,0 +1,9 @@
+#test return 3
+{
+  one = 1;
+  twentyone = one | (one << 2) | (one << 4);	// 21
+  q = twentyone;
+  q |= (q << 1); // 63
+  seven = q / 9;
+  return twentyone / seven;
+}

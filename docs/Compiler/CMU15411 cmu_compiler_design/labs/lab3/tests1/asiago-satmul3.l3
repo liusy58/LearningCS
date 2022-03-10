@@ -1,0 +1,25 @@
+#test return 2147483647
+//#test return 268435456
+
+/*
+ * satMul3 - multiplies by 3, saturating to Tmin or Tmax if overflow
+ */
+int satMul3(x : int) {
+	var tmin, tmax, x_neg, thrice, sign_t, diff_pos, diff_neg, pos_overflow, neg_overflow : int;
+	
+	tmin = 1 << 31;	
+	tmax = ~tmin;
+	x_neg = x >> 31;
+	thrice = ( x << 1 ) + x;
+	sign_t = thrice >> 31;
+	diff_pos = thrice + ~x + 1;
+	diff_neg = ~diff_pos;
+	pos_overflow = ~x_neg & ( ( diff_pos ) >> 31 | sign_t );
+	neg_overflow =  x_neg & ( ( diff_neg ) >> 31 | ~sign_t );
+	thrice = ( ~(pos_overflow | neg_overflow) & thrice ) + (tmax & pos_overflow) + (tmin & neg_overflow);
+	return thrice;
+}
+
+int main() {
+	return satMul3(805306368);
+}

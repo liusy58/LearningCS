@@ -1,0 +1,6 @@
+#test return -1
+// tests left/right shifting by a large immediate
+
+int main () {
+  return ((-1)<<32)>>32;
+}

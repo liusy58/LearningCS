@@ -1,0 +1,16 @@
+#test return 12
+int main () {
+  
+  var x : int;
+  var count : int;
+  count = 0;
+  x = 1234567890;
+ 
+  while(x)
+  {
+    count += 1;
+    x &= (x-1);
+  }
+  
+  return count;
+}

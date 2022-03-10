@@ -1,0 +1,11 @@
+#test return 128
+#2^n
+int exp(a:int) {
+	if(a == 0)
+		return 1;
+	return exp(a - 1) + exp(a - 1);
+}
+
+int main() {
+	return exp(7);
+}

@@ -1,0 +1,6 @@
+#test return 0
+// simple xor test
+
+int main() {
+  return 1023 ^ 1023;
+}

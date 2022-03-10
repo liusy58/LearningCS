@@ -1,0 +1,5 @@
+#test error
+int main() {
+	var main, main:int;
+	return 1;
+}

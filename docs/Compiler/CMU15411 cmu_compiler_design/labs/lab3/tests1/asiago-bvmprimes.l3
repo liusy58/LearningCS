@@ -1,0 +1,57 @@
+#test return 11
+
+// blum-aitharaju-venkateswaran prime numbers
+
+int flip_bit( n:int, b:int) {
+    return n ^ ( 1 << b );
+}
+
+int isPrime( a : int) {
+	var factors, j : int;
+	
+	/* test if num is prime */
+	factors = 0;
+	for ( j = 2 ; j < a ; j += 1 ) {
+		if ( a % j == 0 ) {
+			factors += 1;
+		}
+	}
+	return (factors == 0);
+}
+
+/* Computation Methods */
+int isPrimeToComposites(x : int, b : int) {
+    var allComposite, i : int;
+
+	allComposite = 1;	// true
+	
+    for (i = 1; i < b - 1; i += 1) {
+        allComposite = allComposite && !isPrime( flip_bit(x, i) );
+    }
+
+    return allComposite;
+}
+
+int count_hits(N : int)
+{
+	var start, end, count, i : int;
+	
+    start = ( 1 << (N-1) ) + 1;
+    end   = ( 1 << N ) - 1;
+
+    count = 0;
+    
+    for ( i = start ; i <= end ; i = i + 1 ) {
+        if ( isPrime(i) && isPrimeToComposites(i, N) ) {
+            count = count + 1;
+        }
+    }
+    
+    return count;
+}
+
+
+int main() {
+	return count_hits(9);
+}
+

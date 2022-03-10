@@ -1,0 +1,17 @@
+#test exception
+
+int sum(x: int, y:int){
+	return x + y;
+}
+
+int diff(x:int, y:int){
+	return x - y;
+}
+
+int main(){
+	var n1, n2 :int;
+	n1 = 5;
+	n2 = 10;
+
+	return sum(n1, n1)/ diff(n2, n2);
+}

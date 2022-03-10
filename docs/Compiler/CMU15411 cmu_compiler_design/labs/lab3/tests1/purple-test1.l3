@@ -1,0 +1,6 @@
+#test error
+int main()
+{
+	var x = 2;
+	//doesn't return
+}

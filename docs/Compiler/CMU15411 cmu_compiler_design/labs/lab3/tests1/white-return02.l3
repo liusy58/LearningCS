@@ -1,0 +1,13 @@
+#test return 45
+int test_for(){
+  var i, x : int;
+  x = 0;
+  for(i=0; i < 10; i+=1){
+    x += i;
+  }
+  return x;
+}
+
+int main(){
+  return test_for();
+}

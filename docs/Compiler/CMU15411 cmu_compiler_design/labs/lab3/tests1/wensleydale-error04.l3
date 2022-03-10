@@ -1,0 +1,21 @@
+#test error
+int main()
+{
+	var x,y : int;
+	x = 3;
+	y = x << 4;
+	return f(x,y);
+}
+
+/* possible execution without return */
+int f(i:int, j:int)
+{
+	if(i > 0)
+	{
+		return j + f(i - 1, j * 2);
+	}
+	if(i == 0)
+	{
+		return j;
+	}
+}

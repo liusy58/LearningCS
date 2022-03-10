@@ -1,0 +1,47 @@
+#test return 127
+
+struct List {
+  head : int;
+  tail : List*;
+};
+
+// test int list library
+
+int main() {
+  var test, x : int;
+  var a,b,c : List*;
+  
+  test = 0;
+  
+  a = nil();
+  b = cons(77, a);
+  c = cons(88, b);
+  
+  test |= (isEmpty(a) ? 1 : 0);
+  test |= (!(isEmpty(b) || isEmpty(c)) ? 1 : 0) << 1;
+  test |= ((a == NULL && b != NULL && c != NULL) ? 1 : 0) << 2;
+  test |= ((a != b && a != c && b != c) ? 1 : 0) << 3;
+  test |= ((c->head == 11 + b->head) ? 1 : 0) << 4;
+  test |= ((c->tail == b) ? 1 : 0) << 5;
+  test |= ((b->tail == a) ? 1 : 0) << 6;
+  
+  return test;
+}
+
+/* basic list */
+
+List* nil() {
+  return NULL;
+}
+
+List* cons(i : int, list : List*) {
+  var newList : List*;
+  newList = new(List);
+  newList->head = i;
+  newList->tail = list;
+  return newList;
+}
+
+bool isEmpty(list : List*) {
+  return list == NULL;
+}

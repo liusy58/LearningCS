@@ -1,0 +1,14 @@
+#test return 28
+// Finds the least natural less than the given n that is a multiple of 7 recursively.
+
+int mult7_rec (n : int) {
+  if (n <= 6)
+    return 0;
+  else
+    return 7 + mult7_rec(n - 7);
+}
+
+int main () 
+{
+	return mult7_rec(33);
+}

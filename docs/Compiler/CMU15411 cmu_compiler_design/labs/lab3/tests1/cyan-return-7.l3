@@ -1,0 +1,13 @@
+#test return 14
+// Tests GCD recursively
+
+int gcd (a : int, b : int) {
+    if (b == 0) 
+    	return a;
+    else 
+    	return gcd(b, a % b);
+}
+
+int main () {
+  return gcd(28, 98);
+}

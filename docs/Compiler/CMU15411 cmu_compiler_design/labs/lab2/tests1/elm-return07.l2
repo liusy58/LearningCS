@@ -1,0 +1,9 @@
+#test return 2
+// test short-circuit
+{
+  i = 2;
+  if(i == 2 || i/0 == 1)
+    return i;
+  else
+    return 3;
+}

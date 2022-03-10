@@ -1,0 +1,7 @@
+#test return 25
+{
+	a = 34324322;
+	for(i=0;(a >> i) > 0;i += 1);
+	return i-1;
+}
+

@@ -1,0 +1,10 @@
+#test error
+//same field names within struct
+struct s {
+  f: int;
+  f: int*;
+};
+
+int main() {
+  return 1;
+}

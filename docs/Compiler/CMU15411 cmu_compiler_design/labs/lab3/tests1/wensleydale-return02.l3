@@ -1,0 +1,27 @@
+#test return 8
+
+/* count the number of 1's in a bit string */
+
+int main()
+{
+	var x:int;
+	x = 255;
+	return count(x);
+}
+
+int count(x:int)
+{
+	var i,c : int;
+	c = 0;
+	for(i = 0; i < 32; i += 1)
+        {
+		if((x >> i) & 1)
+		{
+			c += 1;
+		}
+	}
+	return c;
+}
+
+
+	

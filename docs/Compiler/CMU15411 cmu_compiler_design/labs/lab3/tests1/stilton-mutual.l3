@@ -1,0 +1,15 @@
+#test return 0
+
+int a(n:int){
+	if(n < 0)
+		return 0;
+	return b(n-2);
+}
+
+int b(n:int){
+	return a(n+1);
+}
+
+int main() {
+  return a(1024);
+}

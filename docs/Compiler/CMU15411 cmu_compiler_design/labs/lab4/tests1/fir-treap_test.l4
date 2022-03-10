@@ -1,0 +1,438 @@
+#test return 8151337
+
+
+
+
+
+
+struct twister_t
+{
+  index:int;
+  states:int[];
+};
+
+
+struct treap_t
+{
+ random:twister_t *;
+ root:treap_node_t *;
+};
+struct treap_node_t
+{
+ left:treap_node_t *;
+ right:treap_node_t *;
+ parent:treap_node_t *;
+  prio:int;
+ key:int;
+ value:int;
+};
+extern int printint(n:int);
+extern int printchar(c:int);
+twister_t *twister_new(seed:int)
+{
+  var twister:twister_t *;
+  var states:int[];
+  var i:int;
+  twister = new(twister_t);
+
+  states = new(int[624]);
+  twister->states = states;
+
+  states = twister->states;
+  states[0] = seed;
+  for (i = 1; i <= 623; i += 1)
+  {
+      states[i] = (1812433253 * (states[i-1] ^ (states[i-1] >> 30 )) + i) ;
+  }
+  return twister;
+}
+
+
+
+int twister_rand(twister:twister_t *) {
+  var y:int;
+  var unit:int;
+  if (twister->index == 0)
+  {
+    unit = twister_gen(twister);
+  }
+
+  y = twister->states[twister->index];
+    y ^= (y >> 11);
+    y ^= (y << 7) & (2636928640) ;
+    y ^= (y << 15) & (4022730752) ;
+    y ^= (y >> 18);
+
+    twister->index = (twister->index + 1) % 624;
+    return y;
+}
+
+
+int twister_gen(twister:twister_t *)
+{
+  var i,y:int;
+  var states:int[];
+  states = twister->states;
+  for (i = 0; i <= 623; i += 1)
+  {
+    y = ((((states[i])) & (1 << (31))) != 0 ? 1 : 0) + (~(1 << (31)) & (states[(i+1) % 624]));
+    states[i] = states[(i + 397) % 624] ^ (y >> 1);
+    if ((y % 2) == 1)
+    {
+
+      states[i] = states[i] ^ (2567483615) ;
+    }
+  }
+  return 0;
+}
+treap_t *treap_create(seed:int)
+{
+    var trp:treap_t *;
+  trp = new(treap_t);
+  trp->root = NULL;
+  trp->random = twister_new(seed);
+    return trp;
+}
+int treap_rotate_right(trp:treap_t *, node:treap_node_t *)
+{
+  var left,parent:treap_node_t *;
+  parent = node->parent;
+  left = node->left;
+  node->left = left->right;
+  left->parent = parent;
+  node->parent = left;
+  left->right = node;
+
+  if (parent != NULL)
+  {
+    if (parent->left == node)
+    {
+      parent->left = left;
+    }
+    else
+    {
+      parent->right = left;
+    }
+  }
+  else
+  {
+
+    trp->root = left;
+  }
+  if (node->left != NULL)
+  {
+    node->left->parent = node;
+  }
+  return 0;
+}
+int treap_rotate_left(trp:treap_t *, node:treap_node_t *)
+{
+    var right,parent:treap_node_t *;
+  parent = node->parent;
+  right = node->right;
+  node->right = right->left;
+  right->parent = parent;
+  node->parent = right;
+  right->left = node;
+
+    if (parent != NULL)
+    {
+      if (parent->right == node)
+      {
+        parent->right = right;
+      }
+      else
+      {
+        parent->left = right;
+      }
+    }
+    else
+    {
+
+      trp->root = right;
+    }
+  if (node->right != NULL)
+  {
+   node->right->parent = node;
+  }
+  return 0;
+}
+int treap_percolate_up(trp:treap_t *, node:treap_node_t *)
+{
+  var parent:treap_node_t *;
+  parent = node->parent;
+  while ((parent != NULL)
+          && (((node)->prio) < ((parent)->prio)))
+  {
+  treap_print_node(parent);
+    if (parent->left == node)
+    {
+      treap_rotate_right(trp,parent);
+   printchar(82);
+   printchar(10);
+    }
+    else if(parent->right == node)
+    {
+      treap_rotate_left(trp,parent);
+   printchar(76);
+   printchar(10);
+    }
+   parent = node->parent;
+  }
+  return 0;
+}
+
+int treap_percolate_down(trp:treap_t *, node:treap_node_t *)
+{
+  var left,right:treap_node_t *;
+  left = node->left;
+  right = node->right;
+  while(left != NULL || right != NULL)
+  {
+    if (left == NULL)
+    {
+     treap_rotate_left(trp,node);
+    }
+    else if (right == NULL)
+    {
+      treap_rotate_right(trp,node);
+    }
+    else if ((((left)->prio) < ((right)->prio)))
+    {
+      treap_rotate_right(trp,node);
+    }
+    else
+    {
+      treap_rotate_left(trp,node);
+    }
+    left = node->left;
+    right = node->right;
+  }
+  return 0;
+}
+
+
+
+
+
+
+
+int treap_insert(trp:treap_t *, key:int, value:int)
+{
+  var temp,parent,new_node:treap_node_t *;
+  temp = trp->root;
+  parent = temp;
+  new_node = new(treap_node_t);
+
+  new_node->prio = twister_rand(trp->random);
+  new_node->key = key;
+  new_node->value = value;
+  new_node->left = NULL;
+  new_node->right = NULL;
+  new_node->parent = NULL;
+ treap_print_node(new_node);
+
+  while (temp != NULL)
+  {
+    parent = temp;
+    if (new_node->key < parent->key)
+    {
+      temp = parent->left;
+    }
+    else
+    {
+      temp = parent->right;
+    }
+  }
+  if (parent == NULL)
+  {
+    trp->root = new_node;
+    return 0;
+  }
+  if (new_node->key < parent->key)
+  {
+    parent->left = new_node;
+  }
+  else
+  {
+    parent->right = new_node;
+  }
+  new_node->parent = parent;
+  treap_percolate_up(trp, new_node);
+  if (new_node->parent == NULL)
+  {
+    trp->root = new_node;
+  }
+  return 0;
+}
+int treap_remove(trp:treap_t *, key:int, value:int *)
+{
+  var temp: treap_node_t *;
+  temp = trp->root;
+  while ((temp != NULL) && (temp->key != key))
+  {
+    if (temp->key < key)
+    {
+      temp = temp->left;
+    }
+    else if(temp->key > key)
+    {
+      temp = temp->right;
+    }
+  }
+  if (temp == NULL)
+  {
+    return -1;
+  }
+  *value = temp->value;
+  treap_percolate_down(trp, temp);
+  if (temp->parent != NULL)
+  {
+    if (temp->parent->left == temp)
+    {
+      temp->parent->left = NULL;
+    }
+    else
+    {
+      temp->parent->right = NULL;
+    }
+ }
+  else
+  {
+    trp->root = NULL;
+  }
+  return 0;
+}
+
+
+
+
+
+
+
+int treap_lookup(trp:treap_t *, key:int, value:int *)
+{
+    var temp:treap_node_t *;
+    temp = trp->root;
+    while ((temp != NULL) && (temp->key != key))
+    {
+    treap_print_node(temp);
+        if (temp->key > key)
+        {
+            temp = temp->left;
+        }
+        else if (temp->key < key)
+        {
+            temp = temp->right;
+        }
+    }
+    if (temp == NULL)
+    {
+        return -1;
+    }
+    *value = temp->value;
+    return 0;
+}
+
+
+
+
+int treap_empty(trp:treap_t *)
+{
+    if (trp->root == NULL)
+    {
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
+
+}
+int treap_print_node(node:treap_node_t *)
+{
+ printchar(107);
+ printchar(61);
+ printint(node->key);
+ printchar(44);
+ printchar(32);
+ printchar(112);
+ printchar(61);
+ printint(node->prio);
+ printchar(44);
+ printchar(32);
+ printchar(118);
+ printchar(61);
+ printint(node->value);
+ printchar(10);
+ return 0;
+}
+
+
+int print_ins(k:int,v:int)
+{
+ printchar(73);
+ printchar(78);
+ printchar(83);
+ printchar(32);
+ printchar(107);
+ printchar(61);
+ printint(k);
+ printchar(44);
+ printchar(32);
+ printchar(118);
+ printchar(61);
+ printint(v);
+ printchar(10);
+ return 0;
+}
+int main()
+{
+ var trp:treap_t *;
+ var num:int *;
+ var idx:int;
+ num = new(int);
+
+ trp = treap_create(8151337);
+
+ print_ins(1,0);
+ treap_insert(trp,1,0);
+ print_ins(2,0);
+ treap_insert(trp,2,0);
+ print_ins(3,0);
+ treap_insert(trp,3,0);
+ print_ins(4,0);
+ treap_insert(trp,4,0);
+ print_ins(5,0);
+ treap_insert(trp,5,0);
+ print_ins(6,0);
+ treap_insert(trp,6,0);
+ print_ins(7,0);
+ treap_insert(trp,7,0);
+ print_ins(8,0);
+ treap_insert(trp,8,8151337);
+ print_ins(9,0);
+ treap_insert(trp,9,0);
+ print_ins(10,0);
+ treap_insert(trp,10,0);
+ print_ins(11,0);
+ treap_insert(trp,11,0);
+ print_ins(12,0);
+ treap_insert(trp,12,0);
+ print_ins(13,0);
+ treap_insert(trp,13,0);
+ print_ins(14,0);
+ treap_insert(trp,14,0);
+ print_ins(15,0);
+ treap_insert(trp,15,0);
+ treap_lookup(trp,1,num);
+
+ idx = 0;
+ while (*num == 0)
+ {
+  treap_lookup(trp,idx,num);
+  idx +=1;
+ }
+
+  return *num;
+}

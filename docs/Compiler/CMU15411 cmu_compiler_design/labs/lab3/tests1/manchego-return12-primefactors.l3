@@ -1,0 +1,71 @@
+#test return 15411
+
+extern int printint(n : int);
+extern int printchar(c : int);
+
+int main() {
+	var n, f : int;
+	var acc, SPACE, EQUALS, NEWLINE, _ : int;
+
+	n = 15411;
+	acc = 1;
+	SPACE = 32;
+	EQUALS = 61;
+	NEWLINE = 10;
+
+	for (f = 2; f <= n; f += 1) {
+		if (isprime(f)) {
+			while (n % f == 0) {
+				acc *= f;
+				n /= f;
+
+				_ = printint(f);
+				_ = printchar(SPACE);	
+			}
+		} else continue;
+	}
+
+	_ = printchar(EQUALS);
+	_ = printchar(SPACE);
+	_ = printchar(acc);
+	_ = printchar(NEWLINE);
+
+	return acc;
+}
+
+int isprime(a : int) {
+	var n, isprime : int;
+
+	isprime = !false();
+	n = 2;
+
+	while(1) {
+		if (square(n) > a) break;
+		
+		if (divides(n, a)) {
+			isprime = false();
+			break;
+		}
+	
+		n = inc(n);	
+	}
+
+	return isprime;
+}
+
+/* Return 1 if x divides y, 0 otherwise. */
+int divides(x : int, y : int) {
+	return !(y % x);
+}
+
+int inc(n : int) {
+	return n + 1;
+}
+
+int square(n : int) {
+	return n * n;
+}
+
+int false() {
+	return 0;
+}

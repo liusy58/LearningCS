@@ -1,0 +1,15 @@
+#test error
+/* different struct types in comparison */
+
+struct point {x:int; y:int;};
+struct rect {x:int; y:int;};
+
+int main () {
+  var p : point*;
+  var r : rect*;
+  p = new(point);
+  p->x = 1; p->y = 2;
+  r = new(rect);
+  r->x = 1; r->y = 2;
+  return (p == r);
+}

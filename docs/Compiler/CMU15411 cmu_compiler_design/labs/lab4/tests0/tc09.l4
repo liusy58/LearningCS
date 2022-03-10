@@ -1,0 +1,7 @@
+#test error
+/* undeclared variable */
+
+int main () {
+  var funny_nam : int;
+  return funny_name;
+}

@@ -1,0 +1,32 @@
+#test exception
+{
+	modulus = 23947;
+	exponent = 1248123;
+	base = 328;
+
+	var1 = 0;
+	var2 = ~0;
+
+	var1 |= (!(!((var2<<16)&exponent)))<<4; 
+	var1 |= (!(!((var2<<8)&(exponent>>var1))))<<3;
+	var1 |= (!(!((var2<<4)&(exponent>>var1))))<<2;
+	var1 |= (!(!((var2<<2)&(exponent>>var1))))<<1;
+	var1 |= exponent>>(var1+1);
+	if (var1 < 0) var1 = 31;
+	shift = 31 - var1;
+	exponent <<= shift;
+
+	mask = (1 << 31);
+
+	x = 1;
+	while (exponent != 0 || x / x)
+	{
+		if (!(mask & exponent)) x *= x;
+		else x *= x * exponent;
+		exponent <<= 1;
+		x %= modulus;
+	}
+	return x;
+}
+
+

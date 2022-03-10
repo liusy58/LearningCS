@@ -1,0 +1,18 @@
+#test return 1254
+// while
+{
+  x = 1;
+
+  step = x; 
+  while (x % 57) x += step;
+
+  step = x; 
+  while (x % 33) x += step;
+
+  step = x; 
+  while (x % 38) x += step;
+
+  return x;
+}
+
+

@@ -1,0 +1,10 @@
+#test exception 8 
+// division overflow 
+
+int fun(n : int) {
+  return -2147483648 / n;
+}
+
+int main() {
+  return fun(2 - 3);
+}

@@ -1,0 +1,73 @@
+#test exception 11
+
+struct List {
+  head : int;
+  tail : List*;
+};
+
+// test list creation and fails due to a bug in 'isEmpty'
+
+int main() {
+  var test, x : int;
+  var a,b,c : List*;
+  
+  test = 0;
+  
+  a = upto(3);
+  b = range(0, 4);
+  c = cons(0, a);
+  
+  test |= ((b->head == c->head) ? 1 : 0);
+  test |= ((b->tail->head == c->tail->head) ? 1 : 0) << 1;
+  test |= ((b->tail->tail->head == c->tail->tail->head) ? 1 : 0) << 2;
+  test |= ((b->tail->tail->tail->head == c->tail->tail->head) ? 1 : 0) << 3;
+  test |= ((b->tail->tail->tail->tail == NULL) ? 1 : 0) << 4;
+  test |= ((c->tail->tail->tail->tail == NULL) ? 1 : 0) << 5;
+  test |= ((c->tail->tail->tail == a->tail->tail) ? 1 : 0) << 6;
+  
+  // this loop causes the expcetion
+  for (x = 0; !isEmpty(c);) {
+    if (c->head == b->head) x+= 1;
+    b = b->tail;
+	c = c->tail;
+  }
+  
+  test |= ((x == 4) ? 1 : 0) << 7;
+  
+  return test;
+}
+
+/* list creation */
+
+// list [start, ..., end)
+List* range(start : int, end : int) {
+  if (start < end)
+    return cons(start, range(start + 1, end));
+  else
+    return nil();
+} 
+
+// list [1, ..., end]
+List* upto(end : int) {
+  return range(1, end + 1);
+}
+
+/* basic list */
+
+List* nil() {
+  return NULL;
+}
+
+List* cons(i : int, list : List*) {
+  var newList : List*;
+  newList = new(List);
+  newList->head = i;
+  newList->tail = list;
+  return newList;
+}
+
+bool isEmpty(list : List*) {
+  // oops, here is a bug
+  return false;
+  return list == NULL;
+}

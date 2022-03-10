@@ -1,0 +1,26 @@
+#test return 1732050
+
+int sqrt(number:int) {
+  var temp:int;
+  temp=0;
+  while(temp*temp<number){
+    temp+=1;
+  }
+  temp-=1;
+  return sqrthelper(number*100,temp*10,1);
+}
+
+int sqrthelper(number:int,cur:int,digit:int){
+  var temp:int;
+  if(digit>6) return cur/10;
+  temp=0;
+  while((cur+temp)*(cur+temp)<number){
+    temp+=1;
+  }
+  temp-=1;
+  return sqrthelper(number*100,(cur+temp)*10,digit+1);
+}
+
+int main() {
+  return sqrt(3);
+}

@@ -1,0 +1,30 @@
+#test return 12
+// Pointer to an array of structs with arrays
+
+struct str {
+  n : int;
+  a : int[];
+};
+
+str[]* f(n : int) {
+  var i, j : int;
+  var result : str[]*;
+  result = new(str[]);
+  *result = new(str[n]);
+  
+  for (i = 0; i < n; i += 1) {
+    (*result)[i].n = i;
+    (*result)[i].a = new(int[n]);
+    for (j = 0; j < n; j += 1) {
+      (*result)[i].a[j] = i * j;
+    }
+  }
+  
+  return result;
+}
+
+int main() {
+  var p : str[]*;
+  p = f(5);
+  return (*p)[3].a[4];
+}

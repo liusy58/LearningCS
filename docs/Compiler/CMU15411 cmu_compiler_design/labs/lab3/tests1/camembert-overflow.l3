@@ -1,0 +1,47 @@
+#test exception
+// this will either timeout or overflow
+
+int main()
+{
+    var i:int;
+    var j:int;
+    var k:int;
+    var l:int;
+    i = 3;
+    j = 2;
+    k = 6;
+    l = 9;
+    i = j + 1;
+    i = k + 10;
+    return other();
+}
+
+int other()
+{
+    var i:int;
+    var j:int;
+    var k:int;
+    var l:int;
+    i = 3;
+    j = 2;
+    k = 6;
+    l = 9;
+    i = j + 1;
+    i = k + 10;
+    return somethingelse();
+}
+
+int somethingelse()
+{
+    var i:int;
+    var j:int;
+    var k:int;
+    var l:int;
+    i = 3;
+    j = 2;
+    k = 6;
+    l = 9;
+    i = j + 1;
+    i = k + 10;
+    return main();
+}

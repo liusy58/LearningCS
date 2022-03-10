@@ -1,0 +1,66 @@
+#test return 7
+/* Finds the number of Mersenne primes (primes of the form 2^p - 1) between
+2 and 2^30 - 1 and prints them. */
+
+extern int printint(n : int);
+extern int printchar(c : int);
+
+int main() {
+	var mer, n, sh : int;
+	var SPACE, NEWLINE, _ : int;
+
+	n = 0;
+	SPACE = 32;
+	NEWLINE = 10;
+
+	for (sh = 2; sh <= 30; sh += 1) {
+		mer = (1 << sh) - 1;
+
+		if (isprime(mer)) {
+			n += 1;
+			_ = printint(mer);
+			_ = printchar(SPACE);		
+		}
+	}
+
+	_ = printchar(NEWLINE);
+
+	return n;
+}
+
+int isprime(a : int) {
+	var n, isprime : int;
+
+	isprime = !false();
+	n = 2;
+
+	while(1) {
+		if (square(n) > a) break;
+		
+		if (divides(n, a)) {
+			isprime = false();
+			break;
+		}
+	
+		n = inc(n);	
+	}
+
+	return isprime;
+}
+
+/* Return 1 if x divides y, 0 otherwise. */
+int divides(x : int, y : int) {
+	return !(y % x);
+}
+
+int inc(n : int) {
+	return n + 1;
+}
+
+int square(n : int) {
+	return n * n;
+}
+
+int false() {
+	return 0;
+}

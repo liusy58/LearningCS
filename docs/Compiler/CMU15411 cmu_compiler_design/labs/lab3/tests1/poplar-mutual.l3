@@ -1,0 +1,31 @@
+#test return 130417081;0
+// mutual recursion
+
+extern int putchar(a : int);
+
+int odd(n : int)
+{
+        if (n == 1)
+                return 1;
+        else
+                return n - even(n - 1);
+}
+
+int even(n : int)
+{
+        if (n == 0)
+                return 0;
+        else return n + odd(n - 1);
+}
+
+int main()
+{
+        var i : int;
+        var q : int;
+        for (i = 1; i <= 10; i += 1)
+                if (i % 2 == 0)
+                        q = putchar(48 + even(i));
+                else
+                        q = putchar(48 + odd(i));
+        return odd(303);
+}

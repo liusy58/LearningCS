@@ -1,0 +1,15 @@
+#test return 45
+int test_while(){
+  var i, x : int;
+  x = 0;
+  i = 0;
+  while(i < 10){
+    x += i;
+    i+=1;
+  }
+  return x;
+}
+
+int main(){
+  return test_while();
+}

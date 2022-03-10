@@ -1,0 +1,73 @@
+#test return 1
+// Inserts elements into a BST, then performs an inorder traversal.
+struct Node {
+    val : int;
+    left : Node *;
+    right : Node *;
+};
+
+int main() {
+    var i, num_vals : int;
+    var vals : int[];
+    var tree : Node *;
+
+    tree = insert(NULL, 2);
+    insert(tree, 10);
+    insert(tree, 3);
+    insert(tree, 4);
+    insert(tree, 8);
+    insert(tree, 12);
+    insert(tree, 13);
+    insert(tree, 19);
+    insert(tree, 1);
+    insert(tree, 9);
+    insert(tree, 6);
+    insert(tree, 18);
+    insert(tree, 5);
+    insert(tree, 7);
+    insert(tree, 16);
+    insert(tree, 17);
+    insert(tree, 11);
+    insert(tree, 14);
+    insert(tree, 0);
+    insert(tree, 15);
+
+    num_vals = 20;
+    vals = new(int[num_vals]);
+    for (i = 0; i < num_vals; i += 1) {
+        vals[i] = i;
+    }
+
+    return verify_inorder(tree, vals, num_vals);
+}
+
+Node *insert(tree : Node *, val : int) {
+    if (tree == NULL) {
+        tree = new(Node);
+        tree->val = val;
+    } else if (val < tree->val) {
+        tree->left = insert(tree->left, val);
+    } else {
+        tree->right = insert(tree->right, val);
+    }
+    return tree;
+}
+
+int verify_inorder(tree : Node *, vals : int[], num_vals : int) {
+    return (verify_helper(tree, vals, num_vals, 0) == num_vals ? 1 : 0);
+}
+
+int verify_helper(tree : Node *, vals : int[], num_vals : int, index : int) {
+    if (tree == NULL) {
+        return index;
+    }
+
+    index = verify_helper(tree->left, vals, num_vals, index);
+    if (index < 0 || index >= num_vals) {
+        return index;
+    }
+    if (tree->val != vals[index]) {
+        return -1;
+    }
+    return verify_helper(tree->right, vals, num_vals, index + 1);
+}

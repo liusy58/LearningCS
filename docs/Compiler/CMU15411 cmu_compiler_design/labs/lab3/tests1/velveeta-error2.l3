@@ -1,0 +1,9 @@
+#test error
+/* raises an error since the function does not exist */
+
+int main(){
+  var a, b:int;
+  b = 10;
+  a = 12;
+  return f(a,b);
+}

@@ -1,0 +1,11 @@
+#test return 4722849
+//they can't all be winners
+int main() {
+  var a,b,c,d,e : int;
+  a = 3;
+  b = a;
+  c = 2*2*2*2 + a;
+  d = 2*2*2*2*2*2 + a + b + 1;
+  e = 5*d + c + 5*a;
+  return a*b*c*d*e;
+}

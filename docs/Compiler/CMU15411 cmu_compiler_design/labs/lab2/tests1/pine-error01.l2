@@ -1,0 +1,15 @@
+#test error
+//break should only be inside loops...
+
+{
+  x = 1;
+  y = 0;
+  while(y < 5)
+  {
+    x += 5;
+    y += 1;
+  }
+  break;
+  
+  return x;
+}

@@ -1,0 +1,89 @@
+#test return 23
+// test structs, self-referencing, nulls, name spaces
+
+struct node {
+  value : int;
+  count : int;
+  right : node*;
+  left : node*;
+};
+
+
+int main() {
+  var root:node *;
+  root = new(node);
+  root->count = 1;
+  root->value = 4;
+  root->left = NULL;
+  root->right = NULL;
+
+  add(root, 2);
+  add(root, 3);
+  add(root, 20);
+  add(root, 100);
+  add(root, 45);
+  add(root, 1);
+  add(root, 12);
+  add(root, 68);
+  add(root, 42);
+  add(root, 49);
+  add(root, 50);
+  add(root, 23);
+
+  //return median
+  return  kth(root, 0, (root->count + 1) / 2);
+}
+
+int add(root: node*, num:int) {
+  var newNode: node*;
+  newNode = new(node);
+
+  newNode->value = num;
+  (*newNode).count = 1;
+  newNode->left = NULL;
+  newNode->right = NULL;
+
+  addNode(root, newNode);
+  return 0;
+}
+
+//add node and increment count
+int addNode(root: node*, newNode: node*) {
+  if(root == NULL)
+    return -1;
+
+  root->count += 1;
+
+  if(newNode->value >= root->value) {
+    if(root->right == NULL)
+      root->right = newNode;
+    else
+      return addNode(root->right, newNode);
+  }
+  else if(root->left == NULL)
+    root->left = newNode;
+  else
+    return addNode(root->left, newNode);
+  return 0;
+}
+
+// return kth smallest of all elements added
+int kth(root: node*, count:int, index:int) {
+  var left, right: int;
+ 
+  if(count == index)
+    return root->value; 
+
+  if(root->left != NULL)
+    left = root->left->count;
+  else
+    left = 0;
+
+  if((root->left != NULL) && (root->left->count + count) >= index)
+    return kth(root->left, count, index);
+  else if(root->right != NULL)
+    return kth(root->right, left + 1 + count, index);
+  else
+    return root->value;
+}
+

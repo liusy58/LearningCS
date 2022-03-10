@@ -1,0 +1,24 @@
+#test return 120
+
+int fact(n : int) {
+	var a : int;
+	var b, c, d : int;
+	if (n == 1)
+		return n;
+	else
+		return n * fact(n-1);
+}
+
+
+int main() {
+	var a, b, c, d, e, f : int;
+	a = 1;
+	b = 2;
+	c = 3;
+	d = 4;
+	e = 5;
+	f = fact(5);
+	if (a != 1 || b != 2 || c != 3 || d != 4 || e != 5)
+		return -1;
+	return f;
+}

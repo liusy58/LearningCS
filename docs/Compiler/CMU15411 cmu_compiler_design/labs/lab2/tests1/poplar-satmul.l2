@@ -1,0 +1,10 @@
+#test return 2147483647
+// Taken from 15-213 datalab, Spring 2007
+// Doubles the input, giving max pos. or neg. number instead of overflow
+{
+    x = 1618033989;
+    twice = x << 1;
+    sign = x >> 31;
+    diff = sign ^ twice >> 31;
+    return diff & (sign ^ 1 << 31) ^ (diff | twice);
+}

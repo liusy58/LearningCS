@@ -1,0 +1,24 @@
+#test return 4
+// find the longest sequence of 1s in the binary representation of S
+{
+  S = 2870200;
+
+  max = 0;
+  mask = 1;
+  count = 0;
+  for (mask = 1; mask <= S; mask <<= 1) {
+    if (mask & S) count +=1;
+    else count = 0;
+
+    if (count > max) max = count;
+
+    // what happens with redundant or unreachable continues ?
+    continue; 
+    continue;
+    continue;
+  }
+
+  return max;
+}
+
+

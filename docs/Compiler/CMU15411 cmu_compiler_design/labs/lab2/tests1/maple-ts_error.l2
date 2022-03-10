@@ -1,0 +1,10 @@
+#test error
+// can't use break inside if statements 
+{
+  n=0;
+  if (n > 0)
+  {
+    n += 1;
+    break;
+  }
+}

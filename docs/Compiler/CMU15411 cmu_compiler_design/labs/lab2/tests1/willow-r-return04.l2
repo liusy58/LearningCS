@@ -1,0 +1,6 @@
+#test return 1
+
+{
+	x = 1 || (0%0);
+	return x;
+}

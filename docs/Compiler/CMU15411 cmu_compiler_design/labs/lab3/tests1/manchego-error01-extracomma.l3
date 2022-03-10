@@ -1,0 +1,10 @@
+#test error
+
+int main() {
+	var x, y, : int;
+	return 0;
+}
+
+int func(x : int, y : int, ) {
+	return 0;
+}

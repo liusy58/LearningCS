@@ -1,0 +1,13 @@
+#test return 3
+
+int _(){
+	return 1;
+}
+
+int space ( ) {
+  return 2;
+}
+
+int main() {
+  return _ () + space();
+}

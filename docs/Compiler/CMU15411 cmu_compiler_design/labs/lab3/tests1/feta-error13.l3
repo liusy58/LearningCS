@@ -1,0 +1,12 @@
+#test error
+
+// function declaration inside function definition
+
+int main(){
+	var x,y,z :int;
+	x = 1;
+	y = 1;
+	extern int printint(int n);
+	z = x + y;
+	return z;
+}

@@ -1,0 +1,36 @@
+#test return 1
+// Implementation of the Tiny Encryption Algorithm (TEA). Adapted from the
+// version presented in the paper at
+// http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.29.6205
+{
+    // Set up key and payload
+    v0 = 42;
+    v1 = (42 << 15);
+    ov0 = v0;
+    ov1 = v1;
+    k0 = 1346625989;
+    k1 = 1174862666;
+    k2 = 253917029;
+    k3 = -789431992;
+
+    // Key schedule
+    d = -1640531527;
+
+    // Encrypt
+    sum = 0;
+    for (i = 0; i < 32; i += 1) {
+        sum += d;
+        v0 += ((v1 << 4) + k0) ^ (v1 + sum) ^ ((v1 >> 5) + k1);
+        v1 += ((v0 << 4) + k2) ^ (v0 + sum) ^ ((v0 >> 5) + k3);
+    }
+    
+    // Decrypt
+    sum = -957401312;
+    for (i = 0; i < 32; i += 1) {
+        v1 -= ((v0 << 4) + k2) ^ (v0 + sum) ^ ((v0 >> 5) + k3);
+        v0 -= ((v1 << 4) + k0) ^ (v1 + sum) ^ ((v1 >> 5) + k1);
+        sum -= d;
+    }
+
+    return ((v0 == ov0) && (v1 == ov1));
+}

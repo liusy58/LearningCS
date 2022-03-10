@@ -1,0 +1,10 @@
+#test error
+// decls not in a block.
+
+int main(){
+  var x:int;
+  x = 2;
+  var y:int;
+  y = 3;
+  return x + y;  
+}

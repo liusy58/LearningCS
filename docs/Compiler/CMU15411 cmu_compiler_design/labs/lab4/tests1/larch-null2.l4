@@ -1,0 +1,10 @@
+#test exception 11
+// Tests execution order of array access; should evaluate *p before 1/0
+// Breaks the reference compiler, but is a valid test
+
+int main() {
+  var p : int[]*;
+  p = NULL;
+  return (*p)[1/0];
+}
+

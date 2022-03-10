@@ -1,0 +1,15 @@
+#test return 1196699648
+
+extern int tofloat (x:int);
+extern int fadd (x:int, y:int);
+
+int main(){
+  var x,y,z:int;
+
+  x = -1;
+  y = tofloat(x);
+  x = 54321;
+  z = tofloat(x);
+
+  return fadd(y, z);
+}

@@ -1,0 +1,11 @@
+#test error
+// using undeclared variable
+
+int main () {
+  var x145:int;
+  while (1) {
+    break;
+    x144 = 2;
+  }
+  return x145;
+}

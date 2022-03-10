@@ -1,0 +1,13 @@
+#test return -101
+
+# bit ops...bitwise not
+
+
+int main () {
+  var x : int;
+  
+  x = 100;
+  x = ~x;
+  
+  return x;
+}

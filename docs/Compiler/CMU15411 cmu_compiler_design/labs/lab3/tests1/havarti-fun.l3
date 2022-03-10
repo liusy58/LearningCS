@@ -1,0 +1,15 @@
+#test return 4321
+
+int fun0(a : int)
+{
+    return 4321;
+}
+int fun1(a : int)
+{
+    return fun0(a);
+}
+
+int main()
+{
+    return fun0(fun1(fun0(fun1(fun0(fun1(fun0(fun1(fun0(fun1(fun1(fun0(fun0(0)))))))))))));
+}

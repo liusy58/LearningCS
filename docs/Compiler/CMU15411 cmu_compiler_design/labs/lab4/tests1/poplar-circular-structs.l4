@@ -1,0 +1,25 @@
+#test error
+// Defines structs which refer to each other circularly, not using pointers.
+struct A {
+    somenum : int;
+    someptr : int *;
+    somestruct : B;
+};
+
+struct B {
+    somenum : int;
+    somestruct : C;
+    someptr : int *;
+};
+
+struct C {
+    somestruct : A;
+    somenum : int;
+    someptr : int *;
+};
+
+int main() {
+    var s : A;
+    s = new(A);
+    return s.A.B.C.A.B.C.A.B.C.A;
+}

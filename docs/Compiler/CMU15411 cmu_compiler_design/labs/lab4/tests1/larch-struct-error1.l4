@@ -1,0 +1,19 @@
+#test error
+
+// Duplicate struct name
+
+struct one {
+  a : int;
+};
+
+struct two {
+  b : int;
+};
+
+struct one {
+  c : int;
+};
+
+int main() {
+  return 4;
+}

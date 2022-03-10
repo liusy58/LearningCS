@@ -1,0 +1,10 @@
+#test error
+// No main function
+
+int Main() {
+  return 4;
+}
+
+int main(a:int) {
+  return 3 * a;
+}

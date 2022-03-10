@@ -1,0 +1,22 @@
+#test error
+#invalid op sequence, invalid function name
+
+int
+if()
+{
+   var x:int;
+   return x;
+}
+
+int
+main()
+{
+   testFn += 1 & 2 *  3 | id +=+^%234 % ~!();
+   break;
+   return -0-;
+   continue;
+}
+
+var i:int;
+
+for (i = 0; i < 1000; i+=1);

@@ -1,0 +1,10 @@
+#test return 666
+# the devil!
+
+int triple(x:int) { //not what you think
+  return 100*x+10*x+x;
+}
+
+int main () {
+  return triple(6);
+}

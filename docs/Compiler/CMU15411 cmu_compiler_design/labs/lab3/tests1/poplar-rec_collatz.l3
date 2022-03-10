@@ -1,0 +1,21 @@
+#test return 112
+// Length of Collatz sequence, computed recursively
+int count_helper(n : int, c : int) {
+    var inc_c : int;
+    inc_c = c + 1;
+    if (n == 1) {
+        return inc_c;
+    } else if ((n & 1) == 0) {
+        return count_helper(n / 2, inc_c);
+    } else {
+        return count_helper(3 * n + 1, inc_c);
+    }
+}
+
+int collatz_count(n : int) {
+    return count_helper(n, 0);
+}
+
+int main() {
+    return collatz_count(27);
+}

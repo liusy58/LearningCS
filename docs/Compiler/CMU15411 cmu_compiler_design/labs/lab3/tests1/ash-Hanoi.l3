@@ -1,0 +1,33 @@
+#test return 15
+
+extern int printchar(c : int);
+
+int print(_1 : int, _2 : int, _3 : int, _4 : int) {
+  var _ : int;
+  _ = printchar( _1 );
+  _ = printchar( _2 );
+  _ = printchar( _3 );
+  _ = printchar( _4 );
+  return 0;
+}
+
+int hanoi(n : int, a : int, b : int, c : int) {
+  var steps, _ : int;
+  
+  if (n == 0) steps = 0;
+  else {
+    steps = hanoi(n - 1, a, c, b);
+
+    _ = print(109,111,118,101);  // "move"
+    _ = print(32, a, 32, 116);   // " A t"
+    _ = print(111, 32, c, 10);   // "o C\n"
+    steps += 1;
+
+    steps += hanoi(n - 1, b, a, c);
+  }
+  return steps;
+} 
+
+int main() {
+  return hanoi(4, 65, 66, 67);
+}

@@ -1,0 +1,7 @@
+#test error
+
+//Tests a variable live coming into the program
+{
+  while (1) x = 5;
+  return x;
+}

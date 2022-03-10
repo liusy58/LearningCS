@@ -1,0 +1,13 @@
+#test exception 8
+/* cause a divide-by-zero recursively with shift */
+
+int rec_div (y: int) {
+  if (y == 0)
+    return 0;
+  else
+    return y / rec_div(y >> 1);
+}
+
+int main () {
+  return rec_div(453);
+}

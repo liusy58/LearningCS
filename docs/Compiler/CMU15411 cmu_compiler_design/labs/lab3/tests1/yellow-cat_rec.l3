@@ -1,0 +1,26 @@
+#test return 1430
+// Computes the catalan numbers recursively
+
+int cat_rec(n : int)
+{
+	var i, c_i, c_ii, acc : int;
+
+	if( n == 0 )
+		return 1;
+
+	acc = 0;
+	for( i=0; i < n; i = i+1)
+	{
+		c_i = cat_rec(i);
+		c_ii = cat_rec(n-1-i);
+
+		acc = acc + c_i*c_ii;
+	}
+
+	return acc;
+}
+
+int main ()
+{
+	return cat_rec(8);
+}

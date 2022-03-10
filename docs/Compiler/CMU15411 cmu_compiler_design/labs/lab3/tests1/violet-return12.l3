@@ -1,0 +1,14 @@
+#test return 3
+
+/* Computes GCD using the Euclidean algorithm */
+
+int gcd(a:int, b:int) {
+  if(b==0)
+    return a;
+  else 
+    return gcd(b, a % b);
+}
+
+int main() {
+  return gcd(753, 456);
+}

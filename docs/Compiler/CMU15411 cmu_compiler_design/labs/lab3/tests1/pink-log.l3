@@ -1,0 +1,21 @@
+#test return 1043
+// logarithms
+
+int logn(n : int, b : int) {
+  var result : int;
+
+  for (result = 0; n >= b; result += 1)
+    n /= b;
+
+  return result;
+}
+
+int main() {
+  var x, y, z : int;
+
+  x = logn(1024, 2);
+  y = logn(81, 3);
+  z = logn(66, 4);
+
+  return z + 10*(y + 10*x);
+}

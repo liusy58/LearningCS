@@ -1,0 +1,20 @@
+#test return 1
+int add(x : int, y : int){
+  if(y==0){
+    return x;
+  } else {
+    return add(x+1,y-1);
+  }
+}
+int mul(x : int, y : int){
+  if(y==0){
+    return 0;
+  } else {
+    return add(x,mul(x,y-1));
+  }
+}
+
+int main(){
+  return mul(213,12) == 213*12;
+}
+

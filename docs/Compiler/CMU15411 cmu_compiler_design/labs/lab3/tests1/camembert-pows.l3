@@ -1,0 +1,34 @@
+#test return 1
+# pows 
+int main()
+{
+    return pow(2, 6) == pow2(2,6) == (pow(2,6) == pow3(2,6));
+    //return pow(2, 6) == pow2(2,6) == pow3(2,6);
+}
+
+int pow(a : int, e : int)
+{
+    var i : int;
+    var r : int;
+    i = 0;
+    for(r=a; i<e; i+=1)
+    {}
+    for(i=0; i<e; i+=1)
+    {
+        r = r*a;
+    }
+
+    return r;
+}
+
+int pow2(a : int, e : int)
+{
+    if(e < 0)
+        return 1;
+    return a * pow2(a, e-1);
+}
+
+int pow3(a : int, e : int)
+{
+    return a << e;
+}

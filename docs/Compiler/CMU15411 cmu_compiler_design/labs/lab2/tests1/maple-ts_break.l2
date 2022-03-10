@@ -1,0 +1,19 @@
+#test return 2
+// tests that break only breaks out of the current outer loop 
+{
+  n=1;
+  count=0;
+
+  while(n > 0)
+  {
+    while(1)
+    {
+      count+=1;
+      break;
+    }
+    count+=1;
+    n-=1;
+  }
+
+  return count;
+}

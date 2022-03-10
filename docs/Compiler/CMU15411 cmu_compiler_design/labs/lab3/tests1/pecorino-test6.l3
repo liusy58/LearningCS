@@ -1,0 +1,13 @@
+#test error
+//wrong extern type, if expecting int
+
+extern float viewasfloat(n:int);
+
+int main(){
+  if(printint(4)){
+    return 0;
+  }
+  else{
+    return -1;
+  } 
+}

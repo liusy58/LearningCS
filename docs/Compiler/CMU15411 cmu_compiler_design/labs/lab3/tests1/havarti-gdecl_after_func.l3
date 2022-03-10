@@ -1,0 +1,11 @@
+#test error
+
+/**
+ * Attempt to have a gdecl after the function.
+ */
+int main ()
+{
+    return printint(2);
+}
+
+extern int printint (x : int);

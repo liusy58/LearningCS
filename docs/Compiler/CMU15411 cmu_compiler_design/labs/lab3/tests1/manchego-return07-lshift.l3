@@ -1,0 +1,12 @@
+#test return 13467648
+
+int main() {
+	return lsh(411, 15);
+}
+
+/* x << y */
+int lsh(x : int, y : int) {
+	if (y <= 0) return x;
+	else
+		return lsh(x << 1, y - 1);
+}

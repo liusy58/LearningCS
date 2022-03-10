@@ -1,0 +1,8 @@
+#test error
+//main function cannot have any arguments
+
+int main(n:int) {
+  return main(n-1);
+}
+
+

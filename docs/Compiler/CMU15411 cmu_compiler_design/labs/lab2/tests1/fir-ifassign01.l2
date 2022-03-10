@@ -1,0 +1,14 @@
+#test error
+{
+  x = 2 + 2;
+  if (x == 4) {
+    hello = 1;
+  } else {
+    if (1) {
+      hello = -1;
+    } else {
+      world = 42;
+    }
+  }
+  return hello;
+}

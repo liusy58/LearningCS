@@ -1,0 +1,15 @@
+#test exception
+
+int main() {
+	var n:int;
+	n = 10000001;
+	n = even(n);
+	while (n > 0) {
+		n -= 2;
+	}
+	return 1/n;
+}
+
+int even (n:int) {
+	return n & (-2);
+}

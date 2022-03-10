@@ -1,0 +1,11 @@
+#test exception
+
+int main(){
+
+	var x, min:int;
+
+	min = 1 << 31;
+	
+	return min/-1;
+
+}

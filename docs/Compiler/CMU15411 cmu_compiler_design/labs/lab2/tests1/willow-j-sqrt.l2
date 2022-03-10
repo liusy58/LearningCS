@@ -1,0 +1,12 @@
+#test return 8749
+{
+	a = 76545416;
+	c = 0;
+	for(i=0;i<a;i += 1) {
+		b = i * i;
+		if (b > a)
+			break;
+		c = i;
+	}
+	return c;
+}

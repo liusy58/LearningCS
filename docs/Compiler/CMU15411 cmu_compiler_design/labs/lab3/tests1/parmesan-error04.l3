@@ -1,0 +1,11 @@
+#test error
+
+extern int printchar(c:int);
+
+int main(){
+	var a:int;
+	printchar(a);
+	return 5;
+}
+
+

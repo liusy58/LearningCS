@@ -1,0 +1,13 @@
+#test error
+/* undeclared field */
+
+struct point {x:int; y:int;};
+
+int main () {
+  var p:point*;
+  p = new(point);
+  p->x = 0;
+  p->y = 0;
+  p->z = 0;
+  return -1;
+}

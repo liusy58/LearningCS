@@ -1,0 +1,10 @@
+#test error
+// main function has wrong number of arguments
+
+int plus (x:int, y:int) {
+  return x+y;
+}
+
+int main (x:int) {
+  return x+x;
+}

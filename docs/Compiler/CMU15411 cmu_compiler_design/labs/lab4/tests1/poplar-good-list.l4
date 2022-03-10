@@ -1,0 +1,25 @@
+#test return 45
+// Sum the elements in a linked list.
+struct List {
+    head : int;
+    tail : List *;
+};
+
+int main() {
+    var i, sum : int;
+    var list, next : List *;
+
+    list = NULL;
+    for (i = 0; i < 10; i += 1) {
+        next = new(List);
+        next->head = i;
+        next->tail = list;
+        list = next;
+    }
+
+    sum = 0;
+    for ( ; list != NULL; list = list->tail)
+        sum += list->head;
+
+    return sum;
+}

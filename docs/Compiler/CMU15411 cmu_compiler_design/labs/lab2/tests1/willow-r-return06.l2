@@ -1,0 +1,16 @@
+#test return 1220
+
+{
+	s = 0;
+
+	for (a=6; a>0; a-=1) {
+		if (a==0) continue;
+		for (b=3; b<=12; b+=1) {
+			if (a == 2) break;
+			s += 1;
+		}
+		s <<= 1;
+	}
+
+	return s;
+}

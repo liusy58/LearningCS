@@ -1,0 +1,16 @@
+#test error
+
+int main(){
+
+	var x:int;
+	x = 2;
+	if(x == 2){
+		var y:int;
+		y = 5;
+	}else{
+		var y:int;
+		y = 6;
+	}
+
+	return y;
+}

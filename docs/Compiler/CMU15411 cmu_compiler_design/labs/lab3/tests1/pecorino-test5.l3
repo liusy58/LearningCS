@@ -1,0 +1,6 @@
+#test error
+//no main function
+
+int l3_main(){
+  return 0;
+}

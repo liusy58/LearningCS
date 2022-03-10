@@ -1,0 +1,9 @@
+#test error
+//declaration after statement
+int main() {
+  var x:int;
+  x -= 1;
+  var y:int;
+  return y + x;
+}
+

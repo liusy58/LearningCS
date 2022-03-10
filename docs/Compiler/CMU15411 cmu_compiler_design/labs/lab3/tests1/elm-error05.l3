@@ -1,0 +1,13 @@
+#test error
+// function declared twice
+int main() {
+  return foo() + 3;
+}
+
+int foo() {
+  return 3;
+}
+
+int foo() {
+  return 4;
+}

@@ -1,0 +1,19 @@
+#test error
+// continue should only occur in loops...
+
+{
+  x = 1;
+  y = 1;
+  while(x != 723)
+  {
+    x += 7;
+    y = x % 9234;
+  }
+  if(x < 100)
+  {
+    x += 283;
+    continue;
+  }
+
+  return y;
+}

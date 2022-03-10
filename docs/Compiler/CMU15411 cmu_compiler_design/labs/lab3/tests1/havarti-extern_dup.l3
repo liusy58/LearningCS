@@ -1,0 +1,17 @@
+#test error
+
+/**
+ * Function namespace collision between external and internal function.
+ */
+
+extern int printint (x : int);
+
+int main ()
+{
+    return printint(1);
+}
+
+int printint (x : int)
+{
+    return 1;
+}

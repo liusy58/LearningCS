@@ -1,0 +1,16 @@
+#test error
+
+int main() {
+	var a : int;
+	a = 0;
+
+	return a;
+}
+
+int unDecl() {
+	//even though a is declared in main
+	//it isnt here and so should fail
+
+	a = 0;
+	return a;
+}

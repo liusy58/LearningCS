@@ -1,0 +1,11 @@
+#test return 30
+
+int two() {
+	return 2;
+}
+
+int main() {
+	return two() + two() + two() + two() + two()
+	+ two() + two() + two() + two() + two()
+	+ two() + two() + two() + two() + two();
+}

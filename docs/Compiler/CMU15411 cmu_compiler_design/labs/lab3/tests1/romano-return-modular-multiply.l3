@@ -1,0 +1,12 @@
+#test return 0
+// modular overflow of multiplication, register allocation
+int main() {
+  var a, b, c, d, e, f : int;
+  a = 2;
+  b = a*a;          // 2^2
+  c = b*a*a;        // 2^4
+  d = c*b*a*a;      // 2^8
+  e = d*c*b*a*a;    // 2^16
+  f = e*d*c*b*a*a;  // 2^32 = 0
+  return f;
+}

@@ -1,0 +1,13 @@
+#test error
+// Assignment statement not allowed inside an if condition
+{
+    x = 3;
+    y = 0;
+    if (y = x - 3) {
+        // Replace = with ==, you get this
+        return 0;
+    } else {
+        // Allow assignment in if conditions, you get this
+        return 1;
+    }
+}

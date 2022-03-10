@@ -1,0 +1,4 @@
+#test error
+/* main function not defined */
+
+int id(x:int) { return x; }

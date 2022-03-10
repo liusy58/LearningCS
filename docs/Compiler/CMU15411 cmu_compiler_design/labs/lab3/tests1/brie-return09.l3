@@ -1,0 +1,30 @@
+#test return 15
+/* Fast modular exponentiation (or I think so)
+ * reference result obtained by compiling same code in gcc. */
+
+int helper (i : int, A : int, B : int, X : int, N : int)
+{
+	var msbs, bit : int;
+
+	msbs = B >> i;
+	bit = msbs & 1;
+	if (bit) return X * X * A % N;
+	else return X * X % N;
+}
+
+int main ()
+{
+	var i, A, B, X, N : int;
+
+	A = 1193182; /* keep the sign bit clear. */
+	B = 3353973; /* keep the sign bit clear. */
+	X = 1;       /* accumulator */
+	N = 31;      /* modulus */
+
+	for (i = N - 1; i >= 0; i -= 1)
+	{
+		X = helper (i, A, B, X, N);
+	}
+
+	return X;
+}

@@ -1,0 +1,12 @@
+#test error
+
+int main() {
+	return 5;
+}
+
+void bob() {
+	 //should be error, void not a valid function type
+	var a : int;
+
+	a = 5;
+}

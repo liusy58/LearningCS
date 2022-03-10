@@ -1,0 +1,7 @@
+#test error
+//not using the var keyword
+int main() {
+	x : int;
+	x = 3;
+	return x;
+}

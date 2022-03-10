@@ -1,0 +1,20 @@
+#test error
+// check for unitialized variables in the increment
+
+int main()
+{
+    var i:int;
+    var j:int;
+    var k:int;
+
+    j = 6;
+
+    for ( i = 0; i < j; k += 1 ) {
+        j -= 1;
+        if ( i )
+            continue;
+        k = 3;
+    }
+
+    return k;
+}

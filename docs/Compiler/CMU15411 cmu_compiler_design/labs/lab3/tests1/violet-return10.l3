@@ -1,0 +1,19 @@
+#test return 600
+
+/* Iterative multiplication */
+
+int mult(x : int, y : int) {
+  var temp : int;
+  temp = 0;
+  if (!x)
+    return 0;
+
+  for(; x > 0 ; x -= 1) {
+    temp += y;
+  }
+  return temp;
+}
+
+int main() {
+  return mult(20,30);
+}

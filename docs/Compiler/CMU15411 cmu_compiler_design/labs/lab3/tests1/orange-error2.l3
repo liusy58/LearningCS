@@ -1,0 +1,16 @@
+#test error
+// Tests parser
+
+int main()
+{
+  var x, y : int;
+
+  x = 123;
+
+  var i : int;
+
+  for (i = 0; i < 20; i += 1)
+    y += x * x;
+
+  return y;
+}

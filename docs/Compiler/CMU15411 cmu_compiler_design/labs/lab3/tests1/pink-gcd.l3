@@ -1,0 +1,38 @@
+#test return 1
+// GCD by recursion and iteration
+
+int gcd_rec(a : int, b : int) {  
+  if (b == 0)
+    return a;
+  else
+    return gcd_rec(b, a % b);
+}
+
+int gcd_loop(a : int, b : int) {
+  var temp : int;
+
+  while (b != 0) {
+    temp = b;
+    b = a % b;
+    a = temp;
+  }
+
+  return a;
+}
+
+int main() {
+  var result : int;
+  var fib20, fib21 : int;
+
+  fib20 = 10946;
+  fib21 = 17711;
+
+  result = gcd_rec(fib20, fib21);
+
+  if (result == gcd_loop(fib20, fib21))
+    return result;
+ 
+  return 0;
+}
+    
+  

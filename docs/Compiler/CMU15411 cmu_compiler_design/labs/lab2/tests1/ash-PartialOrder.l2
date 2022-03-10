@@ -1,0 +1,15 @@
+#test return -1
+// partial order of tuples (u1, u2) and (v1, v2)
+{
+  U1 = 34;
+  U2 = 27;
+  V1 = 40;
+  V2 = 33;
+ 
+  greater = (U1 > V1) && (U2 > V2);
+  less = (U1 < V1) && (U2 < V2);
+
+  return greater | ~(less - 1) ;
+}
+
+

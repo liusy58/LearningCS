@@ -1,0 +1,26 @@
+#test return 43215
+// get the order_th element, starting from the right(place=1), moving to the left 
+{
+  array = 43215687;
+  size = 8;
+  order = 4;
+
+  /* truncate the right */
+  for(i=1; i<order;i+=1) {
+    array = array/10;
+    size-=1;
+  }
+
+  /* truncate the left */
+  for(i=1;i>size;i+=1) {
+    place=1;
+    for(j=i; j<size; j+=1) {
+      place *= 10;
+    }
+
+    array = array - (array/place)*place;
+  }
+
+  array_element = array;
+  return array_element;
+}

@@ -1,0 +1,39 @@
+#test return 6
+
+int main()
+{
+    var ball : int;
+    ball = 0;
+    if(ball == 0){
+        return ping(1217, 0, 0);
+    }else{
+        return pong(913, 0, 0);
+    }
+}
+
+int ping(ball : int, p1score : int, p2score : int)
+{
+    if(p1score + p2score > 10)
+        return p1score;
+
+    if(ball % 2 == 0){
+        p1score += 1;
+    }else{
+        p2score += 1;
+    }
+
+    return pong(ball * 12181987, p1score, p2score);
+}
+
+int pong(ball : int, p1score : int, p2score : int)
+{
+    if(p1score + p2score > 10)
+        return p2score;
+
+    if(ball % 2 == 0){
+        p2score += 1;
+    }else{
+        p1score += 1;
+    }
+    return ping(ball * 09231983, p1score, p2score);
+}

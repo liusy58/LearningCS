@@ -1,0 +1,15 @@
+#test error
+
+// function definition inside another
+
+int foo(){
+	int bar(){
+		return 1;
+	}
+	return 1;
+}
+
+int main(){
+	return 0;
+}
+

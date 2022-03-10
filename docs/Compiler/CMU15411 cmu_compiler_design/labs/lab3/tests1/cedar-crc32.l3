@@ -1,0 +1,41 @@
+#test return 252864382
+int crc32_update(crc: int, byte: int)
+{
+	var i, j : int;
+	
+	crc ^= byte;
+	for (i = 0; i < 8; i += 1)
+	{
+		if (crc & 1)
+			j = 3988292384;
+		else
+			j = 0;
+		crc = (crc >> 1) ^ j;
+	}
+	return crc;
+}
+
+int main()
+{
+	var crc : int;
+	crc = 0;
+	crc = crc32_update(crc, 65);
+	crc = crc32_update(crc, 65);
+	crc = crc32_update(crc, 65);
+	crc = crc32_update(crc, 65);
+	crc = crc32_update(crc, 65);
+	crc = crc32_update(crc, 53);
+	crc = crc32_update(crc, 53);
+	crc = crc32_update(crc, 53);
+	crc = crc32_update(crc, 53);
+	crc = crc32_update(crc, 53);
+	crc = crc32_update(crc, 53);
+	crc = crc32_update(crc, 53);
+	crc = crc32_update(crc, 53);
+	crc = crc32_update(crc, 53);
+	crc = crc32_update(crc, 53);
+	crc = crc32_update(crc, 53);
+	crc = crc32_update(crc, 53);
+	crc = crc32_update(crc, 53);
+	return crc;
+}

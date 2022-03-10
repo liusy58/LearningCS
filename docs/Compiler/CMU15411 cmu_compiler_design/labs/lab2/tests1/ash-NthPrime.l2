@@ -1,0 +1,21 @@
+#test return 1223
+// computes the Nth prime
+{
+  N = 200;
+
+  if (N <= 0) return 0;
+  else if (N == 1) return 2;
+  else {
+    prime = 1;
+    for (found = 1; found < N; found += 1) {
+      prime += 2;
+      for (i = 3; prime >= i * i; i += 2) {
+        if (prime % i) continue;
+        found -= 1;
+        break;
+      }
+    }
+    return prime;
+  }
+}
+

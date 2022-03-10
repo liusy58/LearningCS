@@ -1,0 +1,5 @@
+#test error
+int _l2_mode(){
+  var 8i :int;
+  return 8i;
+}

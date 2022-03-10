@@ -1,0 +1,61 @@
+#test error
+/* Numerical Integration function (loss of precision due to int limitation) */
+
+extern int printint(n:int);
+extern int printchar(c:int);
+
+int main()
+{
+  var error, answer, next, number, toler :int;
+  error = 4;
+  next = 1;
+  number = 100;
+  toler = 1;
+
+  answer = integrate(error, next, number, toler);
+  return answer;
+}
+
+int printchar(c:int) {
+  return 65;
+}
+
+int integrate( error:int, next:int, number:int, toler:int )
+{
+  var iter, answer, _ :int;
+  iter = 0;
+  answer = 0;
+
+  while (error>toler)
+  {
+    iter+=1;
+    answer = (next + number/next)/2;
+    error = abs(next-answer);
+    _ = printint(iter);
+    _ = printchar(32);
+    _ = printint(next);//printf("iteration:%2d  next=%7.3f ",iter,next);
+    _ = printchar(32);
+
+    next = answer;
+    _ = printint(answer);
+    _ = printchar(32);
+    _ = printint(error);//printf("answer=%7.3f  error=%7.3f\n",answer,error);
+    _ = printchar(32);
+    _ = printchar(32);
+    _ = printchar(32);
+    _ = printchar(32);
+  }
+
+  return answer;
+}
+
+
+int abs( val:int )
+{
+  if(val >= 0)
+  {
+    return val;
+  }
+
+  return (~val + 1);
+}

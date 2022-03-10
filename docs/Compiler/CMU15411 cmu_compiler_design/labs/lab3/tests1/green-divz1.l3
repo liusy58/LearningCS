@@ -1,0 +1,18 @@
+#test exception 8
+# divides by zero...
+
+int one() {
+  return 1-1*1+1;
+}
+
+int zero() {
+  return 1-1*1*1;
+}
+
+int over(num : int, den : int) {
+  return num * (1 / den);
+}
+
+int main () {
+  return over(one(), zero()); 
+}

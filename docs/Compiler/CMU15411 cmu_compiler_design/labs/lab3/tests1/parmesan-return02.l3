@@ -1,0 +1,15 @@
+#test return 1056
+
+int fun(x:int, y:int){
+	var z:int;
+	z = x + y;
+	return z;
+}
+
+int main(){
+	var x, y, z:int;
+	x = 8;
+	y = 4;
+	z = fun(x, y);
+	return z * fun(z, fun(z, fun(z, fun(z, fun(z, fun(z, fun(z, y)))))));
+}

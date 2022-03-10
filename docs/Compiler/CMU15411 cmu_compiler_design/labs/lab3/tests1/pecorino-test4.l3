@@ -1,0 +1,8 @@
+#test error
+//using an undeclared function
+
+int main(){
+  var x, y, z:int;
+  z = undeclared_function(x, y);
+  return z;
+}

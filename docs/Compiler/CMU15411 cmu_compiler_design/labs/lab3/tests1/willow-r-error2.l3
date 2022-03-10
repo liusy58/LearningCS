@@ -1,0 +1,9 @@
+#test error
+
+int main()
+{
+	var a:int;
+	a = 1;
+	var b:int;
+	return a;
+}

@@ -1,0 +1,29 @@
+#test return 24879312
+//function calling yuck
+
+int main()
+{
+  var i : int;
+  i = 13;
+  return w(k(u(v(i))), 3);
+}
+
+int k(i : int)
+{
+  return u(v(i));
+}
+
+int u(i : int)
+{
+  return v(i);
+}
+
+int v(i : int)
+{
+  return i * 18;
+}
+
+int w(i : int, j : int)
+{
+  return i * 18 + k(u(v(j)));
+}

@@ -1,0 +1,49 @@
+#test return 4095
+
+extern int printchar(c:int);
+
+int main(){
+	var p, t:int;
+	t = m1(0,5,6);
+	p = printchar(10);
+	return t;
+}
+
+
+int m1(n:int, x:int, y:int){
+	var t:int;
+	var star:int;
+	var dash:int;
+	var plus:int;
+
+	star = 42;
+	dash = 45;
+	plus = 43;
+
+	if(n % 25 == 0){
+		t = printchar(10);
+	}
+	n += 1;
+
+	if(x <= 0 && y <= 0){
+		return n;
+	}
+
+	if(x > y){
+		n = m1(n, y, x-1);
+		t = printchar(star);
+		t = m1(n, x-1, y);
+	}else if(x < y){
+		n = m1(n, x, y-1);
+		t = printchar(plus);
+		t = m1(n, y-1, x);
+	}else if(x == y){
+		n = m1(n, x-1, y);
+		t = printchar(dash);
+		t = m1(n, x, y-1);
+	}else{
+		t = 0;
+	}
+
+	return t;
+}

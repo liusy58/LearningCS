@@ -1,0 +1,9 @@
+#test return 17
+
+int main() {
+  return add(add(4, 5), add(4 || 5/0, add(add(3, 4), 0 && 1/0)));
+}
+
+int add(a:int, b:int) {
+  return a + b;
+}

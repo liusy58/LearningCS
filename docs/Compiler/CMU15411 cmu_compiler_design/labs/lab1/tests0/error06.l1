@@ -1,0 +1,6 @@
+#test error
+// integer constant too large
+{
+  x = 4294967296;		/* 2^32 */
+  return x;
+}

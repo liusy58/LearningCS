@@ -1,0 +1,14 @@
+#test error
+
+//Tests declaring the same function twice
+int main() {
+  return 4;
+}
+
+int blah() {
+  return 2;
+}
+
+int blah() {
+  return 5;
+}

@@ -1,0 +1,17 @@
+#test return 10
+#compute |_log2(n)_|
+
+int
+lg2(n:int)
+{
+  if (n <= 1) {
+    return 0;
+  }
+  return 1 + lg2(n/2);
+}
+
+int
+main()
+{
+   return lg2(1025);
+}

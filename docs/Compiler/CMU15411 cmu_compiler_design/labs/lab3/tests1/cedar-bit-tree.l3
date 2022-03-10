@@ -1,0 +1,63 @@
+#test return 93
+
+/* int as a complete binary tree of bits, flattened
+ * traverses the tree looking for the path with the most
+ * set bits (i.e. the path with the highest sum), and
+ * returns the path as 0 for left branch and 1 for right,
+ * along with the sum, as follows:
+ *
+ * Bit    6 5 4 3 2 1 0
+ *       ---------------
+ *       | path  | sum |
+ *       ---------------
+ *
+ * Paths are 'backwards', so read the bits backwards to get
+ * the path. The test case here should return a sum of 5 (101)
+ * and a path of 1011 (right right left right) for a result of
+ * 1011101 (0x5d, or 93).
+ */
+
+int tree_up_left(tree: int)
+{
+	var n1, n2, n4, n8: int;
+	n1 = (tree >> 1) & 1;
+	n2 = ((tree >> 3) & 3) << 1;
+	n4 = ((tree >> 7) & 15) << 3;
+	n8 = ((tree >> 15) & 255) << 7;
+	return n1 | n2 | n4 | n8;
+}
+
+int tree_up_right(tree: int)
+{
+	var n1, n2, n4, n8: int;
+	n1 = (tree >> 2) & 1;
+	n2 = ((tree >> 5) & 3) << 1;
+	n4 = ((tree >> 11) & 15) << 3;
+	n8 = ((tree >> 23) & 255) << 7;
+	return n1 | n2 | n4 | n8;	
+}
+
+int tree_traverse(tree: int)
+{
+	var left, right, lsum, rsum, lres, rres: int;
+
+	if(!tree)
+		return 0;
+
+	left = tree_traverse(tree_up_left(tree));
+	right = tree_traverse(tree_up_right(tree));
+
+	lsum = (tree & 1) + left & 7;
+	rsum = (tree & 1) + right & 7;
+	lres = (left >> 3) & 15;
+	rres = (right >> 3) & 15;
+	if(lsum >= rsum)
+		return lsum | (lres << 4);
+	else
+		return rsum | (((rres << 1) | 1) << 3);
+}
+
+int main()
+{
+	return tree_traverse(1349201357);
+}

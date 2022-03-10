@@ -1,0 +1,7 @@
+#test error
+// Invalid type
+
+int main() {
+  var f:float;
+  return 0;
+}

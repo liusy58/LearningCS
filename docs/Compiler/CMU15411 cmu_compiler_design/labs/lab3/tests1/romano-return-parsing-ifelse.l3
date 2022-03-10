@@ -1,0 +1,6 @@
+#test return 1
+// Tests association of `else' with the nearest `if'
+int main() {
+  if (1) if (0) {} else return 1;
+  return 0;
+}

@@ -1,0 +1,28 @@
+#test return 8
+// max of all arguments
+
+int max(a:int, b:int, c:int, d:int, e:int, f:int, g:int, h:int) {
+  var max : int;
+  max = -9999;
+  if(a > max)
+    max = a;
+  if(b > max)
+    max = b;
+  if(c > max)
+    max = c;
+  if(d > max)
+    max = d;
+  if(e > max)
+    max = e;
+  if(f > max)
+    max = f;
+  if(g > max)
+    max = g;
+  if(h > max)
+    max = h;
+  return max;
+}
+
+int main () {
+  return max(5,3,8,6,1,0,3,7);
+}

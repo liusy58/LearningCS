@@ -1,0 +1,8 @@
+#test error
+int main() {
+	return f(0);
+}
+int f(f:int) {
+	var f:int;
+	return 0;
+}

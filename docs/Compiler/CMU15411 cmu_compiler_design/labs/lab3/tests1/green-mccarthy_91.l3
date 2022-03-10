@@ -1,0 +1,16 @@
+#test return 91
+# McCarthy's 91 function:
+# returns 91 if x <=101
+# returns x-10 if x > 101
+
+int McCarthy(n : int) {
+  if(n > 100) {
+    return n-10;
+  } else {
+    return McCarthy(McCarthy(n + 11));
+  }
+}
+
+int main () {
+  return McCarthy(100);
+}

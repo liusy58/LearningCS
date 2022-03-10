@@ -1,0 +1,9 @@
+#test error
+// one control path without return statement
+
+int main () {
+  if (1)
+    return 1;
+  else
+    ;
+}

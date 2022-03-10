@@ -1,0 +1,15 @@
+#test return 9
+
+//test distinction between variable and functions namespaces
+int main()
+{
+  var x,a: int;
+  a = 8;
+  x = a(6); 
+  return x;
+}
+
+int a(n: int)
+{
+  return 9;
+}

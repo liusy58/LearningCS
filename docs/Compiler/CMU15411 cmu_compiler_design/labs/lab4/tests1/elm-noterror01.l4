@@ -1,0 +1,7 @@
+#test return 1
+/* checks if NULL is equal to NULL */
+
+int main () 
+{
+  return NULL == NULL ? 1 : 0;
+}

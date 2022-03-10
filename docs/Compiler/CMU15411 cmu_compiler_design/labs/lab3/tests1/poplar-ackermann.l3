@@ -1,0 +1,15 @@
+#test return 125
+// The Ackermann function
+int A(m : int, n : int) {
+    if (m <= 0) {
+        return n + 1;
+    }
+    if (n <= 0) {
+        return A(m - 1, 1);
+    }
+    return A(m - 1, A(m, n - 1));
+}
+
+int main() {
+    return A(3, 4);
+}

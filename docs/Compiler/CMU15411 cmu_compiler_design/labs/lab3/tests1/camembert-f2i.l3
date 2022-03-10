@@ -1,0 +1,172 @@
+#test return 1
+// rounds an IEEE 32-bit float down to the nearest integer
+
+int main()
+{
+    return f2i(  1161348562 ) == 2956 // 2956.36377
+        && f2i( -1048444928 ) == -17  // -16.25
+        && f2i(  2139095040 ) == 1 << 31 // INF
+        ;
+}
+
+int f2i( f:int )
+{
+    var res:int;
+    var EX:int;
+    var exp:int;
+    var frac:int;
+    var sign:int;
+    var test:int;
+    var testval:int;
+    var flag:int;
+    var arg1:int;
+    var arg2:int;
+    var arg3:int;
+    var arg4:int;
+    var a:int;
+    var b:int;
+    var j:int;
+    var k:int;
+    var m:int;
+    var n:int;
+    var p:int;
+    var q:int;
+
+    EX = 2139095040;
+
+    exp = 0;
+    frac = 0;
+
+    sign = 1 << 31;
+
+    test = 1;
+    testval = 0;
+    arg3 = 23;
+    arg4 = 0;
+
+    j=1;
+    k=0;
+    m=0;
+    n=1;
+    p=0;
+    q=0;
+
+    a=1;
+    b=0;
+    flag = EX;
+
+    res = 0;
+
+    while (a){
+        res = f & flag;
+        
+        if (b){
+            frac = res;
+            a = 0;
+        }
+        else{
+            exp = res;
+            flag = 8388607;
+            b = 1;
+        }
+    }
+
+    arg1 = exp;
+
+    while(1){
+
+        if (test >= testval){
+            if (k)
+                return 1 << 31;
+
+            if (m){
+                arg3 = 0;
+                arg4 = res;
+            }
+
+            if (p){}
+            else if (q)
+                arg3 = frac;
+
+            arg2 = arg3 - arg4;
+
+            if (m){
+                res = arg2;
+                arg2 = 0;
+                break;
+            }
+
+            if (p){
+                p=0;
+                arg4 = arg2;
+                continue;
+            }
+
+            else if (q){
+                q=0;
+                j=0;
+                k=1;
+                frac = arg2;
+                test = exp;
+                testval = 158;
+                arg3 = exp;
+                arg4 = 150;
+                arg1 = frac;
+                arg2 = 0;
+                continue;
+            }
+
+            else if (j)
+                res = arg1 >> arg2;
+            else
+                res = frac << arg2;
+
+            if (n){
+                n=0;
+                p=1;
+                q=1;
+                exp = res;
+                arg3 = 0;
+                arg4 = 8388608;
+                continue;
+            }
+
+            j = 1;
+        }
+        else if (j)
+            return 0;
+
+        if (m){
+            break;
+        }
+
+        if (k){
+            k = 0;
+            testval = 150;
+        }
+        else{
+            if (j){
+                m=1;
+                j=0;
+                test = f;
+                testval = sign;
+            }
+            else{
+                testval = 127;
+                arg3 = 150;
+                arg4 = exp;
+                j=1;
+            }
+        }
+    }
+
+    if ( sign & f ) {
+        testval = 42;
+        res -= 1;
+    } else {
+        res = -res;
+    } 
+
+    return res;
+}
+

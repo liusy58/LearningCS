@@ -1,0 +1,16 @@
+#test return 0
+// Given a rectangle's area and perimeter, find if the rectangle is a square
+{
+  Area = 24;
+  Perimeter = 10;
+
+  //Use Quadratic Formula
+  x = (Perimeter + ((Perimeter*Perimeter - 4*Area)/2))/2;
+  y = (Perimeter - ((Perimeter*Perimeter - 4*Area)/2))/2;
+
+  if(x == y) {
+    return 1;
+  }
+
+  return 0;
+}

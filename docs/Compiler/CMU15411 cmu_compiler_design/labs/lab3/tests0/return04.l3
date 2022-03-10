@@ -1,0 +1,65 @@
+#test return 1
+/* Addition of fractions, using a bijection between
+ * natural numbers and pairs of natural numbers
+ */
+/* Nested function calls */
+
+int main () {
+  var n:int;
+  n = add(fraction(2,4),fraction(2,3)); /* 1/2 + 2/3 = 7/6 */
+  return pi1(n) == 7 && pi2(n) == 6;
+}
+
+int fraction (x:int, y:int) {
+  var gcd:int;
+  gcd = gcd(x,y);
+  return pair(x/gcd,y/gcd);
+}
+
+int add (n:int, m:int) {
+  var x1,x2,y1,y2:int;
+  x1 = pi1(n);
+  x2 = pi2(n);
+  y1 = pi1(m);
+  y2 = pi2(m);
+  return fraction(x1*y2+x2*y1, y1*y2);
+}
+
+int gcd (x:int, y:int) {
+  /* x,y >= 0 */
+  var r:int;
+  while (y != 0) {
+    r = x%y;
+    x = y;
+    y = r;
+  }
+  return x;
+}
+
+int pair (x:int, y:int) {
+  var w:int;
+  w = x+y;
+  return w*(w+1)/2+y;
+}
+
+int pi1 (n:int) {
+  var w,d:int;
+  w = 0;
+  d = 0;
+  while (w < n) {
+    d = d+1;
+    w = w+d;
+  }
+  return w-n-1;
+}
+  
+int pi2 (n:int) {
+  var w,d:int;
+  w = 0;
+  d = 0;
+  while (w < n) {
+    d = d+1;
+    w = w+d;
+  }
+  return d-(w-n);
+}

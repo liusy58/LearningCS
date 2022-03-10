@@ -1,0 +1,19 @@
+#test return 0
+
+int fact_iter(x : int) {
+  var result : int;
+  result = x;
+  
+  x -= 1;
+  
+  while(x > 0) {
+    result *= x;
+    x -= 1;
+  }
+  
+  return x;
+}
+
+int main () {
+  return fact_iter(5);
+}

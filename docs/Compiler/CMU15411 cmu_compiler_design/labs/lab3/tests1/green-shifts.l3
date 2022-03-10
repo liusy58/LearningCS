@@ -1,0 +1,16 @@
+#test return 105
+
+# bit ops...shifts
+
+
+int main () {
+  var x, y : int;
+  
+  x = 42;
+  y = 42;
+  
+  x = x << 1;
+  y = y >> 1;
+  
+  return x + y;
+}

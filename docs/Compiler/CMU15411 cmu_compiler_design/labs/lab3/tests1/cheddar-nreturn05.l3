@@ -1,0 +1,29 @@
+#test return 65536
+
+// 2 stack
+int main ()
+{
+  var numtwos,x: int;
+  numtwos = 4;
+  x = twostack(numtwos);
+  return x;
+}
+
+int twostack(numtwos: int)
+{
+  if(numtwos == 0)
+    return 1;
+	
+  return exp(2, twostack(numtwos-1));
+}
+
+int exp (base: int, pow: int)
+{
+  var result, i: int;
+  result = 1;
+  for(i = 0; i < pow; i += 1)
+  {
+    result *= base;
+  }
+  return result;
+}

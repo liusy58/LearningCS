@@ -1,0 +1,24 @@
+#test return 1
+
+int main()
+{
+  return div2(1296);
+}
+
+int div2(x:int)
+{
+  if(x<2)
+  {
+    return x;
+  }
+  return div3(x/2);
+}
+
+int div3(x:int)
+{
+  if(x<2)
+  {
+    return x;
+  }
+  return div2(x/3);
+}

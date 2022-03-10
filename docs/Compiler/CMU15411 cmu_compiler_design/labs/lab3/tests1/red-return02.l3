@@ -1,0 +1,12 @@
+#test return 1
+
+int main() {
+  var x : int;
+  x = 0;
+  /* this /* should be /* nested
+  // hello
+  */ good */ bye */ 
+  x += 1;
+  #x += 1;
+  return x;
+}

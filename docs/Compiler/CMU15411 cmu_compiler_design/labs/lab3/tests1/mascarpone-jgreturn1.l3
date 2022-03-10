@@ -1,0 +1,12 @@
+#test return 256
+
+int main()
+{
+  return square(16);
+}
+
+int square(x:int)
+{
+  return x*x;
+}
+

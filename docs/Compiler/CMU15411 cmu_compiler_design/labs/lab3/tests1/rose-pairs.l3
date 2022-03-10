@@ -1,0 +1,51 @@
+#test return 13
+
+# A horrible way to implement structs of (small) ints in the language,
+# by Godel numbering.  A pair (a, b) is represented by 2^a*3^b, and each
+# element is then extracted by factoring the ``pair'', and using the
+# part that is needed.
+
+int pwr (a : int, n : int)
+{
+    if (n == 0)
+        return 1;
+    return a * (pwr (a, n - 1));
+}
+
+int makepair (a : int, b : int)
+{
+    return (pwr (2, a)) * (pwr (3, b));
+}
+
+int paira (p : int)
+{
+    var i : int;
+
+    for (i = 0; (p % 2) == 0; i += 1)
+        p /= 2;
+
+    return i; 
+}
+
+int pairb (p : int)
+{
+    var i : int;
+
+    for (i = 0; (p % 3) == 0; i += 1)
+        p /= 3;
+
+    return i; 
+}
+
+int main ()
+{
+    var p, a, b : int;
+
+    p = makepair (4, 9);
+
+    a = paira (p);
+    b = pairb (p);
+
+    return (a + b);
+}
+

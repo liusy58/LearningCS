@@ -1,0 +1,18 @@
+#test return 0
+// do a bunch of multiplications by shifting
+{
+        sum = 0;
+        for (i = 0; i < 30; i += 1) {
+                x = 555 + 33 * i;
+                y = 1337 - 42*i;
+                prod = 0;
+                b = 0;
+                for (m = 1; m; m <<= 1) {
+                        if (m & y)
+                                prod += x << b;
+                        b += 1;
+                }
+                sum += x * y - prod;
+        }
+        return sum;
+}

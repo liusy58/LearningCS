@@ -1,0 +1,10 @@
+#test return 20
+/* Uses functions' return values as arguments to other functions */
+
+int main(){
+  return s(s(s(s(s(s(s(s(s(s(s(s(s(s(s(s(s(s(s(s(0))))))))))))))))))));
+}
+
+int s(x:int) {
+  return x + 1;
+}

@@ -1,0 +1,26 @@
+#test error
+// pointer arithmetic
+
+// pointer addition
+int next(item: int*, jump: int) {
+  item += jump;
+  return item;
+}
+
+// inc value at pointer
+int inc(item: int*, value: int) {
+  var old: int;
+  old = *item;
+  *item = old + value;
+  return old;
+}
+
+int main() {
+  var item: int *;
+  item = new(int);
+
+  *item = 1;
+  inc(item, 2);
+  inc(next(item - 2, 2), 2);
+  return item;
+}

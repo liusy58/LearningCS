@@ -1,0 +1,16 @@
+#test exception 14
+// infinite loop
+
+struct A {
+        self : A*;
+};
+
+int main ()
+{
+        var a : A*;
+        a = new (A);
+        a->self = a;
+        while (a != NULL)
+                a = a->self;
+        return 0;
+}

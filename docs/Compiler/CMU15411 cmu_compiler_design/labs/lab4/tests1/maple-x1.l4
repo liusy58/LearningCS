@@ -1,0 +1,28 @@
+#test exception 8 
+
+struct node {next:node*;n:int;};
+
+int main()
+{
+  var head:node*;
+  var dit:int;
+  dit = ~(1 << 31);
+  head = process(NULL,15411);
+  while (head != NULL)
+  {
+    dit /= head->n;
+    head = head->next;
+  }
+  return dit;
+}
+
+node *process(head:node*,n:int)
+{
+  head = new(node);
+  if (n != 0)
+    head->next = process(NULL,n-1);
+  else
+    head->next = NULL;
+  head->n = n;
+  return head;
+}

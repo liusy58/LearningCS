@@ -1,0 +1,75 @@
+#test return 1
+// Use a DFA to test ints for divisibility mod 5
+struct Node {
+    read0 : Node *;
+    read1 : Node *;
+    final : bool;
+};
+
+int main() {
+    var i : int;
+    var dfa : Node *;
+    var accepts, div5 : bool;
+
+    dfa = make_dfa();
+
+    for (i = 0; i < (1 << 20); i += 1) {
+        accepts = run(dfa, i);
+        div5 = i % 5 == 0;
+        if (accepts && !div5 || !accepts && div5) {
+            return 0;
+        }
+    }
+
+    return 1;
+}
+
+Node *make_dfa() {
+    var i : int;
+    var nodes : Node *[];
+
+    nodes = new(Node *[5]);
+    for (i = 0; i < 5; i += 1) {
+        nodes[i] = new(Node);
+    }
+
+    nodes[0]->read0 = nodes[0];
+    nodes[0]->read1 = nodes[1];
+    nodes[0]->final = true;
+
+    nodes[1]->read0 = nodes[2];
+    nodes[1]->read1 = nodes[3];
+
+    nodes[2]->read0 = nodes[4];
+    nodes[2]->read1 = nodes[0];
+
+    nodes[3]->read0 = nodes[1];
+    nodes[3]->read1 = nodes[2];
+
+    nodes[4]->read0 = nodes[3];
+    nodes[4]->read1 = nodes[4];
+
+    // Return initial state
+    return nodes[0];
+}
+
+bool run(node : Node *, input : int) {
+    var i, bit : int;
+
+    // Does not work on negative numbers
+    if (input < 0) {
+        return false;
+    }
+
+    // Parse input from most significant bit to least significant bit
+    for (i = 31; i >= 0; i -= 1) {
+        bit = input >> i & 1;
+        if (bit == 1) {
+            node = node->read1;
+        } else {
+            node = node->read0;
+        }
+    }
+
+    return node->final;
+}

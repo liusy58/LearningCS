@@ -1,0 +1,15 @@
+#test exception 8
+// Tests division by 0 exception
+
+int main()
+{
+  var x : int;
+  var i : int;
+
+  x = 1000;
+
+  for (i = 0; i < 20; i +=1)
+    x /= i;
+
+  return x;
+}

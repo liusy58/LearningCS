@@ -1,0 +1,33 @@
+#test return 256
+
+int main() {
+	return byteswap(1,0,1);
+}
+
+/* Swaps the nth and mth bytes of x. Thanks, 213 bitlab! */
+
+int byteswap(x : int, n : int, m : int) {
+	var getmask, eight_n, eight_m, nmask, mmask, nbits, mbits : int;
+	var nmid, mmid, nswap, mswap, xminus : int;
+	
+	getmask = 255;
+
+    eight_n = n << 3;
+    eight_m = m << 3;
+
+    nmask = getmask << eight_n;
+    mmask = getmask << eight_m;
+
+    nbits = x & nmask;
+    mbits = x & mmask;
+
+    nmid = nbits >> eight_n & getmask;
+    mmid = mbits >> eight_m & getmask;
+
+    nswap = nmid << eight_m;
+	mswap = mmid << eight_n;
+
+	xminus = x & (~nmask) & (~mmask);
+
+	return xminus | nswap | mswap;
+}

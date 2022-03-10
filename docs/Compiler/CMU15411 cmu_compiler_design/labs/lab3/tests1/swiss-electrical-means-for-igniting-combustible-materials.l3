@@ -1,0 +1,33 @@
+#test return 2515297
+int a(a:int) {
+var b,c:int;
+if(a > 31415) {
+  return a;
+}
+b = b(2*a);
+c = c(3*a);
+return a+b+c;
+}
+int b(b:int) {
+var a,c:int;
+if(b > 27182) {
+  return b;
+}
+a = a(5*b);
+c = c(8*b);
+return a+b+c;
+}
+int c(c:int) {
+var a,b:int;
+if(c > 66260) {
+  return c;
+}
+a = a(13*c);
+b = b(21*c);
+return a+b+c;
+}
+int main() {
+var x:int;
+x = 16021;
+return a(x) + b(x) + c(x);
+}

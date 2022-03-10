@@ -1,0 +1,49 @@
+#test return 1
+
+int main()
+{
+    var input : int;
+    var sorted : int;
+    var c : int;
+
+    // 1, 2, 0, 3, 3, 2, 1, 2, 0, 0, 2, 3, 2, 3, 2, 1 : 1860213705
+    // 0, 0, 0, 1, 1, 1, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3 : -5593792
+    input = 1860213705;
+    c = (select_sort(input)) == -5593792;
+
+    // 2, 0, 0, 1, 3, 2, 2, 1, 0, 0, 3, 3, 1, 2, 3, 1 : 2045799234
+    // 0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3 : -5614336
+    input = 2045799234;
+    c = c && (select_sort(input) == -5614336);
+
+    return c;
+}
+
+int select_sort(A : int)
+{
+    var i, j, min, Aj, Ai, Am : int;
+    
+    // Selection sort.
+    for (i = 0; i < 15; i += 1)
+    {
+	min = i;
+	for (j = i + 1; j < 16; j += 1)
+	{
+	    Aj = (A >> (j*2)) & 3;
+	    Am = (A >> (min*2)) & 3;
+	    if (Aj < Am)
+	    {
+		min = j;
+	    }
+	}
+	if (min != i)
+	{
+	    Ai = (A >> (i*2)) & 3;
+	    Am = (A >> (min*2)) & 3;
+	    A  = (A & ~(3 << (min*2))) | (Ai << (min*2));
+	    A  = (A & ~(3 << (i*2)))   | (Am << (i*2));
+	}
+    }
+
+    return A;
+}

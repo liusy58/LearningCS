@@ -1,0 +1,12 @@
+#test return 0
+//sanity check your evaluation order
+int nus1 (x : int, y : int)
+{
+	if (x == 1 || y == 0) return nus1 (x, y);
+	else return 0;
+}
+
+int main ()
+{
+	return nus1 (0 && nus1 (1, 0), 1 || nus1 (1, 0));
+}

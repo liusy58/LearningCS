@@ -1,0 +1,29 @@
+#test return 2
+// Tests for dead returns
+
+int main(){
+  var a,b,c:int;
+
+  a = 2;
+  b = 3;
+
+  if(a < b){
+    return 2;
+  }
+  else 
+    return 0;
+
+  a = f(3);
+  b = g(4);
+
+  return b;
+
+}
+
+int f(a:int){
+  return a / 0;
+}
+
+int g(a:int){
+  return a / 0;
+}

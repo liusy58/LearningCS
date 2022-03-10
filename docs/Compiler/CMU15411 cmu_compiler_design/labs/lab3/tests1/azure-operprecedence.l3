@@ -1,0 +1,17 @@
+#test return 0
+// tests operator precedence for *= || && | ^ &
+
+int main()
+{
+  var x : int;
+  x = 9 | 2 ^ 7 & 12;
+  if(x != 15)
+    return -1;
+  x *= 1+2;
+  if(x != 45)
+    return -2;
+  x = x || 0 && 0;
+  if(x != 1)
+    return -3;
+  return 0;
+}

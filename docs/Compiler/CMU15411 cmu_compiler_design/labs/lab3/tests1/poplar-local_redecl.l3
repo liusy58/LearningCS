@@ -1,0 +1,14 @@
+#test error
+// Local variable redeclared in a function
+int main() {
+    var a, b, c : int;
+    var x, y, z, a : int;
+    a = 1;
+    b = 2;
+    c = 3;
+    x = a;
+    y = b;
+    z = c;
+    a = a - x + b - y + c - z;
+    return a;
+}

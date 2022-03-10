@@ -1,0 +1,8 @@
+#test return 2678453
+int main() {
+  var x : int;
+  x = 0;
+  if((0 || (1 || x/x)) && (((!!8 - 1) == 0) || (1+x/x)))
+  x += 5;
+  return 223 * 12011;
+}

@@ -1,0 +1,11 @@
+#test return 243
+
+int main() {
+	return pow(3, 5);
+}
+
+int pow(x : int, y : int) {
+	if (y <= 0) return 1;
+	else
+		return x * pow(x, y - 1);
+}

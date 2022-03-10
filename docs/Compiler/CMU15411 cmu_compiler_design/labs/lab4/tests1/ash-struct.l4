@@ -1,0 +1,53 @@
+#test return 48
+
+struct A {b : B;};
+struct B {c : C;};
+struct C {d : D;};
+struct D {e : E;};
+struct E {f : F;};
+struct F {g : G;};
+struct G {h : H;};
+struct H {i : I;};
+struct I {j : J;};
+struct J {k : K;};
+struct K {l : L;};
+struct L {m : M;};
+struct M {n : N;};
+struct N {o : O;};
+struct O {p : P;};
+struct P {q : Q;};
+struct Q {r : R;};
+struct R {s : S;};
+struct S {t : T;};
+struct T {u : U;};
+struct U {v : V;};
+struct V {w : W;};
+struct W {x : X;};
+struct X {y : Y;};
+struct Y {z : Z;};
+struct Z {a : A*; val :int;};
+
+int main() {
+  var a : A*;
+  a = new(A);
+  a->b.c.d.e.f.g.h.i.j.k.l.m.n.o.p.q.r.s.t.u.v.w.x.y.z.val = 47;
+  a->b.c.d.e.f.g.h.i.j.k.l.m.n.o.p.q.r.s.t.u.v.w.x.y.z.a = a;
+  
+  inc(getA(getA(getA(a))));
+  
+  return getVal(a);
+}
+
+int inc(a : A*) {
+  a->b.c.d.e.f.g.h.i.j.k.l.m.n.o.p.q.r.s.t.u.v.w.x.y.z.val += 1;
+  return 0;
+}
+
+
+int getVal(a : A*) {
+  return a->b.c.d.e.f.g.h.i.j.k.l.m.n.o.p.q.r.s.t.u.v.w.x.y.z.val;
+}
+
+A* getA(a : A*) {
+  return a->b.c.d.e.f.g.h.i.j.k.l.m.n.o.p.q.r.s.t.u.v.w.x.y.z.a;
+}

@@ -1,0 +1,25 @@
+#test return 25
+
+int ignarg(a : int, b : int, c : int, d:int, e:int, f:int, g:int,
+			h:int, j:int, k:int, l:int, m:int) {
+	var n, o, p, q, r, s, t, u, v, w, x, y, z: int;
+	n = 4;
+	o = 5;
+	p = 6;
+	q = 7;
+	return m;
+}
+int main() {
+	var a, b, c, d, e, f : int;
+	a = 10;
+	b = 11;
+	c = 12;
+	d = 13;
+	e = 14;
+	f = 15;
+	a = 5*ignarg(0,f,0,d,0,b,0,0,0,0,0,5);
+	if (b != 11 || c != 12 || d != 13 || e != 14 || f != 15)
+		return -1;
+	else
+		return a;
+}

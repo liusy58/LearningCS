@@ -1,0 +1,13 @@
+#test error
+
+extern int printint(n : int);
+
+int main ()
+{
+    return printint();
+}
+
+int printint()
+{
+    return 5;
+}

@@ -1,0 +1,11 @@
+#test error
+// break statement outside a loop
+
+int main () {
+  var i : int;
+  for(i = 0; i < 5; i+=1) {
+    i+=1;
+  }
+  break;
+  return 0;
+}

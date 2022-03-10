@@ -1,0 +1,15 @@
+#test return 5040
+#super-exponentiation
+int exp(a:int) {
+	var sum,i:int;
+	sum = 0;
+	if(a == 0)
+		return 1;
+	for(i=0;i<a;i += 1)
+		sum += exp(a-1);
+	return sum;
+}
+
+int main() {
+	return exp(7);
+}

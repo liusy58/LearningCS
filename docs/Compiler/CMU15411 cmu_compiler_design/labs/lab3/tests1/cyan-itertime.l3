@@ -1,0 +1,35 @@
+#test return 102
+
+/* 11th number of:
+ * f(n) = f(n - 1) + product of digits of f(n - 1)
+ */
+
+int f(n : int)
+{
+  var rec : int;
+  if(n < 2)
+    return 1; // sequence start value
+  rec = f(n - 1);
+  return rec + g(rec);
+}
+
+int g(n : int)
+{
+  var a : int; // accumulator
+  var digit : int; // the lowest digit extracted
+  a = 1;
+  while(n > 0)
+  {
+    // extract nearest digit
+    digit = n % 10;
+    n /= 10;
+    if(a != 0)
+      a *= digit;
+  }
+  return a;
+}
+
+int main()
+{
+  return f(11);
+}

@@ -1,0 +1,16 @@
+#test error
+//structs with same name
+
+struct s {
+  f: int;
+  t: int;
+};
+
+struct s {
+  j: int;
+  k: int;
+};
+
+int main() {
+  return 1;
+}

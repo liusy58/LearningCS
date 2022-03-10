@@ -1,0 +1,10 @@
+#test error
+/* wrong number of arguments to a function*/
+int fubar()
+{
+	return fubar(3);
+}
+int main()
+{
+	return fubar();
+}

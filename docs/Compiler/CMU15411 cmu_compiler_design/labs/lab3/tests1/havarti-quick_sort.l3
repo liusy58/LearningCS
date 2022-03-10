@@ -1,0 +1,92 @@
+#test return 1
+
+extern int printhex(n:int);
+extern int printchar(n:int);
+extern int printint(n:int);
+
+int main()
+{
+    var input : int;
+    var sorted : int;
+    var c : int;
+    
+    // 1, 2, 0, 3, 3, 2, 1, 2, 0, 0, 2, 3, 2, 3, 2, 1 : 1860213705
+    // 0, 0, 0, 1, 1, 1, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3 : -5593792
+    input = 1860213705;
+    c = (quick_sort(input, 0, 16)) == -5593792;
+    
+    // 2, 0, 0, 1, 3, 2, 2, 1, 0, 0, 3, 3, 1, 2, 3, 1 : 2045799234
+    // 0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3 : -5614336
+    input = 2045799234;
+    c = c && (quick_sort(input, 0, 16) == -5614336);
+    
+    return c;
+}
+
+int find(A : int, size : int, e : int)
+{
+    var i : int;
+    
+    for (i = size - 1; i >= 0; i -= 1)
+    {
+        if (((A >> (i*2))&3) == e) { return i; }
+    }
+    return -1;
+}
+
+int quick_sort(A : int, l : int, size : int)
+{
+    var pivot : int;
+    var B : int;
+    var i : int;
+    var L : int;
+    var R : int;
+    var c : int;
+    
+    if (size <= 1) { return (A & (3 << (l*2))); }
+    A >>= l*2;
+    pivot = (A & 3);
+    
+    B = split_pivot(A, size);
+    i = find(B, size, pivot);
+    B <<= 2*l;
+    
+    L = quick_sort(B, l, i);
+    R = quick_sort(B, l+i+1, size - i - 1);
+    return L | R | (pivot << (2*(l+i)));
+}
+
+int split_pivot(A : int, size : int)
+{
+    var L, R : int;
+    var i, j, k : int;
+    var pivot : int;
+    
+    // Pick the first element as the pivot.
+    pivot = (A & 3);
+    A >>= 2;
+    L = 0;
+    R = 0;
+    i = 0;
+    j = 0;
+    
+    // Find L and R elements.
+    for (k = 1; k < size; k += 1)
+    {
+        if ((A & 3) <= pivot)
+        {
+            L <<= 2;
+            L |= (A & 3);
+            i += 1;
+        }
+        else
+        {
+            R <<= 2;
+            R |= (A & 3);
+            j += 1;
+        }
+        A >>= 2;
+    }
+    R <<= (2 * (i+1));
+    return (L | R | (pivot << (2*i)));
+}

@@ -1,0 +1,11 @@
+#test error
+
+int something( a:int )
+{
+    return a;
+}
+
+int main()
+{
+    return something();
+}

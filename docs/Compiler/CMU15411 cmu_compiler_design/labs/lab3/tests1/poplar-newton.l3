@@ -1,0 +1,14 @@
+#test return 18
+// find square roots by Newton's method
+
+int sqrt(x : int, g : int, it : int)
+{
+        if (it == 0)
+                return g;
+        return sqrt(x, g - (g*g - x) / (2*g), it - 1);
+}
+
+int main ()
+{
+        return sqrt (289, 1, 1000);
+}

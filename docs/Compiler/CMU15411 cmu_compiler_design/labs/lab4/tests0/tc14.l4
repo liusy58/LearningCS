@@ -1,0 +1,6 @@
+#test error
+/* undefined function */
+
+int main () {
+  return fib(9);
+}

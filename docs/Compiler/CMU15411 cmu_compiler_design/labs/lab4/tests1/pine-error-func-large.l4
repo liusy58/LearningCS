@@ -1,0 +1,23 @@
+#test error
+
+/* Function returning a 'large' type
+ * Author: matthewj
+ */
+
+struct s {
+    a : int;
+    b : int;
+};
+
+s foo(a : int, b : int) {
+    var c : s;
+    c.a = a;
+    c.b = b;
+    return c;
+}
+
+int main() {
+    var c : s;
+    c = foo(10, 10);
+    return c.a * c.b;
+}

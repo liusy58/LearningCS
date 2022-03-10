@@ -1,0 +1,23 @@
+#test return 15
+# Aliasing
+
+struct foo {
+	x : int;
+};
+
+int fooer(a:foo*, b:foo*) {
+	a->x += 1;
+	b->x += 2;
+	a->x += 4;
+	b->x += 8;
+	return 0;
+}
+
+int main()
+{
+	var x : foo*;
+	x = new(foo);
+	x->x = 0;
+	fooer(x,x);
+	return x->x;
+}

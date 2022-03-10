@@ -1,0 +1,16 @@
+#test return 29
+//  integer log2 rounded down. 
+
+int main () {
+  return log2(546870912);
+}
+
+int log2 (n : int) {
+  var result : int;
+  result = 0;
+  while(n >= 2) {
+    n /= 2;
+    result += 1;
+  }
+  return result;
+}

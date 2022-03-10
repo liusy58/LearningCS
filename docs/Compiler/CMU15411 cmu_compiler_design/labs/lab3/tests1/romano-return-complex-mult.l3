@@ -1,0 +1,19 @@
+#test return 5
+// Multiplication of two complex numbers
+int main() {
+  return cmult(2, 1, 1, 2); // (2 + 1i)(1 + 2i) = 5i
+}
+
+int cmult(a : int, ai : int, b : int, bi : int) {
+  var k1, k2, k3, x, y : int;
+  
+  k1 = a * (b + bi);
+  k2 = bi * (a + ai);
+  k3 = b * (ai - a);
+  
+  x = k1 - k2; // a(b+bi) - bi(a+ai) = ac+ad-ad-ab = ac-ab
+  y = k1 + k3; // a(b+bi) + b(ai-a) = ac+ad+bc-ac = ad+bc
+  
+  // No multiple return values :(
+  return x + y;
+}

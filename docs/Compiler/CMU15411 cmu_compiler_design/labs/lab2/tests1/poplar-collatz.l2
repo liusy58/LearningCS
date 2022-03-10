@@ -1,0 +1,20 @@
+#test return 1
+// Runs the Collatz operation on the input, thus always returns 1
+// (at least, for the 32-bit integers used here)
+{
+    input = 27;
+    while (input != 1) {
+        // If input is even
+        if ((input & 1) == 0) {
+            // Halve it
+            input >>= 1;
+        } else {
+            input = 3 * input + 1;
+        }
+        // Exception on overflow
+        if (input < 0) {
+            return 1/0;
+        }
+    }
+    return input;
+}

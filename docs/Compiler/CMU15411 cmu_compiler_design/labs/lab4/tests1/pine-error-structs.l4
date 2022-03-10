@@ -1,0 +1,16 @@
+#test error
+
+struct q {
+  r : r *; 
+};
+
+struct r {
+  i : int;
+};
+
+int main()
+{
+  var q : q *;
+  q = new(r);
+  return 0;
+}

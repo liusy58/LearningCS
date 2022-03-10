@@ -1,0 +1,10 @@
+#test error
+// function does not return
+int foo() {
+  var x,y:int;
+  y = x + y;
+}
+
+int main() {
+  return 0;
+}

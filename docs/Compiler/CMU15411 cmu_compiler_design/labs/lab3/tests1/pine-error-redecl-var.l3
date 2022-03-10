@@ -1,0 +1,12 @@
+#test error
+// Tests that argument names for functions are not later redeclared as
+// variables (L3 static semantic #6).
+
+int f1(a1 : int, a2 : int) {
+    var a3, a4, a2 : int;
+    return a1 + a2;
+}
+
+int main() {
+    return f1(5, 7);
+}

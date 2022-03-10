@@ -1,0 +1,21 @@
+#test return 7
+// Returns how many moves to solve a the Towers of Hanoi at height h
+
+
+int hanoi(h : int) {
+	var moves : int;	
+
+	if(h > 0) {
+		moves = hanoi(h-1);
+		moves += 1;
+		moves += hanoi(h-1);
+		return moves;
+	}
+
+	return 0;
+}
+
+
+int main() {
+	return hanoi(3);
+}

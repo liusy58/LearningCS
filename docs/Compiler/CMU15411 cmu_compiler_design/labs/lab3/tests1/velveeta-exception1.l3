@@ -1,0 +1,13 @@
+#test exception
+#raises a div exception.  Should stress stack I think.
+
+int main(){
+  return func(1000,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
+}
+
+int func(a1:int, a2:int, a3:int, a4:int, a5:int, a6:int, a7:int, a8:int, a9:int, a10:int, a11:int, a12:int, a13:int, a14:int, a15:int, a16:int, a17:int, a18:int, a19:int, a20:int, a21:int, a22:int, a23:int, a24:int, a25:int, a26:int, a27:int, a28:int, a29:int, a30:int, a31:int) {
+  var b1, b2, b3, b4, b5, b6, b7, b8, b9, b10, b11, b12, b13, b14, b15, b16, b17, b18, b19, b20, b21, b22, b23, b24, b25, b26, b27, b28, b29, b30, b31, b32, b33, b34, b35 : int;  
+  if(a1 < 0) return 12;
+  b1=func(a1-1,a2,a3,a4,a5,a6,a7,a8,a9,a10,a11,a12,a13,a14,a15,a16,a17,a18,a19,a20,a21,a22,a23,a24,a25,a26,a27,a28,a29,a30,a31);
+  return b1 / (a1 - 22);
+}

@@ -1,0 +1,13 @@
+#test error
+
+// Undeclared struct
+
+struct node {
+  value : int;
+  next : node*;
+};
+
+int main() {
+  var s : Node*;
+  return s->value;
+}

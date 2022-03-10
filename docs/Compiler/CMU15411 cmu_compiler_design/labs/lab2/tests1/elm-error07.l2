@@ -1,0 +1,8 @@
+#test error
+// variable used before defined
+{
+  a = 5;
+  j = i + a;
+  j += 3;
+  return j;
+}

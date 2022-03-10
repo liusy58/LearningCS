@@ -1,0 +1,16 @@
+#test return 20
+/* can't really make a faster version of this program*/
+int q (n : int) {
+    if (n == 0)
+       return 1;
+    if (n == 1)
+       return 1;
+    return q(n-q(n-1))+ q(n-q(n-2));
+}
+
+int main()
+{
+	var result : int;
+	result = q(33);
+	return result;
+}

@@ -1,0 +1,31 @@
+#test return 5
+
+extern int printchar(c:int);
+
+int main(){
+	var temp, h, e, l, o, sp, t, r, happy:int;
+	h = 72;
+	e = 101;
+	l = 108;
+	o = 111;
+	sp = 32;
+	t = 116;
+	r = 114;
+	happy = 7;
+
+	temp = printchar(h);
+	temp = printchar(e);
+	temp = printchar(l);
+	temp = printchar(l);
+	temp = printchar(o);
+	temp = printchar(sp);
+	temp = printchar(t);
+	temp = printchar(h);
+	temp = printchar(e);
+	temp = printchar(r);
+	temp = printchar(e);
+	temp = printchar(sp);
+	temp = printchar(happy);
+
+	return 5;
+}

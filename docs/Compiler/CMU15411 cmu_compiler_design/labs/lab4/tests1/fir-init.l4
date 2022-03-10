@@ -1,0 +1,28 @@
+#test return 42
+
+/* Test fast zero-clearing of memory */
+
+struct this { a: int; b: int; c: int; d: int; e: int; f: int; };
+struct is { a: this; b: this; c: this; d: this; e: this; f: this; };
+struct really { a: is; b: is; c: is; d: is; e: is; f: is; };
+struct way { a: really; b: really; c: really; d: really; e: really; f: really; };
+struct too { a: way; b: way; c: way; d: way; e: way; f: way; };
+struct big { a: too; b: too; c: too; d: too; e: too; f: too; }; 
+
+struct recursive {
+	b: big;
+	oshi: recursive *;
+};
+
+int main() {
+	var cur, prev, base: recursive *;
+	var n: int;
+	base = new(recursive);
+	prev = base;
+	for (n = 0; n < 20000; n += 1) {
+		cur = new(recursive);
+		prev->oshi = cur;
+		prev = cur;
+	}
+	return 42;
+}

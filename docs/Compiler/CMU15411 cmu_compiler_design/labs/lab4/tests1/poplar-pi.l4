@@ -1,0 +1,28 @@
+#test return 3149
+// calcalute pi in a dumb way
+
+int main ()
+{
+        var n, i, j, sum : int;
+        var grid : int[][];
+
+        n = 500;
+
+        grid = new (int[][n]);
+        for (i = 0; i < n; i += 1)
+                grid[i] = new (int[n]);
+        
+        for (i = 0; i < n; i += 1)
+                for (j = 0; j < n; j += 1)
+                        if (i*i + j*j < n*n)
+                                grid[i][j] = 1;
+                        else
+                                grid[i][j] = 0;
+        
+        sum = 0;
+        for (i = 0; i < n; i += 1)
+                for (j = 0; j < n; j += 1)
+                        sum += grid[i][j];
+
+        return 4 * sum * 1000 / (n*n);
+}

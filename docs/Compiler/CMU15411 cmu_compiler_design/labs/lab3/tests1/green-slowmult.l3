@@ -1,0 +1,18 @@
+#test return 6
+# multiplies two ints in a slow way
+
+int slow_mult(n : int, m: int) {
+  var total : int;
+  total = 0;
+  
+  while(n > 0) {
+    total += m;
+    n -= 1;
+  }
+
+  return total;
+}
+
+int main() {
+  return slow_mult(2,3);
+}

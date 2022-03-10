@@ -1,0 +1,11 @@
+#test error
+int main () {
+  val it:int;;
+  val it2:int;
+
+  it = 0;
+  it2 = 1;
+
+  return it2 + it;
+}
+

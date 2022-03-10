@@ -1,0 +1,12 @@
+#test error
+
+/* nested functions */
+
+int main()
+{
+  fun(a, b)
+  {
+    return a + b;
+  }
+  return fun(2, 2); // 2 + 2 = 4!
+}

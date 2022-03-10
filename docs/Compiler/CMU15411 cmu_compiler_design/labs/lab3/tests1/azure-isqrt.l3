@@ -1,0 +1,35 @@
+#test return 0
+// calculates integer sqrt using algorithm from wikipedia
+
+int main()
+{
+  var i : int;
+  for(i = 1; i < 1024; i+=1) {
+    if((isqrt(i*i) != i) ||
+       (isqrt(i*i+1) != i) ||
+       (isqrt(i*i-1) != i-1))
+      return -1;
+  }
+  return 0;
+}
+
+int isqrt(n:int)
+{
+  var op, res, one : int;
+  op = n;
+  res = 0;
+  one = 1 << 30;
+
+  while(one > op)
+    one >>= 2;
+
+  while(one != 0) {
+    if(op >= res + one) {
+      op -= res + one;
+      res += one<<1;
+    }
+    res >>= 1;
+    one >>= 2;
+  }
+  return res;
+}

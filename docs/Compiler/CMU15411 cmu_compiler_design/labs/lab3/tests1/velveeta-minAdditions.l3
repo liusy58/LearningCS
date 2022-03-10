@@ -1,0 +1,23 @@
+#test return 7
+#Returns the minimum number of additions
+#needed to make 31
+
+int main(){
+  var answer:int; 
+  answer = minMults(31);
+  return answer;
+}
+
+int minMults(exp:int){
+  var best,temp,i:int;
+  best = exp;
+  if(exp <= 1) return 0;
+
+  for(i = 1; i <= exp/2; i+=1){
+    temp = minMults(i);
+    temp += (exp/i)-1;
+    if(exp % i) temp += minMults(exp%i)+1;
+    if(temp < best) best = temp;
+  }
+  return best;
+}

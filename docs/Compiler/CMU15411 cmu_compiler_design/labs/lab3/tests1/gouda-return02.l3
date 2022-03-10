@@ -1,0 +1,22 @@
+#test return 6
+// Minimax
+
+int main () {
+  return min(max(min(4,3),min(6,8)),max(min(10,11), min(4,-1)));
+}
+
+int max(a:int, b:int) {
+  if (a > b) {
+    return a;
+  } else {
+    return b;
+  }
+}
+
+int min(a:int, b:int) {
+  if (a > b) {
+    return b;
+  } else {
+    return a;
+  }
+}

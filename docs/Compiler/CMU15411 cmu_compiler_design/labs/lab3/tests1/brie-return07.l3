@@ -1,0 +1,15 @@
+#test return 1
+// the stack grows down
+
+int nus1 (n1 : int, n2 : int, n3 : int, n4 : int, n5 : int, n6 : int, n7 : int, n8 : int)
+{
+	return n7 < n8;
+}
+
+int main ()
+{
+	var x, y : int;
+	x = 5;
+	y = 6;
+	return nus1 (0, 0, 0, 0, 0, 0, x, y);
+}

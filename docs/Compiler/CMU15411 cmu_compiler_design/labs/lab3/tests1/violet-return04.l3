@@ -1,0 +1,179 @@
+#test return 156
+
+/* Tests compiler's ability to handle a large number of functions and also
+ * functions with a large number of inputs. */
+
+int a() {
+  var variable:int;
+  variable = 3;
+  return variable;
+}
+
+int b() {
+  var variable:int;
+  variable = 3;
+  return variable;
+}
+
+int c() {
+  var variable:int;
+  variable = 3;
+  return variable;
+}
+
+int d() {
+  var variable:int;
+  variable = 3;
+  return variable;
+}
+
+
+int e() {
+  var variable:int;
+  variable = 3;
+  return variable;
+}
+
+
+int f() {
+  var variable:int;
+  variable = 3;
+  return variable;
+}
+
+int g() {
+  var variable:int;
+  variable = 3;
+  return variable;
+}
+
+int h() {
+  var variable:int;
+  variable = 3;
+  return variable;
+}
+
+int i() {
+  var variable:int;
+  variable = 3;
+  return variable;
+}
+
+int j() {
+  var variable:int;
+  variable = 3;
+  return variable;
+}
+
+int k() {
+  var variable:int;
+  variable = 3;
+  return variable;
+}
+
+int l() {
+  var variable:int;
+  variable = 3;
+  return variable;
+}
+
+int m() {
+  var variable:int;
+  variable = 3;
+  return variable;
+}
+
+int n() {
+  var variable:int;
+  variable = 3;
+  return variable;
+}
+
+int o() {
+  var variable:int;
+  variable = 3;
+  return variable;
+}
+
+int p() {
+  var variable:int;
+  variable = 3;
+  return variable;
+}
+
+int q() {
+  var variable:int;
+  variable = 3;
+  return variable;
+}
+
+int r() {
+  var variable:int;
+  variable = 3;
+  return variable;
+}
+
+int s() {
+  var variable:int;
+  variable = 3;
+  return variable;
+}
+
+int t() {
+  var variable:int;
+  variable = 3;
+  return variable;
+}
+
+int u() {
+  var variable:int;
+  variable = 3;
+  return variable;
+}
+
+int v() {
+  var variable:int;
+  variable = 3;
+  return variable;
+}
+
+int w() {
+  var variable:int;
+  variable = 3;
+  return variable;
+}
+
+int x() {
+  var variable:int;
+  variable = 3;
+  return variable;
+}
+
+int y() {
+  var variable:int;
+  variable = 3;
+  return variable;
+}
+
+int z() {
+  var variable:int;
+  variable = 3;
+  return variable;
+}
+
+int lots_of_inputs(i0:int, i1:int, i2:int, i3:int, i4:int, i5:int, i6:int,
+                   i7:int, i8:int, i9:int, i10:int, i11:int, i12:int, i13:int,
+                   i14:int, i15:int, i16:int, i17:int, i18:int, i19:int,
+                   i20:int, i21:int, i22:int, i23:int, i24:int, i25:int) {
+  return i0 + i1 + i2 + i3 + i4 + i5 + i6 + i7 + i8 + i9 + i10+ i11 + i12 +
+    i13 + i14 + i15 + i16 + i17 + i18 + i19 + i20 + i21 + i22 + i23 + i24 + i25;
+}
+
+int main() {
+  return a() + b() + c() + d() + e() + f() + g() + h() + i() + j() + k()
+    + l() + m() + n() + o() + p() + q() + r() + s() + t() + u() + v() + w()
+    + x() + y() + z()
+    + lots_of_inputs(a(), b(), c(), d(), e(), f(), g(), h(), i(), j(), k(),
+                     l(), m(), n(), o(), p(), q(), r(), s(), t(), u(), v(),
+                     w(), x(), y(), z());
+}

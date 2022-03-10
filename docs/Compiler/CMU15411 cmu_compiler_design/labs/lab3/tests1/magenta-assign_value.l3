@@ -1,0 +1,8 @@
+#test error
+
+int main () {
+    var x, y : int;
+
+    x = y = 3; /* should be a parse error. note that this is valid in C */
+    return x; /* in C this would return 3 */
+}

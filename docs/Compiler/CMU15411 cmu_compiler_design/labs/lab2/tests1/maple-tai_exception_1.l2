@@ -1,0 +1,12 @@
+#test exception
+// Exception overflow
+{
+  prev = 0;
+  result = 0;
+  for (i = 1; i > prev; i <<= 1)
+  {
+    result |= i;
+    prev = i;
+  }
+  return i / (result + i);
+}

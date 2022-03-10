@@ -1,0 +1,22 @@
+#test return 0
+
+int main ()
+{
+  return mutrecurse1(1);
+}
+
+int mutrecurse1 (n: int)
+{
+  if(n > 10)
+  	return 1;
+  else
+    return mutrecurse2 (n + 2);
+}
+
+int mutrecurse2 (n: int)
+{
+  if (n > 10)
+    return 0;
+  else
+    return mutrecurse1 (n+1);
+}

@@ -1,0 +1,14 @@
+#test return 3375
+
+int exp (x:int, exp:int) {
+  if (exp == 1) {
+    return x;
+  } else {
+    return exp(x, exp-1 ) * x;
+  }
+}
+
+int main () {
+  return exp(15,3);
+}
+

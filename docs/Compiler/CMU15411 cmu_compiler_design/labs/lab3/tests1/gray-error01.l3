@@ -1,0 +1,20 @@
+#test error
+#invalid parameter and declaration
+#use of undeclared variables
+
+int
+fn1(x:int, y:int,)
+{
+   var a1, : int;
+   a1 = 0;
+   return a1;
+}
+
+int
+main()
+{
+   var :int;
+   y = fn1();
+   main();
+   return 0;
+}

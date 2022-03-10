@@ -1,0 +1,13 @@
+#test error
+
+// break in a function
+
+int main() {
+	var brk : int;
+	
+	var = 100;
+	
+	break;
+	
+	return var;
+}

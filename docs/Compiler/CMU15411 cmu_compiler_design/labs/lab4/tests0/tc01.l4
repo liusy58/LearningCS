@@ -1,0 +1,10 @@
+#test error
+/* undefined struct type */
+
+int f (x:s[]*) {
+  return 2;
+}
+
+int main () {
+  return 0;
+}

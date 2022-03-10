@@ -1,0 +1,7 @@
+#test return 0
+int main(){
+    var a : int;
+    return 0;
+    return a;
+    a = a + a;
+}

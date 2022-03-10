@@ -1,0 +1,32 @@
+#test exception 8
+
+int computation(N : int) {
+  var x, y, z, t, NOTDEAD, result : int;
+
+  result = 0;
+  for (x = 0; x < N; x +=1) {
+    z = 0;
+    for (y = 0; y < N; y +=1) {
+      z ^= -x ^ !y * ~x | !!y;
+      NOTDEAD = 10 - x - y; 
+      if (x > 0) t = x % y; // this line is not dead
+      z ^= ~x | -y & !x ^ !~y;
+    }
+    result ^= z;
+  }
+  return result;
+}
+
+int main() {
+  var x, y, z : int;
+  x = 0;
+  while (1) {
+    for (z = 0; z < 12345; z +=1); // this line is dead
+    y = x * x + computation(x);    // this line is not dead
+    x = 99;
+  }
+  x = 2;
+  return x;
+}
+
+ 

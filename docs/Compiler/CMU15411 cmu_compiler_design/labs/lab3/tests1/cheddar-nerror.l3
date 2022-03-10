@@ -1,0 +1,14 @@
+#test error
+// Calls an undefined function
+
+int four_ ()
+{
+	return 4;
+}
+
+int main ()
+{
+	var x: int;
+	x = four();
+	return x;
+}

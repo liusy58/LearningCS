@@ -1,0 +1,47 @@
+#test return 97
+
+// http://en.wikipedia.org/wiki/Pollard%27s_rho_algorithm
+
+int main() {
+  return factor(8051);
+}
+
+int factor(n:int) {
+  var x, y, d : int;
+  x = 2;
+  y = 2;
+  d = 1;
+
+  while (d == 1) {
+    x = f(x, n);
+    y = f(f(y, n), n);
+    d = gcd(abs(x - y), n);
+  }
+
+  if (d == n) {
+    return -1;
+  }
+
+  return d;
+}
+
+// Pseudo-random function
+int f(x:int, n:int) {
+  return (x*x + 1) % n;
+}
+
+int gcd(x:int, y:int) {
+  if (y == 0) {
+    return x;
+  } else {
+    return gcd(y, x % y);
+  }
+}
+
+int abs(x:int) {
+  if (x < 0) {
+    return -x;
+  } else {
+    return x;
+  }
+}

@@ -1,0 +1,12 @@
+#test return 124
+
+int main()
+{
+    return _l3_main(123);
+}
+
+int _l3_main(a:int)
+{
+    return a + 1;
+}
+

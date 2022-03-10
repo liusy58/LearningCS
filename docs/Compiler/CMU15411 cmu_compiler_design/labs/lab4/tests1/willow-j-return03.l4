@@ -1,0 +1,48 @@
+#test return 16
+
+struct bst {
+	n : int;
+	n2 : int;
+	l : bst*;
+	r : bst*;
+};
+
+bst *insert(b:bst*, n:int, n2:int) {
+	if(b == NULL) {
+		b = new(bst);
+		b->n = n;
+		b->n2 = n2;
+		return b;
+	}	
+	if(n > b->n) {
+		b->r = insert(b->r, n, n2);
+		return b;
+	} else {
+		b->l = insert(b->l, n, n2);
+		return b;
+	}
+}
+
+int lookup(b:bst*, n:int) {
+	if(b == NULL)
+		return 1/0;
+	if(b->n == n)
+		return b->n2;
+	if(n > b->n)
+		return lookup(b->r, n);
+	else
+		return lookup(b->l, n);
+}
+
+int main() {
+	var b:bst*;
+	b = NULL;
+	b = insert(b, 1, 1);
+	b = insert(b, 2, 4);
+	b = insert(b, 3, 9);
+	b = insert(b, 4, 16);
+	b = insert(b, 5, 25);
+	b = insert(b, 6, 36);
+	b = insert(b, 7, 49);
+	return lookup(b, 4);
+}

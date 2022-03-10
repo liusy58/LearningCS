@@ -1,0 +1,32 @@
+#test return 0
+/* Simple function call to sum up numbers */
+
+int main () {
+  var n,x,y:int;
+  n = 100;
+  
+  x = sum(1,100);
+  y = n*(n+1)/2;
+  return x-y;
+}
+
+int add(i:int, j:int) {
+  return i+j;
+}
+
+int lessthan(i:int, j:int) {
+  return i <= j;
+}
+
+int sum(i:int, j:int) {
+  var sum,x:int;
+  sum = 0;
+  for (x=i; lessthan(x, j); x=add(x, 1)) {
+    sum = add(sum, x);
+  }
+
+  return sum;
+}
+
+
+

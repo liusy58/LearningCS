@@ -1,0 +1,16 @@
+#test return 1
+/* using an int as a boolean */
+
+bool xor (b:bool, c:bool) {
+  return (b && !c) || (!b && c);
+}
+
+int main () {
+  var t,f:bool;
+  t = true;
+  f = false;
+  if (!xor(t,t) && xor(t,f) && xor(f,t) && !xor(f,f))
+    return 1;
+  else
+    return 0;
+}

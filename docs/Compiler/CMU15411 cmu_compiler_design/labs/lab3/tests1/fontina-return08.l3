@@ -1,0 +1,14 @@
+#test return 51
+
+int main()
+{
+    var _a:int;
+    _a = 1;
+    return _a + _l3_main();
+}
+
+int _l3_main()
+{
+    return 50;
+}
+

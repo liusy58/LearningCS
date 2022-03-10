@@ -1,0 +1,8 @@
+#test exception
+
+// This could also time out
+
+int main()
+{
+	return 1 + main();
+}

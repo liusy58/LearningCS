@@ -1,0 +1,33 @@
+#test error
+/* This program
+ab
+	uses /*
+	//* whitespace */
+*/
+
+//* woohoh! */
+
+int 
+
+
+				main(
+						   )
+{var
+x, y:int; var
+	foo_,
+bar:
+	   int;x
+	   =
+	   	2222000;
+y = 
+
+
+
+
+	x 
+	+
+	-
+	y;
+
+	return foo;
+}

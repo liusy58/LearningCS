@@ -1,0 +1,55 @@
+#test return 0
+{
+	//This program also checks that comments parse correctly
+	//returns the following
+	//number of times we must take ilog2 of notintmin to get 0 if notintmin > 0
+	//0 if notintmin == 0
+	//-1 if notintmin < 0 && notintmin > INT_MIN
+	//raises exception if notintmin == INT_MIN
+	//
+	//Example: notintmin = INT_MAX
+	//ilog2 (INT_MAX) = 30
+	//ilog2 (30) = 4
+	//ilog2 (4) = 2   
+	//ilog2 (2) = 1
+	//ilog2 (1) = 0
+	//so output should be 5
+
+	notintmin = 0;
+
+	iter = 1 << 31;
+	false = notintmin == iter;
+	input = notintmin;
+	pointlesscheck = input;
+	if (input) 
+	{	iter = 0;
+		while (input)
+		{ var1 = 0; 
+			var2 = ~0; 
+			//Do a complicated calculation of ilog2 without a loop and plenty of
+			//shifts and virtually no parens for readability
+			var1 |= !!(var2 << 16 & input) << 4; 
+			var1 |= !!(var2 << 8 & input >> var1) << 3; 
+			var1 |= !!(var2 << 4 & input >> var1) << 2; 
+			var1 |= !!(var2 << 2 & input >> var1) << 1; 
+			var1 |= input >> var1 + 1; 
+			input = var1;
+
+			//Creates an exception if false == 1
+			//False == 1 if and only if notintmin == INT_MIN
+			//Will infinite loop if no exception when modding MIN_INT/ aren't done right
+			if (false) {notintmin %= -false; continue;}
+
+			//Create a dangling else.
+			//This should cause an infinite loop input is negative and dangling else not
+			//	dealt with properly.
+			if (!false) 
+				if (input < 0) {iter = -1; break;}
+				else iter += 1;}}
+	else 
+	{ //If || is implemented correctly then we will never try to divide by 0
+		if (((input | ~input + 1) >> 31) + 1 || 
+				iter % (input - 1) || 
+				iter / input) iter = 0;}
+	return iter;
+}

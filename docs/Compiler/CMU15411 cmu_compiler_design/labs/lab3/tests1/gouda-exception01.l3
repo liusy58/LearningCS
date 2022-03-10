@@ -1,0 +1,7 @@
+#test exception
+// SIGSEGV for stack overflow
+// Could also time out, depending on resource constraints
+
+int main () {
+  return main();
+}

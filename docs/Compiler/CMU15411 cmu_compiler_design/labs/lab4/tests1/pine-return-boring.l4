@@ -1,0 +1,40 @@
+#test return 15
+
+// boring struct test
+
+struct q {
+  i : int;
+  r : r *; 
+};
+
+struct r {
+  s : s *;
+};
+
+struct s {
+  t : t *;
+};
+
+struct t {
+  q : q *;
+};
+
+int main()
+{
+  var q : q *;
+  q = new(q);
+  q->r = new(r);
+  q->r->s = new(s);
+  q->r->s->t = new(t);
+  q->r->s->t->q = q;
+  if(q->r->s->t->q == q) 
+  {
+    q->r->s->t->q->i = 15;
+  }
+  else
+  {
+    q->r->s->t->q->i = 7;
+  }
+
+  return q->i;
+}

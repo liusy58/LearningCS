@@ -1,0 +1,11 @@
+#test return 1
+
+struct main {
+	main : main*;
+};
+
+int main() {
+	var main:main*;
+	main = new(main);
+	return 1;
+}

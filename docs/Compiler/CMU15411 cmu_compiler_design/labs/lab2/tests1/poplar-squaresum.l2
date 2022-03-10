@@ -1,0 +1,23 @@
+#test return 1
+// Verify the sum-of-first-n-squares formula up to given input
+// Tests using a nested loop, and continue statement
+{
+    input = 1023;    // Max number before overflow occurs
+    for (n = 1; n <= input; n += 1) {
+        // Compute by summing consecutive squares
+        sum1 = 0;
+        for (k = 1; k <= n; k += 1) {
+            sum1 += k * k;
+        }
+
+        // Compute using closed form
+        sum2 = n * (n + 1) * (2 * n + 1) / 6;
+
+        // Compare results
+        if (sum1 == sum2)
+            continue;    // Testing continue
+        else
+            return 0;
+    }
+    return 1;
+}

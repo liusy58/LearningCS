@@ -1,0 +1,22 @@
+#test return 26
+
+int main()
+{
+    var a, b, c, d : int;
+    a = a(1);
+    b = b(2);
+    c = a(3) + b;
+    d = a + b(4);
+    return c + d;
+}
+
+int a(v:int)
+{
+    return v * 2;
+}
+
+int b(v:int)
+{
+    return v * 3;
+}
+

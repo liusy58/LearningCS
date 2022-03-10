@@ -1,0 +1,14 @@
+#test return 42
+
+int main() {
+	var a, b, c, d, x, y, z : int;
+
+	a = 1;
+	b = 2;
+	c = a + b;
+	d = c*10;
+	return d+12;
+
+	x = y + z; //make sure this is valid
+
+}

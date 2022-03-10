@@ -1,0 +1,57 @@
+#test error
+/* finds the missing number in the ordered increasing array */
+/* trying to allocate memory with array type */
+
+struct pair {result:int; array:int[]*;};
+
+pair* missing (A:int[], n:int) 
+{
+  var i:int;
+  var p:pair*;
+  p = new(pair);
+
+  p->result = 0;
+  for(i = 0; i < n; i+=1)
+  {
+    if(p->result == (*p).result)
+      p->result += A[i];
+  }
+
+  n = n*(n+1)/2;
+  if(n <= p->result)
+    return NULL;
+
+  n = n - p->result;
+  p->result = n;
+  p->array = new(int[n]);
+  *(p->array) = A;
+  return p;
+}
+
+int init (A:int[], k:int, n:int) 
+{
+  var i:int;
+  for (i = 0; i < n; i += 1) {
+    if(k != 13)
+      A[i] = k;
+    else
+      A[i] = 0;
+    k += 1;
+  }
+  return 0;
+}
+
+int main () 
+{
+  var A : int[];
+  var p : pair*;
+  var n : int;
+
+  n = 26;
+
+  A = new(int[n]);
+  init(A, 1, n);
+
+  p = missing (A, n);
+  return p->result;
+}

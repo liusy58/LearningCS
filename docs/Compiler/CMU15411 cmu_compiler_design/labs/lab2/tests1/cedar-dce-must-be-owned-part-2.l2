@@ -1,0 +1,6 @@
+#test exception
+{
+  i = 15 / 0;
+  if (0) return i;
+  return 1;
+}

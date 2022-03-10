@@ -1,0 +1,12 @@
+#test error
+
+// can't call main from another function
+
+int method(x : int, y : int) {
+	return main(43110);	// seriously?
+	
+}
+
+int main () {
+	return method(100, 100);
+}

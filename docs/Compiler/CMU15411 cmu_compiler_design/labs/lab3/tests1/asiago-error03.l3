@@ -1,0 +1,11 @@
+#test error
+
+// test to make sure, keywords cannot be used as id's
+
+int main() {
+	var var : int;
+	
+	var = 100;
+	
+	return var;
+}

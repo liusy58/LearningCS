@@ -1,0 +1,8 @@
+#test error
+// break used as a variable
+{
+  i = 2;
+  break /= i;
+  j = break;
+  return j;
+}

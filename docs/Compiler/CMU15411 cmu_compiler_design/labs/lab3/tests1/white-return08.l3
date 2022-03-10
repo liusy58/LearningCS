@@ -1,0 +1,15 @@
+#test return 1
+int primep(x : int){
+  var i : int;
+  for(i=2;i*i<x;i+=1){
+    if(x % i == 0){
+      return 0;
+    }
+  }
+  return 1;
+}
+
+int main(){
+  return primep(5) && primep(113) && primep(23) && !primep(20);
+}
+

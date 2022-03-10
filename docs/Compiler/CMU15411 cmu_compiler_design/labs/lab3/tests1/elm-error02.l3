@@ -1,0 +1,10 @@
+#test error
+// bad type
+int main() {
+  foo();
+  return 3;
+}
+
+dcd foo() {
+  return 1;
+}

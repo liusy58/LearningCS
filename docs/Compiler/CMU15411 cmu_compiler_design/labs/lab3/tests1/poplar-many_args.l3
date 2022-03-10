@@ -1,0 +1,23 @@
+#test return 171
+// Function taking more than number of register arguments
+int big(r1 : int, r2 : int, r3 : int, r4 : int, r5 : int, r6 : int,
+        s1 : int, s2 : int, s3 : int, s4 : int, s5 : int, s6 : int) {
+    var b1, b2, b3, b4, b5, b6 : int;
+    b1 = r1 + s6;
+    b2 = r2 + s5;
+    b3 = r3 + s4;
+    b4 = r4 + s3;
+    b5 = r5 + s2;
+    b6 = r6 + s1;
+    b1 = b6 + r4;
+    b2 = b5 + r5;
+    b3 = b4 + r6;
+    b4 = b3 + r1;
+    b5 = b2 + r2;
+    b6 = b1 + r3;
+    return b1 + s1 + b2 + s2 + b3 + s3 + b4 + s4 + b5 + s5 + b6 + s6;
+}
+
+int main() {
+    return big(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12);
+}

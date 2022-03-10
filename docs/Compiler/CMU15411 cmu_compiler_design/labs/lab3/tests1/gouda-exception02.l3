@@ -1,0 +1,16 @@
+#test exception 14
+// SIGALRM for infinite loop
+
+int main () {
+  return foo();
+}
+
+int foo () {
+  while (bar()) {;}
+  return 1;
+}
+
+int bar() {
+  return 1;
+}
+

@@ -1,0 +1,15 @@
+#test exception 8
+// Negative overflow exception
+
+int main()
+{
+  var x, y : int;
+  y = 0;
+  y = ~y;
+
+  x = 1 << 31;
+
+  x /= y;
+
+  return x;
+}

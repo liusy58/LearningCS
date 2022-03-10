@@ -1,0 +1,40 @@
+#test return 29
+// Computes the nth prime number
+
+int isprime(n : int)
+{
+	var i : int;
+
+	for( i=2; i<n; i=i+1)
+	{
+		if(n % i == 0)
+			return 0;
+	}
+
+	return 1;
+}
+
+int prime(n : int)
+{
+	var i, c : int;
+	c = 0;
+	i = 1;
+
+	while (c < n)
+	{
+		i = i+1;
+		while (! isprime(i))
+		{
+			i = i+1;
+		}
+		c = c+1;
+	}
+
+	return i;
+
+}
+
+int main ()
+{
+	return prime(10);
+}

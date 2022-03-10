@@ -1,0 +1,13 @@
+#test return -2
+
+int main(){
+   var foo : int;
+
+   foo = 6;
+
+   return foo(-foo);
+}
+
+int foo(a:int){
+	return a+4;
+}

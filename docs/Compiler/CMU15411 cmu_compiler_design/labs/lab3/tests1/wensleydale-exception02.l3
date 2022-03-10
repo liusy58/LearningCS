@@ -1,0 +1,13 @@
+#test exception 8
+int main()
+{
+	var x,y:int;
+	x = 5;
+	y = 6;
+	return f(x, y - 6);
+}
+
+int f(i:int, j:int)
+{
+	return i % j + f(i - 1, j - 1);
+}

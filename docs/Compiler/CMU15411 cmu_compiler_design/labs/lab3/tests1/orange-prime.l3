@@ -1,0 +1,26 @@
+#test return 1
+// Tests recursion
+
+int main()
+{
+  return is_prime(41);
+}
+
+int is_prime(x : int)
+{
+  if (x < 2)
+    return 0;
+  else
+    return check_divisibility(x, 2, x/2 + 1);
+}
+
+int check_divisibility(x : int, test : int, high : int)
+{
+  if (test >= high)
+    return 1;
+  else
+    if (x % test)
+      return check_divisibility(x, test + 1, high);
+    else
+      return 0;
+}

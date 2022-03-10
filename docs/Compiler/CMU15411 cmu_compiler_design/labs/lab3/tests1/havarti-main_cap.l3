@@ -1,0 +1,10 @@
+#test error
+
+/**
+ * Ensure compiler rejects main with incorrect capitalization.
+ */
+
+int mAin ()
+{
+    return 0;
+}

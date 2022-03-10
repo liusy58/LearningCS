@@ -1,0 +1,10 @@
+#test return 80085
+# boobs!
+
+int useless(){
+  return 0;
+}
+
+int main () {
+  return 80085;
+}

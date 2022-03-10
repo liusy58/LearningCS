@@ -1,0 +1,14 @@
+#test return 42
+
+/* Dereferences some pointers.
+ * Author: matthewj
+ */
+
+int main() {
+    var ap : int ***;
+    ap = new(int**);
+    *ap = new(int*);
+    **ap = new(int);
+    ***ap = 42;
+    return ***ap;
+}

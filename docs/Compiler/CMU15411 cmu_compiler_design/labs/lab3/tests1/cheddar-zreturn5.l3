@@ -1,0 +1,15 @@
+#test return 12
+
+int main() {
+	var x, y : int;
+	y = 7;
+
+	for (x = 81; x; x = cond(x))
+		y += 1;
+
+	return y;
+}
+
+int cond(x : int) {
+	return x/3;
+}

@@ -1,0 +1,31 @@
+#test exception 8
+
+# Good old recursive Euclidean GCD algorithm
+# Tail call optimization, anyone?
+
+int gcd (n : int, m : int)
+{
+    var p, q : int;
+
+    if (n < m)
+    {
+        p = m;
+        q = n;
+    }
+    else
+    {
+        p = n;
+        q = m;
+    }
+
+    if (p % q == 0)
+        return q;
+
+    return gcd (p % q, q);
+}
+
+int main ()
+{
+    return gcd (55, 0);
+}
+

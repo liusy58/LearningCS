@@ -1,0 +1,12 @@
+#test return 2147483647
+{
+  x = 1879048192;
+  sig = x >> 31;
+  xt2 = x + x;
+  xt3 = xt2 + x;
+  min = ~(1 << 31);
+  ovf = ((x ^ xt2) | (xt2 ^ xt3)) >> 31;
+  sigsel = sig ^ min;
+  return ((sigsel ^ xt3) & ovf) ^ xt3;
+}
+

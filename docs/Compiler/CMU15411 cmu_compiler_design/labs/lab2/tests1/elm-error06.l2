@@ -1,0 +1,13 @@
+#test error
+// Else without if is not allowed
+{
+  flag = 1;
+  sum = 0;
+
+  else {
+    for(i=1; i<=10;i+=1)
+      sum += i;
+  }
+
+  return sum;
+}

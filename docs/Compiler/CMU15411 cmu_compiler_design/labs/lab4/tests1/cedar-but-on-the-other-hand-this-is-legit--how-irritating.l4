@@ -1,0 +1,11 @@
+#test return 0
+
+int main()
+{
+	return _l4_oh_no_cplusplus_name_mangling_is_so_hard_NO_IT_ISNT_YOU_JUST_PREPEND_UNDERSCORE_Z_AND_THEN_APPEND_SOME_TYPES_TO_THE_END();
+}
+
+int _l4_oh_no_cplusplus_name_mangling_is_so_hard_NO_IT_ISNT_YOU_JUST_PREPEND_UNDERSCORE_Z_AND_THEN_APPEND_SOME_TYPES_TO_THE_END()
+{
+	return 0;
+}

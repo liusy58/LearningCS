@@ -1,0 +1,16 @@
+#test return 200
+// Uses newton's method for finding square roots. Only works for certain numbers
+// due to lack of floating-point arithmetic.
+{
+    guess = 1;
+    value = 40000;
+    delta = value - (guess * guess);
+    // This actually checks if the delta is less than 0.01, because of the above
+    // fixed-point.
+    while (delta != 0) {
+        g2 = value / guess;
+        guess = (g2 + guess) / 2;
+        delta = value - (guess * guess);
+    }
+    return guess;
+}

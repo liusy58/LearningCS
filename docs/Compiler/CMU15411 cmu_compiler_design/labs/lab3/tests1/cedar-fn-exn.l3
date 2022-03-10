@@ -1,0 +1,14 @@
+#test exception 8
+
+int blarg(a:int, b:int)
+{
+	return a/b;
+}
+
+int main()
+{
+	var a, b :int;
+	a = 1;
+	b = 0;
+	return blarg(blarg(a,b),blarg(b,a));
+}

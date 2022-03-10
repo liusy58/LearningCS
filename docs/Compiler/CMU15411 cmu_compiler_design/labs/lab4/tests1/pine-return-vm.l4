@@ -1,0 +1,222 @@
+#test return 15
+
+struct vm_t {
+    msize : int;
+    m : int[];
+    r : int[];
+    status : int;
+    done : bool;
+};
+
+/* No hex here... */
+
+int getop(v : int) { return (v >> 28) & 15; }
+int getr1(v : int) { return (v >> 22) & 63; }
+int getr2(v : int) { return (v >> 16) & 63; }
+int getr3(v : int) { return (v >> 10) & 63; }
+int getimm(v : int) { return (((v & 65535) << 16) >> 16); }
+
+bool goodmem(v : vm_t *, a : int) {
+    return (a >= 0) && (a < v->msize);
+}
+
+int i_lw(v : vm_t *, op : int) {
+    var rd : int;
+    var rs : int;
+    var off : int;
+    var a : int;
+
+    rd = getr1(op);
+    rs = getr2(op);
+    off = getimm(op);
+    a = v->r[rs] + off;
+
+    if (!goodmem(v, a)) {
+        return -1;
+    }
+    v->r[rd] = v->m[a];
+    v->r[1] += 1;
+    return 0;
+}
+
+int i_sw(v : vm_t *, op : int) {
+    var rd : int;
+    var rs : int;
+    var off : int;
+    var a : int;
+
+    rd = getr1(op);
+    rs = getr2(op);
+    off = getimm(op);
+    a = v->r[rd] + off;
+    if (!goodmem(v, a)) {
+        return -1;
+    }
+    v->m[a] = v->r[rs];
+    v->r[1] += 1;
+    return 0;
+}
+
+int i_add(v : vm_t *, op : int) {
+    v->r[getr1(op)] = v->r[getr2(op)] + v->r[getr3(op)];
+    v->r[1] += 1;
+    return 0;
+}
+
+int i_sub(v : vm_t *, op : int) {
+    v->r[getr1(op)] = v->r[getr2(op)] - v->r[getr3(op)];
+    v->r[1] += 1;
+    return 0;
+}
+
+int i_addi(v : vm_t *, op : int) {
+    v->r[getr1(op)] = v->r[getr2(op)] + getimm(op);
+    v->r[1] += 1;
+    return 0;
+}
+
+int i_subi(v : vm_t *, op : int) {
+    v->r[getr1(op)] = v->r[getr2(op)] - getimm(op);
+    v->r[1] += 1;
+    return 0;
+}
+
+int i_and(v : vm_t *, op : int) {
+    v->r[getr1(op)] = v->r[getr2(op)] & v->r[getr3(op)];
+    v->r[1] += 1;
+    return 0;
+}
+
+int i_or(v : vm_t *, op : int) {
+    v->r[getr1(op)] = v->r[getr2(op)] ^ v->r[getr3(op)];
+    v->r[1] += 1;
+    return 0;
+}
+
+int i_xor(v : vm_t *, op : int) {
+    v->r[getr1(op)] = v->r[getr2(op)] | v->r[getr3(op)];
+    v->r[1] += 1;
+    return 0;
+}
+
+int i_sl(v : vm_t *, op : int) {
+    v->r[getr1(op)] = v->r[getr2(op)] << v->r[getr3(op)];
+    v->r[1] += 1;
+    return 0;
+}
+
+int i_sli(v : vm_t *, op : int) {
+    v->r[getr1(op)] = v->r[getr2(op)] << getimm(op);
+    v->r[1] += 1;
+    return 0;
+}
+
+int i_sr(v : vm_t *, op : int) {
+    v->r[getr1(op)] = v->r[getr2(op)] >> v->r[getr3(op)];
+    v->r[1] += 1;
+    return 0;
+}
+
+int i_sri(v : vm_t *, op : int) {
+    v->r[getr1(op)] = v->r[getr2(op)] >> getimm(op);
+    v->r[1] += 1;
+    return 0;
+}
+
+int i_j(v : vm_t *, op : int) {
+    v->r[1] = v->r[getr2(op)] + getimm(op);
+    return 0;
+}
+
+int i_jeq(v : vm_t *, op : int) {
+    if (v->r[getr1(op)] == v->r[getr2(op)]) {
+        v->r[1] += getimm(op);
+    } else {
+        v->r[1] += 1;
+    }
+    return 0;
+}
+
+int i_hlt(v : vm_t *, op : int) {
+    v->status = v->r[getr1(op)];
+    v->done = true;
+    return 0;
+}
+
+
+int step(v : vm_t *) {
+    var inst : int;
+    var op : int;
+
+    if (v->done) { return 1; }
+    if (!goodmem(v, v->r[1])) {
+        return -1;
+    }
+    v->r[0] = 0;
+    inst = v->m[v->r[1]];
+    op = getop(inst);
+    if (op == 0) { return i_lw(v, inst); }
+    if (op == 1) { return i_sw(v, inst); }
+    if (op == 2) { return i_add(v, inst); }
+    if (op == 3) { return i_sub(v, inst); }
+    if (op == 4) { return i_addi(v, inst); }
+    if (op == 5) { return i_subi(v, inst); }
+    if (op == 6) { return i_and(v, inst); }
+    if (op == 7) { return i_or(v, inst); }
+    if (op == 8) { return i_xor(v, inst); }
+    if (op == 9) { return i_sl(v, inst); }
+    if (op == 10) { return i_sli(v, inst); }
+    if (op == 11) { return i_sr(v, inst); }
+    if (op == 12) { return i_sri(v, inst); }
+    if (op == 13) { return i_j(v, inst); }
+    if (op == 14) { return i_jeq(v, inst); }
+    if (op == 15) { return i_hlt(v, inst); }
+    /* Not reached */
+    return 1 / 0;
+}
+
+int setup(v : vm_t *) {
+    var i : int;
+    for (i = 0; i < 64; i += 1) {
+        v->r[i] = 0;
+    }
+
+    v->m[0] = ((13 << 28) | (0 << 22) | 128);
+    v->m[1] = 1;
+    v->m[2] = 2;
+    v->m[3] = 3;
+    v->m[4] = 4;
+    v->m[5] = 5;
+
+    v->m[128] = ((4 << 28) | (2 << 22) | (0 << 16) | 1);
+    v->m[129] = ((4 << 28) | (5 << 22) | (0 << 16) | 6);
+    v->m[130] = ((0 << 28) | (3 << 22) | (2 << 16) | 0);
+    v->m[131] = ((2 << 28) | (4 << 22) | (4 << 16) | (3 << 10));
+    v->m[132] = ((4 << 28) | (2 << 22) | (2 << 16) | 1);
+    v->m[133] = ((14 << 28) | (2 << 22) | (5 << 16) | 2);
+    v->m[134] = ((13 << 28) | (0 << 22) | 130);
+    v->m[135] = ((15 << 28) | (4 << 22) | 0);
+    return 0;
+}
+
+int main() {
+    var msize : int;
+    var st : int;
+    var v : vm_t *;
+    msize = 256;
+    st = 0;
+
+    v = new(vm_t);
+
+    v->msize = msize;
+    v->m = new(int[msize]);
+    v->r = new(int[64]);
+
+    setup(v);
+
+    while (st == 0) {
+        st = step(v);
+    }
+
+    return v->status;
+}

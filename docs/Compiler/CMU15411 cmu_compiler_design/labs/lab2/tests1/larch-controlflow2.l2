@@ -1,0 +1,25 @@
+#test return 12
+// Tests static checks for variable initialization
+{
+  a = 5;
+  if (a > 0) {
+    if (a > 1) {
+      if (a > 2) {
+        x = 12;
+      } else if (a == 2) {
+        x = 14;
+      } else {
+        x = 16;
+      }
+    } else {
+      if (a < 10) {
+        x = 18;
+      } else {
+        x = 20;
+      }
+    }
+  } else {
+    x = 22;
+  }
+  return x;
+}

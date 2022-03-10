@@ -1,0 +1,9 @@
+#test exception
+
+int f(x:int, y:int) {
+  return f(x/y, y-1);
+}
+
+int main() {
+	return f(123456, 128);
+}

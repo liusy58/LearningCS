@@ -1,0 +1,12 @@
+#test return 0
+
+int nus (nus : int)
+{
+	var n : int;
+	return nus * 0;
+}
+
+int main ()
+{
+	return nus (5);
+}

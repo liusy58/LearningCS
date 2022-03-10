@@ -1,0 +1,68 @@
+#test return 8
+
+extern int printchar(c : int);
+
+// construct all subsets
+
+bool isSolution(a : int[], k : int , n : int) {
+  return k == n;
+}
+
+int constructCandidates(a : int[], k : int, n : int, c : int[]) {
+  c[0] = 1;
+  c[1] = 0;
+  return 2;
+}
+
+int processSolution(a : int[], k : int) {
+  var i : int;
+  
+  printchar(123);
+  printchar(32);
+  for (i = 1; i <= k; i += 1) {
+      if (a[i] != 0) {
+        printchar(48 + i);
+	    printchar(32);
+	  }
+  }
+  printchar(125);
+  printchar(10);
+  
+  return 0;
+}
+
+int main() {
+  var a : int[];
+  var n : int;
+  
+  n = 3;
+  a = new(int[n + 1]);
+  
+  return backtrack(a, 0, n);
+}
+
+
+// general backtracking algorithm
+
+int backtrack(a : int[], k : int, n : int) {
+  var c : int[];
+  var i, ncandidates, MAX_CANDIDATES, solutions : int;
+  
+  solutions = 0;
+  MAX_CANDIDATES = 2;
+  c = new(int[MAX_CANDIDATES]);
+  
+  if (isSolution(a, k, n)) {
+    processSolution(a, k);
+	solutions = 1;
+  }
+  else {
+    k += 1;
+	ncandidates = constructCandidates(a, k, n, c);
+	for (i = 0; i < ncandidates; i += 1) {
+	  a[k] = c[i];
+	  solutions += backtrack(a, k, n);
+	}
+  }
+  return solutions;
+}

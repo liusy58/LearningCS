@@ -1,0 +1,16 @@
+#test return 257
+
+/*Calculates the gcd of two integers*/
+int main(){
+  return gcd(14392,8481);
+}
+
+int gcd(a :int, b :int){
+  var temp :int;
+  while (b != 0) {
+    temp = b;
+    b = a % b;
+    a = temp;
+  }
+  return a;
+}

@@ -1,0 +1,7 @@
+#test return 64
+
+int main () {
+    var x : int;
+    x = 38;
+    return (1 << x); /* the shift quantity should be interpreted mod 32 */
+}

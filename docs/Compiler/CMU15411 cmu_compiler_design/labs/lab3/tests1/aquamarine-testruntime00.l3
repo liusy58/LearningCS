@@ -1,0 +1,11 @@
+#test exception 8
+// Divides TMIN by -1
+
+int main() {
+	var a : int;
+	
+	a = 1;
+	a <<= 31; // TMIN
+	a /= -1; // EXCEPTION!
+	return a;
+}

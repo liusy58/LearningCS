@@ -1,0 +1,14 @@
+#test error
+// multiple definitions of same function
+
+int as (n : int) {
+  return n+1;
+}
+
+int as () {
+  return 1;
+}
+
+int main () {
+  return as();
+}

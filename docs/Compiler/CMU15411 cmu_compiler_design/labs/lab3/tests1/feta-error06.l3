@@ -1,0 +1,9 @@
+#test error
+
+int main() {
+	return ill_type_fun();
+}
+
+void ill_type_fun() {
+	return 0;
+}

@@ -1,0 +1,28 @@
+#test return 0
+// Tests mutual recursion
+
+int main()
+{
+  var x : int;
+
+  x = 1001;
+
+  return even (x);
+}
+
+// Very naive computation of parity.
+int even(x : int)
+{
+  if (x)
+    return odd(x - 1);
+  else
+    return 1;
+}
+
+int odd(x : int)
+{
+  if (x)
+    return even(x - 1);
+  else
+    return 0;
+}

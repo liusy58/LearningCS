@@ -1,0 +1,24 @@
+#test return 0
+
+/* Bit parity */
+
+int parity(n:int, nbits:int) {
+  var p, half_bits, mask : int;
+
+  if (nbits < 2 || nbits > 32) {
+    return -1;
+  }
+
+  if (nbits == 1) {
+    return n;
+  }
+
+  half_bits = nbits / 2;
+  mask = (1<<(half_bits+1)) - 1;  /* 2^{nbits+1} - 1 */
+
+  return parity((n>>half_bits) & mask, half_bits) ^ parity(n & mask, half_bits);
+}
+
+int main() {
+  return parity(2863311530, 32);
+}

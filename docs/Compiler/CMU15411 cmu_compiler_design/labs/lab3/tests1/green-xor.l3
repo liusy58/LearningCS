@@ -1,0 +1,17 @@
+#test return 328
+
+# bit ops...xor
+
+
+int main () {
+  var x, y : int;
+  
+  x = 42;
+  y = 328;
+  
+  x = x ^ y;
+  y = x ^ y;
+  x = x ^ y;
+  
+  return x;
+}

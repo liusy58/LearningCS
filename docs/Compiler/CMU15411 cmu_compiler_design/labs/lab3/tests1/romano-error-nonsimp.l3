@@ -1,0 +1,8 @@
+#test error
+// Tests that non-simple statements are not acceptable as for loop initializers
+int main() {
+  var x : int;
+  x = 0;
+  for (return x; 1; x += 1) {}
+  return 0;
+}

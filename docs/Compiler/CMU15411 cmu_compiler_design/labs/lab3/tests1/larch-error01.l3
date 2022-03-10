@@ -1,0 +1,6 @@
+#test error
+
+// Tries to call an undeclared function
+int main() {
+  return foo(bar(4));
+}

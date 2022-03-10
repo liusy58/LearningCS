@@ -1,0 +1,12 @@
+#test exception 8
+
+int main()
+{
+    return innocentBystander(7,6/0);
+}
+
+int innocentBystander(a:int,b:int)
+{
+    return a;
+}
+

@@ -1,0 +1,21 @@
+#test return 101
+// primality test
+// also tests separate namespaces for functions and variables
+
+int isprime(n : int) {
+  var i, isprime : int;
+
+  isprime = 1;
+
+  for (i = 2; i < n; i += 1) {
+    isprime = isprime && (n % i);
+    if (!isprime)
+      break;
+  }
+
+  return isprime;
+}
+
+int main() {
+  return isprime(17) + 10*(isprime(16) + 10*isprime(3));
+}

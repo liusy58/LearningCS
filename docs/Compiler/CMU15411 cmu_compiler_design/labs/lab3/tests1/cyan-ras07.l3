@@ -1,0 +1,7 @@
+#test return -1
+
+/* should see what happens with values other than -1 ... */
+int main()
+{
+  return -1 >> 60; // the bits in our number go round and round ...
+}

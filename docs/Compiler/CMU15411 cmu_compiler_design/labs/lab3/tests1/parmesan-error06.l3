@@ -1,0 +1,15 @@
+#test error
+
+int main(){
+	var x, y, z:int;
+	x = 1;
+	y = 2;
+	z = 3;
+
+	var a, b, c:int;
+	a = z;
+	b = y;
+	c = x;
+
+	return x^y^z^a^b^c;
+}

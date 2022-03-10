@@ -1,0 +1,17 @@
+#test return 4
+// Returns input mod 30.
+// Tests nested loops
+{
+    input = 1024;
+    n = 0;
+    while (n < input) {
+        for (i = 0; i < 2; i += 1) {
+            for (j = 0; j < 3; j += 1) {
+                for (k = 0; k < 5; k += 1) {
+                    n += 1;
+                }
+            }
+        }
+    }
+    return 30 - n + input;
+}

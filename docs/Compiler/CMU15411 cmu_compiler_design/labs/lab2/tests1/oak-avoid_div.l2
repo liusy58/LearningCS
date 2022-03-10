@@ -1,0 +1,8 @@
+#test return 42
+{
+  x = 42;
+  if (x == 42 || 42/0 == 1) {
+    return x;
+  }
+  return -1;
+}

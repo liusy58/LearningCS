@@ -1,0 +1,14 @@
+#test exception 8
+/* Team Blue
+ * Divide by 0 (creatively!)
+ */
+
+int main() {
+	var i: int;
+	
+	for (i = 0; i < 100; i += 1)
+		if ((i < 75) || ((i / 0) == 3))
+			i += 1; /* Speed things along toward oblivion */
+	
+	return 3;
+}

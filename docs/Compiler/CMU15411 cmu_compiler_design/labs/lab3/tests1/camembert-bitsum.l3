@@ -1,0 +1,27 @@
+#test return 33
+
+int main()
+{
+    var u:int;
+    var v:int;
+    var w:int;
+    u = 1225462600;
+    v = 1 | 4 | 8 | 32 | 128 | 1024;
+    w = 2375332683;
+    return bitsum( u ) + bitsum( v ) + bitsum( w );
+}
+
+int bitsum( x:int )
+{
+    var i:int;
+    var s:int;
+
+    s = 0;
+
+    for ( i = 0; i < 32; i += 1 ) {
+        s += !!(x & (1 << i));
+    }
+
+    return s;
+}
+

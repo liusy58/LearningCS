@@ -1,0 +1,7 @@
+#test error
+// extern used as an identifier
+int main() {
+  var extern : int;
+  extern = 2
+  return extern;
+}

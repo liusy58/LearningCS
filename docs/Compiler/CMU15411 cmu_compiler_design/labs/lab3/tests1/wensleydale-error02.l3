@@ -1,0 +1,30 @@
+#test error
+/* main() does not have a return type */
+int helper(x:int, i:int)
+{
+	if(i == 0)
+	{
+		return x;
+	}
+	else
+	{
+		return helper(x*x, i - 1);
+	}
+}
+
+int f(x:int)
+{
+	return helper(x, 5);
+}
+
+main()
+{
+	if(f(7) >= 100)
+	{
+		return 1;
+	}
+	else
+	{
+		return 0;
+	}
+}

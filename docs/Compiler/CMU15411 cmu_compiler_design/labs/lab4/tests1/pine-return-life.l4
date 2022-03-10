@@ -1,0 +1,159 @@
+#test return 12
+
+/* Conway's Life
+ * Author: matthewj
+ */
+
+extern int printchar(c : int);
+
+struct life_t {
+    g : int[];
+    r : int;
+    c : int;
+};
+
+life_t *nlife(seed : int, rows : int, cols : int) {
+    var _ : int;
+    var i : int;
+    var n : life_t *;
+
+    n = new(life_t);
+    n->g = new(int[rows * cols]);
+    n->r = rows;
+    n->c = cols;
+
+    for (i = 0; i < rows * cols; i += 1) {
+        n->g[i] = i % 2;
+    }
+
+    return n;
+}
+
+int get(s : life_t *, r : int, c : int) {
+    return (s->g[(r * s->r) + c] & 1);
+}
+
+int live(s : life_t *, r : int, c : int) {
+    return (s->g[(r * s->r) + c] & 2);
+}
+
+int zap(s : life_t *, r : int, c : int) {
+    s->g[(r * s->r) + c] &= 1;
+    return 0;
+}
+
+int make(s : life_t *, r : int, c : int) {
+    s->g[(r * s->r) + c] |= 2;
+    return 0;
+}
+
+int nnbrs(s : life_t *, r : int, c : int) {
+    if (r == 0) {
+        if (c == 0) {
+            return get(s,1,0) + get(s,1,1) + get(s,0,1);
+        } else if (c == (s->c - 1)) {
+            return get(s,1,s->c - 2) + get(s,1,s->c - 1) + get(s,0,s->c - 2);
+        } else {
+            return get(s,0,c - 1) +
+                   get(s,1,c - 1) +
+                   get(s,1,c) +
+                   get(s,1,c + 1) +
+                   get(s,0,c + 1);
+        }
+    } else if (r == (s->r - 1)) {
+        if (c == 0) {
+            return get(s,r - 1,0) + get(s,r - 1,1) + get(s,r,1);
+        } else if (c == (s->c - 1)) {
+            return get(s,r - 1,c - 1) + get(s,r - 1,c) + get(s,r,c - 1);
+        } else {
+            return get(s,r,c - 1) +
+                   get(s,r - 1,c - 1) +
+                   get(s,r - 1,c) +
+                   get(s,r - 1,c + 1) +
+                   get(s,r,c + 1);
+        }
+    } else if (c == 0) {
+        return get(s,r - 1,c) +
+               get(s,r - 1,c + 1) +
+               get(s,r,c + 1) +
+               get(s,r + 1,c + 1) +
+               get(s,r + 1,c);
+    } else if (c == (s->c - 1)) {
+        return get(s,r - 1,c - 1) +
+               get(s,r - 1,c) +
+               get(s,r,c - 1) +
+               get(s,r + 1,c - 1) +
+               get(s,r + 1,c);
+    }
+    return get(s,r - 1,c - 1) +
+           get(s,r,c - 1) +
+           get(s,r + 1,c - 1) +
+           get(s,r + 1,c) +
+           get(s,r + 1,c + 1) +
+           get(s,r,c + 1) +
+           get(s,r - 1,c + 1) +
+           get(s,r - 1,c);
+}
+
+int step(s : life_t *) {
+    var r : int;
+    var c : int;
+    var n : int;
+    var _ : int;
+    var t : int;
+
+    _ = printchar(76);
+    for (r = 0; r < s->r; r += 1) {
+        _ = printchar(91);
+        for (c = 0; c < s->c; c += 1) {
+            _ = printchar(46);
+            n = nnbrs(s, r, c);
+            if (n < 2) {
+                _ = zap(s, r, c);
+            } else if (n > 3) {
+                _ = zap(s, r, c);
+            } else if (n == 3) {
+                _ = make(s, r, c);
+            } else if (n == 2 && get(s, r, c) != 0) {
+                _ = make(s, r, c);
+            }
+        }
+        _ = printchar(93);
+    }
+
+    t = 0;
+    for (r = 0; r < s->r; r += 1) {
+        for (c = 0; c < s->c; c += 1) {
+            if (live(s, r, c) != 0) {
+                s->g[(s->r * r) + c] = 1;
+                t += 1;
+            } else {
+                s->g[(s->r * r) + c] = 0;
+            }
+        }
+    }
+
+    return t;
+}
+
+int main() {
+    var s : life_t *;
+    var i : int;
+    var _ : int;
+
+    s = nlife(13, 5, 5);
+    _ = printchar(33);
+    _ = printchar(10);
+    for (i = 0; i < 10; i += 1) {
+        _ = printchar(48 + i);
+        _ = printchar(32);
+        _ = step(s);
+        _ = printchar(10);
+    }
+
+    _ = printchar(61);
+    _ = printchar(32);
+    i = step(s);
+    _ = printchar(10);
+    return i;
+}    

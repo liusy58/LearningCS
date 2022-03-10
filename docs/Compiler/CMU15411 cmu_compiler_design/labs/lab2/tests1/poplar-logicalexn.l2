@@ -1,0 +1,7 @@
+#test exception
+// Will throw an exception if short-circuit logical operators work
+{
+    t = 5;
+    f = 0;
+    return t && 0 || f && 3 || 1/0;
+}

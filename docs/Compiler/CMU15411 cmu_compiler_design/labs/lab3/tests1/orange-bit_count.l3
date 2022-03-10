@@ -1,0 +1,49 @@
+#test return 17
+// Tests both loops, nested comments, and assignment operators.
+
+int main()
+{
+  var sum, i : int;
+  sum = 0;
+  i = 0;
+  while (i <= 10)
+  {
+    sum += bits(i);
+    i += 1;
+  }
+
+  return sum;
+}
+
+/*
+int bits(x : int)
+{
+  var i, count : int;
+  i = -;
+  for (; i < 32; i += 1)
+  {
+    count += x & 1;
+    x = x >> 1; /* Shift over 1 bit */
+  }
+}
+*/
+
+// More complex version of bits.
+int bits(x : int)
+{
+  var mask1, mask2, count : int;
+  count = 0;
+  mask1 = 1 << 31;
+  mask2 = ~0 ^ mask1;
+
+  while(x)
+  {
+    if (mask1 & x)
+      count += 1;
+
+    x &= mask2;
+    x = x << 1;
+  }
+
+  return count;
+}

@@ -1,0 +1,28 @@
+#test return 174
+
+// The 3N + 1 problem
+// At each step: if n is even, divide by 2. if n is odd, multiply by 3 and add 1.
+// The cycle-length is the number of numbers generated up to and including 1.
+// It is conjectured (but not yet proven) that this algorithm terminates at n = 1 for every integer n.
+ 
+int cycle(n : int) {
+  if (n == 1) return 1;
+  else if (n % 2) return 1 + cycle(3 * n + 1);
+  else return 1 + cycle(n / 2);
+} 
+
+// find the longest cycle between low and high
+
+int max(low : int, high: int) {
+  var i, max, this : int;
+  max = 0;
+  for (i = low; i <= high; i +=1) {
+    this = cycle(i);
+    if (this > max) max = this;
+  }
+  return max;
+}
+
+int main() {
+  return max(900, 1000);
+}

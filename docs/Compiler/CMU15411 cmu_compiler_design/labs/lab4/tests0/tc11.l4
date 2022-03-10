@@ -1,0 +1,9 @@
+#test error
+/* not array */
+
+int main () {
+  var p : int*;
+  p = new(int);
+  p[0] = 3;
+  return -1;
+}

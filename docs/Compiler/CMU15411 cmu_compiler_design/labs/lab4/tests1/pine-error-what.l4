@@ -1,0 +1,18 @@
+#test error
+//what.
+
+struct s {
+  t : t;
+};
+
+struct t {
+  a : int;
+};
+
+int main()
+{
+  var s : s *;
+  var t : t *;
+  s = new(s);
+  t = new(s->t);
+}

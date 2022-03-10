@@ -1,0 +1,12 @@
+#test return 117100456
+
+int interest(capital:int,years:int,rate:int) {
+  var newcapital:int;
+  if(years == 0) return capital;
+  newcapital=interest(capital,years-1,rate);
+  return newcapital * rate + newcapital;
+}
+
+int main() {
+  return interest(1000,10,10);
+}

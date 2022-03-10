@@ -1,0 +1,23 @@
+#test exception 8
+
+# This will divide by 0, like it should not
+
+int fnord (n : int)
+{
+    var i : int;
+
+    i = 0;
+
+    return n * i;
+}
+
+int foo (m : int)
+{
+    return fnord (m) / fnord (m + 1);
+}
+
+int main ()
+{
+    return foo (3);
+}
+

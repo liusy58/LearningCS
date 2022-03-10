@@ -1,0 +1,16 @@
+#test exception 8
+/* cause a divide-by-zero in loop.  this program is really dumb. */
+
+int main () {
+  var i : int;
+
+  i = 50;
+
+  while(1) {
+    i /= (i - 1);
+    if (i <= 0)
+      break;
+  }
+
+  return 0;
+}

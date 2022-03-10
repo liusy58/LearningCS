@@ -1,0 +1,14 @@
+#test return 1
+
+struct main {};  // valid also
+
+int main() {
+  return 1;
+}
+
+// Main is a valid function, but do not ever call doit()
+int doit() {
+  var x:int;
+  x = main();
+  return x * 2;
+}

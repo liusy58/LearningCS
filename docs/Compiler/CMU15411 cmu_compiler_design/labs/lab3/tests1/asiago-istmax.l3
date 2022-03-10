@@ -1,0 +1,17 @@
+#test return 1
+
+int TMAX(x : int) {
+	var a, n : int;
+  a = x + 1;
+  n  = ~x;
+  return !( (n ^ a) | !a );
+}
+
+int main() {
+	var tmax, i, itmax : int;
+	
+	//tmax = ~(1 << 31);
+	tmax = ~(1<<31);
+	itmax = 0;
+	return TMAX(tmax);
+}

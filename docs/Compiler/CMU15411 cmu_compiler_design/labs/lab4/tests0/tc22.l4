@@ -1,0 +1,15 @@
+#test error
+/* return of wrong type */
+
+int* alloc (init : int) {
+  var p:int*;
+  p = new(int);
+  *p = init;
+  return *p;
+}
+
+int main () {
+  var p:int*;
+  p = alloc(3);
+  return *p;
+}

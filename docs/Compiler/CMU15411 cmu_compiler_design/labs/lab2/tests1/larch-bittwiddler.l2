@@ -1,0 +1,22 @@
+#test return 2241987
+
+//Tests a bunch of bit manipulation operations, using division by zero
+//to signal a failed assertion
+
+{
+  x = 5;
+  negx = ~x + 1;
+  if (x != -negx) fail = 1 / 0;
+
+  y = ~0 << 8;
+  if ((y ^ -1) != 255) fail = 1 / 0;
+
+  eightbits = 255;
+  fivebits = 31;
+  diff = 255 & ~fivebits;
+
+  if ((eightbits | fivebits) != 255) fail = 1 / 0;
+  if (diff & fivebits) fail = 1 / 0;
+
+  return 2241987;
+}

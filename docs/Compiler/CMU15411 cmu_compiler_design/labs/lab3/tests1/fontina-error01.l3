@@ -1,0 +1,17 @@
+#test error
+
+int main()
+{
+	var a : int;
+
+	a = 0;
+	return a;
+}
+
+int unInit()
+{
+	//even though a is initialized in main. 
+	//it isnt here and so should return error. 
+	var a : int;
+	return a;
+}

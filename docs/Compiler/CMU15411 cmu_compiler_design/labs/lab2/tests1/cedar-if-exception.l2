@@ -1,0 +1,11 @@
+#test exception
+{
+	i = 1;
+	j = 0;
+	if(i) {
+		i = i % j;
+		return 0;
+	}
+	else
+		return 0;
+}

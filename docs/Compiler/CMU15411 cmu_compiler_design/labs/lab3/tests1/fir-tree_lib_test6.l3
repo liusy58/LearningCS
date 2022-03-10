@@ -1,0 +1,101 @@
+#test return 0
+
+
+
+
+
+
+
+int bits_exists(bits:int,ind:int)
+{
+  return ((1 << ind) & bits);
+}
+
+int bits_is_leaf(bits:int,ind:int)
+{
+ if ((ind > 30) || (ind < 0)) return -1;
+ if (bits_exists(bits,ind))
+ {
+  if (ind >= 15) return 1;
+  else return !(bits_exists(bits,(2 * (1 + ind) - 1)) &&
+      bits_exists(bits,(2 * (1 + ind))));
+ }
+ return 0;
+}
+int bits_get_size(bits:int,ind:int)
+{
+ var size:int;
+ size = 0;
+ if ((ind > 30) || (ind < 0)) return -1;
+ if (bits_exists(bits,ind))
+ {
+  if (ind >=15) return 1;
+  size = bits_get_size(bits,(2 * (1 + ind) - 1));
+  size += 1;
+  size += bits_get_size(bits,(2 * (1 + ind)));
+ }
+ return size;
+}
+
+int bits_min_ind(bits:int,ind:int)
+{
+ var ret:int;
+ if ((ind > 30) || (ind < 0)) return -1;
+ if (bits_exists(bits,ind))
+ {
+  if (ind >=15) return ind;
+  ret = bits_min_ind(bits,(2 * (1 + ind) - 1));
+  if (ret < 0) return ind;
+  else return ret;
+ }
+ return -1;
+
+}
+int bits_max_ind(bits:int,ind:int)
+{
+ var ret:int;
+ if ((ind > 30) || (ind < 0)) return -1;
+ if (bits_exists(bits,ind))
+ {
+  if (ind >=15) return ind;
+  ret = bits_max_ind(bits,(2 * (1 + ind)));
+  if (ret < 0) return ind;
+  else return ret;
+ }
+ return -1;
+}
+
+int tree_lookup ( bits:int,n1:int,n2:int,n3:int,n4:int,n5:int,n6:int,n7:int, n8:int,n9:int,n10:int,n11:int,n12:int,n13:int,n14:int,n15:int, n16:int,n17:int,n18:int,n19:int,n20:int,n21:int,n22:int,n23:int, n24:int,n25:int,n26:int,n27:int,n28:int,n29:int,n30:int,n31:int,index:int)
+{
+ var ret:int;
+ ret = 0;
+ if ((index > 30) || (index < 0)) return (1/0);
+ if (bits_exists(bits,index))
+ {
+  if (index == 0) n1 = ret; else if (index == 1) n2 = ret; else if (index == 2) n3 = ret; else if (index == 3) n4 = ret; else if (index == 4) n5 = ret; else if (index == 5) n6 = ret; else if (index == 6) n7 = ret; else if (index == 7) n8 = ret; else if (index == 8) n9 = ret; else if (index == 9) n10 = ret; else if (index == 10) n11 = ret; else if (index == 11) n12 = ret; else if (index == 12) n13 = ret; else if (index == 13) n14 = ret; else if (index == 14) n15 = ret; else if (index == 15) n16 = ret; else if (index == 16) n17 = ret; else if (index == 17) n18 = ret; else if (index == 18) n19 = ret; else if (index == 19) n20 = ret; else if (index == 20) n21 = ret; else if (index == 21) n22 = ret; else if (index == 22) n23 = ret; else if (index == 23) n24 = ret; else if (index == 24) n25 = ret; else if (index == 25) n26 = ret; else if (index == 26) n27 = ret; else if (index == 27) n28 = ret; else if (index == 28) n29 = ret; else if (index == 29) n30 = ret; else if (index == 30) n31 = ret;
+  return ret;
+ }
+ return (1/0);
+}
+
+
+int main ()
+{
+  var bits,n1,n2,n3,n4,n5,n6,n7,n8,n9,n10,n11,n12,n13,n14,n15,n16,n17,n18,n19,n20,n21,n22,n23,n24,n25,n26,n27,n28,n29,n30,n31:int;
+ var ret,ind,test:int;
+ ret = -1;
+ ind = 0;
+ test = 0;
+
+  bits=(~(1<<31)); n1=16; n2=8; n3=24; n4=4; n5=12; n6=20; n7=28; n8=2; n9=6; n10=10; n11=14; n12=18; n13=22; n14=26; n15=30; n16=1; n17=3; n18=5; n19=7; n20=9; n21=11; n22=13; n23=15; n24=17; n25=19; n26=21; n27=23; n28=25; n29=27; n30=29; n31=31;
+
+ ret = tree_lookup(bits,n1,n2,n3,n4,n5,n6,n7,n8,n9,n10,n11,n12,n13,n14,n15,n16,n17,n18,n19,n20,n21,n22,n23,n24,n25,n26,n27,n28,n29,n30,n31,6);
+ ret -= tree_lookup(bits,n1,n2,n3,n4,n5,n6,n7,n8,n9,n10,n11,n12,n13,n14,n15,n16,n17,n18,n19,n20,n21,n22,n23,n24,n25,n26,n27,n28,n29,n30,n31,15);
+ ret -= tree_lookup(bits,n1,n2,n3,n4,n5,n6,n7,n8,n9,n10,n11,n12,n13,n14,n15,n16,n17,n18,n19,n20,n21,n22,n23,n24,n25,n26,n27,n28,n29,n30,n31,3);
+ ret -= tree_lookup(bits,n1,n2,n3,n4,n5,n6,n7,n8,n9,n10,n11,n12,n13,n14,n15,n16,n17,n18,n19,n20,n21,n22,n23,n24,n25,n26,n27,n28,n29,n30,n31,8);
+ ret -= tree_lookup(bits,n1,n2,n3,n4,n5,n6,n7,n8,n9,n10,n11,n12,n13,n14,n15,n16,n17,n18,n19,n20,n21,n22,n23,n24,n25,n26,n27,n28,n29,n30,n31,16);
+ ret -= tree_lookup(bits,n1,n2,n3,n4,n5,n6,n7,n8,n9,n10,n11,n12,n13,n14,n15,n16,n17,n18,n19,n20,n21,n22,n23,n24,n25,n26,n27,n28,n29,n30,n31,10);
+
+
+ return ret;
+}

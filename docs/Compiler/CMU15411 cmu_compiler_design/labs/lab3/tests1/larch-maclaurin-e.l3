@@ -1,0 +1,29 @@
+#test return 27182814
+// Approximates e * 10,000,000 using the Maclaurin series of e^x
+
+int factorial(n:int) {
+  var acc, i:int;
+  acc = 1;
+  for (i = 1; i <= n; i += 1) {
+    acc *= i;
+  }
+  return acc;
+}
+
+int e() {
+  var limit, acc, i:int;
+  var numerator:int;
+  limit = 15;
+  acc = 0;
+  numerator = 10000000;
+  
+  for (i = 0; i < limit; i += 1) {
+    acc += (numerator / factorial(i));
+  }
+  
+  return acc;
+}
+
+int main() {
+  return e();
+}

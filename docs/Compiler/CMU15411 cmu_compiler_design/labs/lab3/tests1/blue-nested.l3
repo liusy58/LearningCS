@@ -1,0 +1,23 @@
+#test return 2
+/* Team Blue
+ * Nested conditionals
+ */
+
+int main() {
+	var x: int;
+	
+	x = 175;
+	
+	if (x % 3)
+		if (x % 4)
+			if (x % 5)
+				return 1;
+			else
+				return 2;
+		else
+			return 4;
+	else
+		return 8;
+
+	return 16;
+}

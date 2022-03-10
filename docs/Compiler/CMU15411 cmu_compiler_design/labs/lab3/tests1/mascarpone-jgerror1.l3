@@ -1,0 +1,11 @@
+#test error
+
+int main()
+{
+  var i:int;
+  for( i=97; i<=122; i+=1 )
+  {
+    printchar(i);
+  }
+  return 42;
+}

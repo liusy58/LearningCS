@@ -1,0 +1,22 @@
+#test return 1
+
+int nthbit(x:int, n:int) {
+	var log, a, i, bit : int;
+		
+	// log base 2 of x
+	log = 0;
+	a = x;
+	for ( i = 0 ; a > 0 ; i += 1 ) {
+		bit = a % 2;
+		a = a / 2;
+		if ( i == n ) {
+			return bit;
+		}
+	}
+	
+	return -1;
+}
+
+int main() {
+	return nthbit(1024 - 1 + 2 - 2, 6);
+}

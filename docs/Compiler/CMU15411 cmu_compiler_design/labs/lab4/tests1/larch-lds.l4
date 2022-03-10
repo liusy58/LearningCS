@@ -1,0 +1,47 @@
+#test return 23
+// Longest (strictly) decreasing subsequence
+
+int[] pseudorandom_array(length : int) {
+  var result : int[];
+  var i : int;
+  var state : int;
+  result = new(int[length]);
+  state = 102;
+  
+  for (i = 0; i < length; i += 1) {
+    result[i] = state;
+    // This choice of parameters ensures no repetitions for length = 200
+    state *= 21;
+    state += 7;
+    state %= length;
+  }
+  
+  return result;
+}
+
+int lds(a : int[], length : int) {
+  var table : int[];
+  var i, j : int;
+  var max : int;
+  table = new(int[length]);
+
+  table[length - 1] = 1;
+  for (i = length - 2; i >= 0; i -= 1) {
+    max = -1;
+    for (j = i + 1; j < length; j += 1) {
+      if (a[j] >= a[i]) continue;
+      if (table[j] > max) max = table[j];
+    }
+    table[i] = max + 1;
+  }
+  
+  max = -1;
+  for (i = 0; i < length; i += 1) {
+    if (table[i] > max) max = table[i];
+  }
+  return max;
+}
+
+int main() {
+  return lds(pseudorandom_array(200), 200);
+}

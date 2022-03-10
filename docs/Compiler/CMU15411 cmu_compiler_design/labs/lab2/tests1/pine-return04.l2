@@ -1,0 +1,11 @@
+#test return -1608547967
+// LCRNG iterated a bunch of times
+{
+    a = -940327531;
+    b = 61440737;
+    x = 1;
+    for (i = 0; i < 128; i += 1) {
+        x = x * a + b;
+    }
+    return x;
+}

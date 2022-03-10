@@ -1,0 +1,11 @@
+#test return 10
+
+int main() {
+	var x : int;
+	var z : int;
+	z = 0;
+	for(x = 2147483638; x > 0; x += 1) {
+		z+=1;
+	}
+	return z;
+}

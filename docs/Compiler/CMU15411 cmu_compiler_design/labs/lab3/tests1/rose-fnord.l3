@@ -1,0 +1,49 @@
+#test return 30
+
+# This does a bunch of calls to functions to calculate values
+
+int f1 (x : int)
+{
+    return 5 * x + 3;
+}
+
+int f2 (y : int)
+{
+    return (-2) * y - 7;
+}
+
+int f3 (z : int)
+{
+    return (7 * z) % 13;
+}
+
+int f4 (p : int, q : int)
+{
+    return p * p + q * q - p * q;
+}
+
+int f5 (r : int, s : int, t : int)
+{
+    return r * s * t - r * s - r * t - s * t + r + s + t;
+}
+
+int main ()
+{
+    var x, y, z : int;
+
+    x = 947;
+    y = 16;
+    z = -99;
+
+    z = f5 (x, y, z);
+    y = f4 (z, z);
+
+    x = f3 (f4 (f3 (y), f1 (x)));
+
+    x = f3(f3(f3(f3(f3(f1(x))))));
+    x = -f2(x);
+    x = x + x;
+
+    return x;
+}
+

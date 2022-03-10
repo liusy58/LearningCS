@@ -1,0 +1,69 @@
+#test return 11
+
+// Sanity checks for deep struct and array references
+
+struct person {
+  age : int;
+  height : height;
+  mother : person*;
+  father : person*;
+  children : person*[];
+};
+
+struct height {
+  feet : int;
+  inches : int;
+};
+
+struct self {
+  self : self*;
+  value : int;
+};
+
+int main() {
+  return familyTest() + selfTest();
+}
+
+int familyTest() {
+  var me, mom, dad, brother : person*;
+  var kids : person*[];
+
+  kids = new(person*[2]);
+  me = new(person);
+  me->height.feet = 6;
+  me->height.inches = 2;
+  mom = new(person);
+  dad = new(person);
+  dad->height.inches = 1;
+  brother = new(person);
+
+  mom->children = kids;
+  dad->children = kids;
+
+  me->mother = mom;
+  brother->mother = me->mother;
+
+  kids[0] = me;
+  me->father = dad;
+  mom->children[0]->father->children[1] = brother;
+  kids[1]->father = dad->children[0]->father;
+
+  return ((me->father == brother->father) ? 1 : 0) +
+         ((me->mother == mom) ? 1 : 0) +
+         ((mom->children[0] == dad->children[1]->mother->children[0]) ? 1 : 0) +
+         ((me->height.feet == 6) ? 1 : 0) +
+         ((brother->father->height.inches == 1) ? 1 : 0) +
+         ((mom->children[1]->father->children[0]->height.inches == me->height.inches) ? 1 : 0) +
+         (((mom->height.inches == 0) ? 1 : 0) + ((dad->height.feet == 0) ? 1 : 0) == 2 ? 1 : 0);
+}
+
+int selfTest() {
+  var self, otherself : self*;
+  self = new(self);
+  self->value = 1337;
+  self->self = self;
+  otherself = self->self->self->self->self->self->self->self->self->self;
+
+  return ((self->self == self->self->self) ? 1 : 0) + ((self->value == self->self->value) ? 1 : 0) +
+         ((otherself == self->self->self->self) ? 1 : 0) + ((otherself->self->value == 1337) ? 1 : 0);
+}

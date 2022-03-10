@@ -1,0 +1,24 @@
+#test return 142
+// Tests while loop
+
+int main()
+{
+  return C(1001);
+}
+
+int C(x : int)
+{
+  var i : int;
+  i = 0;
+  while (x > 1)
+  {
+    i += 1;
+
+    if (x & 1)
+      x = 3 * x + 1;
+    else
+      x /= 2;
+  }
+
+  return i;
+}

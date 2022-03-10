@@ -1,0 +1,22 @@
+#test return 30
+
+/* compute the sum of squares 1 + 4 + 9 + 16 +... */
+
+int main()
+{
+	var x:int;
+	x = 4;
+	return sum_squares(x);
+}
+
+int sum_squares(x:int)
+{
+	if(x == 1)
+	{
+		return 1;
+	}
+	else
+	{
+		return x * x + sum_squares(x - 1);
+	}
+}

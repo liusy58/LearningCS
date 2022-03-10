@@ -1,0 +1,6 @@
+#test error
+
+{
+  while (1) x = 0;
+  x = x+1;
+}

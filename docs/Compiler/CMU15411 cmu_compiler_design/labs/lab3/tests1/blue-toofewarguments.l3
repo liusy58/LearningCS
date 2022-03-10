@@ -1,0 +1,12 @@
+#test error
+/* Team Blue
+ * Calling with too few arguments
+ */
+
+int f(x: int, y: int, z: int) {
+	return x * y * z;
+}
+
+int main() {
+	return f(2, 1);
+}

@@ -1,0 +1,18 @@
+#test exception 11
+struct a { b: b; };
+struct b { c: c; };
+struct c { d: d; };
+struct d { e: e[]; };
+struct e { f: f; };
+struct f { g: g; };
+struct g { h: h; };
+struct h { a: a; hurf: int; durf: int *; };
+
+int main() {
+	var a: a*;
+	var n: int;
+	n = 0;
+	a = new(a);
+	a->b.c.d.e = new(e[1]);
+	return (*a->b.c.d.e[n].f.g.h.durf == 42) ? 1 : 0;
+}

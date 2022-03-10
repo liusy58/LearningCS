@@ -1,0 +1,36 @@
+#test return 1
+// Tests recursion
+
+int main()
+{
+  var i, sum : int;
+
+  sum = 0;
+  for (i = 0; i < 15; i += 1)
+    sum += exponent(2, i);
+
+  return exponent(2, 15) - sum;
+}
+
+int exponent(base : int, pow : int)
+{
+  if (pow < 0)
+    return -1;
+
+  return exp_by_2(base, pow, 1);
+}
+
+int exp_by_2(base : int, pow : int, current : int)
+{
+  if (current > pow)
+     return 1;
+
+  if (pow & current)
+  {
+    return base * exp_by_2(base * base, pow, current << 1);
+  }
+  else
+  {
+    return exp_by_2(base * base, pow, current << 1);
+  }
+}

@@ -1,0 +1,11 @@
+#test return 5
+int main()
+{
+	var x : int;
+	x = 3;
+	if(x == 3)
+	     return 5;
+	else 
+		x = 6;
+	return x;
+}

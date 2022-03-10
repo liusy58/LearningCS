@@ -1,0 +1,23 @@
+#test return 104729
+
+// Using the sieve method to compute primes < 1 millon
+
+int main()
+{
+  var primes:int[];
+  var i,j,s:int;
+  // Start with 2
+  primes = new(int[1000000]);
+  for (i=2;i<1000000;i+=1)
+    if (primes[i] == 0)
+      for (j=i+i;j<1000000;j+=i)
+        primes[j] = 1;
+
+  s = 0;
+  // 10000th prime
+  for (i=2;i<1000000 && s<10000;i+=1)
+    if (primes[i] == 0)
+      s+=1;
+  return i-1;
+}
+

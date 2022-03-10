@@ -1,0 +1,21 @@
+#test exception 8
+int main()
+{
+	var x,y:int;
+	x = 100;
+	y = 10;
+	return f(x,y);
+}
+
+/* base case should raise a SIGFPE */
+int f(x:int, y:int)
+{
+	if(y == 0)
+	{
+		return 0;
+	}
+	else
+	{
+		return x / f(x - 1, y - 1);
+	}
+}

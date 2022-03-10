@@ -1,0 +1,10 @@
+#test exception 8
+
+int main() {
+	var x, y : int;
+	x = -2147483648;
+	y = -2147483648 % -1;
+	y = x % -1;
+
+	return 0;
+}

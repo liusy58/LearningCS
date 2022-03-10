@@ -1,0 +1,21 @@
+#test return 12348
+
+// Tests pointers
+
+int main() {
+  var n : int;
+  var a : int*;
+  var aa : int**;
+  var aaa : int***;
+
+  n = 12345;
+  a = new(int);
+  aa = new(int*);
+  aaa = new(int**);
+
+  *aaa = aa;
+  **aaa = a;
+  ***aaa = n;
+
+  return *a + ((a == *aa) ? 1 : 0) + ((**aaa == a) ? 1 : 0) + ((**aa == n) ? 1 : 0);
+}

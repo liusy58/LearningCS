@@ -1,0 +1,39 @@
+#test return 199
+// An awesome way to compute the Nth Fibonnacci number
+// with base cases F0 = A and F1 = B
+{
+  N = 10;
+  A = 1;
+  B = 3;
+
+  // We create a fibonnacci matrix ..
+  FibMat11 = 1;
+  FibMat12 = 1;
+  FibMat21 = 1;
+  FibMat22 = 0;
+
+  // ... and raise it to the N-1 th power
+  Mat11 = 1;
+  Mat12 = 0;
+  Mat21 = 0;
+  Mat22 = 1;
+
+  for (i = 0 ; i < N - 1; i+=1)  {
+    t11 = Mat11*FibMat11 + Mat12*FibMat21;
+    t12 = Mat11*FibMat12 + Mat12*FibMat22;
+    t21 = Mat21*FibMat11 + Mat22*FibMat21;
+    t22 = Mat21*FibMat12 + Mat22*FibMat22;
+    Mat11 = t11;
+    Mat12 = t12;
+    Mat21 = t21;
+    Mat22 = t22;
+  }
+
+ // now multiply that matrix with the vector (B, A)
+  Fn           = Mat11*B + Mat12*A;
+  Fn_minus_one = Mat21*B + Mat22*A;
+
+  return Fn;
+}
+
+

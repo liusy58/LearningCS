@@ -1,0 +1,9 @@
+#test exception 8
+/* raises a div exception, simple divide by zero to test optimizations */
+
+int main(){
+  var a, b:int;
+  b = 10 + 2;
+  a = b / 0;
+  return b;
+}

@@ -1,0 +1,30 @@
+#test return 256
+
+int plus(x:int, y:int) {
+	return x+y;
+}
+int minus(x:int, y:int) {
+	return x-y;
+}
+int mult(x:int, y:int) {
+	var sum,i:int;
+	sum=0;
+	for(i=0;i<x;i+=1) {
+		sum+=y;
+	}
+	return sum;
+}
+int div(x:int, y:int) {
+	return x/y;
+}
+/*x^y*/
+int exp(x:int, y:int) {
+	var result:int;
+	for(result=1; y>0; y-=1) {
+		result = mult(result,x);
+	}
+	return result;
+}
+int main() {
+	return exp(plus(5,minus(2,3)), div(16,4));/*4^4*/
+}

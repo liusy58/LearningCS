@@ -1,0 +1,10 @@
+#test error
+// Calling function with wrong number of args
+
+int something(n:int) {
+  return n << 2;
+}
+
+int main() {
+  return something(4, 5);
+}

@@ -1,0 +1,24 @@
+#test exception
+
+int main() {
+	var n,m:int;
+	n = 2;
+	if (n%2) {
+		m = even();
+	} else {
+		m = odd();
+	}
+	return m;
+}
+
+int even() {
+	var n:int;
+	n = odd();
+	return 0;
+}
+
+int odd() {
+	var n:int;
+	n = even();
+	return 1;
+}

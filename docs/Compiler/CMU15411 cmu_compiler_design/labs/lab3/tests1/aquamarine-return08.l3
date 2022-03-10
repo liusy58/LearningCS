@@ -1,0 +1,25 @@
+#test return 66
+
+int mulThree(x : int) {
+	return x * 3;
+}
+
+int subTwo(x : int) {
+	return x - 2;
+}
+
+int addFive(x : int) {
+	return x + 5;
+}
+
+int main() {
+	var a : int;
+
+	a = 1;
+
+	while(a < 60) {
+		a = addFive(subTwo(mulThree(a)));
+	}
+
+	return a;
+}

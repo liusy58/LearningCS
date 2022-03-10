@@ -1,0 +1,14 @@
+#test return 82
+
+/* Blum Blum Shub algorithm
+ * http://en.wikipedia.org/wiki/Blum_Blum_Shub
+ */
+int blumblumshub(p : int, q : int, s : int)
+{
+  return (s * s) % (p * q);
+}
+
+int main()
+{
+  return blumblumshub(11, 19, blumblumshub(11, 19, 9));
+}

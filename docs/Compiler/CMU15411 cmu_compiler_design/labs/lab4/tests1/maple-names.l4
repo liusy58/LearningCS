@@ -1,0 +1,21 @@
+#test return 783735339
+
+// Well...these names are allowed!
+
+struct g {a:g[];b:int;g:g*;};
+
+int main()
+{
+  var g:g*;
+  g = new(g);
+  g->a = new(g[g(411)]);
+  g->b = 15411;
+  g->g = g;
+  return g(g->g->g->g->g->b);
+}
+
+int g(g:int)
+{
+  return g*g*g;
+}
+

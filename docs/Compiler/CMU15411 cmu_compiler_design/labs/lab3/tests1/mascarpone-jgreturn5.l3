@@ -1,0 +1,12 @@
+#test return 42
+
+extern int printchar(c:int);
+int main()
+{
+  var i,x:int;
+  for( i=65; i<=90; i+=1 )
+  {
+    x=printchar(i);
+  }
+  return 42;
+}

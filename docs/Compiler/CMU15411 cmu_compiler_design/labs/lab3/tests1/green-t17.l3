@@ -1,0 +1,10 @@
+#test return 5050
+# little gauss!
+
+int lil_gauss (top : int) {
+  return top*(top + 1)/2;
+}
+
+int main () {
+  return lil_gauss(100);
+}

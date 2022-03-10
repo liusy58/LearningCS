@@ -1,0 +1,26 @@
+#test return 1346269
+# fibonacci numbers
+
+int 
+fib(n:int)
+{
+   var i, s0, s1, t:int;
+   s0 = 1;
+   s1 = 1;
+
+   if (n < 2) {
+      return 1;
+   }
+   for (i=0; i<n-1; i+=1) {
+      t = s1;
+      s1 = s0 + s1;
+      s0 = t;
+   }
+   return s1;
+}
+
+int 
+main()
+{
+   return fib(30);
+}

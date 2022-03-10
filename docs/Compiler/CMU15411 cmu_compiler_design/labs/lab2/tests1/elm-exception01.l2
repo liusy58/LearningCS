@@ -1,0 +1,7 @@
+#test exception
+// mod by zero in shift
+{
+  i = 20;
+  return i << i % 0 + 2;
+}
+

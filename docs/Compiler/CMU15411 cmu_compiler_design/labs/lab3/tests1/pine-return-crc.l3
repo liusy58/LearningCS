@@ -1,0 +1,22 @@
+#test return -493009639
+// Calculates the CRC checksum of some fixed data.
+
+int crc(t : int) {
+    var d, n, dw : int;
+    n = 16;
+    dw = 15;
+    d = 33693;
+    while (n) {
+        if ((1 << (n + dw)) & t) {
+            t = t ^ d;
+        }
+        d = d >> 1;
+        n = n - 1;
+    }
+    return t;
+}
+
+int main() {
+    // Wish we had hex numbers? Me too.
+    return crc(-492985027);
+}

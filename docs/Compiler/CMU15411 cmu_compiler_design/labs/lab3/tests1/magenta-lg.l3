@@ -1,0 +1,25 @@
+#test return 23
+
+int main(){
+  return lg(9876543);
+}
+
+//calculates log base 2 of n
+int lg(n :int) {
+  var i :int;
+  var total :int;
+  total = 1;
+  for (i = 0; 1; i += 1){
+    if (total == n){
+      break; //test break statement
+    }
+    
+    if (total > n){
+      i -= 1; //get the floor
+      break;
+    }
+
+    total = total << 1;
+  }
+  return i;
+}

@@ -1,0 +1,9 @@
+#test error
+// set ident equal to a control
+{
+  x = 11;
+  y = 32;
+  z = (if(x>y){x;}
+      else{y;});
+  return z;
+}

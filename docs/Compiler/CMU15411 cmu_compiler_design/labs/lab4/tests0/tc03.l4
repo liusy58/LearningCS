@@ -1,0 +1,16 @@
+#test error
+/* type not small */
+
+struct point {x:int; y:int;};
+
+int mirror (p:point) {
+  var z:int;
+  z = p.x;
+  p.x = p.y;
+  p.y = z;
+  return 0;
+}
+
+int main () {
+  return 0;
+}

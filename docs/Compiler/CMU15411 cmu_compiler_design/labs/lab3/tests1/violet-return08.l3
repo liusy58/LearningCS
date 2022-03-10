@@ -1,0 +1,16 @@
+#test return 0
+
+/* Tests nested comments as with l1 */
+
+int main() {
+  var x : int;
+  x = 0;
+  /*
+    /*
+    */
+    x = 1;
+    /*
+    */
+  */
+  return x;
+}

@@ -1,0 +1,16 @@
+#test error
+
+/**
+ * Ensure that compiler rejects a decl of ';'
+ */
+
+int main ()
+{
+    var test : int;
+    ;
+    var test2 : int;
+    
+    test = 0;
+    
+    return test;
+}

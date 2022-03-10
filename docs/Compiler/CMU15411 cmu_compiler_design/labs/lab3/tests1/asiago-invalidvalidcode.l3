@@ -1,0 +1,52 @@
+#test return 0
+
+int main() {
+	var a, b, c : int;
+	
+	a = 10;
+	b = 100;
+	c = 1000;
+	
+	while ( 1 ) {
+	while ( 1 ) {
+	while ( 1 ) {
+	while ( 1 ) {
+	while ( 1 ) {
+	while ( 1 ) {
+	while ( 1 ) {
+	while ( 1 ) {
+	while ( 1 ) {
+	while ( 1 ) {
+	while ( 1 ) {
+	while ( 1 ) {
+		a = 1000;
+		b = 10000;
+		c = 100000;
+		return 0;
+		break;
+	}
+	break;
+	}
+	break;
+	}
+	break;
+	}
+	break;
+	}
+	break;
+	}
+	break;
+	}
+	break;
+	}
+	break;
+	}
+	break;
+	}
+	break;
+	}
+	return 0;
+	}
+	
+	return ( a + b + c ) > 2000;
+}

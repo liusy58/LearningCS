@@ -1,0 +1,16 @@
+#test return 16
+// Tests associativity of operators.
+
+int main()
+{
+  var u, v, w, x, y, z : int;
+
+  w = 7;
+  x = 17;
+  y = 34;
+  z = x - w - y;
+  u = y % x % w;
+  v = ~u - z - w;
+
+  return v;
+}

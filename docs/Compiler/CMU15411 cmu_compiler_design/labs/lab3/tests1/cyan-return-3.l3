@@ -1,0 +1,23 @@
+#test return 36
+// Tests continue and break, sums all odd numbers less than n.
+
+int sumOdd (n : int) {
+  var i : int;
+  var sum : int;
+  i = 0;
+  sum = 0;
+  while (1)
+  {
+  	i += 1;
+  	if (i > n)
+  		break;
+  	if (i % 2 == 0)
+  		continue;
+  	sum += i;
+  }
+  return sum;
+}
+
+int main () {
+  return sumOdd(11);
+}

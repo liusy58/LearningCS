@@ -1,0 +1,23 @@
+#test return 1023
+/* calculates the sum of a geometric series */
+
+int exp (r : int, n : int)
+{
+	if ( n == 1 )
+		return r;
+	else
+		return r * exp(r, n-1);
+}
+
+int geom (n : int, r : int, a :int)
+{
+	if (r == 1)
+		return n*a;
+	else
+		return a * (1 - exp(r, n)) / (1 - r);
+}
+
+int main ()
+{
+	return geom (10, 2, 1);
+}

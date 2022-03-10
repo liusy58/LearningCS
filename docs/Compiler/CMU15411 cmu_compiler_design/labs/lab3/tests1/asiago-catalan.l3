@@ -1,0 +1,32 @@
+#test return 42
+
+/* catalan number */
+int catalan(n: int){
+	
+	var a, b, c, num, i, dena, denb : int;
+	
+	a = 2 * n;
+	b = n + 1;
+	c = n;
+	
+	num = 1;
+	for ( i = 1 ; i <= a ; i += 1 ) {
+		num *= i;
+	}
+	
+	dena = 1;
+	for ( i = 1 ; i <= b ; i += 1 ) {
+		dena *= i;
+	}
+	
+	denb = 1;
+	for ( i = 1 ; i <= c ; i += 1 ) {
+		denb *= i;
+	}
+	
+	return ( num / (dena * denb) );
+}
+
+int main() {
+	return catalan(5);
+}

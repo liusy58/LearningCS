@@ -1,0 +1,19 @@
+#test return 6
+{
+  // return the number of unique prime factors the input has.
+
+  in = 24150;
+  numfactors = 0;
+  i = 2;
+  while (in != 1) {
+    if (in % i == 0) {
+      // i is a factor of in. we can't save or print it yet, but...
+      in /= i;
+      numfactors += 1;
+    } else {
+      i += 1;
+    }
+  }
+
+  return numfactors;
+}

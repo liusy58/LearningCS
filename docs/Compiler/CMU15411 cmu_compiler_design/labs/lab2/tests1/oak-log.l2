@@ -1,0 +1,9 @@
+#test return 3
+{
+  x=8;
+  log=0;
+  for (; x!=1; x/=2) {
+    log+=1;
+  }
+  return log;
+}

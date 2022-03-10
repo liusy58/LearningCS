@@ -1,0 +1,59 @@
+#test return 7
+
+struct inode {
+  index : int;
+  vnode : vnode*;
+};
+
+struct vnode {
+  value : int;
+  inode : inode*;
+};
+
+int lookup (i:inode*, x:int, v:int*) {
+  while (i != NULL && i->index <= x) {
+    if (i->index == x) {
+      *v = i->vnode->value;
+      return 0;			/* found */
+    }
+    i = i->vnode->inode;
+  }
+  return -1;			/* not found */
+}
+
+int insert (p:vnode*, i:inode*, x:int, v:int) { /* p->inode == i */
+  var v2:vnode*;
+  var i2:inode*;
+  while (i != NULL && i->index <= x) {
+    if (i->index == x) {
+      i->vnode->value = v;
+      return 0;			/* override */
+    }
+    p = i->vnode;
+    i = p->inode;
+  }
+  /* insert new node before i */
+  v2 = new(vnode);
+  v2->value = v;
+  v2->inode = i;
+  i2 = new(inode);
+  i2->index = x;
+  i2->vnode = v2;
+  p->inode = i2;
+  return 1;			/* new */
+}
+
+
+int main () {
+  var v0:vnode*;
+  var result:int*;
+  result = new(int);
+  v0 = new(vnode);
+  v0->inode = NULL;
+  insert(v0,v0->inode,2,3);
+  insert(v0,v0->inode,6,7);
+  insert(v0,v0->inode,4,5);
+  insert(v0,v0->inode,8,9);
+  lookup(v0->inode,6,result);
+  return *result;
+}

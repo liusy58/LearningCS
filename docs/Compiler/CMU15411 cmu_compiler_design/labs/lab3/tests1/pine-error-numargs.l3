@@ -1,0 +1,11 @@
+#test error
+// Tests that functions called with an incorrect number of arguments are caught
+// properly. This is L3 static semantic #2.
+
+int foo(bar : int, baz : int) {
+    return bar + baz;
+}
+
+int main() {
+    return foo(1, 2, 3);
+}

@@ -1,0 +1,13 @@
+#test return 249
+// Calculate the number of 0's in 1000! w/o carrying out
+// the factorial calculations
+{
+  n = 1000;
+  zeroes = 0;
+  /* Use the fact that each multiple of each power of 5 
+   * contributes an extra 0
+   */
+  for (x = 5; x < n; x *= 5)
+    zeroes += n / x;
+  return zeroes;
+}

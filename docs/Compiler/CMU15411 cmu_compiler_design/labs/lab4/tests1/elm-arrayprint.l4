@@ -1,0 +1,43 @@
+#test return 1
+/* printing from array -- extern func with array */
+
+extern int printchar(c:int);
+
+int main () {
+  var n:int;
+  var A:int[];
+
+  n = 12;
+  A = new(int[n]);
+
+  init(A,n);
+  return (n == print_ascii (A, n)) ? 1 : 0;
+}
+
+int init (A:int[],n:int)
+{
+  var i,delta:int;
+  delta = 32;
+
+  A[0]=87;A[1]=73;A[2]=67;A[3]=75;A[4]=69;A[5]=68;
+  A[6]=32;
+  A[7]=87;A[8]=73;A[9]=82;A[10]=69;A[11]=68;
+
+  for(i=1; i<n; i+=1)
+  {
+    if(i==6) i=8;
+    A[i] += delta;
+  }
+
+  return 0;
+}
+
+int print_ascii (A:int[],n:int) {
+  var _, i:int;
+  for (i=0; i < n; i += 1) 
+  {
+    _ = printchar(A[i]);
+  }
+  return i;
+}
+

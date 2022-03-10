@@ -1,0 +1,6 @@
+#test error
+
+int main() {
+  var x : int = 1;
+  return x;
+}

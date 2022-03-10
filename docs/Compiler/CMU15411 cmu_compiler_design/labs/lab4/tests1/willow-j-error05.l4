@@ -1,0 +1,6 @@
+#test error
+int *main() {
+	var a:int*;
+	a = NULL;
+	return a;
+}

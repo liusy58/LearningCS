@@ -1,0 +1,15 @@
+#test return 0
+
+// tests lexing of keywords
+int main () {
+    var breakdance, ifif, elsefor : int;
+    ifif = 0; elsefor = 0;
+    breakdance = 7;
+    ifif += 1;
+    ifif <<= 3;
+    if (ifif < breakdance)
+        elsefor = 2;
+    elsefor *=-10;
+ 
+    return elsefor;
+}

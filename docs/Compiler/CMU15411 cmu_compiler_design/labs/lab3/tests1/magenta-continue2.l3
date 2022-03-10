@@ -1,0 +1,26 @@
+#test return 0
+int main(){
+  return zero();
+}
+
+/* tests weather the continue statement checks the condition
+   before looping */
+int zero(){
+  var i :int;
+  var k :int;
+  i = 1;
+  k = 0;
+  while(i){
+    if(k){
+      k = 0;
+      break;
+    }
+    k = 1;
+    i = 0;
+    continue;
+  }
+  if (k == 0){
+    return 1;
+  }
+  return i;
+}

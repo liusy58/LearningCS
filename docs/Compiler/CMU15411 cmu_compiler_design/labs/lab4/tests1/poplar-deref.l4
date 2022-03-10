@@ -1,0 +1,9 @@
+#test error
+// arrays are not pointers
+
+int main()
+{
+        var a : int[];
+        
+        return *a;
+}

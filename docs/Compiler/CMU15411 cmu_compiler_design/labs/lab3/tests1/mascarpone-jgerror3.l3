@@ -1,0 +1,19 @@
+#test error
+
+extern int printchar(c:int);
+int main()
+{
+  return noreturn();
+}
+
+int noreturn()
+{
+  var i,j,x:int;
+  for(i=0; i<100; i+=1)
+  {
+    for(j=0; j<42; j+=1)
+    {
+      x=printchar(35);
+    }
+  }
+}

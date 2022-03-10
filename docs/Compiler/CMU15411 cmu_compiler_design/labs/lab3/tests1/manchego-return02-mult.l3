@@ -1,0 +1,12 @@
+#test return 15411
+
+int main() {
+	return mult(5137, 3);
+}
+
+int mult(x : int, y : int) {
+	if (x <= 0)
+		return 0;
+	else
+		return y + mult(x - 1, y);
+}

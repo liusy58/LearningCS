@@ -1,0 +1,18 @@
+#test return 8
+/* gcd */
+
+int main () {
+  return gcd(24,56);
+}
+
+int gcd (x:int, y:int) {
+  /* x,y >= 0 */
+  var r:int;
+  while (y != 0) {
+    r = x%y;
+    x = y;
+    y = r;
+  }
+  return x;
+}
+  

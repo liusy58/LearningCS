@@ -1,0 +1,15 @@
+#test error
+
+int main(){
+{
+	val x,y:int;
+
+	if(1) {
+		x = 1;
+	}
+	else {
+		y = 2;
+	}
+
+	return x;
+}

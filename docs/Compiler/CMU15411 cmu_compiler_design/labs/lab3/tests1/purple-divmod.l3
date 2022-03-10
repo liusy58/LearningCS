@@ -1,0 +1,11 @@
+#test return 6
+
+int main()
+{
+	var n : int;
+	var m : int;
+	n = 20;
+	m = 8;
+	
+	return (n / m) + (n % m);
+}

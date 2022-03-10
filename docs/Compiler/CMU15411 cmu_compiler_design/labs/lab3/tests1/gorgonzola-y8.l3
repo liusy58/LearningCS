@@ -1,0 +1,13 @@
+#test exception
+int main(){
+    var t : int;
+    t = 2134;
+    return dia(t);
+}
+
+
+int dia(x:int)
+{
+    return x/0;
+}
+

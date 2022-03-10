@@ -1,0 +1,13 @@
+#test error
+//overlapping parameter and local var names
+int main() {
+  return foo(4);
+}
+
+int foo( x:int) {
+  var y,x,w:int;
+  y = 5;
+  w = 3;
+  x = 2;
+  return y + w + x;
+}

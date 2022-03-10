@@ -1,0 +1,14 @@
+#test return 13
+
+int fib (n : int) {
+	if( n < 2 ) {
+		return 1;
+	}
+	else {
+		return fib(n-1) + fib(n-2);
+	}
+}
+
+int main() {
+	return fib(6);
+}

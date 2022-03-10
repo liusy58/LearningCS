@@ -1,0 +1,8 @@
+#test error
+struct int {
+	head : int;
+};
+
+int main() {
+	return 0;
+}

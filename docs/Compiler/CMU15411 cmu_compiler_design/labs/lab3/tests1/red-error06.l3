@@ -1,0 +1,10 @@
+#test error
+
+int f() {
+  break;
+  return 0;
+}
+
+int main () {
+  return f();
+}

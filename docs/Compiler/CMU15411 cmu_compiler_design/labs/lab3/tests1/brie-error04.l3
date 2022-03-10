@@ -1,0 +1,11 @@
+#test error
+
+int main ()
+{
+    return diqnoodle(5);
+}
+
+int diqnoodle(n1 : int,)
+{
+    return n1;
+}

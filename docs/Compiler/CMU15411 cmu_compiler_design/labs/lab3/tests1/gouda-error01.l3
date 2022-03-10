@@ -1,0 +1,11 @@
+#test error
+// duplicate declaration of variables
+
+int foo(x:int, y:int) {
+  var x:int;
+  return 1;
+}
+
+int main () {
+  return foo(42, 42);
+}

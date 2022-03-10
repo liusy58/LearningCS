@@ -1,0 +1,9 @@
+#test error
+
+//Prefix instead of postfix type identification in decls
+
+int main() {
+	int x;
+	x = 42;
+	return x;
+}

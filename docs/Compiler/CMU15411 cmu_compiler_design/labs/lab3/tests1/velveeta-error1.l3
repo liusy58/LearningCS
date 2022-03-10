@@ -1,0 +1,11 @@
+#test error
+
+extern int printint(n:int);
+
+int main(){
+  return 0;
+}
+
+int printint(){
+  return printint(4);
+}

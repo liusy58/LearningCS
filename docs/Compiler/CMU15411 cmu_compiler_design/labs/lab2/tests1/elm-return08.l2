@@ -1,0 +1,18 @@
+#test return 125
+// test nested for loops
+{
+base = 5;
+value = 0;
+
+for(i = 0; i < base; i += 1)
+{
+  for(j = 0; j < base; j += 1)
+  {
+    for(k = 0; k < base; k += 1)
+    {
+      value += 1;
+    }
+  }
+}
+return value;
+}

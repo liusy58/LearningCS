@@ -1,0 +1,22 @@
+#test return 35
+// Factorial function and binomial coefficients
+
+int fact_loop(n : int) {
+  var i : int;
+  var result : int;
+
+  result = 1;
+
+  for (i = 1; i <= n; i += 1)
+    result *= i;
+
+  return result;
+}
+
+int binom(n : int, r : int) {
+  return fact_loop(n) / (fact_loop(r) * fact_loop(n-r));
+}
+
+int main() {
+  return binom(7, 3);
+}

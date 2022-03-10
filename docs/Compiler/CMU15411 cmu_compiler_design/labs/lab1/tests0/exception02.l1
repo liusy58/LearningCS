@@ -1,0 +1,5 @@
+#test exception
+// division error due to 0 mod 0
+{
+  return 0%0;
+}

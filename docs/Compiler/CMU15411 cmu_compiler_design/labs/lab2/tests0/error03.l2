@@ -1,0 +1,6 @@
+#test error
+
+{
+  while (1) break;
+  break;
+}

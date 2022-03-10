@@ -1,0 +1,33 @@
+#test return 128
+
+extern int printchar(c:int);
+extern int printint(n:int);
+extern int printhex(n:int);
+
+int main () {
+  return print_ascii (32,127);
+}
+
+int print_ascii (c:int,n:int) {
+  var _:int;
+  while (c <= n) {
+    _ = printint(c);
+    _ = printchar(32);
+    _ = printchar(61);
+    _ = printchar(32);
+    if (isprint(c)) _ = printchar(c);
+    _ = newline();
+    c += 1;
+  }
+  return c;
+}
+
+int isprint(c:int) {
+  return (32 <= c && c <= 126);
+}
+
+int newline () {
+  var _:int;
+  _ = printchar(10);
+  return 0;
+}

@@ -1,0 +1,15 @@
+#test return 54
+// Tests whether functions that are declared later in the file still operate
+// correctly.
+
+int main() {
+    return f(3) + g(6);
+}
+
+int f(a : int) {
+    return g(a * a);
+}
+
+int g(b : int) {
+    return b * (b / 2);
+}

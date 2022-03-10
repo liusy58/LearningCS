@@ -1,0 +1,21 @@
+#test return 1
+// Says if a number is perfect or not
+
+int isperfect (n : int)
+{
+	var accum, i: int;
+        accum = 0;
+
+	for (i = 1; i < n; i = i+1)
+	{
+		if ( n % i == 0 )
+			accum = accum + i;
+	}
+
+	return accum == n;
+}
+
+int main ()
+{
+	return isperfect(8128);
+}

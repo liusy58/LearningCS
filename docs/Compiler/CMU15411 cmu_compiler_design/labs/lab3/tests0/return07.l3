@@ -1,0 +1,19 @@
+#test return 42
+// using break and continue
+
+int div (x:int, y:int) {
+  var q:int;
+  q = 0;
+  while (1) {
+    if (x < y) break;
+    q += 1;
+    x -= y;
+    continue;
+    x -= y;
+  }
+  return q;
+}
+
+int main () {
+  return div(127,3);
+}

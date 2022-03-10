@@ -1,0 +1,14 @@
+#test return 100
+#precedence of operators
+
+int
+main()
+{
+  var x:int;
+  x = 1024;
+  if ((x ^ ~1 + (1 << 10) ^ -2) == 0 || 
+      (x ^ ~1) + (1 << 10) ^ -2 | x << 20 < 1 << 31 || !~-0) {
+    while(1);
+  }
+  return 100;
+}

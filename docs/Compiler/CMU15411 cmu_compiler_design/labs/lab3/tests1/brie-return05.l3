@@ -1,0 +1,53 @@
+#test return 40
+// lol how i primitively recurse ?
+// this is a good test for interprocedure optimizations with larger constants
+int exception ()
+{
+	return 1/0;
+}
+
+int z ()
+{
+	return 0;
+}
+
+int succ (x : int)
+{
+	return x + 1;
+}
+
+int pred (x : int)
+{
+	if (x < 0) return exception();
+	if (x == 0) return z ();
+	else return x - 1;
+}
+
+int P13 (x1 : int, x2 : int, x3 : int)
+{
+	return x1;
+}
+
+int P33 (x1 : int, x2 : int, x3 : int)
+{
+	return x3;
+}
+
+int add (x : int, y : int)
+{
+	if (x < 0) return exception ();
+	if (x == 0) return y;
+	else return succ (P13 (add (pred (x), y), pred (x), y));
+}
+
+int mul (x : int, y : int)
+{
+	if (x < 0) return exception ();
+	if (x == 0) return z ();
+	else return add (P13 (mul (pred (x), y), pred (x), y), P33 (mul (pred (x), y), pred (x), y));
+}
+
+int main ()
+{
+	return mul (20, 2);
+}

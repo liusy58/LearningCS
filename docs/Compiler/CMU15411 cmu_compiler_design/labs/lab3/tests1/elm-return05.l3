@@ -1,0 +1,90 @@
+#test return 1797112832
+//many functions and variables
+
+int main () 
+{
+  var x0,x1,x2,x3,x4,x5,x6,x7,x8,x9:int;
+  var y0,y1,y2,y3,y4,y5,y6,y7,y8,y9:int;
+
+  x0 = 300;
+  x1 = 301;
+  x2 = 302;
+  x3 = 303;
+  x4 = 304;
+  x5 = 305;
+  x6 = 306;
+  x7 = 307;
+  x8 = 308;
+  x9 = 309;
+
+  y0 = 530 + x9;
+  y1 = 531 + x8;
+  y2 = 542 + x7;
+  y3 = 543 + x6;
+  y4 = 554 + x5;
+  y5 = 555 + x4;
+  y6 = 566 + x3;
+  y7 = 567 + x2;
+  y8 = 578 + x1;
+  y9 = 579 + x0;
+
+  x0 += -y0 + fb0(x0) + fb1(x1) + fb2(x2) + fb3(x3) + fb4(x4) 
+     + fb5(x5) + fb6(x6) + fb7(x7) + fb8(x8) + fb9(x9);
+
+  y0 += -x0 + fb0(y0) + fb1(y1) + fb2(y2) + fb3(y3) + fb4(y4) 
+     + fb5(y5) + fb6(y6) + fb7(y7) + fb8(y8) + fb9(y9);
+
+  return fb0(x0) + fb0(y0);
+}
+
+
+int fb0 (intifelse:int)
+{
+  return intifelse << 10;
+}
+
+int fb1 (intifelse:int)
+{
+  return intifelse << 1;
+}
+
+int fb2 (intifelse:int)
+{
+  return intifelse << 2;
+}
+
+int fb3 (intifelse:int)
+{
+  return intifelse << 3;
+}
+
+int fb4 (intifelse:int)
+{
+  return intifelse << 4;
+}
+
+int fb5 (intifelse:int)
+{
+  return intifelse << 5;
+}
+
+int fb6 (intifelse:int)
+{
+  return intifelse << 6;
+}
+
+int fb7 (intifelse:int)
+{
+  return intifelse << 7;
+}
+
+int fb8 (intifelse:int)
+{
+  return intifelse << 8;
+}
+
+int fb9 (intifelse:int)
+{
+  return intifelse << 9;
+}
+

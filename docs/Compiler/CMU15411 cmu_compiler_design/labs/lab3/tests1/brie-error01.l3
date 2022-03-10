@@ -1,0 +1,13 @@
+#test error
+
+int main ()
+{
+    return diqnoodle();
+}
+
+extern int printint(n : int);
+
+int diqnoodle()
+{
+    return 5;
+}

@@ -1,0 +1,14 @@
+#test return 4900
+
+int coeff(n : int, k : int) {
+  if (k == 0) return 1;
+  else return n * coeff(n - 1, k - 1) / k;
+}
+
+int square(x : int) {
+  return x*x;
+}
+
+int main() {
+  return square(coeff(8, 4));
+}

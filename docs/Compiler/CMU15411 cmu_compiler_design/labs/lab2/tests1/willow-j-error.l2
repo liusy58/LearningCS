@@ -1,0 +1,14 @@
+#test error
+{
+	a = 1343543;
+	if (1)
+		return 1;
+	for(i=0;i<a;i += 1) {
+		if (a > 32432)
+			return 34;
+		else if (a > 23642) 
+			return 76;
+		else
+			return 324;
+	}		
+}

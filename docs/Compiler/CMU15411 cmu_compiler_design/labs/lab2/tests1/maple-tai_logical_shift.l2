@@ -1,0 +1,11 @@
+#test return 34659975
+// Perform a logical right shift by 1<=n<=31 on signed integer x
+// using bit tricks
+{
+  // hex = 0x8437a1d3
+  x = -2076728877;
+  n = 6;
+  // result hex = 0x210de87
+  // result value = 34659975
+  return (x >> n)^((x >> 31) << (33 + (~n)));
+}

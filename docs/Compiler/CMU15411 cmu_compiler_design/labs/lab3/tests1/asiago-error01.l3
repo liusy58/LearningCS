@@ -1,0 +1,12 @@
+#test error
+
+// only ints can be params
+
+
+int method(x : int) {
+	return 1 + x;
+}
+
+int main () {
+	return method(method);
+}

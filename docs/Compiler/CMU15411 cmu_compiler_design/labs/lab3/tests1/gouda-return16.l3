@@ -1,0 +1,30 @@
+#test return 1
+// From 213 datalab
+
+/* 
+ * isLess - if x < y  then return 1, else return 0 
+ *   Example: isLess(4,5) = 1.
+ *   Legal ops: ! ~ & ^ | + << >>
+ *   Max ops: 24
+ *   Rating: 3
+ */
+int isLess(x:int, y:int) {
+  var newX, newY, newDiff, xLSB, yLSB, LSBDiff:int;
+
+  newX = x >> 1;
+  newY = y >> 1;
+  newDiff = newX + (~(newY) + 1);
+
+  xLSB = x & 1;
+  yLSB = y & 1;
+  LSBDiff = xLSB + (~(yLSB) + 1);
+
+  /* compares everything but last bit first, and if the difference is 0
+     look at the last bit */
+
+  return (((newDiff >> 31) & 1) & !(!newDiff)) | (((LSBDiff >> 31) & 1) & (!newDiff));
+
+}
+int main () {
+  return isLess(4,5);
+}

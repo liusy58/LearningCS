@@ -1,0 +1,30 @@
+#test return 1
+// Checks whether a number n is a palindrome
+// returns 1 if palindrome 0 otherwise
+{
+  x = 94522549;
+  y = x;
+  len = 0;
+  // trivial case
+  if (y == 0)
+    return 1;
+  while (y > 0)
+  {
+    y /= 10;
+    len += 1;
+  }
+  for (i = 0; i <= len / 2; i += 1)
+  {
+    z = x; 
+    for (j = 0; j < i; j += 1)
+      z /= 10;
+    a = z % 10;
+    z = x; 
+    for (j = 0; j < len - 1 - i; j += 1)
+      z /= 10;
+    b = z % 10;
+    if (a != b)
+      return 0;
+  }
+  return 1;
+}

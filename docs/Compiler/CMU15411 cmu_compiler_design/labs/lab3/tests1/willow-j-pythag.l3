@@ -1,0 +1,24 @@
+#test return 1
+#tests if two numbers form a pythagorean triple
+
+int sqrt(a:int) {
+	var i,b,c:int;
+	c = 0;
+	for(i=0;i<a;i += 1) {
+		b = i * i;
+		if (b > a)
+			break;
+		c = i;
+	}
+	return c;
+}
+
+int pythag(a:int,b:int) {
+	var c2:int;
+	c2 = a*a + b*b;
+	return ((sqrt(c2)*sqrt(c2)) == c2);
+}
+
+int main() {
+	return pythag(65,72);
+}

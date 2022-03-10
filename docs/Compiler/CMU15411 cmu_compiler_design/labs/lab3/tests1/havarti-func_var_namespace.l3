@@ -1,0 +1,21 @@
+#test return 1
+
+/**
+ * Ensure that functions and variables do not share a namespace
+ */
+
+int main ()
+{
+    var func : int;
+    
+    return func();
+}
+
+int func ()
+{
+    var func : int;
+    
+    func = 1;
+    
+    return func;
+}

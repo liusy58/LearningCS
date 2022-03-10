@@ -1,0 +1,50 @@
+This director contains the driver.  The driver can be
+used to test your compiler, and it is also used by the
+Autolab server to evaluate your code.  This handout is the
+same for lab4tests and lab4, which are merely two phases
+of the same lab.
+
+You can obtain the driver, runtime system, and writeup
+with
+
+  svn checkout https://cvs.concert.cs.cmu.edu/15411-f09/<team>/lab4
+
+or do
+
+  svn update
+
+while in the 15411-f09/<team> directory.
+
+Copy the driver files to the directory where your compiler is
+
+% cp driver/* compiler/
+% cp runtime/* compiler/
+
+Now you can call the driver as in
+
+% cd compiler
+% ./driver.pl [-h] [-u userid] [-d n] [-s] [-t] [-f] files...
+
+  -h           prints help
+  -u userid    sends result to autolab server as userid
+  -d n         set debug level to n (default 0)
+  -s           skip generation of compiler
+  -t           validate test files instead of testing compiler
+  -f           check test files with reference compiler
+  files...     test files
+
+If you omit the test files, they default to
+
+../tests0/*.l2 ../tests1/*.l2
+               for testing your compiler with the standard suites
+
+../tests/*.l2  for validating your test files (-t).  Since you
+	       don't have our reference compiler, this is of limited
+               use until you have your own compiler.
+
+                A better approach is ./driver.pl -f ../tests/*.l2
+
+If you omit the test files and give the -u userid flag, a progress
+report summary will be sent to Autolab as an "unofficial handin".  In
+order to receive credit, you need to officially hand via tests/
+and compiler/ via Autolab.

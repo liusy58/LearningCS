@@ -1,0 +1,21 @@
+#test return 17
+
+int sqrt(x:int) { /* returns floor(sqrt(|x|)) */
+    var i, n : int;
+
+    if (x < 0)
+        n = -x;
+    else
+        n = x;
+
+    i = 0;
+    while(i*i <= n) {
+        i = i + 1;
+    }
+   
+    return (i-1);
+}
+
+int main () {
+    return sqrt(300);
+}

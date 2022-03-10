@@ -1,0 +1,40 @@
+#test return 100
+#nested if-else, should never decrement x...
+#conflicting name for function and parameters
+#empty statement
+
+int
+fn(x:int, y:int, z:int)
+{
+  return x + y + z;
+}
+
+int
+main()
+{
+  var x :int;
+  x = 1;
+  if (1 > 2)
+     if (3 < 2)
+        x -= 1;
+     else
+        if (4 > 3)
+           x += 1;
+        else
+           x = 2/0;
+  else
+     if (0 ^ ~1)
+        x += 2;
+     else
+        x = 1000;;
+
+  return fn2(x, 91);
+}
+
+int
+fn2(x:int, fn:int)
+{
+   var fn2:int;
+   fn2 = 100;
+   return x + fn + fn(1, 2, 3);
+}

@@ -1,0 +1,70 @@
+#test error
+
+# This will fail, because a function is called with the wrong number of
+# arguments.
+
+int pwr (a : int, n : int)
+{
+    if (n == 0)
+        return 1;
+    return a * (pwr (a, n - 1));
+}
+
+int maketriple (a : int, b : int, c : int)
+{
+    return (pwr (2, a)) * (pwr (3, b)) * (pwr (5, c));
+}
+
+int paira (p : int)
+{
+    var i : int;
+
+    for (i = 0; (p % 2) == 0; i += 1)
+        p /= 2;
+
+    return i; 
+}
+
+int pairb (p : int)
+{
+    var i : int;
+
+    for (i = 0; (p % 3) == 0; i += 1)
+        p /= 3;
+
+    return i; 
+}
+
+int pairc (p : int)
+{
+    var i : int;
+
+    for (i = 0; (p % 5) == 0; i += 1)
+        p /= 5;
+
+    return i; 
+}
+
+/* Find the length of a linked list.  Hate me. */
+int length (l : int)
+{
+    if (pairc (l) == 0) /* Nil has length 0 */
+        return 0;
+    else                /* Cons (a, b) has 1 + length (b) */
+        return 1 + (length (pairb (l)));
+}
+
+int main ()
+{
+    var l: int;
+
+    /* The list [0, 1, 2, 3] */
+    l = maketriple (0,
+        maketriple (1,
+        maketriple (2,
+        maketriple (3,
+        maketriple (0, 0), 1), 1), 1), 1);
+
+    return length (l);
+}
+

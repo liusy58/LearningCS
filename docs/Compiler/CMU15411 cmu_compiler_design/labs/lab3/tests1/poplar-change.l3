@@ -1,0 +1,45 @@
+#test return 50
+// Computes the number of ways to make change using 1, 5, 10, 25, and 50 cent
+// coins
+int count(denom : int, amount : int) {
+    var dval : int;
+    // Made exact change, add to count
+    if (amount == 0) {
+        return 1;
+    }
+    // Invalid amount of change
+    if (amount < 0) {
+       return 0;
+    }
+    // Can't make change with no coins
+    if (denom < 1) {
+        return 0;
+    }
+    dval = denom_value(denom);
+    // count ways with one less denomination, or with using one coin from
+    // current denomination
+    return count(denom - 1, amount) + count(denom, amount - dval);
+}
+
+// Value mapping for denominations
+int denom_value(d : int) {
+    if (d == 1)
+        return 1;
+    if (d == 2)
+        return 5;
+    if (d == 3)
+        return 10;
+    if (d == 4)
+        return 25;
+    if (d == 5)
+        return 50;
+    return 1/0;
+}
+
+int count_change(amount : int) {
+    return count(5, amount);
+}
+
+int main() {
+    return count_change(50);
+}

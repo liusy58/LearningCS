@@ -1,0 +1,18 @@
+#test error
+// uninitialized variable due to loop
+
+int div (x:int, y:int) {
+  var q:int;
+  while (1) {
+    if (x < y) break;
+    q += 1;
+    x -= y;
+    continue;
+    x -= y;
+  }
+  return q; 			/* uninitialied variable! */
+}
+
+int main () {
+  return div(127,3);
+}

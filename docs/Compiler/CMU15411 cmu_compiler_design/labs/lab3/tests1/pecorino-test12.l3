@@ -1,0 +1,24 @@
+#test return 1095312530
+//pi*r^2 where r is 2
+
+extern int printfloat(x:int);
+extern int fdiv(x:int, y:int);
+extern int fmul(x:int, y:int);
+extern int tofloat(x:int);
+
+int main(){
+  var exp,frac,pi,r:int;
+
+  r = 2;
+  pi = fdiv(22, 7);
+  
+  exp = printfloat(pi);
+  
+  r = r*r;
+  r = tofloat(r);
+
+  exp = fmul(pi, r);
+  exp = printfloat(exp);
+
+  return fmul(pi, r);
+}

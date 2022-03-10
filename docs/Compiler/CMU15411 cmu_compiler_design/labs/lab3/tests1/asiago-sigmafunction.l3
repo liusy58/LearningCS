@@ -1,0 +1,36 @@
+#test return 6
+
+int sigma(n: int){
+	var k, sum, i, divisible, val, j : int;
+	
+	k = 0;
+	
+	sum = 0;
+	
+	for ( i = 1 ; i <= n ; i += 1 ) {
+		
+		divisible = n % i;
+		
+		if ( divisible )
+		{
+			
+			if ( k == 0 ) {
+				sum += 1;
+				continue;
+			}
+			
+			val = 1;
+			for ( j = 0 ; j < k ; j += 1 ) {
+				val *= i;
+			}
+			
+			sum += val;
+		}
+	}
+	
+	return sum;
+}
+
+int main() {
+	return sigma(12);
+}

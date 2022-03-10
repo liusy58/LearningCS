@@ -1,0 +1,23 @@
+#test return 512
+// play with arrays of structs
+
+struct s {
+        foo : int;
+        b : s*;
+        c : s[];
+        d : s**;
+        e : int*[]*[]*[]*[];
+};
+
+int main ()
+{
+        var a : s[];
+        var i : int;
+
+        a = new (s[10]);
+        a[0].foo = 1;
+        for (i = 1; i < 10; i += 1)
+                a[i].foo = 2 * a[i - 1].foo;
+
+        return a[9].foo;
+} 

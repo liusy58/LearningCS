@@ -1,0 +1,17 @@
+#test exception
+
+int main() {
+	var x : int;
+	x = intmax(0, 0) + 1;
+	x /= -1;
+
+	return x;
+}
+
+/* Recursively sum to 0x7FFFFFFF by left-shifting. */
+int intmax(sum : int, shift : int) {
+	var x : int;
+	if (shift == 31) return sum;
+
+	return intmax(sum + (1 << shift), shift + 1);
+}

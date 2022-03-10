@@ -1,0 +1,40 @@
+#test return 17013
+/* Team Blue
+ * Cantor pairing function
+ */
+
+/* Assume x, y positive */
+int pair(x: int, y: int) {
+	return ((x + y) * (x + y + 1) / 2) + y;
+}
+
+/* Efficient unpairing requires sqrt;
+ * for our purposes, brute-force will do
+ */
+int first(paired: int, max: int) {
+	var i, j: int;
+	for (i = 0; i < max; i += 1)
+		for (j = 0; j < max; j += 1)
+			if (pair(i, j) == paired)
+				return i;	
+				
+	return 0;
+}
+
+int second(paired: int, max: int) {
+	var i, j: int;
+	for (i = 0; i < max; i += 1)
+		for (j = 0; j < max; j += 1)
+			if (pair(i, j) == paired)
+				return j;
+
+	return 0;
+}
+
+int main() {
+	var p: int;
+	
+	p = pair(13, 17);
+	
+	return second(p, 20) * 1000 + first(p, 20);
+}

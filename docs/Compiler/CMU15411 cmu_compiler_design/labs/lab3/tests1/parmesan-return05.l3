@@ -1,0 +1,15 @@
+#test return 0
+
+int main(){
+	var a, b, c, x, y, z:int;
+	
+	x = 1;
+	y = 2;
+	z = 3;
+
+	a = z;
+	b = y;
+	c = x;
+
+	return x^y^z^a^b^c;
+}

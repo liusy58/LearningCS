@@ -1,0 +1,7 @@
+#test exception
+// test unary operators
+{
+  return 1 / ( ! (-4 <= 4) + ~ (-4 / 4) );
+}
+
+

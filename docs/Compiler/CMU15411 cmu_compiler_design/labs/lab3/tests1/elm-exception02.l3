@@ -1,0 +1,22 @@
+#test exception
+// mutually recursive -- infinite
+// seg_fault == exception 11
+
+// this could also time out
+
+int getfirst (x:int, y:int) 
+{
+  return x | 0 + getsecond(x,y) & 0;
+}
+
+int main () 
+{
+  return getfirst(32,48) + getsecond(64,24);
+}
+
+int getsecond (x:int, y:int)
+{
+  return getfirst(x,y) & 0 + y | 0;
+}
+
+

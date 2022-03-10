@@ -1,0 +1,20 @@
+#test error
+
+# I forgot the int on an m
+# This will take a number mod 0.  This is bad.
+
+int factor (n : int, m )
+{
+    var i : int;
+
+    for (i = 0; (n % m) == 0; i += 1)
+        n = n / m;
+
+    return i;
+}
+
+int main ()
+{
+    return factor (347621349, 0);
+}
+

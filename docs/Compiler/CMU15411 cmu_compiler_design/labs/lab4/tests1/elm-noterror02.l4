@@ -1,0 +1,32 @@
+#test return 49
+/* checks for correct parsing */
+
+struct node {val:int; left:node*; right:node*;};
+
+extern int printchar(c:int);
+
+struct dummy1node {val:int; left:node*; right:node*;};
+
+// extern int isprint(c:int);	/* from stdlib */
+
+struct dummy2node {val:int; left:node*; right:node*;};
+
+extern int printint(n:int);
+
+struct dummy3node {val:int; left:node*; right:node*;};
+
+extern int printhex(n:int);
+
+int main () {
+  return print_ascii (32,48);
+}
+
+int print_ascii (c:int,n:int) {
+  var _:int;
+  for (; c <= n; c += 1) 
+  {
+    _ = printint(c);
+  }
+  return c;
+}
+

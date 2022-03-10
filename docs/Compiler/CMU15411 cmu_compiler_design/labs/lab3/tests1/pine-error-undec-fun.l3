@@ -1,0 +1,9 @@
+#test error
+//calling undeclared functions: no worky
+
+int main()
+{
+  var x : int;
+  x = 234235;
+  return foo(x);
+}

@@ -1,0 +1,13 @@
+#test error
+
+//Prefix types in function args
+
+int main() {
+	x : int;
+	x = f(3);
+	return x;
+}
+
+int f(int y) {
+	return y + 2;
+}

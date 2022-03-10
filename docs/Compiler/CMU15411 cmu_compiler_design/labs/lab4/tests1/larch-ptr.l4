@@ -1,0 +1,13 @@
+#test error
+
+int main() {
+  var p : int*;
+  p = NULL;
+  
+  // Apparently you can't do this
+  if (p) {
+    return 10;
+  } else {
+    return 4;
+  }
+}

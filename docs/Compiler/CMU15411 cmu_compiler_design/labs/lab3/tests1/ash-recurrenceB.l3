@@ -1,0 +1,21 @@
+#test return 1535
+
+int rec(n : int) {
+  if (n == 1) return 2;
+  else return 2 * rec(n - 1) + 1;
+}
+
+int verify(n : int) {
+  var calc, exp : int;
+
+  exp = 3 * (1 << n -1) - 1;
+  calc = rec(n);
+
+  if (exp == calc) return exp; else return -1;
+}
+
+int main() {
+  return verify(10);
+}
+
+ 

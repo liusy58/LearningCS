@@ -1,0 +1,7 @@
+#test error
+
+int main() {
+	var x : int, y : int
+
+	return 0;
+}

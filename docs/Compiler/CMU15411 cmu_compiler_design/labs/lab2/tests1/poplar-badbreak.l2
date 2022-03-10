@@ -1,0 +1,8 @@
+#test error
+// break must not be outside loops, even after return
+{
+        x = 5;
+        return x;
+        break;
+}
+

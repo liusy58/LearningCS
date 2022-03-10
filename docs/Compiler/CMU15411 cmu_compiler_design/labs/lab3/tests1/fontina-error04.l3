@@ -1,0 +1,13 @@
+#test error
+
+int main() {
+	var a : int;
+	a = bob();
+	return 5;
+}
+
+int bob() {
+	//doesnt return anything! error
+	var b : int;
+	b = 5;
+}

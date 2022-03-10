@@ -1,0 +1,18 @@
+#test return 3
+// Ackerman function tests recursion
+
+int main()
+{
+  return A(1,1);
+}
+
+int A(m : int, n : int)
+{
+  if (m)
+    if (n)
+      return A(m-1, A(m, n-1));
+    else
+      return A(m-1, 1);
+  else
+    return n+1;
+}

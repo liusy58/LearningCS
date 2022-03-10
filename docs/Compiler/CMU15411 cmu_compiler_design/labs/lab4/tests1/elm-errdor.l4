@@ -1,0 +1,29 @@
+#test return 96
+/* it should: halve it first and then twice it == 96 */
+/* it should NOT: twice it first and then halve it == 192 */
+
+int main()
+{
+  var save : int*;
+  save = new(int);
+  *save = 64;
+
+  return add( half(save), twice(save) );
+}
+
+int add( less : int, same : int)
+{
+  return less + same;
+}
+
+int half( ptr : int* )
+{
+  *ptr = (*ptr) / 2;
+  return *ptr;
+}
+
+int twice( ptr : int* )
+{
+  *ptr = (*ptr) * 2;
+  return *ptr;
+}

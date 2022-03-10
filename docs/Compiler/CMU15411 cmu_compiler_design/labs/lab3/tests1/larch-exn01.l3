@@ -1,0 +1,15 @@
+#test exception 8
+
+int main() {
+  var billy : int;
+  billy = sally() + joe();
+  return billy / (joe() * sally());
+}
+
+int sally() {
+  return 3;
+}
+
+int joe() {
+  return sally() - 3;
+}

@@ -1,0 +1,51 @@
+#test return 1
+// encodes two integers in one  
+
+int decode_left(z:int)
+{
+  var x:int;
+
+  x=0;
+
+  while(z%2 == 0)
+  {
+    x+=1; 
+    z/=2;
+  }
+  return x;
+}
+
+int encode(x:int,y:int)
+{
+  var code:int; 
+  var i:int;
+  code=2;
+  for(i=1; i<x; i+=1)
+  {
+    code*=2;
+  }
+
+  code = code*(2*y + 1);
+
+  //going from left to right
+  //the binary expansion of code is x zeros followed by a 1 followed by 
+  //the binary expansion of y
+  return code;
+}
+
+int decode_right(z:int)
+{
+  while(z%2 == 0)
+  {
+    z/=2;
+  }
+
+  return z/2;
+}
+
+int main()
+{
+  return decode_left(encode(13,11)) == 13 && decode_right(encode(13,11)) == 11; 
+}
+
+

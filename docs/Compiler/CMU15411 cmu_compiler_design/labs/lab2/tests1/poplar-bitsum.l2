@@ -1,0 +1,11 @@
+#test return 21
+// Calculate the binary digit sum of the input
+{
+    input = 96198526;    // 101101110111101111101111110
+    sum = 0;
+    for (shifts = 0; shifts < 32; shifts += 1) {
+        sum += input & 1;
+        input >>= 1;
+    }
+    return sum;
+}
