@@ -24,32 +24,34 @@ typedef ClassTable *ClassTableP;
 class ClassTable {
 private:
 
-  std::map<Symbol,Class__class*> name2class_definition;
-  std::map<Symbol,Symbol> name2parent_name;
-  std::map<Symbol,method_class*>classname2methods;
-
+  Classes classes;
   int semant_errors;
-  void install_basic_classes();
+  std::map<Symbol,Class_>class_name_2_class_definition;
+  std::map<Symbol,Symbol> class_name_2_parent_class_name;
+
+
+    void install_basic_classes();
 
   ostream& error_stream;
+  bool is_basic_class(Symbol class_name);
+  bool is_hierarchy_graph_acyclic(Symbol class_name);
 
 public:
 
-    bool install_custom_classes(Classes classes);
-    bool build_inheritance_graph();
-    bool is_inheritance_graph_valid();
-    bool is_inheritance_graph_acyclic(Symbol name);
-    bool is_basic_class(Symbol name);
-    bool is_type_defined(Symbol name);
-    ClassTable(Classes);
-    void register_methods();
-    void register_class_and_its_methods(Class__class* );
-    std::map<Symbol,method_class*> get_class_methods(Class__class*class_defnition);
+  ClassTable(Classes);
+  void register_methods_and_attrs();
+  std::map<Symbol,method_class*> register_methods(class__class*class_definition);
+  std::map<Symbol,attr_class*> register_attrs(class__class*class_definition);
+  bool build_class_hierarchy_graph();
+  bool is_class_hierarchy_graph_valid();
   int errors() { return semant_errors; }
   ostream& semant_error();
   ostream& semant_error(Class_ c);
   ostream& semant_error(Symbol filename, tree_node *t);
+
 };
+
+
 
 
 #endif

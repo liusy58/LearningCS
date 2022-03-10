@@ -188,6 +188,7 @@ public:
    Feature copy_Feature();
    void dump(ostream& stream, int n);
    bool is_method(){ return true;}
+   Symbol get_name(){return name;}
 #ifdef Feature_SHARED_EXTRAS
    Feature_SHARED_EXTRAS
 #endif
@@ -212,7 +213,7 @@ public:
    Feature copy_Feature();
    void dump(ostream& stream, int n);
    bool is_method(){return false;}
-
+   Symbol get_name(){return name;}
 #ifdef Feature_SHARED_EXTRAS
    Feature_SHARED_EXTRAS
 #endif

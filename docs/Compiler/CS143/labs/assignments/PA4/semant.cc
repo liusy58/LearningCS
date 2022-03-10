@@ -9,7 +9,14 @@
 
 extern int semant_debug;
 extern char *curr_filename;
-
+ClassTable *classtable;
+SymbolTable<Symbol,Symbol> *objects_table;
+Symbol current_class_name;
+Class_ current_class_definition;
+std::map<Symbol,std::map<Symbol,method_class*>>class_name_2_methods;
+std::map<Symbol,std::map<Symbol,attr_class*>>class_name_2_attrs;
+std::map<Symbol, method_class*> current_class_methods;
+std::map<Symbol, attr_class*> current_class_attrs;
 //////////////////////////////////////////////////////////////////////
 //
 // Symbols
@@ -81,6 +88,12 @@ static void initialize_constants(void)
     val         = idtable.add_string("_val");
 }
 
+void type_check(Class_ class_definition);
+Symbol type_check(method_class* method);
+Symbol type_check(attr_class* attr);
+Symbol type_check(Feature f);
+void build_attribute_scopes(Class_ );
+
 
 void raise_error() {
     cerr << "Compilation halted due to static semantic errors." << endl;
@@ -88,9 +101,10 @@ void raise_error() {
 }
 
 
-ClassTable::ClassTable(Classes classes) : semant_errors(0) , error_stream(cerr) {
+ClassTable::ClassTable(Classes classes) : classes(classes), semant_errors(0) , error_stream(cerr) {
 
     /* Fill this in */
+    install_basic_classes();
 
 }
 
@@ -195,11 +209,11 @@ void ClassTable::install_basic_classes() {
 	       filename);
 
 
-    this->name2class_definition[Object] = Object_class;
-    this->name2class_definition[Str] = Str_class;
-    this->name2class_definition[Bool] = Bool_class;
-    this->name2class_definition[Int] = Int_class;
-    this->name2class_definition[IO] = IO_class;
+    this->class_name_2_class_definition[Object] = Object_class;
+    this->class_name_2_class_definition[Str] = Str_class;
+    this->class_name_2_class_definition[Bool] = Bool_class;
+    this->class_name_2_class_definition[Int] = Int_class;
+    this->class_name_2_class_definition[IO] = IO_class;
 
 }
 
@@ -255,26 +269,31 @@ void program_class::semant()
     initialize_constants();
 
     /* ClassTable constructor may do some semantic analysis */
-    ClassTable *classtable = new ClassTable(classes);
+    classtable = new ClassTable(classes);
 
-    /* some semantic analysis code may go here */
-    if(!classtable->install_custom_classes(classes)){
+    if(!classtable->build_class_hierarchy_graph()){
         raise_error();
     }
 
-    if(!classtable->build_inheritance_graph()){
+    if(!classtable->is_class_hierarchy_graph_valid()){
         raise_error();
     }
 
-    if(!classtable->is_inheritance_graph_valid()){
-        raise_error();
-    }
+    classtable->register_methods_and_attrs();
 
     if(classtable->errors()){
         raise_error();
     }
 
-    classtable->register_methods();
+    for(int i = classes->first(); classes->more(i); i = classes->next(i)) {
+        auto class_definition = classes->nth(i);
+        type_check(class_definition);
+    }
+
+
+
+
+    /* some semantic analysis code may go here */
 
 
 
@@ -286,74 +305,72 @@ void program_class::semant()
 
 
 
-bool ClassTable::install_custom_classes(Classes classes){
-    for(int i = classes->first(); classes->more(i); i = classes->next(i)){
-        auto current_class = classes->nth(i);
-        Symbol current_class_name = current_class->get_name();
-        if(current_class_name == Int ||
-            current_class_name == Bool ||
-            current_class_name == Str ||
-            current_class_name == Object ){
-            semant_error(current_class) << "Redefinition;" ;
-            return false;
-        }
-        if(name2class_definition.count(current_class_name)){
-            semant_error(current_class) << "Redefinition;" ;
-            return false;
-        }
+bool ClassTable::is_basic_class(Symbol class_name){
+    return (class_name == Object)
+            || (class_name == Int)
+            || (class_name == Str)
+            || (class_name == Bool)
+            || (class_name == IO);
 
-        name2class_definition[current_class_name] = current_class;
-    }
-    return true;
 }
 
-bool ClassTable::build_inheritance_graph() {
-    for(auto &[name,class_defnition]:name2class_definition){
-        auto class_parent_name = class_defnition->get_parent();
-        name2parent_name[name] = class_parent_name;
-        if(!name2class_definition[class_parent_name]){
-            semant_error(class_defnition) << "parent's type no declared" ;
+
+
+// check class redefinition
+
+bool ClassTable::build_class_hierarchy_graph(){
+    for(int i = classes->first(); classes->more(i); i = classes->next(i))
+    {
+        auto class_definition = classes->nth(i);
+        auto class_name = class_definition->get_name();
+        if(class_name_2_class_definition.count(class_name)){
+            // TODO: error handling
             return false;
         }
-    }
-    return true;
-}
-
-bool ClassTable::is_inheritance_graph_valid(){
-    for(auto &[name,class_defnition]:name2class_definition){
-        if(!is_inheritance_graph_acyclic(name)){
-            return false;
-        }
-    }
-
-    if(!is_type_defined(Main)){
-        return false;
+        auto parent_class_name = class_definition->get_parent();
+        class_name_2_class_definition[class_name] = class_definition;
+        class_name_2_parent_class_name[class_name] = parent_class_name;
     }
     return true;
 }
 
 
 
-/*
- *
- * function hasCycle(head) {
-    let fast = head
-    let slow = head
-    while (fast && fast.next) {
-        fast = fast.next.next
-        slow = slow.next
-        if (fast == slow) return true
+// check wrong cases
+//              1. when parent class is not defined
+//              2. when the hierarchy_graph is acyclic.
+
+
+
+
+bool ClassTable::is_class_hierarchy_graph_valid() {
+    for(auto &[class_name,class_definition]:class_name_2_class_definition){
+        auto parent_class_name = class_definition->get_parent();
+        if(!class_name_2_class_definition.count(parent_class_name)){
+            // TODO: handle error
+            return false;
+        }
+        if(!is_hierarchy_graph_acyclic(class_name)){
+            // TODO
+            return false;
+        }
     }
-    return false
+    return true;
 }
- */
-bool ClassTable::is_inheritance_graph_acyclic(Symbol name){
-    Symbol fast = name;
-    Symbol slow = name;
-    while(!is_basic_class(fast) && !is_basic_class(this->name2parent_name[fast])){
-        fast = this->name2parent_name[fast];
-        fast = this->name2parent_name[fast];
-        slow = this->name2parent_name[slow];
+
+
+
+
+bool ClassTable::is_hierarchy_graph_acyclic(Symbol class_name){
+    Symbol fast = class_name;
+    Symbol slow = class_name;
+    while(fast != Object){
+        fast = class_name_2_parent_class_name[fast];
+        if(fast == Object){
+            return true;
+        }
+        fast = class_name_2_parent_class_name[fast];
+        slow = class_name_2_parent_class_name[slow];
         if(fast == slow){
             return false;
         }
@@ -361,45 +378,70 @@ bool ClassTable::is_inheritance_graph_acyclic(Symbol name){
     return true;
 }
 
-bool ClassTable::is_basic_class(Symbol name){
-    return name == Object;
-}
 
-bool ClassTable::is_type_defined(Symbol name){
-    return this->name2class_definition.count(name);
-}
-
-
-void ClassTable::register_methods() {
-    for(auto &[name,class_defnition]:name2class_definition){
-        this->register_class_and_its_methods(class_defnition);
+std::map<Symbol,method_class*> ClassTable::register_methods(class__class*class_definition) {
+    std::map<Symbol,method_class*> method_name_2_method;
+    auto features = class_definition->get_features();
+    for(int i = features->first(); features->more(i); i = features->next(i)) {
+        auto feature = features->nth(i);
+        if(feature->is_method()){
+            auto method = dynamic_cast<method_class*>(feature);
+            auto method_name = method->get_name();
+            if(method_name_2_method.count(method_name)){
+                // TODO:: handle error
+                semant_error();
+            }
+            method_name_2_method[method_name] = method;
+        }
     }
+    return method_name_2_method;
 }
 
-
-void ClassTable::register_class_and_its_methods(Class__class* class_defnition){
-
-}
-
-std::map<Symbol,method_class*> ClassTable::get_class_methods(Class__class*class_defnition){
-    std::map<Symbol, method_class*> class_methods;
-    Symbol name = class_defnition->get_name();
-    Features features = class_defnition->get_features();
-
-    for(int i=features->first(); features->more(i); i = features->next(i)){
-        Feature feature = features->nth(i);
+std::map<Symbol,attr_class*> ClassTable::register_attrs(class__class*class_definition){
+    std::map<Symbol,attr_class*> name_2_attr;
+    auto features = class_definition->get_features();
+    for(int i = features->first(); features->more(i); i = features->next(i)) {
+        auto feature = features->nth(i);
         if(!feature->is_method()){
-            continue;
-        }
-
-        auto* method = static_cast<method_class*>(feature);
-        Symbol method_name = method->get_name();
-
-        if(class_methods.count(method_name)){
-            // TODO: error here
-        }else{
-            class_methods[method_name] = method;
+            auto attr = dynamic_cast<attr_class*>(feature);
+            auto name = attr->get_name();
+            if(name_2_attr.count(name)){
+                // TODO:: handle error
+                semant_error();
+            }
+            name_2_attr[name] = attr;
         }
     }
-    return class_methods;
+    return name_2_attr;
+}
+
+void ClassTable::register_methods_and_attrs() {
+    for(auto &[class_name,class_def]:class_name_2_class_definition){
+        auto class_definition = dynamic_cast<class__class *>(class_def);
+        class_name_2_methods[class_name] = register_methods(class_definition);
+        class_name_2_attrs[class_name] = register_attrs(class_definition);
+    }
+}
+
+
+void type_check(Class_ class_definition){
+    current_class_name = class_definition->get_name();
+    current_class_definition = class_definition;
+    current_class_attrs = class_name_2_attrs[current_class_name];
+    current_class_methods = class_name_2_methods[current_class_name];
+
+    objects_table = new SymbolTable<Symbol,Symbol>();
+    objects_table->enterscope();
+    objects_table->addid(self,&current_class_name);
+
+    build_attribute_scopes(current_class_definition);
+}
+
+void build_attribute_scopes(Class_ class_definition){
+    objects_table->enterscope();
+
+    auto attrs = class_name_2_attrs[class_definition->get_name()];
+    for(auto &[attr_name,attr_definition] : attrs){
+        objects_table->addid(attr_name,)
+    }
 }
