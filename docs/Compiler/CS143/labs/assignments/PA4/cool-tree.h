@@ -189,6 +189,8 @@ public:
    void dump(ostream& stream, int n);
    bool is_method(){ return true;}
    Symbol get_name(){return name;}
+   Formals get_formals(){return formals;}
+   Symbol get_return_type(){return return_type;}
 #ifdef Feature_SHARED_EXTRAS
    Feature_SHARED_EXTRAS
 #endif
@@ -214,6 +216,8 @@ public:
    void dump(ostream& stream, int n);
    bool is_method(){return false;}
    Symbol get_name(){return name;}
+   Symbol get_type() {return type_decl;}
+   Expression get_init_expr(){return init;}
 #ifdef Feature_SHARED_EXTRAS
    Feature_SHARED_EXTRAS
 #endif
@@ -235,7 +239,8 @@ public:
    }
    Formal copy_Formal();
    void dump(ostream& stream, int n);
-
+    virtual Symbol get_name() override{return name;}
+    virtual Symbol get_type_decl() override{return type_decl;}
 #ifdef Formal_SHARED_EXTRAS
    Formal_SHARED_EXTRAS
 #endif
@@ -259,7 +264,9 @@ public:
    }
    Case copy_Case();
    void dump(ostream& stream, int n);
-
+   virtual Symbol get_name(){return name;}
+   virtual Symbol get_type_decl(){return type_decl;}
+   virtual Expression get_expr() {return expr;}
 #ifdef Case_SHARED_EXTRAS
    Case_SHARED_EXTRAS
 #endif

@@ -30,6 +30,7 @@ int main(int argc, char *argv[]) {
 
   // check whether Mary is in any scope; predicate is true
   cout << ((map->lookup(Mary) != NULL) ? "Yes\n" : "No\n");
+//  cout << (*map->lookup(Mary));
 
   // print age of most-closely-nested Mary; note the
   // lookup returns a pointer to an integer.

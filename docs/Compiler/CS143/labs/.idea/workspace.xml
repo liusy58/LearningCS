@@ -13,13 +13,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="37f2ed9e-ef2c-4cd5-afd8-16cfd1145aa4" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/customTargets.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/customTargets.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/tools/External Tools.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/tools/External Tools.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/ast-lex.o" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA4/ast-lex.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/ast-parse.o" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA4/ast-parse.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/compile_commands.json" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA4/compile_commands.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assignments/PA4/cool-tree.h" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA4/cool-tree.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assignments/PA4/cool-tree.handcode.h" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA4/cool-tree.handcode.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/cool-tree.o" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA4/cool-tree.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/dumptype.o" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA4/dumptype.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/grading/hairyscary.cl.test" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA4/grading/hairyscary.test" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/grading/mysemant" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/pa4-grading.pl" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA4/pa4-grading.pl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assignments/PA4/semant" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA4/semant" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/semant-phase.o" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA4/semant-phase.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assignments/PA4/semant.cc" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA4/semant.cc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assignments/PA4/semant.h" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA4/semant.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assignments/PA4/semant.o" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA4/semant.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/symtab_example.cc" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA4/symtab_example.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/tree.o" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA4/tree.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/utilities.o" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA4/utilities.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/PA4/cool-tree.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/PA4/cool-tree.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/PA4/tree.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/PA4/tree.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,13 +116,14 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="cf.first.check.clang-format" value="false" />
     <property name="cidr.known.project.marker" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/assignments/PA3" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/assignments/PA4" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="CLionExternalConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/assignments/PA4" />
       <recent name="$PROJECT_DIR$/assignments/PA3" />
       <recent name="$PROJECT_DIR$/bin" />
     </key>
@@ -114,7 +131,12 @@
       <recent name="$PROJECT_DIR$/assignments/PA2" />
     </key>
   </component>
-  <component name="RunManager" selected="Custom Build Application.parser">
+  <component name="RunManager" selected="Custom Build Application.semant">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="lexer" type="CLionExternalRunConfiguration" factoryName="Application" PROGRAM_PARAMS="test.cl" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" WORKING_DIR="file://$PROJECT_DIR$/assignments/PA2" PASS_PARENT_ENVS_2="true" PROJECT_NAME="labs" TARGET_NAME="lexer" CONFIG_NAME="lexer" RUN_PATH="$PROJECT_DIR$/assignments/PA2/lexer">
       <method v="2">
         <option name="CLION.EXTERNAL.BUILD" enabled="true" />
@@ -125,14 +147,15 @@
         <option name="CLION.EXTERNAL.BUILD" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+    <configuration name="semant" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="true" REDIRECT_INPUT_PATH="$PROJECT_DIR$/assignments/PA4/file.txt" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="labs" TARGET_NAME="semant" CONFIG_NAME="semant" RUN_PATH="$PROJECT_DIR$/assignments/PA4/semant">
       <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
       </method>
     </configuration>
     <list>
       <item itemvalue="Custom Build Application.lexer" />
       <item itemvalue="Custom Build Application.parser" />
+      <item itemvalue="Custom Build Application.semant" />
     </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -154,6 +177,12 @@
       <workItem from="1646545014869" duration="2870000" />
       <workItem from="1646616477381" duration="8953000" />
       <workItem from="1646705451164" duration="6203000" />
+      <workItem from="1646963034221" duration="8472000" />
+      <workItem from="1646979298090" duration="11601000" />
+      <workItem from="1647007599347" duration="11017000" />
+      <workItem from="1647074086406" duration="4647000" />
+      <workItem from="1647089521317" duration="171000" />
+      <workItem from="1647140029588" duration="21189000" />
     </task>
     <servers />
   </component>
@@ -189,7 +218,26 @@
           <line>29</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/assignments/PA4/semant.cc</url>
+          <line>651</line>
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/assignments/PA4/semant.cc</url>
+          <line>696</line>
+          <option name="timeStamp" value="27" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/assignments/PA4/score.py</url>
+          <line>5</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

@@ -1,0 +1,2 @@
+dispatch.test:16: Dispatch to undefined method foo.
+Compilation halted due to static semantic errors.

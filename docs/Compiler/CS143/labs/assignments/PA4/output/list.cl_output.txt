@@ -1,0 +1,2 @@
+list.cl.test:108: Dispatch to undefined method out_string.
+Compilation halted due to static semantic errors.

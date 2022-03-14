@@ -1,0 +1,2 @@
+self-assignment.test:5: Dispatch to undefined method copy.
+Compilation halted due to static semantic errors.

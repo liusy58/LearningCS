@@ -1,0 +1,2 @@
+selftyperedeclared.test:3: Class SELF_TYPE was previously defined.
+Compilation halted due to static semantic errors.

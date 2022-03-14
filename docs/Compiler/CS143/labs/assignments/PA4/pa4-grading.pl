@@ -5,7 +5,7 @@ use strict;
 use FileHandle;
 use Getopt::Long;
 
-my @check_files = ( "semant.cc", "Semant.java" );
+my @check_files = ( "semant.cc");
 my $grading_dir = "./grading";
 my $grading_cmd = "./143publicgrading PA4";
 my $just_unpack;
@@ -82,6 +82,10 @@ unless($just_run) {
 unless($just_unpack) {
     print "Running command: $grading_cmd\n"
 	if($verbose);
+
+    print($grading_cmd);
+
+    system("cat ./grading/mysemant");
 
     system($grading_cmd);
 }

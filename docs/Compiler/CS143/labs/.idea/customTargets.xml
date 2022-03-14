@@ -21,5 +21,15 @@
         </clean>
       </configuration>
     </target>
+    <target id="f17cff81-37cb-4bdf-9106-b5dc7b13669e" name="semant" defaultType="TOOL">
+      <configuration id="3999350e-7b07-4b79-b0e8-54bb30e2badd" name="semant">
+        <build type="TOOL">
+          <tool actionId="Tool_External Tools_make semant" />
+        </build>
+        <clean type="TOOL">
+          <tool actionId="Tool_External Tools_clean semant" />
+        </clean>
+      </configuration>
+    </target>
   </component>
 </project>

@@ -1,0 +1,2 @@
+hairyscary.test:10: Dispatch to undefined method doh.
+Compilation halted due to static semantic errors.

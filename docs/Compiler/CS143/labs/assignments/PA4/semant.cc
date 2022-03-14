@@ -5,18 +5,16 @@
 #include <stdarg.h>
 #include "semant.h"
 #include "utilities.h"
-
+#include "cool-tree.h"
 
 extern int semant_debug;
 extern char *curr_filename;
+
 ClassTable *classtable;
-SymbolTable<Symbol,Symbol> *objects_table;
-Symbol current_class_name;
-Class_ current_class_definition;
-std::map<Symbol,std::map<Symbol,method_class*>>class_name_2_methods;
-std::map<Symbol,std::map<Symbol,attr_class*>>class_name_2_attrs;
-std::map<Symbol, method_class*> current_class_methods;
-std::map<Symbol, attr_class*> current_class_attrs;
+void raise_error() {
+    cerr << "Compilation halted due to static semantic errors." << endl;
+    exit(1);
+}
 //////////////////////////////////////////////////////////////////////
 //
 // Symbols
@@ -26,33 +24,33 @@ std::map<Symbol, attr_class*> current_class_attrs;
 // as fixed names used by the runtime system.
 //
 //////////////////////////////////////////////////////////////////////
-static Symbol 
-    arg,
-    arg2,
-    Bool,
-    concat,
-    cool_abort,
-    copy,
-    Int,
-    in_int,
-    in_string,
-    IO,
-    length,
-    Main,
-    main_meth,
-    No_class,
-    No_type,
-    Object,
-    out_int,
-    out_string,
-    prim_slot,
-    self,
-    SELF_TYPE,
-    Str,
-    str_field,
-    substr,
-    type_name,
-    val;
+static Symbol
+        arg,
+        arg2,
+        Bool,
+        concat,
+        cool_abort,
+        copy,
+        Int,
+        in_int,
+        in_string,
+        IO,
+        length,
+        Main,
+        main_meth,
+        No_class,
+        No_type,
+        Object,
+        out_int,
+        out_string,
+        prim_slot,
+        self,
+        SELF_TYPE,
+        Str,
+        str_field,
+        substr,
+        type_name,
+        val;
 //
 // Initializing the predefined symbols.
 //
@@ -71,7 +69,7 @@ static void initialize_constants(void)
     length      = idtable.add_string("length");
     Main        = idtable.add_string("Main");
     main_meth   = idtable.add_string("main");
-    //   _no_class is a symbol that can't be the name of any 
+    //   _no_class is a symbol that can't be the name of any
     //   user-defined class.
     No_class    = idtable.add_string("_no_class");
     No_type     = idtable.add_string("_no_type");
@@ -88,20 +86,9 @@ static void initialize_constants(void)
     val         = idtable.add_string("_val");
 }
 
-void type_check(Class_ class_definition);
-Symbol type_check(method_class* method);
-Symbol type_check(attr_class* attr);
-Symbol type_check(Feature f);
-void build_attribute_scopes(Class_ );
 
 
-void raise_error() {
-    cerr << "Compilation halted due to static semantic errors." << endl;
-    exit(1);
-}
-
-
-ClassTable::ClassTable(Classes classes) : classes(classes), semant_errors(0) , error_stream(cerr) {
+ClassTable::ClassTable(Classes classes) :classes(classes), semant_errors(0) , error_stream(cerr) {
 
     /* Fill this in */
     install_basic_classes();
@@ -111,19 +98,19 @@ ClassTable::ClassTable(Classes classes) : classes(classes), semant_errors(0) , e
 void ClassTable::install_basic_classes() {
 
     // The tree package uses these globals to annotate the classes built below.
-   // curr_lineno  = 0;
+    // curr_lineno  = 0;
     Symbol filename = stringtable.add_string("<basic class>");
-    
+
     // The following demonstrates how to create dummy parse trees to
     // refer to basic Cool classes.  There's no need for method
     // bodies -- these are already built into the runtime system.
-    
+
     // IMPORTANT: The results of the following expressions are
     // stored in local variables.  You will want to do something
     // with those variables at the end of this method to make this
     // code meaningful.
 
-    // 
+    //
     // The Object class has no parent class. Its methods are
     //        abort() : Object    aborts the program
     //        type_name() : Str   returns a string representation of class name
@@ -133,51 +120,51 @@ void ClassTable::install_basic_classes() {
     // are already built in to the runtime system.
 
     Class_ Object_class =
-	class_(Object, 
-	       No_class,
-	       append_Features(
-			       append_Features(
-					       single_Features(method(cool_abort, nil_Formals(), Object, no_expr())),
-					       single_Features(method(type_name, nil_Formals(), Str, no_expr()))),
-			       single_Features(method(copy, nil_Formals(), SELF_TYPE, no_expr()))),
-	       filename);
+            class_(Object,
+                   No_class,
+                   append_Features(
+                           append_Features(
+                                   single_Features(method(cool_abort, nil_Formals(), Object, no_expr())),
+                                   single_Features(method(type_name, nil_Formals(), Str, no_expr()))),
+                           single_Features(method(copy, nil_Formals(), SELF_TYPE, no_expr()))),
+                   filename);
 
-    // 
+    //
     // The IO class inherits from Object. Its methods are
     //        out_string(Str) : SELF_TYPE       writes a string to the output
     //        out_int(Int) : SELF_TYPE            "    an int    "  "     "
     //        in_string() : Str                 reads a string from the input
     //        in_int() : Int                      "   an int     "  "     "
     //
-    Class_ IO_class = 
-	class_(IO, 
-	       Object,
-	       append_Features(
-			       append_Features(
-					       append_Features(
-							       single_Features(method(out_string, single_Formals(formal(arg, Str)),
-										      SELF_TYPE, no_expr())),
-							       single_Features(method(out_int, single_Formals(formal(arg, Int)),
-										      SELF_TYPE, no_expr()))),
-					       single_Features(method(in_string, nil_Formals(), Str, no_expr()))),
-			       single_Features(method(in_int, nil_Formals(), Int, no_expr()))),
-	       filename);  
+    Class_ IO_class =
+            class_(IO,
+                   Object,
+                   append_Features(
+                           append_Features(
+                                   append_Features(
+                                           single_Features(method(out_string, single_Formals(formal(arg, Str)),
+                                                                  SELF_TYPE, no_expr())),
+                                           single_Features(method(out_int, single_Formals(formal(arg, Int)),
+                                                                  SELF_TYPE, no_expr()))),
+                                   single_Features(method(in_string, nil_Formals(), Str, no_expr()))),
+                           single_Features(method(in_int, nil_Formals(), Int, no_expr()))),
+                   filename);
 
     //
     // The Int class has no methods and only a single attribute, the
-    // "val" for the integer. 
+    // "val" for the integer.
     //
     Class_ Int_class =
-	class_(Int, 
-	       Object,
-	       single_Features(attr(val, prim_slot, no_expr())),
-	       filename);
+            class_(Int,
+                   Object,
+                   single_Features(attr(val, prim_slot, no_expr())),
+                   filename);
 
     //
     // Bool also has only the "val" slot.
     //
     Class_ Bool_class =
-	class_(Bool, Object, single_Features(attr(val, prim_slot, no_expr())),filename);
+            class_(Bool, Object, single_Features(attr(val, prim_slot, no_expr())),filename);
 
     //
     // The class Str has a number of slots and operations:
@@ -186,35 +173,43 @@ void ClassTable::install_basic_classes() {
     //       length() : Int                       returns length of the string
     //       concat(arg: Str) : Str               performs string concatenation
     //       substr(arg: Int, arg2: Int): Str     substring selection
-    //       
+    //
     Class_ Str_class =
-	class_(Str, 
-	       Object,
-	       append_Features(
-			       append_Features(
-					       append_Features(
-							       append_Features(
-									       single_Features(attr(val, Int, no_expr())),
-									       single_Features(attr(str_field, prim_slot, no_expr()))),
-							       single_Features(method(length, nil_Formals(), Int, no_expr()))),
-					       single_Features(method(concat, 
-								      single_Formals(formal(arg, Str)),
-								      Str, 
-								      no_expr()))),
-			       single_Features(method(substr, 
-						      append_Formals(single_Formals(formal(arg, Int)), 
-								     single_Formals(formal(arg2, Int))),
-						      Str, 
-						      no_expr()))),
-	       filename);
-
+            class_(Str,
+                   Object,
+                   append_Features(
+                           append_Features(
+                                   append_Features(
+                                           append_Features(
+                                                   single_Features(attr(val, Int, no_expr())),
+                                                   single_Features(attr(str_field, prim_slot, no_expr()))),
+                                           single_Features(method(length, nil_Formals(), Int, no_expr()))),
+                                   single_Features(method(concat,
+                                                          single_Formals(formal(arg, Str)),
+                                                          Str,
+                                                          no_expr()))),
+                           single_Features(method(substr,
+                                                  append_Formals(single_Formals(formal(arg, Int)),
+                                                                 single_Formals(formal(arg2, Int))),
+                                                  Str,
+                                                  no_expr()))),
+                   filename);
 
     this->class_name_2_class_definition[Object] = Object_class;
-    this->class_name_2_class_definition[Str] = Str_class;
-    this->class_name_2_class_definition[Bool] = Bool_class;
     this->class_name_2_class_definition[Int] = Int_class;
+    this->class_name_2_class_definition[Str] = Str_class;
     this->class_name_2_class_definition[IO] = IO_class;
+    this->class_name_2_class_definition[Bool] = Bool_class;
 
+
+
+    // this is not right in fact
+    this->class_name_2_class_definition[SELF_TYPE] = Object_class;
+
+    this->class_name_2_parent_class_name[Int] = Object;
+    this->class_name_2_parent_class_name[Str] = Object;
+    this->class_name_2_parent_class_name[IO] = Object;
+    this->class_name_2_parent_class_name[Bool] = Object;
 }
 
 ////////////////////////////////////////////////////////////////////
@@ -222,20 +217,20 @@ void ClassTable::install_basic_classes() {
 // semant_error is an overloaded function for reporting errors
 // during semantic analysis.  There are three versions:
 //
-//    ostream& ClassTable::semant_error()                
+//    ostream& ClassTable::semant_error()
 //
 //    ostream& ClassTable::semant_error(Class_ c)
 //       print line number and filename for `c'
 //
-//    ostream& ClassTable::semant_error(Symbol filename, tree_node *t)  
+//    ostream& ClassTable::semant_error(Symbol filename, tree_node *t)
 //       print a line number and filename
 //
 ///////////////////////////////////////////////////////////////////
 
 ostream& ClassTable::semant_error(Class_ c)
-{                                                             
+{
     return semant_error(c->get_filename(),c);
-}    
+}
 
 ostream& ClassTable::semant_error(Symbol filename, tree_node *t)
 {
@@ -243,11 +238,12 @@ ostream& ClassTable::semant_error(Symbol filename, tree_node *t)
     return semant_error();
 }
 
-ostream& ClassTable::semant_error()                  
-{                                                 
-    semant_errors++;                            
+
+ostream& ClassTable::semant_error()
+{
+    semant_errors++;
     return error_stream;
-} 
+}
 
 
 
@@ -271,100 +267,121 @@ void program_class::semant()
     /* ClassTable constructor may do some semantic analysis */
     classtable = new ClassTable(classes);
 
-    if(!classtable->build_class_hierarchy_graph()){
-        raise_error();
-    }
+    classtable->install_custom_classes();
 
-    if(!classtable->is_class_hierarchy_graph_valid()){
-        raise_error();
-    }
+    classtable->build_class_hierarchy();
 
-    classtable->register_methods_and_attrs();
+    classtable->verify_class_hierarchy();
+    /* some semantic analysis code may go here */
 
     if(classtable->errors()){
         raise_error();
     }
+    classtable->build_method_and_attr_table();
 
-    for(int i = classes->first(); classes->more(i); i = classes->next(i)) {
-        auto class_definition = classes->nth(i);
-        type_check(class_definition);
-    }
-
-
-
-
-    /* some semantic analysis code may go here */
-
+    classtable->check_classes();
 
 
     if (classtable->errors()) {
-	cerr << "Compilation halted due to static semantic errors." << endl;
-	exit(1);
+        cerr << "Compilation halted due to static semantic errors." << endl;
+        exit(1);
     }
 }
 
-
-
-bool ClassTable::is_basic_class(Symbol class_name){
-    return (class_name == Object)
-            || (class_name == Int)
-            || (class_name == Str)
-            || (class_name == Bool)
-            || (class_name == IO);
-
-}
-
-
-
-// check class redefinition
-
-bool ClassTable::build_class_hierarchy_graph(){
-    for(int i = classes->first(); classes->more(i); i = classes->next(i))
-    {
+void ClassTable::install_custom_classes(){
+    for(int i = classes->first(); classes->more(i); i = classes->next(i)) {
         auto class_definition = classes->nth(i);
         auto class_name = class_definition->get_name();
-        if(class_name_2_class_definition.count(class_name)){
-            // TODO: error handling
-            return false;
+        if(is_basic_class(class_name)){
+            semant_error(class_definition)
+                    << "Redefinition of basic class "
+                    << class_name->get_string()
+                    << ".\n";
+            raise_error();
         }
-        auto parent_class_name = class_definition->get_parent();
+        if(class_name_2_class_definition.count(class_name)){
+            semant_error(class_definition)
+                            << "Class "
+                            << class_name->get_string()
+                            << " was previously defined.\n";
+            raise_error();
+        }
         class_name_2_class_definition[class_name] = class_definition;
-        class_name_2_parent_class_name[class_name] = parent_class_name;
     }
-    return true;
 }
 
-
-
-// check wrong cases
-//              1. when parent class is not defined
-//              2. when the hierarchy_graph is acyclic.
-
-
-
-
-bool ClassTable::is_class_hierarchy_graph_valid() {
-    for(auto &[class_name,class_definition]:class_name_2_class_definition){
+void ClassTable::build_class_hierarchy() {
+    for(int i = classes->first(); classes->more(i); i = classes->next(i)){
+        auto class_definition = classes->nth(i);
+        auto class_name = class_definition->get_name();
         auto parent_class_name = class_definition->get_parent();
         if(!class_name_2_class_definition.count(parent_class_name)){
-            // TODO: handle error
-            return false;
+            semant_error(class_definition)
+                    << "Class "
+                    << class_name->get_string()
+                    << " inherits from an undefined class "
+                    << parent_class_name->get_string()
+                    << ".\n";
+            raise_error();
         }
-        if(!is_hierarchy_graph_acyclic(class_name)){
-            // TODO
-            return false;
+        if(is_class_cannot_inherited(parent_class_name)){
+            semant_error(class_definition)
+                    << "Class "
+                    << class_name->get_string()
+                    << " cannot inherit class "
+                    << parent_class_name->get_string()
+                    << ".\n";
+            raise_error();
         }
+        class_name_2_parent_class_name[class_name] = parent_class_name;
     }
-    return true;
 }
 
 
 
+
+void ClassTable::verify_class_hierarchy(){
+    if(!class_name_2_class_definition.count(Main)){
+        semant_error() << "Class Main is not defined.\n";
+        raise_error();
+    }
+    for(int i = classes->first(); classes->more(i); i = classes->next(i)){
+        auto class_definition = classes->nth(i);
+        auto class_name = class_definition->get_name();
+        auto parent_class_name = class_name_2_parent_class_name[class_name];
+        if(!is_hierarchy_graph_acyclic(class_name)){
+            semant_error(class_definition)
+                    << "Class "
+                    << class_name->get_string()
+                    << ", or an ancestor of "
+                    << parent_class_name->get_string()
+                    << ", is involved in an inheritance cycle.\n";
+        }
+    }
+}
+
+
+bool ClassTable::is_class_cannot_inherited(Symbol class_name) {
+    return (class_name == Int)
+           ||(class_name == Str)
+           ||(class_name == Bool)
+           ||(class_name == SELF_TYPE);
+
+}
+
+bool ClassTable::is_basic_class(Symbol class_name) {
+    return (class_name == Int)
+           ||(class_name == Str)
+           ||(class_name == Bool)
+           ||(class_name == Object)
+           ||(class_name == IO);
+
+}
 
 bool ClassTable::is_hierarchy_graph_acyclic(Symbol class_name){
     Symbol fast = class_name;
     Symbol slow = class_name;
-    while(fast != Object){
+    while(fast != NULL && fast != Object){
         fast = class_name_2_parent_class_name[fast];
         if(fast == Object){
             return true;
@@ -374,74 +391,551 @@ bool ClassTable::is_hierarchy_graph_acyclic(Symbol class_name){
         if(fast == slow){
             return false;
         }
+
     }
     return true;
 }
 
-
-std::map<Symbol,method_class*> ClassTable::register_methods(class__class*class_definition) {
-    std::map<Symbol,method_class*> method_name_2_method;
-    auto features = class_definition->get_features();
-    for(int i = features->first(); features->more(i); i = features->next(i)) {
-        auto feature = features->nth(i);
-        if(feature->is_method()){
-            auto method = dynamic_cast<method_class*>(feature);
-            auto method_name = method->get_name();
-            if(method_name_2_method.count(method_name)){
-                // TODO:: handle error
-                semant_error();
-            }
-            method_name_2_method[method_name] = method;
-        }
+void ClassTable::build_method_and_attr_table(){
+    for(auto &[class_name,class_definition]:class_name_2_class_definition){
+        class_name_2_methods[class_name] = get_methods(class_definition);
+        class_name_2_attrs[class_name] = get_attrs(class_definition);
     }
-    return method_name_2_method;
 }
 
-std::map<Symbol,attr_class*> ClassTable::register_attrs(class__class*class_definition){
-    std::map<Symbol,attr_class*> name_2_attr;
+std::map<Symbol,method_class*>ClassTable::get_methods(Class__class*class_definition){
+    std::map<Symbol,method_class*> methods;
     auto features = class_definition->get_features();
-    for(int i = features->first(); features->more(i); i = features->next(i)) {
+    for(int i = features->first(); features->more(i); i = features->next(i)){
         auto feature = features->nth(i);
         if(!feature->is_method()){
-            auto attr = dynamic_cast<attr_class*>(feature);
-            auto name = attr->get_name();
-            if(name_2_attr.count(name)){
-                // TODO:: handle error
-                semant_error();
-            }
-            name_2_attr[name] = attr;
+            continue;
         }
+        auto method = dynamic_cast<method_class*>(feature);
+        methods[method->get_name()] = method;
     }
-    return name_2_attr;
+    return methods;
+}
+std::map<Symbol,attr_class*>ClassTable::get_attrs(Class__class*class_definition){
+    std::map<Symbol,attr_class*> attrs;
+    auto features = class_definition->get_features();
+    for(int i = features->first(); features->more(i); i = features->next(i)){
+        auto feature = features->nth(i);
+        if(feature->is_method()){
+            continue;
+        }
+        auto attr = dynamic_cast<attr_class*>(feature);
+        if(attr->get_name() == self){
+            semant_error(class_definition->get_filename(),attr)
+                << "'self' cannot be the name of an attribute.\n";
+            raise_error();
+        }
+        attrs[attr->get_name()] = attr;
+    }
+    return attrs;
 }
 
-void ClassTable::register_methods_and_attrs() {
-    for(auto &[class_name,class_def]:class_name_2_class_definition){
-        auto class_definition = dynamic_cast<class__class *>(class_def);
-        class_name_2_methods[class_name] = register_methods(class_definition);
-        class_name_2_attrs[class_name] = register_attrs(class_definition);
+void ClassTable::check_classes() {
+    for(auto &[class_name,class_definition]:class_name_2_class_definition){
+        check_class(class_definition);
     }
 }
 
 
-void type_check(Class_ class_definition){
-    current_class_name = class_definition->get_name();
-    current_class_definition = class_definition;
-    current_class_attrs = class_name_2_attrs[current_class_name];
-    current_class_methods = class_name_2_methods[current_class_name];
-
+void ClassTable::check_class(Class__class* class_definition) {
+//    std::cout<<"Now check "<< class_definition->get_name()->get_string() << std::endl;
+    cur_class = class_definition;
     objects_table = new SymbolTable<Symbol,Symbol>();
     objects_table->enterscope();
-    objects_table->addid(self,&current_class_name);
+    objects_table->addid(self,new Symbol(class_definition->get_name()));
 
-    build_attribute_scopes(current_class_definition);
+    check_methods(class_definition);
+    check_attrs(class_definition);
+    add_attrs_to_objects_table();
+    check_attrs_type();
+
+    check_methods_type();
 }
 
-void build_attribute_scopes(Class_ class_definition){
-    objects_table->enterscope();
-
-    auto attrs = class_name_2_attrs[class_definition->get_name()];
-    for(auto &[attr_name,attr_definition] : attrs){
-        objects_table->addid(attr_name,)
+void ClassTable::check_methods(Class__class* class_definition) {
+    if(class_definition->get_name() == Object){
+        return;
+    }
+    auto methods = class_name_2_methods[class_definition->get_name()];
+    auto parent_class_name = class_name_2_parent_class_name[class_definition->get_name()];
+    auto parent_class = class_name_2_class_definition[parent_class_name];
+    for(auto &[method_name,method_definition]:methods){
+        check_method_override_restriction_satisfied(parent_class,method_definition);
     }
 }
+
+void ClassTable::check_method_override_restriction_satisfied(Class__class*current_class,method_class*method){
+    if( current_class->get_name() == Object){
+
+        return ;
+    }
+    auto method_name = method->get_name();
+
+    auto methods = class_name_2_methods[current_class->get_name()];
+    auto parent_class_name = class_name_2_parent_class_name[current_class->get_name()];
+    auto parent_class = class_name_2_class_definition[parent_class_name];
+    if(!methods.count(method_name)){
+        check_method_override_restriction_satisfied(parent_class,method);
+    }else{
+        auto method_curr = methods[method_name];
+        auto formals = method->get_formals();
+        auto curr_formals = method_curr->get_formals();
+        if(formals->len() != curr_formals->len()){
+            // TODO: error
+        }
+
+        for(int i = formals->first(); formals->more(i); i = formals->next(i)){
+            auto formal = formals->nth(i);
+            auto curr_formal = curr_formals->nth(i);
+            if(formal->get_type_decl() != curr_formal->get_type_decl()){
+                // TODO : error
+            }
+        }
+        check_method_override_restriction_satisfied(parent_class,method);
+    }
+
+}
+
+
+void ClassTable::check_attrs(Class__class* class_definition) {
+    auto attrs = class_name_2_attrs[class_definition->get_name()];
+    for(auto &[attr_name,attr]:attrs){
+        auto parent_class_name = class_name_2_parent_class_name[class_definition->get_name()];
+        auto parent_class = class_name_2_class_definition[parent_class_name];
+        check_attr_satisfied(parent_class,attr);
+    }
+}
+
+void ClassTable::check_attr_satisfied(Class__class*current_class,attr_class*attr){
+    if(current_class == NULL || !class_name_2_attrs.count(current_class->get_name())){
+        return;
+    }
+
+    auto attrs = class_name_2_attrs[current_class->get_name()];
+    if(attrs.count(attr->get_name())){
+        // TODO error
+        semant_error(cur_class->get_filename(),attr)
+        << "Attribute "
+        << attr->get_name()->get_string()
+        <<" is an attribute of an inherited class.\n";
+        raise_error();
+    }
+    auto parent_class_name = class_name_2_parent_class_name[current_class->get_name()];
+    auto parent_class = class_name_2_class_definition[parent_class_name];
+    check_attr_satisfied(parent_class,attr);
+}
+
+void ClassTable::add_attrs_to_objects_table() {
+    Class_ class_process = cur_class;
+    while(class_process != NULL){
+        auto attrs = class_name_2_attrs[class_process->get_name()];
+        for(auto &[attr_name,attr_definition]:attrs){
+            if(objects_table->lookup(attr_name)!=NULL){
+                //TODO error handle
+            }
+            objects_table->addid(attr_name,new Symbol(attr_definition->get_type()));
+        }
+        class_process =class_name_2_class_definition[class_name_2_parent_class_name[class_process->get_name()]];
+    }
+}
+
+void ClassTable::check_attrs_type() {
+    auto attrs = class_name_2_attrs[cur_class->get_name()];
+    for(auto &[attr_name,attr_definition]:attrs){
+        attr_definition->check_type();
+    }
+}
+
+void ClassTable::check_attr_type(attr_class *attr) {
+    auto init_expr = attr->get_init_expr();
+    if(!is_subtype(init_expr->check_type(),attr->get_type())){
+        //TODO error
+    }
+
+}
+
+
+// check A is subtype of B
+bool ClassTable::is_subtype(Symbol class_a_name, Symbol class_b_name) {
+    if(class_a_name == NULL || class_b_name == NULL){
+        return false;
+    }
+    auto curr = class_a_name;
+    while(curr!=NULL){
+        if(curr == class_b_name){
+            return true;
+        }
+        curr = class_name_2_parent_class_name[curr];
+    }
+    return false;
+}
+
+
+Symbol ClassTable::get_curr_class() {return cur_class->get_name();}
+
+Symbol ClassTable::least_common_ancestor(Symbol class_a, Symbol class_b) {
+
+    while(class_a!=NULL){
+        if(is_subtype(class_b,class_a)){
+            return class_a;
+        }
+        class_a = class_name_2_parent_class_name[class_a];
+    }
+    return nullptr;
+}
+
+void ClassTable::check_methods_type() {
+    auto methods = class_name_2_methods[cur_class->get_name()];
+    for(auto &[method_name,method_definition]:methods){
+        method_definition->check_type();
+    }
+}
+
+
+Symbol method_class::check_type(){
+    classtable->objects_table->enterscope();
+    for(int i = formals->first(); formals->more(i); i = formals->next(i)){
+        auto formal = formals->nth(i);
+        classtable->objects_table->addid(formal->get_name(),new Symbol(formal->get_type_decl()));
+    }
+    auto expr_type = expr->check_type();
+    Symbol T0 = this->get_return_type();
+    if(T0 == SELF_TYPE){
+        T0 = classtable->get_curr_class();
+    }
+    if(!classtable->is_subtype(expr_type,T0)){
+        // TODO: error
+    }
+    return T0;
+    classtable->objects_table->exitscope();
+}
+
+
+Symbol attr_class::check_type() {
+    if(dynamic_cast<no_expr_class*>(init) != NULL){
+        return type_decl;
+    }
+    auto init_expr_type = init->check_type();
+    if(!classtable->is_subtype(init_expr_type,type_decl)){
+        // TODO error
+    }
+    return type_decl;
+}
+
+
+
+Symbol assign_class::check_type() {
+    auto expr_type = expr->check_type();
+    auto static_type = *classtable->objects_table->lookup(this->name);
+    if(!classtable->is_subtype(expr_type,static_type)){
+        // TODO
+        classtable->semant_error(classtable->cur_class->get_filename(),this)
+        <<"Type "
+        << expr_type->get_string()
+        << " of assigned expression does not conform to declared type "
+        << static_type->get_string()
+        <<" of identifier "
+        << name->get_string()
+        <<".\n";
+        raise_error();
+    }
+    return static_type;
+}
+
+
+Symbol dispatch_class::check_type() {
+    Symbol T0_;
+    if(expr->get_type() == SELF_TYPE){
+        T0_ = classtable->get_curr_class();
+    }else{
+        T0_ = expr->check_type();
+    }
+    if(!classtable->class_name_2_methods[T0_].count(name)){
+        classtable->semant_error(classtable->cur_class->get_filename(),this)
+        << "Dispatch to undefined method "
+        << name->get_string()
+        << ".\n";
+        raise_error();
+    }
+    auto method = classtable->class_name_2_methods[T0_][name];
+    auto formals = method->get_formals();
+    if(formals->len() != actual->len()){
+        // TODO: error
+    }
+
+    for(int i = formals->first(); formals->more(i); i = formals->next(i)){
+        auto formal = formals->nth(i);
+        auto expression = actual->nth(i);
+        if(!classtable->is_subtype(expression->check_type(),formal->get_type_decl())){
+            // error
+            classtable->semant_error(classtable->cur_class->get_filename(),this)
+            << "In call of method "
+            << method->get_name()->get_string()
+            << ", type "
+            << (expression->check_type() == classtable->cur_class->get_name() ? "SELF_TYPE" : expression->check_type()->get_string())
+            << " of parameter "
+            << formal->get_name()->get_string()
+            << " does not conform to declared type "
+            << formal->get_type_decl()->get_string()
+            << ".\n";
+            raise_error();
+        }
+    }
+    if(method->get_return_type() == SELF_TYPE){
+        return expr->get_type();
+    }
+    return method->get_return_type();
+}
+
+
+Symbol static_dispatch_class::check_type() {
+    auto T0 = expr->check_type();
+    if(!classtable->is_subtype(T0,type_name)){
+        // error
+        classtable->semant_error(classtable->cur_class->get_filename(),this)
+        << "Expression type "
+
+        << " does not conform to declared static dispatch type "
+        << type_name->get_string()
+        << ".\n";
+        raise_error();
+    }
+    auto method  = classtable->class_name_2_methods[type_name][name];
+    auto formals = method->get_formals();
+
+
+    if(formals->len() != actual->len()){
+        // TODO: error
+    }
+    for(int i = formals->first(); formals->more(i); i = formals->next(i)){
+        auto formal = formals->nth(i);
+        auto expression = actual->nth(i);
+        if(!classtable->is_subtype(expression->check_type(),formal->get_type_decl())){
+            // error
+        }
+    }
+    if(method->get_return_type() == SELF_TYPE){
+        return T0;
+    }
+    return method->get_return_type();
+
+}
+
+
+Symbol cond_class::check_type() {
+    if(pred->check_type()!=Bool){
+        // error
+    }
+    return classtable->least_common_ancestor(then_exp->check_type(),else_exp->check_type());
+}
+
+Symbol loop_class::check_type() {
+    if(this->pred->check_type()!=Bool){
+        // TODO error
+        classtable->semant_error(classtable->cur_class->get_filename(),this)
+        << "Loop condition does not have type Bool.\n";
+        raise_error();
+    }
+    this->body->check_type();
+    return Object;
+}
+
+Symbol typcase_class::check_type() {
+    auto T0 = expr->check_type();
+    Symbol ancestor = NULL;
+    for(int i = cases->first(); cases->more(i); i = cases->next(i)){
+        auto branch = cases->nth(i);
+        classtable->objects_table->enterscope();
+        classtable->objects_table->addid(branch->get_name(),new Symbol(branch->get_type_decl()));
+        auto T_ = branch->get_expr()->check_type();
+        if(ancestor == NULL){
+            ancestor = T_;
+        }
+        ancestor = classtable->least_common_ancestor(ancestor,T_);
+    }
+    return ancestor;
+}
+
+Symbol block_class::check_type() {
+    auto index = body->len()-1;
+    auto last_expression = body->nth(index);
+    return last_expression->check_type();
+}
+
+Symbol let_class::check_type() {
+    // no init
+    if(init == no_expr()){
+        Symbol T0_ = type_decl;
+        if(T0_ == SELF_TYPE){
+            T0_ = classtable->cur_class->get_name();
+        }
+        classtable->objects_table->enterscope();
+        classtable->objects_table->addid(identifier,&T0_);
+        auto T2 = body->check_type();
+        classtable->objects_table->exitscope();
+        return T2;
+    }
+
+    Symbol T0_ = type_decl;
+    if(T0_ == SELF_TYPE){
+        T0_ = classtable->cur_class->get_name();
+    }
+    if(!classtable->is_subtype(init->check_type(),T0_)){
+        // TODO error here
+
+    }
+    classtable->objects_table->enterscope();
+    classtable->objects_table->addid(identifier,&T0_);
+    auto T2 = body->check_type();
+    classtable->objects_table->exitscope();
+    return T2;
+}
+Symbol plus_class::check_type() {
+    if(e1->check_type()!=Int || e2->check_type()!=Int){
+        // TODO error
+        classtable->semant_error(classtable->cur_class->get_filename(),this)
+        << "non-Int arguments: "
+        << e1->check_type()->get_string()
+        <<" + "
+        << e2->check_type()->get_string()
+        << "\n";
+        raise_error();
+    }
+    return Int;
+}
+
+Symbol sub_class::check_type() {
+    if(e1->check_type()!=Int || e2->check_type()!=Int){
+        // TODO error
+        classtable->semant_error(classtable->cur_class->get_filename(),this)
+                << "non-Int arguments: "
+                << e1->check_type()->get_string()
+                <<" - "
+                << e2->check_type()->get_string()
+                << "\n";
+        raise_error();
+    }
+    return Int;
+}
+
+Symbol mul_class::check_type() {
+    if(e1->check_type()!=Int || e2->check_type()!=Int){
+        // TODO error
+        classtable->semant_error(classtable->cur_class->get_filename(),this)
+                << "non-Int arguments: "
+                << e1->check_type()->get_string()
+                <<" * "
+                << e2->check_type()->get_string()
+                << "\n";
+        raise_error();
+    }
+    return Int;
+}
+
+Symbol divide_class::check_type() {
+    if(e1->check_type()!=Int || e2->check_type()!=Int){
+        // TODO error
+        classtable->semant_error(classtable->cur_class->get_filename(),this)
+                << "non-Int arguments: "
+                << e1->check_type()->get_string()
+                <<" / "
+                << e2->check_type()->get_string()
+                << "\n";
+        raise_error();
+    }
+    return Int;
+}
+
+Symbol neg_class::check_type() {
+    if(this->e1->check_type()!=Int){
+        // TODO error
+    }
+    return Int;
+}
+
+Symbol lt_class::check_type() {
+    if(this->e1->check_type()!=Int || this->e2->check_type()!= Int){
+        //TODO error
+    }
+    return Bool;
+}
+Symbol eq_class::check_type() {
+
+    // Illegal comparison with a basic type.
+    if(e1->check_type() == Int && e2->check_type() != Int){
+        classtable->semant_error(classtable->cur_class->get_filename(), this)
+        << "Illegal comparison with a basic type.\n";
+        raise_error();
+    }
+
+    if(e1->check_type() == Bool && e2->check_type() != Bool){
+        classtable->semant_error(classtable->cur_class->get_filename(), this)
+                << "Illegal comparison with a basic type.\n";
+        raise_error();
+    }
+
+    if(e1->check_type() == Str && e2->check_type() != Str){
+        classtable->semant_error(classtable->cur_class->get_filename(), this)
+                << "Illegal comparison with a basic type.\n";
+        raise_error();
+    }
+    // TODO error here
+    return Bool;
+}
+
+Symbol leq_class::check_type() {
+    if(this->e1->check_type()!=Int || this->e2->check_type()!= Int){
+        //TODO error
+    }
+    return Bool;
+}
+Symbol comp_class::check_type() {
+    if(this->e1->check_type()!=Bool){
+        // TODO error
+    }
+    return Bool;
+}
+
+Symbol int_const_class::check_type() {
+    return Int;
+}
+Symbol bool_const_class::check_type() {
+    return Bool;
+}
+Symbol string_const_class::check_type() {
+    return Str;
+}
+
+
+Symbol new__class::check_type() {
+    if(type_name == SELF_TYPE){
+        return classtable->get_curr_class();
+    }
+    return type_name;
+}
+
+Symbol isvoid_class::check_type() {
+    return Bool;
+}
+
+Symbol no_expr_class::check_type() {
+    return No_type;
+}
+
+Symbol object_class::check_type() {
+    if(classtable->objects_table->lookup(name) == NULL){
+        classtable->semant_error(classtable->cur_class->get_filename(),this)
+        << "Undeclared identifier "
+        << name->get_string()
+        << ".\n";
+        raise_error();
+    }
+    return *classtable->objects_table->lookup(name);
+}
+
+

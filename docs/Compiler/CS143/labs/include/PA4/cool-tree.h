@@ -234,7 +234,7 @@ public:
    }
    Formal copy_Formal();
    void dump(ostream& stream, int n);
-
+   virtual
 #ifdef Formal_SHARED_EXTRAS
    Formal_SHARED_EXTRAS
 #endif
