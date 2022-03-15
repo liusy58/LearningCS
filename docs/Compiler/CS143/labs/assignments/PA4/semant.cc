@@ -591,27 +591,22 @@ void ClassTable::check_attrs_type() {
     }
 }
 
-void ClassTable::check_attr_type(attr_class *attr) {
-    auto init_expr = attr->get_init_expr();
-    if(!is_subtype(init_expr->check_type(),attr->get_type())){
-        //TODO error
-    }
-
-}
-
 
 // check A is subtype of B
 bool ClassTable::is_subtype(Symbol class_a_name, Symbol class_b_name) {
     if(class_a_name == NULL || class_b_name == NULL){
         return false;
     }
+    if( class_a_name == SELF_TYPE && class_b_name == SELF_TYPE ){
+        return true;
+    }
 
     if(class_a_name == SELF_TYPE){
         class_a_name = get_curr_class();
     }
-    if(class_b_name == SELF_TYPE){
-        class_b_name = get_curr_class();
-    }
+//    if(class_b_name == SELF_TYPE){
+//        class_b_name = get_curr_class();
+//    }
     auto curr = class_a_name;
     while(curr!=NULL){
         if(curr == class_b_name){
@@ -626,7 +621,9 @@ bool ClassTable::is_subtype(Symbol class_a_name, Symbol class_b_name) {
 Symbol ClassTable::get_curr_class() {return cur_class->get_name();}
 
 Symbol ClassTable::least_common_ancestor(Symbol class_a, Symbol class_b) {
-
+    if(class_a == SELF_TYPE){
+        class_a = classtable->get_curr_class();
+    }
     while(class_a!=NULL){
         if(is_subtype(class_b,class_a)){
             return class_a;
@@ -695,13 +692,8 @@ Symbol method_class::check_type(){
         }
     }
     auto expr_type = expr->check_type();
-    if(expr_type == SELF_TYPE){
-        expr_type = classtable->get_curr_class();
-    }
     Symbol T0 = this->get_return_type();
-    if(T0 == SELF_TYPE){
-        T0 = classtable->get_curr_class();
-    }
+
     if(T0 != No_type && !classtable->is_subtype(expr_type,T0)){
         // TODO: error
        // Inferred return type Z of method h does not conform to declared return type B.
@@ -814,7 +806,8 @@ Symbol static_dispatch_class::check_type() {
         << " does not conform to declared static dispatch type "
         << type_name->get_string()
         << ".\n";
-        raise_error();
+//        raise_error();
+        return Object;
     }
     auto method  = classtable->class_name_2_methods[type_name][name];
     auto formals = method->get_formals();
@@ -831,6 +824,7 @@ Symbol static_dispatch_class::check_type() {
             // error
         }
     }
+
     if(method->get_return_type() == SELF_TYPE){
         return T0;
     }

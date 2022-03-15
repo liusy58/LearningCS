@@ -1,3 +1,0 @@
-list.cl.test:107: Inferred return type mysemant: line 2: 678671 Done                    ./lexer $*
-     678672                       | ./parser $*
-     678673 Segmentation fault      (core dumped) | ./semant $*
