@@ -1,2 +1,3 @@
-list.cl.test:108: Dispatch to undefined method out_string.
-Compilation halted due to static semantic errors.
+list.cl.test:107: Inferred return type mysemant: line 2: 678671 Done                    ./lexer $*
+     678672                       | ./parser $*
+     678673 Segmentation fault      (core dumped) | ./semant $*

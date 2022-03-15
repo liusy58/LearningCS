@@ -13,7 +13,7 @@ _program
       #1
       _int
         0
-      : _no_type
+      : Int
     )
   #3
   _class
@@ -32,5 +32,5 @@ _program
       #4
       _new
         A
-      : _no_type
+      : A
     )

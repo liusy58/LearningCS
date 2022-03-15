@@ -13,29 +13,116 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="37f2ed9e-ef2c-4cd5-afd8-16cfd1145aa4" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/customTargets.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/customTargets.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/tools/External Tools.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/tools/External Tools.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assignments/PA4/ast-lex.o" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA4/ast-lex.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assignments/PA4/ast-parse.o" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA4/ast-parse.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assignments/PA4/compile_commands.json" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA4/compile_commands.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assignments/PA4/cool-tree.h" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA4/cool-tree.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assignments/PA4/cool-tree.handcode.h" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA4/cool-tree.handcode.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assignments/PA4/cool-tree.o" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA4/cool-tree.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assignments/PA4/dumptype.o" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA4/dumptype.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assignments/PA4/grading/hairyscary.cl.test" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA4/grading/hairyscary.test" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assignments/PA4/grading/mysemant" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assignments/PA4/pa4-grading.pl" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA4/pa4-grading.pl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/file.txt" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA4/file.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/output/assignment_output.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/output/assignment_solution.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/output/badstaticdispatch_output.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/output/badstaticdispatch_solution.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/output/basic_output.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/output/basic_solution.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/output/basicclassestree_output.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/output/basicclassestree_solution.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/output/caseidenticalbranch_output.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/output/caseidenticalbranch_solution.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/output/cells.cl_output.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/output/cells.cl_solution.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/output/classes_output.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/output/classes_solution.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/output/compare_output.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/output/compare_solution.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/output/comparisons_output.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/output/comparisons_solution.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/output/cycleinmethods_output.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/output/cycleinmethods_solution.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/output/dispatch_output.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/output/dispatch_solution.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/output/dupformals_output.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/output/dupformals_solution.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/output/expressionblock_output.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/output/expressionblock_solution.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/output/forwardinherits_output.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/output/forwardinherits_solution.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/output/hairyscary_output.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/output/hairyscary_solution.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/output/if_output.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/output/if_solution.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/output/inheritsObject_output.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/output/inheritsObject_solution.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/output/initwithself_output.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/output/initwithself_solution.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/output/io_output.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/output/io_solution.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/output/isvoid_output.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/output/isvoid_solution.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/output/letbadinit_output.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/output/letbadinit_solution.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/output/letinit_output.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/output/letinit_solution.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/output/letnoinit_output.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/output/letnoinit_solution.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/output/letself_output.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/output/letself_solution.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/output/letselftype_output.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/output/letselftype_solution.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/output/letshadows_output.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/output/letshadows_solution.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/output/list.cl_output.txt" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA4/output/list.cl_output.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/output/lubtest_output.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/output/lubtest_solution.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/output/methodcallsitself_output.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/output/methodcallsitself_solution.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/output/methodnameclash_output.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/output/methodnameclash_solution.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/output/neg_output.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/output/neg_solution.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/output/newselftype_output.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/output/newselftype_solution.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/output/objectdispatchabort_output.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/output/objectdispatchabort_solution.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/output/overriderenamearg_output.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/output/overriderenamearg_solution.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/output/overridingmethod2_output.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/output/overridingmethod2_solution.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/output/overridingmethod3_output.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/output/overridingmethod3_solution.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/output/overridingmethod4_output.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/output/overridingmethod4_solution.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/output/overridingmethod_output.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/output/overridingmethod_solution.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/output/returntypenoexist_output.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/output/returntypenoexist_solution.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/output/scopes_output.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/output/scopes_solution.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/output/self-assignment_output.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/output/self-assignment_solution.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/output/selfinformalparameter_output.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/output/selfinformalparameter_solution.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/output/selftypebadreturn_output.txt" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA4/output/selftypebadreturn_output.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/output/selftypeparameterposition_output.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/output/selftypeparameterposition_solution.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/output/selftyperedeclared_output.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/output/selftyperedeclared_solution.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/output/signaturechange_output.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/output/signaturechange_solution.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/output/simplearith_output.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/output/simplearith_solution.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/output/simplecase_output.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/output/simplecase_solution.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/output/staticdispatch_output.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/output/staticdispatch_solution.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/output/stringtest_output.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/output/stringtest_solution.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/output/subtypemethodreturn_output.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/output/subtypemethodreturn_solution.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/output/trickyatdispatch2_output.txt" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA4/output/trickyatdispatch2_output.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/output/trickyatdispatch_output.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA4/output/trickyatdispatch_solution.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/assignments/PA4/semant" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA4/semant" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assignments/PA4/semant-phase.o" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA4/semant-phase.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assignments/PA4/semant.cc" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA4/semant.cc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assignments/PA4/semant.h" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA4/semant.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assignments/PA4/semant.o" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA4/semant.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assignments/PA4/symtab_example.cc" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA4/symtab_example.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assignments/PA4/tree.o" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA4/tree.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assignments/PA4/utilities.o" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA4/utilities.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/PA4/cool-tree.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/PA4/cool-tree.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/PA4/tree.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/PA4/tree.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,10 +203,11 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="cf.first.check.clang-format" value="false" />
     <property name="cidr.known.project.marker" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/assignments/PA4" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/assignments/PA4/output/letselftype_solution.txt" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="CLionExternalConfigurable" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/assignments/PA4/output/letselftype_solution.txt" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -132,11 +220,6 @@
     </key>
   </component>
   <component name="RunManager" selected="Custom Build Application.semant">
-    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="lexer" type="CLionExternalRunConfiguration" factoryName="Application" PROGRAM_PARAMS="test.cl" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" WORKING_DIR="file://$PROJECT_DIR$/assignments/PA2" PASS_PARENT_ENVS_2="true" PROJECT_NAME="labs" TARGET_NAME="lexer" CONFIG_NAME="lexer" RUN_PATH="$PROJECT_DIR$/assignments/PA2/lexer">
       <method v="2">
         <option name="CLION.EXTERNAL.BUILD" enabled="true" />
@@ -150,6 +233,11 @@
     <configuration name="semant" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="true" REDIRECT_INPUT_PATH="$PROJECT_DIR$/assignments/PA4/file.txt" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="labs" TARGET_NAME="semant" CONFIG_NAME="semant" RUN_PATH="$PROJECT_DIR$/assignments/PA4/semant">
       <method v="2">
         <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
     <list>
@@ -183,6 +271,7 @@
       <workItem from="1647074086406" duration="4647000" />
       <workItem from="1647089521317" duration="171000" />
       <workItem from="1647140029588" duration="21189000" />
+      <workItem from="1647267358348" duration="19171000" />
     </task>
     <servers />
   </component>
@@ -219,14 +308,24 @@
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/assignments/PA4/semant.cc</url>
-          <line>651</line>
-          <option name="timeStamp" value="24" />
+          <url>file://$PROJECT_DIR$/assignments/PA4/cool-tree.cc</url>
+          <line>112</line>
+          <option name="timeStamp" value="32" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/assignments/PA4/dumptype.cc</url>
+          <line>227</line>
+          <option name="timeStamp" value="33" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/assignments/PA4/semant.h</url>
+          <line>38</line>
+          <option name="timeStamp" value="38" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/assignments/PA4/semant.cc</url>
           <line>696</line>
-          <option name="timeStamp" value="27" />
+          <option name="timeStamp" value="52" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/assignments/PA4/score.py</url>
@@ -235,6 +334,11 @@
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="CLionExternalRunConfiguration">
+        <watch expression="classtable" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

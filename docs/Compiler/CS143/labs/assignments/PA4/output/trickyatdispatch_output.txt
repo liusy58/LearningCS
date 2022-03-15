@@ -1,3 +1,0 @@
-mysemant: line 2: 452610 Done                    ./lexer $*
-     452611                       | ./parser $*
-     452612 Segmentation fault      (core dumped) | ./semant $*

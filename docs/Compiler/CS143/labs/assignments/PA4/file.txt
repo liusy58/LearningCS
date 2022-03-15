@@ -4,7 +4,7 @@ _program
   _class
     Main
     Object
-    "grading/badstaticdispatch.test"
+    "grading/selftypeparameterposition.test"
     (
     #1
     _method
@@ -19,73 +19,18 @@ _program
   _class
     A
     Object
-    "grading/badstaticdispatch.test"
+    "grading/selftypeparameterposition.test"
     (
     #4
-    _attr
-      x
-      String
-      #0
-      _no_expr
-      : _no_type
-    #5
     _method
       foo
-      #5
+      #4
       _formal
         x
-        Int
+        SELF_TYPE
       Object
-      #5
-      _loop
-        #5
-        _bool
-          1
-        : _no_type
-        #5
-        _object
-          x
-        : _no_type
-      : _no_type
-    )
-  #8
-  _class
-    C
-    B
-    "grading/badstaticdispatch.test"
-    (
-    #8
-    _method
-      bar
-      Object
-      #8
-      _int
-        10
-      : _no_type
-    )
-  #10
-  _class
-    B
-    A
-    "grading/badstaticdispatch.test"
-    (
-    #11
-    _method
-      foo
-      #11
-      _formal
+      #4
+      _object
         x
-        Int
-      Object
-      #11
-      _static_dispatch
-        #11
-        _object
-          self
-        : _no_type
-        C
-        bar
-        (
-        )
       : _no_type
     )

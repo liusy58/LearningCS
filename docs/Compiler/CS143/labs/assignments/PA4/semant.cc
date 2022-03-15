@@ -315,6 +315,7 @@ void ClassTable::build_class_hierarchy() {
         auto class_definition = classes->nth(i);
         auto class_name = class_definition->get_name();
         auto parent_class_name = class_definition->get_parent();
+
         if(!class_name_2_class_definition.count(parent_class_name)){
             semant_error(class_definition)
                     << "Class "
@@ -374,7 +375,8 @@ bool ClassTable::is_basic_class(Symbol class_name) {
            ||(class_name == Str)
            ||(class_name == Bool)
            ||(class_name == Object)
-           ||(class_name == IO);
+           ||(class_name == IO)
+           ||(class_name == SELF_TYPE);
 
 }
 
@@ -404,16 +406,31 @@ void ClassTable::build_method_and_attr_table(){
 }
 
 std::map<Symbol,method_class*>ClassTable::get_methods(Class__class*class_definition){
+
     std::map<Symbol,method_class*> methods;
-    auto features = class_definition->get_features();
-    for(int i = features->first(); features->more(i); i = features->next(i)){
-        auto feature = features->nth(i);
-        if(!feature->is_method()){
-            continue;
-        }
-        auto method = dynamic_cast<method_class*>(feature);
-        methods[method->get_name()] = method;
+    if( class_definition == NULL){
+        methods;
     }
+    while(class_definition != NULL){
+        auto features = class_definition->get_features();
+        for(int i = features->first(); features->more(i); i = features->next(i)){
+            auto feature = features->nth(i);
+            if(!feature->is_method()){
+                continue;
+            }
+            auto method = dynamic_cast<method_class*>(feature);
+            if(methods.count(method->get_name())){
+                continue;
+            }
+            methods[method->get_name()] = method;
+        }
+        if(class_definition->get_name() == Object){
+            break;
+        }
+        class_definition = class_name_2_class_definition[class_name_2_parent_class_name[class_definition->get_name()]];
+    }
+
+
     return methods;
 }
 std::map<Symbol,attr_class*>ClassTable::get_attrs(Class__class*class_definition){
@@ -447,7 +464,7 @@ void ClassTable::check_class(Class__class* class_definition) {
     cur_class = class_definition;
     objects_table = new SymbolTable<Symbol,Symbol>();
     objects_table->enterscope();
-    objects_table->addid(self,new Symbol(class_definition->get_name()));
+    objects_table->addid(self,&SELF_TYPE);
 
     check_methods(class_definition);
     check_attrs(class_definition);
@@ -455,23 +472,26 @@ void ClassTable::check_class(Class__class* class_definition) {
     check_attrs_type();
 
     check_methods_type();
+
 }
 
 void ClassTable::check_methods(Class__class* class_definition) {
-    if(class_definition->get_name() == Object){
+    if(class_definition == NULL || class_definition->get_name() == Object){
         return;
     }
     auto methods = class_name_2_methods[class_definition->get_name()];
     auto parent_class_name = class_name_2_parent_class_name[class_definition->get_name()];
     auto parent_class = class_name_2_class_definition[parent_class_name];
     for(auto &[method_name,method_definition]:methods){
+        check_method_no_self_type_parameter(method_definition);
         check_method_override_restriction_satisfied(parent_class,method_definition);
     }
 }
 
-void ClassTable::check_method_override_restriction_satisfied(Class__class*current_class,method_class*method){
-    if( current_class->get_name() == Object){
 
+
+void ClassTable::check_method_override_restriction_satisfied(Class__class*current_class,method_class*method){
+    if( current_class == NULL){
         return ;
     }
     auto method_name = method->get_name();
@@ -486,14 +506,31 @@ void ClassTable::check_method_override_restriction_satisfied(Class__class*curren
         auto formals = method->get_formals();
         auto curr_formals = method_curr->get_formals();
         if(formals->len() != curr_formals->len()){
-            // TODO: error
+            semant_error(get_file_name(),method)
+            << "Incompatible number of formal parameters in redefined method "
+            << method->get_name()->get_string()
+            << ".\n";
+            raise_error();
         }
-
         for(int i = formals->first(); formals->more(i); i = formals->next(i)){
             auto formal = formals->nth(i);
             auto curr_formal = curr_formals->nth(i);
+            if(formal->get_type_decl() == SELF_TYPE){
+                semant_error(get_file_name(),method)
+                << "Formal parameter "
+                <<  formal->get_name()
+                << " cannot have type SELF_TYPE.\n";
+            }
             if(formal->get_type_decl() != curr_formal->get_type_decl()){
                 // TODO : error
+                semant_error(get_file_name(),method)
+                << "In redefined method "
+                << method->get_name()->get_string()
+                <<", parameter type "
+                << formal->get_type_decl()->get_string()
+                << " is different from original type "
+                << curr_formal->get_type_decl()->get_string()
+                << "\n";
             }
         }
         check_method_override_restriction_satisfied(parent_class,method);
@@ -503,6 +540,9 @@ void ClassTable::check_method_override_restriction_satisfied(Class__class*curren
 
 
 void ClassTable::check_attrs(Class__class* class_definition) {
+    if(class_definition == NULL){
+        return;
+    }
     auto attrs = class_name_2_attrs[class_definition->get_name()];
     for(auto &[attr_name,attr]:attrs){
         auto parent_class_name = class_name_2_parent_class_name[class_definition->get_name()];
@@ -565,6 +605,13 @@ bool ClassTable::is_subtype(Symbol class_a_name, Symbol class_b_name) {
     if(class_a_name == NULL || class_b_name == NULL){
         return false;
     }
+
+    if(class_a_name == SELF_TYPE){
+        class_a_name = get_curr_class();
+    }
+    if(class_b_name == SELF_TYPE){
+        class_b_name = get_curr_class();
+    }
     auto curr = class_a_name;
     while(curr!=NULL){
         if(curr == class_b_name){
@@ -590,29 +637,87 @@ Symbol ClassTable::least_common_ancestor(Symbol class_a, Symbol class_b) {
 }
 
 void ClassTable::check_methods_type() {
+
     auto methods = class_name_2_methods[cur_class->get_name()];
     for(auto &[method_name,method_definition]:methods){
         method_definition->check_type();
     }
 }
 
+bool ClassTable::is_basic_method(Symbol name) {
+    return (name == copy) || (name == type_name)  || (name == cool_abort)
+            || (name == out_string) || (name == out_int) || (name == in_int)||
+            (name == in_string) || (name == length) || (name == concat)||
+            (name == substr);
+}
+
+void ClassTable::check_method_no_self_type_parameter(method_class* method_definition) {
+    auto formals = method_definition->get_formals();
+    for(int i = formals->first(); formals->more(i); i = formals->next(i)) {
+        auto formal = formals->nth(i);
+        if (formal->get_type_decl() == SELF_TYPE) {
+            classtable->semant_error(classtable->get_file_name(), method_definition)
+                    << "Formal parameter "
+                    << formal->get_name()
+                    << " cannot have type SELF_TYPE.\n";
+        }
+        if(formal->get_name() == self){
+            classtable->semant_error(classtable->get_file_name(), method_definition)
+            << "'self' cannot be the name of a formal parameter.\n";
+        }
+    }
+}
+
 
 Symbol method_class::check_type(){
+    if(classtable->is_basic_method(this->get_name())){
+        return get_return_type();
+    }
+    if(!classtable->class_name_2_class_definition.count(this->get_return_type())){
+        classtable->semant_error(classtable->cur_class->get_filename(),this)
+                << "Undefined return type "
+                << get_return_type()->get_string()
+                << " in method "
+                <<get_name()->get_string()
+                << ".\n";
+    }
+
     classtable->objects_table->enterscope();
     for(int i = formals->first(); formals->more(i); i = formals->next(i)){
         auto formal = formals->nth(i);
-        classtable->objects_table->addid(formal->get_name(),new Symbol(formal->get_type_decl()));
+        if(classtable->objects_table->probe(formal->get_name())!=NULL){
+            classtable->semant_error(classtable->cur_class->get_filename(),formal)
+            << "Formal parameter "
+            << formal->get_name()
+            << " is multiply defined.\n";
+        }else{
+            classtable->objects_table->addid(formal->get_name(),new Symbol(formal->get_type_decl()));
+        }
     }
     auto expr_type = expr->check_type();
+    if(expr_type == SELF_TYPE){
+        expr_type = classtable->get_curr_class();
+    }
     Symbol T0 = this->get_return_type();
     if(T0 == SELF_TYPE){
         T0 = classtable->get_curr_class();
     }
-    if(!classtable->is_subtype(expr_type,T0)){
+    if(T0 != No_type && !classtable->is_subtype(expr_type,T0)){
         // TODO: error
+       // Inferred return type Z of method h does not conform to declared return type B.
+       classtable->semant_error(classtable->get_file_name(),this)
+       << "Inferred return type "
+       << expr_type->get_string()
+       << " of method "
+       << this->name
+       << " does not conform to declared return type "
+       << T0->get_string()
+       <<".\n";
+
     }
-    return T0;
     classtable->objects_table->exitscope();
+    return T0;
+
 }
 
 
@@ -630,13 +735,18 @@ Symbol attr_class::check_type() {
 
 
 Symbol assign_class::check_type() {
-    auto expr_type = expr->check_type();
+    if(this->name == self){
+        classtable->semant_error(classtable->get_file_name(),this)
+        << "Cannot assign to 'self'.\n";
+        raise_error();
+    }
+    type = expr->check_type();
     auto static_type = *classtable->objects_table->lookup(this->name);
-    if(!classtable->is_subtype(expr_type,static_type)){
+    if(!classtable->is_subtype(type,static_type)){
         // TODO
         classtable->semant_error(classtable->cur_class->get_filename(),this)
         <<"Type "
-        << expr_type->get_string()
+        << type->get_string()
         << " of assigned expression does not conform to declared type "
         << static_type->get_string()
         <<" of identifier "
@@ -644,13 +754,14 @@ Symbol assign_class::check_type() {
         <<".\n";
         raise_error();
     }
+
     return static_type;
 }
 
 
 Symbol dispatch_class::check_type() {
     Symbol T0_;
-    if(expr->get_type() == SELF_TYPE){
+    if(expr->check_type() == SELF_TYPE){
         T0_ = classtable->get_curr_class();
     }else{
         T0_ = expr->check_type();
@@ -687,19 +798,19 @@ Symbol dispatch_class::check_type() {
         }
     }
     if(method->get_return_type() == SELF_TYPE){
-        return expr->get_type();
+        return type = expr->check_type();
     }
-    return method->get_return_type();
+    return type = method->get_return_type();
 }
 
 
 Symbol static_dispatch_class::check_type() {
     auto T0 = expr->check_type();
-    if(!classtable->is_subtype(T0,type_name)){
+    if(!classtable->is_subtype(T0 == SELF_TYPE? classtable->get_curr_class():T0,type_name)){
         // error
         classtable->semant_error(classtable->cur_class->get_filename(),this)
         << "Expression type "
-
+        << T0->get_string()
         << " does not conform to declared static dispatch type "
         << type_name->get_string()
         << ".\n";
@@ -711,6 +822,7 @@ Symbol static_dispatch_class::check_type() {
 
     if(formals->len() != actual->len()){
         // TODO: error
+
     }
     for(int i = formals->first(); formals->more(i); i = formals->next(i)){
         auto formal = formals->nth(i);
@@ -722,7 +834,7 @@ Symbol static_dispatch_class::check_type() {
     if(method->get_return_type() == SELF_TYPE){
         return T0;
     }
-    return method->get_return_type();
+    return type = method->get_return_type();
 
 }
 
@@ -731,7 +843,7 @@ Symbol cond_class::check_type() {
     if(pred->check_type()!=Bool){
         // error
     }
-    return classtable->least_common_ancestor(then_exp->check_type(),else_exp->check_type());
+    return type = classtable->least_common_ancestor(then_exp->check_type(),else_exp->check_type());
 }
 
 Symbol loop_class::check_type() {
@@ -742,14 +854,24 @@ Symbol loop_class::check_type() {
         raise_error();
     }
     this->body->check_type();
-    return Object;
+    return type = Object;
 }
 
 Symbol typcase_class::check_type() {
     auto T0 = expr->check_type();
     Symbol ancestor = NULL;
+
+    std::set<Symbol>branch_types;
     for(int i = cases->first(); cases->more(i); i = cases->next(i)){
         auto branch = cases->nth(i);
+        if(branch_types.count(branch->get_type_decl())){
+            classtable->semant_error(classtable->cur_class->get_filename(),this)
+            << "Duplicate branch "
+            << branch->get_type_decl()->get_string()
+            <<" in case statement.\n";
+            raise_error();
+        }
+        branch_types.insert(branch->get_type_decl());
         classtable->objects_table->enterscope();
         classtable->objects_table->addid(branch->get_name(),new Symbol(branch->get_type_decl()));
         auto T_ = branch->get_expr()->check_type();
@@ -758,42 +880,57 @@ Symbol typcase_class::check_type() {
         }
         ancestor = classtable->least_common_ancestor(ancestor,T_);
     }
-    return ancestor;
+    return type = ancestor;
 }
 
 Symbol block_class::check_type() {
     auto index = body->len()-1;
+    for(int i = body->first(); body->more(i); i = body->next(i)){
+        auto expression = body->nth(i);
+        expression->check_type();
+    }
     auto last_expression = body->nth(index);
-    return last_expression->check_type();
+    return type = last_expression->check_type();
 }
 
 Symbol let_class::check_type() {
+    if(this->identifier == self){
+        classtable->semant_error(classtable->cur_class->get_filename(),this)
+                << "'self' cannot be bound in a 'let' expression.\n";
+        raise_error();
+    }
     // no init
-    if(init == no_expr()){
+    if(dynamic_cast<no_expr_class*>(this->init)!=NULL){
         Symbol T0_ = type_decl;
-        if(T0_ == SELF_TYPE){
-            T0_ = classtable->cur_class->get_name();
-        }
+//        if(T0_ == SELF_TYPE){
+//            T0_ = classtable->cur_class->get_name();
+//        }
         classtable->objects_table->enterscope();
         classtable->objects_table->addid(identifier,&T0_);
         auto T2 = body->check_type();
         classtable->objects_table->exitscope();
-        return T2;
+        return type = T2;
     }
+
 
     Symbol T0_ = type_decl;
-    if(T0_ == SELF_TYPE){
-        T0_ = classtable->cur_class->get_name();
-    }
+
     if(!classtable->is_subtype(init->check_type(),T0_)){
         // TODO error here
-
+        classtable->semant_error(classtable->cur_class->get_filename(),this)
+        << "Inferred type "
+        << init->check_type()->get_string()
+        << " of initialization of "
+        << this->identifier->get_string()
+        << " does not conform to identifier's declared type "
+        << T0_->get_string()
+        <<".\n";
     }
     classtable->objects_table->enterscope();
     classtable->objects_table->addid(identifier,&T0_);
     auto T2 = body->check_type();
     classtable->objects_table->exitscope();
-    return T2;
+    return type = T2;
 }
 Symbol plus_class::check_type() {
     if(e1->check_type()!=Int || e2->check_type()!=Int){
@@ -806,7 +943,7 @@ Symbol plus_class::check_type() {
         << "\n";
         raise_error();
     }
-    return Int;
+    return type = Int;
 }
 
 Symbol sub_class::check_type() {
@@ -820,7 +957,7 @@ Symbol sub_class::check_type() {
                 << "\n";
         raise_error();
     }
-    return Int;
+    return type = Int;
 }
 
 Symbol mul_class::check_type() {
@@ -834,7 +971,7 @@ Symbol mul_class::check_type() {
                 << "\n";
         raise_error();
     }
-    return Int;
+    return type = Int;
 }
 
 Symbol divide_class::check_type() {
@@ -848,83 +985,94 @@ Symbol divide_class::check_type() {
                 << "\n";
         raise_error();
     }
-    return Int;
+    return type = Int;
 }
 
 Symbol neg_class::check_type() {
     if(this->e1->check_type()!=Int){
         // TODO error
     }
-    return Int;
+    return type = Int;
 }
 
 Symbol lt_class::check_type() {
     if(this->e1->check_type()!=Int || this->e2->check_type()!= Int){
         //TODO error
     }
-    return Bool;
+    return type = Bool;
 }
 Symbol eq_class::check_type() {
-
+    auto e1_type = e1->check_type();
+    auto e2_type = e2->check_type();
     // Illegal comparison with a basic type.
-    if(e1->check_type() == Int && e2->check_type() != Int){
+    if(e1_type == Int && e2_type != Int){
         classtable->semant_error(classtable->cur_class->get_filename(), this)
         << "Illegal comparison with a basic type.\n";
         raise_error();
     }
 
-    if(e1->check_type() == Bool && e2->check_type() != Bool){
+    if(e1_type == Bool && e2_type != Bool){
         classtable->semant_error(classtable->cur_class->get_filename(), this)
                 << "Illegal comparison with a basic type.\n";
         raise_error();
     }
 
-    if(e1->check_type() == Str && e2->check_type() != Str){
+    if(e1_type == Str && e2_type != Str){
         classtable->semant_error(classtable->cur_class->get_filename(), this)
                 << "Illegal comparison with a basic type.\n";
         raise_error();
     }
     // TODO error here
-    return Bool;
+    return type = Bool;
 }
 
 Symbol leq_class::check_type() {
     if(this->e1->check_type()!=Int || this->e2->check_type()!= Int){
         //TODO error
     }
-    return Bool;
+    return type = Bool;
 }
 Symbol comp_class::check_type() {
     if(this->e1->check_type()!=Bool){
         // TODO error
     }
-    return Bool;
+    return type = Bool;
 }
 
 Symbol int_const_class::check_type() {
+    type = Int;
     return Int;
 }
 Symbol bool_const_class::check_type() {
+    type = Bool;
     return Bool;
 }
 Symbol string_const_class::check_type() {
+    type = Str;
     return Str;
 }
 
 
 Symbol new__class::check_type() {
-    if(type_name == SELF_TYPE){
-        return classtable->get_curr_class();
+//    if(type_name == SELF_TYPE){
+//        return classtable->get_curr_class();
+//    }
+    if(!classtable->class_name_2_class_definition.count(this->type_name)){
+        classtable->semant_error(classtable->get_file_name(),this)
+        << "'new' used with undefined class "
+        << type_name->get_string()
+        << ".\n";
     }
-    return type_name;
+    return type = type_name;
 }
 
 Symbol isvoid_class::check_type() {
-    return Bool;
+    this->e1->check_type();
+    return type = Bool;
 }
 
 Symbol no_expr_class::check_type() {
-    return No_type;
+    return type = Object;
 }
 
 Symbol object_class::check_type() {
@@ -935,7 +1083,7 @@ Symbol object_class::check_type() {
         << ".\n";
         raise_error();
     }
-    return *classtable->objects_table->lookup(name);
+    return type = *classtable->objects_table->lookup(name);
 }
 
 

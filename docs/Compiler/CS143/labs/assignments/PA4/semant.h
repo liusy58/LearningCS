@@ -7,7 +7,7 @@
 #include "stringtab.h"
 #include "symtab.h"
 #include "list.h"
-
+#include <set>
 #include <map>
 
 #define TRUE 1
@@ -71,6 +71,10 @@ public:
 
   Symbol least_common_ancestor(Symbol,Symbol);
   void check_methods_type();
+  Symbol get_file_name(){return cur_class->get_filename();}
+
+  bool is_basic_method(Symbol name);
+  void check_method_no_self_type_parameter(method_class*);
 };
 
 
