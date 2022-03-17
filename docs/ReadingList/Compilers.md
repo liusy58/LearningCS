@@ -34,4 +34,4 @@
 * [CPSC 421/521 Compilers and Interpreters](http://www.cs.yale.edu/homes/soule/cpsc421/) at Yale.
 * [CSCI 1260](http://cs.brown.edu/courses/csci1260/spring-2021/assignments.html) at Brown.
 * [CIS 341: Compilers](https://www.seas.upenn.edu/~cis341/current/) at upenn.
- 
+* [CS421: Programming Languages](https://pages.github-dev.cs.illinois.edu/cs421-fa20/web/lectures) at UIUC
