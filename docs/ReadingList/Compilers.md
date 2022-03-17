@@ -8,7 +8,7 @@
 * [CS243: Program Analysis and Optimization](https://suif.stanford.edu/~courses/cs243/) at Stanford.
 * [CS 598CM: Machine Learning for Compilers and Architecture](https://charithm.web.illinois.edu/cs598cm/fa2021/#) at UIUC.
 * [CS 380C: Advanced Topics in Compilers](cs.utexas.edu/~pingali/CS380C/2019/index.html) at utexas.
-* [6.035: Computer Language Engineering](http://6.035.scripts.mit.edu/fa18/schedule.html) at MIT.
+* [6.035: Computer Language Engineering](https://github.com/6035/sp22) at MIT.
 * [CS 343: Advanced Topics in Compilers](http://web.stanford.edu/class/cs343/2012-index.html) (SP12) at Stanford.
 * [CS 6120: Advanced Compilers](https://www.cs.cornell.edu/courses/cs6120/2022sp/schedule/) (SP21) at Cornell.
 * [15-411 Compiler Design](https://www.cs.cmu.edu/~janh/courses/411/18/index.html) at CMU.

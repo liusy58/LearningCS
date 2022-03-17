@@ -604,9 +604,6 @@ bool ClassTable::is_subtype(Symbol class_a_name, Symbol class_b_name) {
     if(class_a_name == SELF_TYPE){
         class_a_name = get_curr_class();
     }
-//    if(class_b_name == SELF_TYPE){
-//        class_b_name = get_curr_class();
-//    }
     auto curr = class_a_name;
     while(curr!=NULL){
         if(curr == class_b_name){
