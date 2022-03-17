@@ -28,3 +28,10 @@
 * [Virtual Machines Summer School](https://soft-dev.org/events/vmss16/)
 * [CS420: Compiler Design](https://github.com/kaist-cp/cs420) at KAIST
 * [COMP 512: Advanced Compiler Construction](https://www.clear.rice.edu/comp512/Lectures/) at Rice
+* [CS 4120/4121/5120/5121 : Introduction to Compilers](https://www.cs.cornell.edu/courses/cs4120/2022sp/) at Cornell.
+* [CSE 401: Compiler Construction](https://courses.cs.washington.edu/courses/cse401/20sp/) at UW.
+* [CSCD70 Compiler Optimization](https://uoft-ecosystem.github.io/CSCD70/index.html) at UTORONTO.
+* [CPSC 421/521 Compilers and Interpreters](http://www.cs.yale.edu/homes/soule/cpsc421/) at Yale.
+* [CSCI 1260](http://cs.brown.edu/courses/csci1260/spring-2021/assignments.html) at Brown.
+* [CIS 341: Compilers](https://www.seas.upenn.edu/~cis341/current/) at upenn.
+ 
