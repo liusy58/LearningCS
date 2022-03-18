@@ -125,7 +125,8 @@ nav:
       - 可执行目标文件: "CSAPP/Linking/objfile.md"
       - 加载可执行目标文件: "CSAPP/Linking/loading.md"
   - Reading List:
-    - Compilers : "ReadingList/Compilers.md"     
+    - Compilers : "ReadingList/Compilers.md"
+    - CS143 : "Compiler/CS143.md"        
   # nav:
 #   - 概览: "index.md"
 #   - 编译链接基础知识:
