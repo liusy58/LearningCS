@@ -3,3 +3,5 @@
 **/*.fls 
 **/*.pdf
 **/*.zip
+.vscode/**
+.gitignore
