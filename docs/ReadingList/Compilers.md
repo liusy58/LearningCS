@@ -20,7 +20,7 @@
 * [Crafting Interpreters](http://craftinginterpreters.com/acknowledgements.html) 
 * [CMSC 838E: Advanced Compilers](https://www.cs.umd.edu/class/spring2021/cmsc838E/index.html) at UMD 
 * [CS350: SECURE COMPILATION](http://theory.stanford.edu/~mp/mp/CS350-2018.html) at Stanford.
-* [CS 397/497: Advanced Topics in Compilers](https://users.cs.northwestern.edu/~simonec/ATC.html) at Northestern University.
+* [CS 397/497: Advanced Topics in Compilers](https://users.cs.northwestern.edu/~simonec/ATC.html) at Northwestern University.
 * [Advanced Compiler Design](http://user.it.uu.se/~kostis/Teaching/KT2-12/)
 * [CS252: Advanced Topics in PL](https://groups.seas.harvard.edu/courses/cs252/2020sp/reading_paper.html) at Harvard.
 * [CS526: Advanced Compiler Construction](http://misailo.cs.illinois.edu/courses/526/#schedule) at UIUC
@@ -31,6 +31,8 @@
 * [CS 4120/4121/5120/5121 : Introduction to Compilers](https://www.cs.cornell.edu/courses/cs4120/2022sp/) at Cornell.
 * [CSE 401: Compiler Construction](https://courses.cs.washington.edu/courses/cse401/20sp/) at UW.
 * [CSCD70 Compiler Optimization](https://uoft-ecosystem.github.io/CSCD70/index.html) at UTORONTO.
+    * [Assignment](https://github.com/UofT-EcoSystem/CSCD70)
+    * [Slides and Videos](https://uoft-ecosystem.github.io/CSCD70/Slides%20%26%20Recordings.html) 
 * [CPSC 421/521 Compilers and Interpreters](http://www.cs.yale.edu/homes/soule/cpsc421/) at Yale.
 * [CSCI 1260](http://cs.brown.edu/courses/csci1260/spring-2021/assignments.html) at Brown.
 * [CIS 341: Compilers](https://www.seas.upenn.edu/~cis341/current/) at upenn.
