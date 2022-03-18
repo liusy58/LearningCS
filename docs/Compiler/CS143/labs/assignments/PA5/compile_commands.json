@@ -1,0 +1,200 @@
+[
+    {
+        "arguments": [
+            "g++",
+            "-c",
+            "-g",
+            "-Wall",
+            "-Wno-unused",
+            "-Wno-write-strings",
+            "-Wno-deprecated",
+            "-I.",
+            "-I../../include/PA5",
+            "-I../../src/PA5",
+            "-DDEBUG",
+            "cgen-phase.cc"
+        ],
+        "directory": "/home/bigdataflow/lsy/LearningCS/docs/Compiler/CS143/labs/assignments/PA5",
+        "file": "cgen-phase.cc"
+    },
+    {
+        "arguments": [
+            "g++",
+            "-c",
+            "-g",
+            "-Wall",
+            "-Wno-unused",
+            "-Wno-write-strings",
+            "-Wno-deprecated",
+            "-I.",
+            "-I../../include/PA5",
+            "-I../../src/PA5",
+            "-DDEBUG",
+            "ast-lex.cc"
+        ],
+        "directory": "/home/bigdataflow/lsy/LearningCS/docs/Compiler/CS143/labs/assignments/PA5",
+        "file": "ast-lex.cc"
+    },
+    {
+        "arguments": [
+            "g++",
+            "-c",
+            "-g",
+            "-Wall",
+            "-Wno-unused",
+            "-Wno-write-strings",
+            "-Wno-deprecated",
+            "-I.",
+            "-I../../include/PA5",
+            "-I../../src/PA5",
+            "-DDEBUG",
+            "utilities.cc"
+        ],
+        "directory": "/home/bigdataflow/lsy/LearningCS/docs/Compiler/CS143/labs/assignments/PA5",
+        "file": "utilities.cc"
+    },
+    {
+        "arguments": [
+            "g++",
+            "-c",
+            "-g",
+            "-Wall",
+            "-Wno-unused",
+            "-Wno-write-strings",
+            "-Wno-deprecated",
+            "-I.",
+            "-I../../include/PA5",
+            "-I../../src/PA5",
+            "-DDEBUG",
+            "dumptype.cc"
+        ],
+        "directory": "/home/bigdataflow/lsy/LearningCS/docs/Compiler/CS143/labs/assignments/PA5",
+        "file": "dumptype.cc"
+    },
+    {
+        "arguments": [
+            "g++",
+            "-c",
+            "-g",
+            "-Wall",
+            "-Wno-unused",
+            "-Wno-write-strings",
+            "-Wno-deprecated",
+            "-I.",
+            "-I../../include/PA5",
+            "-I../../src/PA5",
+            "-DDEBUG",
+            "stringtab.cc"
+        ],
+        "directory": "/home/bigdataflow/lsy/LearningCS/docs/Compiler/CS143/labs/assignments/PA5",
+        "file": "stringtab.cc"
+    },
+    {
+        "arguments": [
+            "g++",
+            "-c",
+            "-g",
+            "-Wall",
+            "-Wno-unused",
+            "-Wno-write-strings",
+            "-Wno-deprecated",
+            "-I.",
+            "-I../../include/PA5",
+            "-I../../src/PA5",
+            "-DDEBUG",
+            "cgen_supp.cc"
+        ],
+        "directory": "/home/bigdataflow/lsy/LearningCS/docs/Compiler/CS143/labs/assignments/PA5",
+        "file": "cgen_supp.cc"
+    },
+    {
+        "arguments": [
+            "g++",
+            "-c",
+            "-g",
+            "-Wall",
+            "-Wno-unused",
+            "-Wno-write-strings",
+            "-Wno-deprecated",
+            "-I.",
+            "-I../../include/PA5",
+            "-I../../src/PA5",
+            "-DDEBUG",
+            "cgen.cc"
+        ],
+        "directory": "/home/bigdataflow/lsy/LearningCS/docs/Compiler/CS143/labs/assignments/PA5",
+        "file": "cgen.cc"
+    },
+    {
+        "arguments": [
+            "g++",
+            "-c",
+            "-g",
+            "-Wall",
+            "-Wno-unused",
+            "-Wno-write-strings",
+            "-Wno-deprecated",
+            "-I.",
+            "-I../../include/PA5",
+            "-I../../src/PA5",
+            "-DDEBUG",
+            "cool-tree.cc"
+        ],
+        "directory": "/home/bigdataflow/lsy/LearningCS/docs/Compiler/CS143/labs/assignments/PA5",
+        "file": "cool-tree.cc"
+    },
+    {
+        "arguments": [
+            "g++",
+            "-c",
+            "-g",
+            "-Wall",
+            "-Wno-unused",
+            "-Wno-write-strings",
+            "-Wno-deprecated",
+            "-I.",
+            "-I../../include/PA5",
+            "-I../../src/PA5",
+            "-DDEBUG",
+            "tree.cc"
+        ],
+        "directory": "/home/bigdataflow/lsy/LearningCS/docs/Compiler/CS143/labs/assignments/PA5",
+        "file": "tree.cc"
+    },
+    {
+        "arguments": [
+            "g++",
+            "-c",
+            "-g",
+            "-Wall",
+            "-Wno-unused",
+            "-Wno-write-strings",
+            "-Wno-deprecated",
+            "-I.",
+            "-I../../include/PA5",
+            "-I../../src/PA5",
+            "-DDEBUG",
+            "handle_flags.cc"
+        ],
+        "directory": "/home/bigdataflow/lsy/LearningCS/docs/Compiler/CS143/labs/assignments/PA5",
+        "file": "handle_flags.cc"
+    },
+    {
+        "arguments": [
+            "g++",
+            "-c",
+            "-g",
+            "-Wall",
+            "-Wno-unused",
+            "-Wno-write-strings",
+            "-Wno-deprecated",
+            "-I.",
+            "-I../../include/PA5",
+            "-I../../src/PA5",
+            "-DDEBUG",
+            "ast-parse.cc"
+        ],
+        "directory": "/home/bigdataflow/lsy/LearningCS/docs/Compiler/CS143/labs/assignments/PA5",
+        "file": "ast-parse.cc"
+    }
+]

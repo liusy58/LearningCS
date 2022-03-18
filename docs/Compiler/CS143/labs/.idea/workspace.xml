@@ -13,8 +13,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="37f2ed9e-ef2c-4cd5-afd8-16cfd1145aa4" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assignments/PA4/semant.cc" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA4/semant.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/file.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../bril" beforeDir="false" afterPath="$PROJECT_DIR$/../../../bril" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +29,22 @@
   <component name="CompDBLocalSettings">
     <option name="availableProjects">
       <map>
+        <entry>
+          <key>
+            <ExternalProjectPojo>
+              <option name="name" value="labs" />
+              <option name="path" value="$PROJECT_DIR$/assignments/PA5" />
+            </ExternalProjectPojo>
+          </key>
+          <value>
+            <list>
+              <ExternalProjectPojo>
+                <option name="name" value="labs" />
+                <option name="path" value="$PROJECT_DIR$/assignments/PA5" />
+              </ExternalProjectPojo>
+            </list>
+          </value>
+        </entry>
         <entry>
           <key>
             <ExternalProjectPojo>
@@ -48,6 +66,7 @@
     <option name="projectSyncType">
       <map>
         <entry key="$PROJECT_DIR$/assignments/PA4" value="RE_IMPORT" />
+        <entry key="$PROJECT_DIR$/assignments/PA5" value="RE_IMPORT" />
       </map>
     </option>
   </component>
@@ -59,6 +78,9 @@
       <ProjectState />
     </projectState>
     <projectState path="$PROJECT_DIR$/assignments/PA4">
+      <ProjectState />
+    </projectState>
+    <projectState path="$PROJECT_DIR$/assignments/PA5">
       <ProjectState />
     </projectState>
   </component>
@@ -112,6 +134,11 @@
     </key>
   </component>
   <component name="RunManager" selected="Custom Build Application.semant">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="lexer" type="CLionExternalRunConfiguration" factoryName="Application" PROGRAM_PARAMS="test.cl" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" WORKING_DIR="file://$PROJECT_DIR$/assignments/PA2" PASS_PARENT_ENVS_2="true" PROJECT_NAME="labs" TARGET_NAME="lexer" CONFIG_NAME="lexer" RUN_PATH="$PROJECT_DIR$/assignments/PA2/lexer">
       <method v="2">
         <option name="CLION.EXTERNAL.BUILD" enabled="true" />
@@ -125,11 +152,6 @@
     <configuration name="semant" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="true" REDIRECT_INPUT_PATH="$PROJECT_DIR$/assignments/PA4/file.txt" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="labs" TARGET_NAME="semant" CONFIG_NAME="semant" RUN_PATH="$PROJECT_DIR$/assignments/PA4/semant">
       <method v="2">
         <option name="CLION.EXTERNAL.BUILD" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
     <list>
@@ -166,6 +188,7 @@
       <workItem from="1647267358348" duration="19171000" />
       <workItem from="1647351357867" duration="2457000" />
       <workItem from="1647396795267" duration="634000" />
+      <workItem from="1647588476323" duration="608000" />
     </task>
     <servers />
   </component>
