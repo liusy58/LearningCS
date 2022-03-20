@@ -59,71 +59,71 @@ markdown_extensions:
       
   
 nav:
-  - The art of Command Line:
-    - Bash Autocompletion: "TheArtOfCommandLine/item1.md"
-    - move cursor: "TheArtOfCommandLine/item2.md"
-    - history: "TheArtOfCommandLine/item3.md"
-    - save command: "TheArtOfCommandLine/item4.md"
-    - xarg: "TheArtOfCommandLine/item5.md"
-    - pstree: "TheArtOfCommandLine/item6.md"
-    - pgrep and pkill: "TheArtOfCommandLine/item7.md"
-    - send signals: "TheArtOfCommandLine/item8.md"
-    - nohub/disown: "TheArtOfCommandLine/item9.md"
-    - netstat/ss: "TheArtOfCommandLine/item10.md"
-    - lsof/fuser: "TheArtOfCommandLine/item11.md"
-    - uptime/w: "TheArtOfCommandLine/item12.md"
-    - alias: "TheArtOfCommandLine/item14.md"
+  # - The art of Command Line:
+  #   - Bash Autocompletion: "TheArtOfCommandLine/item1.md"
+  #   - move cursor: "TheArtOfCommandLine/item2.md"
+  #   - history: "TheArtOfCommandLine/item3.md"
+  #   - save command: "TheArtOfCommandLine/item4.md"
+  #   - xarg: "TheArtOfCommandLine/item5.md"
+  #   - pstree: "TheArtOfCommandLine/item6.md"
+  #   - pgrep and pkill: "TheArtOfCommandLine/item7.md"
+  #   - send signals: "TheArtOfCommandLine/item8.md"
+  #   - nohub/disown: "TheArtOfCommandLine/item9.md"
+  #   - netstat/ss: "TheArtOfCommandLine/item10.md"
+  #   - lsof/fuser: "TheArtOfCommandLine/item11.md"
+  #   - uptime/w: "TheArtOfCommandLine/item12.md"
+  #   - alias: "TheArtOfCommandLine/item14.md"
   
-  - Distributed System: 
-    - Introduction:
-      - Types of distributed systems : "DistributedStys/Introduction/TypeOfDisSys/README.md"
-    - Process:
-      - Threads : "DistributedStys/Processes/Threads.md"
-      - Virtualization : "DistributedStys/Processes/Virtualization.md"
-      - Clients : "DistributedStys/Processes/Clients.md"
-      - Servers : "DistributedStys/Processes/Servers.md"
-    - Fault tolerance:
-      - Introduction to fault tolerance: "DistributedStys/Fault tolerance/Introduction to fault tolerance.md"
-  - Distributed System(Cambridge):
-    - Introduction: "Distributed Systems/Introduction/About distributed systems.md"
-  - Static Program Analysis:
-    - introduction: "Static Program Analysis/introduction.md" 
-    - IR: "Static Program Analysis/IR.md"
-    - DFA-AP: "Static Program Analysis/DFA-AP.md"
-    - DFA-FD: "Static Program Analysis/DFA-FD.md"
-    - Inter: "Static Program Analysis/Inter.md"
-    - PTA: "Static Program Analysis/PTA.md"
-    - PTA-FD: "Static Program Analysis/PTA-FD.md"
-    - PTA-CS: "Static Program Analysis/PTA-CS.md"
-    - Security: "Static Program Analysis/Security.md"
-    - Datalog: "Static Program Analysis/Datalog.md"
-    - IFDS: "Static Program Analysis/IFDS.md"
-  - Cplusplus:    
-    - OOPBase: "C++/OOPBase.md"
-    - ModernCPP: "C++/MordenCPP.md"
-    - TODO: "C++/README.md"
-  - Bookmark:    
-    - Bookmarks: "Bookmarks/README.md"
-  - Papers:
-    - Papers: "Papers/README.md" 
-  - CS241 System Programming:
-    - Background: "CS241/Background.md"
-  - Is Parallel Programming Hard, And, If so, What Can You Do About It? :
-    - Chapter 4 Tools of the Trade : 
-      - POSIX Multiprocessing: "Is Parallel Programming Hard?/Tools of the Trade/POSIX Multiprocessing.md"
-  - JVM:
-    - JVM : "JVM/README.md"
-  - CSAPP:
-    - Linking : 
-      - 编译器驱动程序: "CSAPP/Linking/Linking.md"
-      - 静态链接: "CSAPP/Linking/Static Linking.md" 
-      - 目标文件: "CSAPP/Linking/objectfile.md"
-      - 可重定位目标文件: "CSAPP/Linking/relocobj.md"
-      - 符号和符号表: "CSAPP/Linking/Symbols.md"
-      - 符号解析: "CSAPP/Linking/SymbolResolve.md"
-      - 重定位: "CSAPP/Linking/Relocation.md"
-      - 可执行目标文件: "CSAPP/Linking/objfile.md"
-      - 加载可执行目标文件: "CSAPP/Linking/loading.md"
+  # - Distributed System: 
+  #   - Introduction:
+  #     - Types of distributed systems : "DistributedStys/Introduction/TypeOfDisSys/README.md"
+  #   - Process:
+  #     - Threads : "DistributedStys/Processes/Threads.md"
+  #     - Virtualization : "DistributedStys/Processes/Virtualization.md"
+  #     - Clients : "DistributedStys/Processes/Clients.md"
+  #     - Servers : "DistributedStys/Processes/Servers.md"
+  #   - Fault tolerance:
+  #     - Introduction to fault tolerance: "DistributedStys/Fault tolerance/Introduction to fault tolerance.md"
+  # - Distributed System(Cambridge):
+  #   - Introduction: "Distributed Systems/Introduction/About distributed systems.md"
+  # - Static Program Analysis:
+  #   - introduction: "Static Program Analysis/introduction.md" 
+  #   - IR: "Static Program Analysis/IR.md"
+  #   - DFA-AP: "Static Program Analysis/DFA-AP.md"
+  #   - DFA-FD: "Static Program Analysis/DFA-FD.md"
+  #   - Inter: "Static Program Analysis/Inter.md"
+  #   - PTA: "Static Program Analysis/PTA.md"
+  #   - PTA-FD: "Static Program Analysis/PTA-FD.md"
+  #   - PTA-CS: "Static Program Analysis/PTA-CS.md"
+  #   - Security: "Static Program Analysis/Security.md"
+  #   - Datalog: "Static Program Analysis/Datalog.md"
+  #   - IFDS: "Static Program Analysis/IFDS.md"
+  # - Cplusplus:    
+  #   - OOPBase: "C++/OOPBase.md"
+  #   - ModernCPP: "C++/MordenCPP.md"
+  #   - TODO: "C++/README.md"
+  # - Bookmark:    
+  #   - Bookmarks: "Bookmarks/README.md"
+  # - Papers:
+  #   - Papers: "Papers/README.md" 
+  # - CS241 System Programming:
+  #   - Background: "CS241/Background.md"
+  # - Is Parallel Programming Hard, And, If so, What Can You Do About It? :
+  #   - Chapter 4 Tools of the Trade : 
+  #     - POSIX Multiprocessing: "Is Parallel Programming Hard?/Tools of the Trade/POSIX Multiprocessing.md"
+  # - JVM:
+  #   - JVM : "JVM/README.md"
+  # - CSAPP:
+  #   - Linking : 
+  #     - 编译器驱动程序: "CSAPP/Linking/Linking.md"
+  #     - 静态链接: "CSAPP/Linking/Static Linking.md" 
+  #     - 目标文件: "CSAPP/Linking/objectfile.md"
+  #     - 可重定位目标文件: "CSAPP/Linking/relocobj.md"
+  #     - 符号和符号表: "CSAPP/Linking/Symbols.md"
+  #     - 符号解析: "CSAPP/Linking/SymbolResolve.md"
+  #     - 重定位: "CSAPP/Linking/Relocation.md"
+  #     - 可执行目标文件: "CSAPP/Linking/objfile.md"
+  #     - 加载可执行目标文件: "CSAPP/Linking/loading.md"
   - Reading List:
     - Compilers : "ReadingList/Compilers.md"
     - CS143 : "Compiler/CS143.md"        
