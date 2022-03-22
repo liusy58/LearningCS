@@ -27,6 +27,7 @@
 * [CS164 Programming Languages and Compilers](https://inst.eecs.berkeley.edu/~cs164/fa21/schedule.html) at UCB
     * :heavy_check_mark: HW
     * Slides
+    * [HW](https://github.com/orgs/berkeley-cs164-2021/repositories?type=all)
 * [Virtual Machines Summer School](https://soft-dev.org/events/vmss16/)
 * [CS420: Compiler Design](https://github.com/kaist-cp/cs420) at KAIST
 * [COMP 512: Advanced Compiler Construction](https://www.clear.rice.edu/comp512/Lectures/) at Rice
