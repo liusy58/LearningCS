@@ -5,6 +5,11 @@
 ### Compilers
 
 * [CS143: Compilers](https://web.stanford.edu/class/cs143/) at Stanford.
+* [CS164: Programming Languages and Compilers](https://inst.eecs.berkeley.edu/~cs164/sp19/) SP19 at UCB 
+    * :heavy_check_mark: projects
+    * [slides](https://inst.eecs.berkeley.edu/~cs164/sp19/) 
+    * [notes](https://inst.eecs.berkeley.edu/~cs164/sp19/) 
+    * [video](https://www.bilibili.com/video/BV127411M7QG/)
 * [CS243: Program Analysis and Optimization](https://suif.stanford.edu/~courses/cs243/) at Stanford.
 * [CS 598CM: Machine Learning for Compilers and Architecture](https://charithm.web.illinois.edu/cs598cm/fa2021/#) at UIUC.
 * [CS 380C: Advanced Topics in Compilers](cs.utexas.edu/~pingali/CS380C/2019/index.html) at utexas.
@@ -27,7 +32,6 @@
 * [CS164 Programming Languages and Compilers](https://inst.eecs.berkeley.edu/~cs164/fa21/schedule.html) at UCB
     * [Slides]()
     * [HW](https://github.com/orgs/berkeley-cs164-2021/repositories?type=all)
-    * [video](https://www.bilibili.com/video/BV127411M7QG/)
     * [project](https://github.com/berkeley-cs164-2021/164-class-compiler)
 * [Virtual Machines Summer School](https://soft-dev.org/events/vmss16/)
 * [CS420: Compiler Design](https://github.com/kaist-cp/cs420) at KAIST
