@@ -25,9 +25,10 @@
 * [CS252: Advanced Topics in PL](https://groups.seas.harvard.edu/courses/cs252/2020sp/reading_paper.html) at Harvard.
 * [CS526: Advanced Compiler Construction](http://misailo.cs.illinois.edu/courses/526/#schedule) at UIUC
 * [CS164 Programming Languages and Compilers](https://inst.eecs.berkeley.edu/~cs164/fa21/schedule.html) at UCB
-    * :heavy_check_mark: HW
-    * Slides
+    * [Slides]()
     * [HW](https://github.com/orgs/berkeley-cs164-2021/repositories?type=all)
+    * [video](https://www.bilibili.com/video/BV127411M7QG/)
+    * [project](https://github.com/berkeley-cs164-2021/164-class-compiler)
 * [Virtual Machines Summer School](https://soft-dev.org/events/vmss16/)
 * [CS420: Compiler Design](https://github.com/kaist-cp/cs420) at KAIST
 * [COMP 512: Advanced Compiler Construction](https://www.clear.rice.edu/comp512/Lectures/) at Rice
