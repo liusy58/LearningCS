@@ -45,6 +45,7 @@ public:
   // Return the str and len components of the Entry.
   char *get_string() const;
   int get_len() const;
+  int get_index()const{return index;}
 };
 
 //

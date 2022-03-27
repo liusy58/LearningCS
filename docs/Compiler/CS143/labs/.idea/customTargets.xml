@@ -31,5 +31,15 @@
         </clean>
       </configuration>
     </target>
+    <target id="c47ce0df-e94a-457c-a43d-8a2e6783c105" name="cgen" defaultType="TOOL">
+      <configuration id="10322e53-79bb-426f-ada0-1ec8368d2a00" name="cgen">
+        <build type="TOOL">
+          <tool actionId="Tool_External Tools_make cgen" />
+        </build>
+        <clean type="TOOL">
+          <tool actionId="Tool_External Tools_clean cgen" />
+        </clean>
+      </configuration>
+    </target>
   </component>
 </project>

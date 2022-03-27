@@ -619,9 +619,6 @@ void CgenClassTable::code_constants()
 
 CgenClassTable::CgenClassTable(Classes classes, ostream& s) : nds(NULL) , str(s)
 {
-   stringclasstag = 0 /* Change to your String class tag here */;
-   intclasstag =    0 /* Change to your Int class tag here */;
-   boolclasstag =   0 /* Change to your Bool class tag here */;
 
    enterscope();
    if (cgen_debug) cout << "Building CgenClassTable" << endl;
@@ -629,7 +626,14 @@ CgenClassTable::CgenClassTable(Classes classes, ostream& s) : nds(NULL) , str(s)
    install_classes(classes);
    build_inheritance_tree();
 
-   code();
+   decide_object_layouts();
+   decide_method_patch_tables();
+
+    stringclasstag = probe(Str)->class_tag /* Change to your String class tag here */;
+    intclasstag =    probe(Int)->class_tag /* Change to your Int class tag here */;
+    boolclasstag =   probe(Bool)->class_tag /* Change to your Bool class tag here */;
+
+    code();
    exitscope();
 }
 
@@ -834,6 +838,12 @@ void CgenClassTable::code()
 //                   - dispatch tables
 //
 
+  if (cgen_debug) cout << "class_name table" << endl;
+  code_class_nameTab();
+  code_class_objTab();
+  code_class_dispTab_and_protObj();
+
+
   if (cgen_debug) cout << "coding global text" << endl;
   code_global_text();
 
@@ -956,6 +966,116 @@ void no_expr_class::code(ostream &s) {
 }
 
 void object_class::code(ostream &s) {
+}
+
+
+
+
+void CgenClassTable::decide_object_layouts(){
+    for(List<CgenNode> *l = nds; l; l = l->tl()){
+        auto node = l->hd();
+        decide_object_layout(node);
+    }
+}
+std::vector<Symbol>& CgenClassTable::decide_object_layout(CgenNode*node){
+    if(node->is_initialized()){
+        return node->get_object_layout();
+    }
+    int index = 0;
+
+    auto parent = node->get_parentnd();
+    if(parent != nullptr){
+        auto parent_object_layout = decide_object_layout(parent);
+        for(auto symbol:parent_object_layout){
+            node->object_layout.push_back(symbol);
+            node->attrs_2_index.insert({symbol,index++});
+        }
+    }
+    for(int i = node->features->first(); node->features->more(i); i = node->features->next(i)){
+        auto feature = node->features->nth(i);
+        if(dynamic_cast<attr_class*>(feature) == nullptr){
+            continue;
+        }
+        auto attr = dynamic_cast<attr_class*>(feature);
+        node->object_layout.push_back(attr->name);
+        node->attrs_2_index.insert({attr->name,index++});
+    }
+    node->set_initialized();
+    node->class_tag = tag_index++;
+    return node->object_layout;
+}
+
+void CgenClassTable::code_class_nameTab() {
+    str << CLASSNAMETAB << LABEL;
+    for(List<CgenNode> *l = nds; l; l = l->tl()){
+        auto node = l->hd();
+        str << WORD << STRCONST_PREFIX << node->name->get_index() << "\n";
+    }
+}
+
+void CgenClassTable::code_class_objTab() {
+    str << CLASSOBJTAB << LABEL;
+    for(List<CgenNode> *l = nds; l; l = l->tl()){
+        auto node = l->hd();
+        str << WORD << STRCONST_PREFIX << node->name->get_string() << PROTOBJ_SUFFIX << "\n";
+        str << WORD << STRCONST_PREFIX << node->name->get_string() << CLASSINIT_SUFFIX << "\n";
+    }
+}
+
+void CgenClassTable::decide_method_patch_tables() {
+    for(List<CgenNode> *l = nds; l; l = l->tl()){
+        auto node = l->hd();
+        decide_method_patch_table(node);
+    }
+}
+
+std::map<Symbol, Symbol> CgenClassTable::decide_method_patch_table(CgenNode *node) {
+    if(node->patch_table_initialized){
+        return node->method_to_declared_class;
+    }
+    auto parent = node->get_parentnd();
+    if(parent != nullptr){
+        auto parent_method_patch_table = decide_method_patch_table(parent);
+        for(auto item:parent_method_patch_table){
+            node->method_to_declared_class.insert(item);
+        }
+    }
+    for(int i = node->features->first(); node->features->more(i); i = node->features->next(i)){
+        auto feature = node->features->nth(i);
+        if(dynamic_cast<method_class*>(feature) == nullptr){
+            continue;
+        }
+        auto method = dynamic_cast<method_class*>(feature);
+        node->method_to_declared_class.insert({method->name,node->name});
+    }
+    node->patch_table_initialized = true;
+    return node->method_to_declared_class;
+}
+
+void CgenClassTable::code_class_dispTab_and_protObj() {
+    for(List<CgenNode> *l = nds; l; l = l->tl()){
+        auto node = l->hd();
+        code_class_dispTab(node);
+        code_class_protObj(node);
+    }
+}
+
+void CgenClassTable::code_class_dispTab(CgenNode*node) {
+    str << node->name->get_string() << DISPTAB_SUFFIX << LABEL;
+    for(auto &[method_name,class_name]:node->method_to_declared_class){
+        str << WORD << class_name->get_string() << "." << method_name << "\n";
+    }
+}
+
+
+void CgenClassTable::code_class_protObj(CgenNode*node) {
+    str << WORD << "-1" << "\n";
+    str << node->name->get_string() << PROTOBJ_SUFFIX << "\n";
+    str << WORD << node->class_tag << "\n";
+    str << WORD << 3 + node->object_layout.size() << "\n";
+    str << WORD << node->name->get_string() << DISPTAB_SUFFIX << "\n";
+
+
 }
 
 

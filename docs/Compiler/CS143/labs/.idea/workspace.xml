@@ -13,6 +13,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="37f2ed9e-ef2c-4cd5-afd8-16cfd1145aa4" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/customTargets.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/customTargets.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/tools/External Tools.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/tools/External Tools.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA5/README" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA5/README" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA5/cgen.cc" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA5/cgen.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA5/cgen.h" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA5/cgen.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA5/emit.h" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA5/emit.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/test.cl" beforeDir="false" afterPath="$PROJECT_DIR$/bin/test.cl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handouts/c__.ps" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/PA5/stringtab.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/PA5/stringtab.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../bril" beforeDir="false" afterPath="$PROJECT_DIR$/../../../bril" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -42,27 +53,10 @@
             </list>
           </value>
         </entry>
-        <entry>
-          <key>
-            <ExternalProjectPojo>
-              <option name="name" value="labs" />
-              <option name="path" value="$PROJECT_DIR$/assignments/PA4" />
-            </ExternalProjectPojo>
-          </key>
-          <value>
-            <list>
-              <ExternalProjectPojo>
-                <option name="name" value="labs" />
-                <option name="path" value="$PROJECT_DIR$/assignments/PA4" />
-              </ExternalProjectPojo>
-            </list>
-          </value>
-        </entry>
       </map>
     </option>
     <option name="projectSyncType">
       <map>
-        <entry key="$PROJECT_DIR$/assignments/PA4" value="RE_IMPORT" />
         <entry key="$PROJECT_DIR$/assignments/PA5" value="RE_IMPORT" />
       </map>
     </option>
@@ -114,29 +108,27 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="cf.first.check.clang-format" value="false" />
     <property name="cidr.known.project.marker" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/assignments/PA4/output/letselftype_solution.txt" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/assignments/PA5" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="CLionExternalConfigurable" />
     <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/assignments/PA4/output/letselftype_solution.txt" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/assignments/PA5" />
       <recent name="$PROJECT_DIR$/assignments/PA4" />
       <recent name="$PROJECT_DIR$/assignments/PA3" />
       <recent name="$PROJECT_DIR$/bin" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/bin" />
+      <recent name="$PROJECT_DIR$/bin/.i686" />
       <recent name="$PROJECT_DIR$/assignments/PA2" />
     </key>
   </component>
-  <component name="RunManager" selected="Custom Build Application.semant">
-    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="lexer" type="CLionExternalRunConfiguration" factoryName="Application" PROGRAM_PARAMS="test.cl" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" WORKING_DIR="file://$PROJECT_DIR$/assignments/PA2" PASS_PARENT_ENVS_2="true" PROJECT_NAME="labs" TARGET_NAME="lexer" CONFIG_NAME="lexer" RUN_PATH="$PROJECT_DIR$/assignments/PA2/lexer">
+  <component name="RunManager" selected="Custom Build Application.cgen">
+    <configuration name="cgen" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="true" REDIRECT_INPUT_PATH="$PROJECT_DIR$/assignments/PA5/file.txt" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" WORKING_DIR="file://$PROJECT_DIR$/assignments/PA5" PASS_PARENT_ENVS_2="true" PROJECT_NAME="labs" TARGET_NAME="cgen" CONFIG_NAME="cgen" RUN_PATH="$PROJECT_DIR$/assignments/PA5/cgen">
       <method v="2">
         <option name="CLION.EXTERNAL.BUILD" enabled="true" />
       </method>
@@ -152,9 +144,9 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Custom Build Application.lexer" />
       <item itemvalue="Custom Build Application.parser" />
       <item itemvalue="Custom Build Application.semant" />
+      <item itemvalue="Custom Build Application.cgen" />
     </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -186,6 +178,11 @@
       <workItem from="1647351357867" duration="2457000" />
       <workItem from="1647396795267" duration="634000" />
       <workItem from="1647588476323" duration="5401000" />
+      <workItem from="1648004675122" duration="5846000" />
+      <workItem from="1648039388865" duration="12225000" />
+      <workItem from="1648125905399" duration="4857000" />
+      <workItem from="1648211146930" duration="13060000" />
+      <workItem from="1648276317032" duration="988000" />
     </task>
     <servers />
   </component>
@@ -258,11 +255,6 @@
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
-    <watches-manager>
-      <configuration name="CLionExternalRunConfiguration">
-        <watch expression="classtable" />
-      </configuration>
-    </watches-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

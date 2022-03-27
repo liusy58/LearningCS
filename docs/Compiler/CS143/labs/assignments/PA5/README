@@ -152,3 +152,9 @@ Instructions
 Write-up for PA5
 ----------------
 
+
+
+The first pass decides the object layout for each class, particularly the offset at which each attribute is stored in an object.
+
+
+The second pass recursively walks each feature and generates stack machine code for each expression.
