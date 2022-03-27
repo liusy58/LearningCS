@@ -4,7 +4,10 @@
 
 ### Compilers
 
-* [CS143: Compilers](https://web.stanford.edu/class/cs143/) at Stanford.
+* [CS143: Compilers](https://web.stanford.edu/class/cs143/) at Stanford. 
+* [CSCD70 Compiler Optimization](https://uoft-ecosystem.github.io/CSCD70/index.html) at UTORONTO.
+    * [Assignment](https://github.com/UofT-EcoSystem/CSCD70)
+    * [Slides and Videos](https://uoft-ecosystem.github.io/CSCD70/Slides%20%26%20Recordings.html) 
 * [CS164: Programming Languages and Compilers](https://inst.eecs.berkeley.edu/~cs164/sp19/) SP19 at UCB 
     * :heavy_check_mark: projects
     * [slides](https://inst.eecs.berkeley.edu/~cs164/sp19/) 
@@ -38,10 +41,8 @@
 * [COMP 512: Advanced Compiler Construction](https://www.clear.rice.edu/comp512/Lectures/) at Rice
 * [CS 4120/4121/5120/5121 : Introduction to Compilers](https://www.cs.cornell.edu/courses/cs4120/2022sp/) at Cornell.
 * [CSE 401: Compiler Construction](https://courses.cs.washington.edu/courses/cse401/20sp/) at UW.
-* [CSCD70 Compiler Optimization](https://uoft-ecosystem.github.io/CSCD70/index.html) at UTORONTO.
-    * [Assignment](https://github.com/UofT-EcoSystem/CSCD70)
-    * [Slides and Videos](https://uoft-ecosystem.github.io/CSCD70/Slides%20%26%20Recordings.html) 
 * [CPSC 421/521 Compilers and Interpreters](http://www.cs.yale.edu/homes/soule/cpsc421/) at Yale.
 * [CSCI 1260](http://cs.brown.edu/courses/csci1260/spring-2021/assignments.html) at Brown.
 * [CIS 341: Compilers](https://www.seas.upenn.edu/~cis341/current/) at upenn.
 * [CS421: Programming Languages](https://pages.github-dev.cs.illinois.edu/cs421-fa20/web/lectures) at UIUC
+* [编译技术入门与实战公开课](https://github.com/lazyparser/becoming-a-compiler-engineer)
