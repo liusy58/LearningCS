@@ -11,12 +11,13 @@ TODO:
     - [ ] [CPP best practices](https://lefticus.gitbooks.io/cpp-best-practices/content/)
     - [ ] [C++ patterns](https://cpppatterns.com/)
     - [ ] [Crafting Interpreters ](http://craftinginterpreters.com/acknowledgements.html)
-     
+    - [ ] [现代 C++ 实战 30 讲](https://time.geekbang.org/column/intro/100040501?tab=catalog) 
 
 
 
 
-I am now studying the following courses on my step:
+
+<!-- I am now studying the following courses on my step:
 
 * [UIUC CS241 System Programming](http://cs241.cs.illinois.edu/coursebook/index.html)
 * [Cornell CS 6120 Advanced Compilers](https://www.cs.cornell.edu/courses/cs6120/2020fa/)
@@ -55,10 +56,10 @@ So far, I will update the books shown below:
     * The Design and Implementation of the 4.4BSD Operating System (Marshall Kirk McKusick, Keith Bostic, Michael J. Karels, and John S. Quarterman)
 * Database system
     * Readings in Database Systems (Peter Bailis, Joseph M. Hellerstein, and Michael Stonebraker Ed.)
-    * Transaction Processing (Jim Gray)
+    * Transaction Processing (Jim Gray) -->
 
 
-
+<!-- 
 I have finished the following awesome courses:
 
 * [mit 6.s081 operating system]()
@@ -71,4 +72,4 @@ I will also recommend you some useful materials that will save your time during 
 |books|materials|
 |-|-|
 |CSAPP|[ebook](https://hansimov.gitbook.io/csapp/) [solutions](https://dreamanddead.github.io/CSAPP-3e-Solutions/)|
-|OSTEP|[ebook](https://pages.cs.wisc.edu/~remzi/OSTEP/) [hw-solutions](https://github.com/xxyzz/ostep-hw) [ostep-projects](https://github.com/remzi-arpacidusseau/ostep-projects)|
+|OSTEP|[ebook](https://pages.cs.wisc.edu/~remzi/OSTEP/) [hw-solutions](https://github.com/xxyzz/ostep-hw) [ostep-projects](https://github.com/remzi-arpacidusseau/ostep-projects)| -->
