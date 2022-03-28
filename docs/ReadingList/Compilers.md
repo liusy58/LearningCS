@@ -8,6 +8,7 @@
 * [CSCD70 Compiler Optimization](https://uoft-ecosystem.github.io/CSCD70/index.html) at UTORONTO.
     * [Assignment](https://github.com/UofT-EcoSystem/CSCD70)
     * [Slides and Videos](https://uoft-ecosystem.github.io/CSCD70/Slides%20%26%20Recordings.html) 
+    * [my repo](https://github.com/liusy58/CSCD70)
 * [CS164: Programming Languages and Compilers](https://inst.eecs.berkeley.edu/~cs164/sp19/) SP19 at UCB 
     * :heavy_check_mark: projects
     * [slides](https://inst.eecs.berkeley.edu/~cs164/sp19/) 
