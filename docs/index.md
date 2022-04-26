@@ -12,6 +12,7 @@ TODO:
     - [ ] [C++ patterns](https://cpppatterns.com/)
     - [ ] [Crafting Interpreters ](http://craftinginterpreters.com/acknowledgements.html)
     - [ ] [现代 C++ 实战 30 讲](https://time.geekbang.org/column/intro/100040501?tab=catalog) 
+    - [ ] [The Essentials : Linux Basics](https://bitvijays.github.io/LFF-ESS-P0B-LinuxEssentials.html)
 
 
 
