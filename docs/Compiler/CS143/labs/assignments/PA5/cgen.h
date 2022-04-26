@@ -43,6 +43,12 @@ private:
    void code_class_dispTab(CgenNode*node);
    void code_class_protObj(CgenNode*node);
 
+   void code_class_init();
+   void code_class_init(CgenNode*node);
+   void code_method();
+   void code_method(CgenNode*node);
+   void code_method(method_class*method);
+
 // The following creates an inheritance graph from
 // a list of classes.  The graph is implemented as
 // a tree of `CgenNode', and class names are placed
@@ -53,15 +59,18 @@ private:
    void install_classes(Classes cs);
    void build_inheritance_tree();
    void set_relations(CgenNodeP nd);
+
 public:
    CgenClassTable(Classes, ostream& str);
    void code();
    CgenNodeP root();
 
    void decide_object_layouts();
-   std::vector<Symbol>& decide_object_layout(CgenNode*node);
+   std::vector<attr_class*>& decide_object_layout(CgenNode*node);
    void decide_method_patch_tables();
    std::map<Symbol,Symbol> decide_method_patch_table(CgenNode*node);
+
+   static CgenNode* current_class;
 };
 
 
@@ -72,16 +81,23 @@ private:
    List<CgenNode> *children;                  // Children of class
    Basicness basic_status;                    // `Basic' if class is basic
                                               // `NotBasic' otherwise
-   std::map<Symbol,int> attrs_2_index;
-   std::vector<Symbol> object_layout;
-   int object_size;
-   int class_tag;
-   bool initialized = false;
-   bool patch_table_initialized = false;
 
-   std::map<Symbol,Symbol> method_to_declared_class;
+
 
 public:
+
+    std::map<Symbol,int> attrs_2_index;
+    std::vector<Symbol> object_layout;
+
+    std::vector<attr_class*> attrs_inherited;
+    std::vector<attr_class*> attrs_defined;
+    std::vector<attr_class*> attrs;
+    int object_size;
+    int class_tag;
+    bool initialized = false;
+    bool patch_table_initialized = false;
+
+    std::map<Symbol,Symbol> method_to_declared_class;
 
    CgenNode(Class_ c,
             Basicness bstatus,
@@ -106,5 +122,7 @@ class BoolConst
   BoolConst(int);
   void code_def(ostream&, int boolclasstag);
   void code_ref(ostream&) const;
+
+
 };
 

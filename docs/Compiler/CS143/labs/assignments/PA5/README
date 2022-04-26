@@ -158,3 +158,44 @@ The first pass decides the object layout for each class, particularly the offset
 
 
 The second pass recursively walks each feature and generates stack machine code for each expression.
+
+
+
+emit_load
+emit_store
+emit_load_imm
+emit_load_address
+emit_partial_load_address
+emit_load_bool
+emit_load_string
+emit_load_int
+emit_move
+emit_neg
+emit_add
+emit_addu
+emit_addiu
+emit_div
+emit_mul
+emit_sub
+emit_sll
+emit_jalr
+emit_jal
+emit_return
+emit_disptable_ref
+emit_init_ref
+emit_label_ref
+emit_protobj_ref
+emit_method_ref
+emit_label_def
+emit_beqz
+emit_beq
+emit_bne
+emit_bleq
+emit_blt
+emit_blti
+emit_bgti
+emit_branch
+
+
+emit_store_int
+emit_fetch_int

@@ -72,15 +72,15 @@
 #define T2   "$t2"		// Temporary 2 
 #define T3   "$t3"		// Temporary 3 
 #define SP   "$sp"		// Stack pointer 
-#define FP   "$fp"		// Frame pointer 
-#define RA   "$ra"		// Return address 
+#define FP   "$fp"		// Frame pointer (callee saved)
+#define RA   "$ra"		// Return address (callee saved)
 
 //
 // Opcodes
 //
 #define JALR  "\tjalr\t"  
 #define JAL   "\tjal\t"                 
-#define RET   "\tjr\t"RA"\t"
+#define RET   "\tjr\t" RA"\t"
 
 #define SW    "\tsw\t"
 #define LW    "\tlw\t"

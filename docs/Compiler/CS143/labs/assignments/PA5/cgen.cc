@@ -323,6 +323,15 @@ static void emit_push(char *reg, ostream& str)
 }
 
 //
+// Push a register on the stack. The stack grows towards smaller addresses.
+//
+static void emit_pop(char *reg, ostream& str)
+{
+    emit_load(reg,1,SP,str);
+    emit_addiu(SP,SP,4,str);
+}
+
+//
 // Fetch the integer value in an Int object.
 // Emits code to fetch the integer value of the Integer object pointed
 // to by register source into the register dest
@@ -355,6 +364,26 @@ static void emit_gc_check(char *source, ostream &s)
 }
 
 
+
+static void emit_build_frame(ostream &s)
+{
+    emit_push(FP,s);
+    emit_push(SELF,s);
+    emit_push(RA,s);
+}
+
+
+static void emit_end_frame(ostream &s)
+{
+    emit_pop(RA,s);
+    emit_pop(SELF,s);
+    emit_pop(FP,s);
+    emit_return(s);
+}
+
+static void emit_object_copy(ostream &s){
+    emit_jal("Object.copy",s);
+}
 ///////////////////////////////////////////////////////////////////////////////
 //
 // coding strings, ints, and booleans
@@ -404,7 +433,7 @@ void StringEntry::code_def(ostream& s, int stringclasstag)
 
  /***** Add dispatch information for class String ******/
 
-      s << endl;                                              // dispatch table
+      s << STRINGNAME << DISPTAB_SUFFIX << endl;                                              // dispatch table
       s << WORD;  lensym->code_ref(s);  s << endl;            // string length
   emit_string_constant(s,str);                                // ascii string
   s << ALIGN;                                                 // align to word
@@ -446,7 +475,7 @@ void IntEntry::code_def(ostream &s, int intclasstag)
 
  /***** Add dispatch information for class Int ******/
 
-      s << endl;                                          // dispatch table
+      s << INTNAME << DISPTAB_SUFFIX << endl;                                          // dispatch table
       s << WORD << str << endl;                           // integer value
 }
 
@@ -490,7 +519,7 @@ void BoolConst::code_def(ostream& s, int boolclasstag)
 
  /***** Add dispatch information for class Bool ******/
 
-      s << endl;                                            // dispatch table
+      s << BOOLNAME << DISPTAB_SUFFIX << endl;                                            // dispatch table
       s << WORD << val << endl;                             // value (0 or 1)
 }
 
@@ -846,11 +875,15 @@ void CgenClassTable::code()
 
   if (cgen_debug) cout << "coding global text" << endl;
   code_global_text();
+  code_class_init();
 
+
+  code_method();
 //                 Add your code to emit
 //                   - object initializer
 //                   - the class methods
 //                   - etc...
+
 
 }
 
@@ -888,54 +921,113 @@ CgenNode::CgenNode(Class_ nd, Basicness bstatus, CgenClassTableP ct) :
 //*****************************************************************
 
 void assign_class::code(ostream &s) {
+    this->expr->code(s);
+    auto index = CgenClassTable::current_class->attrs_2_index[name];
+
 }
 
 void static_dispatch_class::code(ostream &s) {
+
 }
 
 void dispatch_class::code(ostream &s) {
+
 }
 
 void cond_class::code(ostream &s) {
+
 }
 
 void loop_class::code(ostream &s) {
+
 }
 
 void typcase_class::code(ostream &s) {
+
 }
 
 void block_class::code(ostream &s) {
+    for(int i = body->first(); body->more(i); i = body->next(i)){
+        auto expr = body->nth(i);
+        expr->code(s);
+    }
 }
 
 void let_class::code(ostream &s) {
+
 }
 
+
+
+
+
 void plus_class::code(ostream &s) {
+    e1->code(s);
+    emit_push(ACC,s);
+    e2->code(s);
+    emit_object_copy(s);
+    emit_fetch_int(T2,ACC,s);
+    emit_pop(T1,s);
+    emit_fetch_int(T3,T1,s);
+    emit_add(T3,T2,T3,s);
+    emit_store_int(T3,ACC,s);
 }
 
 void sub_class::code(ostream &s) {
+    e1->code(s);
+    emit_push(ACC,s);
+    e2->code(s);
+    emit_object_copy(s);
+    emit_fetch_int(T2,ACC,s);
+    emit_pop(T1,s);
+    emit_fetch_int(T3,T1,s);
+    emit_sub(T3,T2,T3,s);
+    emit_store_int(T3,ACC,s);
 }
 
 void mul_class::code(ostream &s) {
+    e1->code(s);
+    emit_push(ACC,s);
+    e2->code(s);
+    emit_object_copy(s);
+    emit_fetch_int(T2,ACC,s);
+    emit_pop(T1,s);
+    emit_fetch_int(T3,T1,s);
+    emit_mul(T3,T2,T3,s);
+    emit_store_int(T3,ACC,s);
 }
 
 void divide_class::code(ostream &s) {
+    e1->code(s);
+    emit_push(ACC,s);
+    e2->code(s);
+    emit_object_copy(s);
+    emit_fetch_int(T2,ACC,s);
+    emit_pop(T1,s);
+    emit_fetch_int(T3,T1,s);
+    emit_div(T3,T2,T3,s);
+    emit_store_int(T3,ACC,s);
 }
 
 void neg_class::code(ostream &s) {
+
+
 }
 
 void lt_class::code(ostream &s) {
+
 }
 
 void eq_class::code(ostream &s) {
+
 }
 
 void leq_class::code(ostream &s) {
+
 }
 
 void comp_class::code(ostream &s) {
+
 }
 
 void int_const_class::code(ostream& s)  
@@ -957,15 +1049,20 @@ void bool_const_class::code(ostream& s)
 }
 
 void new__class::code(ostream &s) {
+
 }
 
 void isvoid_class::code(ostream &s) {
+
 }
 
 void no_expr_class::code(ostream &s) {
+
 }
 
 void object_class::code(ostream &s) {
+    auto index = CgenClassTable::current_class->attrs_2_index[name];
+
 }
 
 
@@ -977,32 +1074,28 @@ void CgenClassTable::decide_object_layouts(){
         decide_object_layout(node);
     }
 }
-std::vector<Symbol>& CgenClassTable::decide_object_layout(CgenNode*node){
+std::vector<attr_class*>& CgenClassTable::decide_object_layout(CgenNode*node){
     if(node->is_initialized()){
-        return node->get_object_layout();
+        return node->attrs;
     }
-    int index = 0;
 
     auto parent = node->get_parentnd();
     if(parent != nullptr){
-        auto parent_object_layout = decide_object_layout(parent);
-        for(auto symbol:parent_object_layout){
-            node->object_layout.push_back(symbol);
-            node->attrs_2_index.insert({symbol,index++});
-        }
+        node->attrs_inherited =  parent->attrs;
     }
+    node->attrs = node->attrs_inherited;
     for(int i = node->features->first(); node->features->more(i); i = node->features->next(i)){
         auto feature = node->features->nth(i);
         if(dynamic_cast<attr_class*>(feature) == nullptr){
             continue;
         }
         auto attr = dynamic_cast<attr_class*>(feature);
-        node->object_layout.push_back(attr->name);
-        node->attrs_2_index.insert({attr->name,index++});
+        node->attrs.push_back(attr);
+        node->attrs_defined.push_back(attr);
     }
     node->set_initialized();
     node->class_tag = tag_index++;
-    return node->object_layout;
+    return node->attrs;
 }
 
 void CgenClassTable::code_class_nameTab() {
@@ -1017,8 +1110,8 @@ void CgenClassTable::code_class_objTab() {
     str << CLASSOBJTAB << LABEL;
     for(List<CgenNode> *l = nds; l; l = l->tl()){
         auto node = l->hd();
-        str << WORD << STRCONST_PREFIX << node->name->get_string() << PROTOBJ_SUFFIX << "\n";
-        str << WORD << STRCONST_PREFIX << node->name->get_string() << CLASSINIT_SUFFIX << "\n";
+        str << WORD <<  node->name->get_string() << PROTOBJ_SUFFIX << "\n";
+        str << WORD <<  node->name->get_string() << CLASSINIT_SUFFIX << "\n";
     }
 }
 
@@ -1074,8 +1167,77 @@ void CgenClassTable::code_class_protObj(CgenNode*node) {
     str << WORD << node->class_tag << "\n";
     str << WORD << 3 + node->object_layout.size() << "\n";
     str << WORD << node->name->get_string() << DISPTAB_SUFFIX << "\n";
-
-
 }
+
+void CgenClassTable::code_class_init() {
+    for(List<CgenNode> *l = nds; l; l = l->tl()){
+        auto node = l->hd();
+        current_class = node;
+        code_class_init(node);
+    }
+}
+
+void CgenClassTable::code_class_init(CgenNode*node) {
+    auto name = node->name;
+    str << name->get_string() << "_init:\n";
+    emit_addiu(SP,SP,-12,str);
+    emit_store(FP,3,SP,str);
+    emit_store(SELF,2,SP,str);
+    emit_store(RA,1,SP,str);
+    emit_addiu(FP,SP,1,str);
+    emit_move(SELF,ACC,str);
+
+    auto parent = node->parentnd;
+    if(parent->name != No_class){
+        emit_jal(parent->name->get_string(),str);
+    }
+    auto index = node->attrs_inherited.size();
+
+    for(auto attr:node->attrs_defined){
+        if(attr->init != nullptr){
+
+        }else{
+            attr->init->code(str);
+            emit_store(ACC,index,SELF,str);
+        }
+        ++index;
+    }
+
+
+    emit_move(ACC,SELF,str);
+    emit_load(FP,3,SP,str);
+    emit_load(SELF,2,SP,str);
+    emit_load(RA,1,SP,str);
+    emit_addiu(SP,SP,12,str);
+    emit_return(str);
+}
+
+void CgenClassTable::code_method() {
+    for(List<CgenNode> *l = nds; l; l = l->tl()){
+        auto node = l->hd();
+        current_class = node;
+        code_method(node);
+    }
+}
+
+void CgenClassTable::code_method(CgenNode *node) {
+    for(int i = node->features->first(); node->features->more(i); i = node->features->next(i)){
+        auto feature = node->features->nth(i);
+        auto method = dynamic_cast<method_class*>(feature);
+        if(method == nullptr){
+            continue;
+        }
+        str << node->name->get_string() << "." << method->name->get_string() << ":" <<"\n";
+        code_method(method);
+    }
+}
+
+void CgenClassTable::code_method(method_class *method) {
+    emit_build_frame(str);
+
+    emit_end_frame(str);
+}
+
+
 
 

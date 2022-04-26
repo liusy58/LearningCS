@@ -13,17 +13,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="37f2ed9e-ef2c-4cd5-afd8-16cfd1145aa4" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/customTargets.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/customTargets.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/tools/External Tools.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/tools/External Tools.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assignments/PA5/README" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA5/README" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA5/ast-lex.o" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA5/ast-lex.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA5/ast-parse.o" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA5/ast-parse.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA5/cgen" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA5/cgen" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA5/cgen-phase.o" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA5/cgen-phase.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assignments/PA5/cgen.cc" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA5/cgen.cc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assignments/PA5/cgen.h" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA5/cgen.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA5/cgen.o" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA5/cgen.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA5/cgen_supp.o" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA5/cgen_supp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA5/cool-tree.o" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA5/cool-tree.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA5/dumptype.o" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA5/dumptype.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assignments/PA5/emit.h" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA5/emit.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA5/file.txt" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA5/file.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA5/stringtab.o" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA5/stringtab.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA5/test.cl" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA5/test.cl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA5/test.s" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA5/test.s" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA5/tree.o" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA5/tree.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignments/PA5/utilities.o" beforeDir="false" afterPath="$PROJECT_DIR$/assignments/PA5/utilities.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/test.cl" beforeDir="false" afterPath="$PROJECT_DIR$/bin/test.cl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handouts/c__.ps" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/PA5/stringtab.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/PA5/stringtab.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/test.s" beforeDir="false" afterPath="$PROJECT_DIR$/bin/test.s" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../bril" beforeDir="false" afterPath="$PROJECT_DIR$/../../../bril" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -183,6 +193,10 @@
       <workItem from="1648125905399" duration="4857000" />
       <workItem from="1648211146930" duration="13060000" />
       <workItem from="1648276317032" duration="988000" />
+      <workItem from="1648433323743" duration="7739000" />
+      <workItem from="1648517109121" duration="6368000" />
+      <workItem from="1648643416040" duration="8813000" />
+      <workItem from="1648724364425" duration="30646000" />
     </task>
     <servers />
   </component>
@@ -247,6 +261,16 @@
           <url>file://$PROJECT_DIR$/assignments/PA4/semant.cc</url>
           <line>623</line>
           <option name="timeStamp" value="57" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/assignments/PA5/cgen.cc</url>
+          <line>581</line>
+          <option name="timeStamp" value="59" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/assignments/PA5/cgen.h</url>
+          <line>67</line>
+          <option name="timeStamp" value="60" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/assignments/PA4/score.py</url>
