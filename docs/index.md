@@ -17,6 +17,12 @@ TODO:
 
 
 
+TOOLS:
+
+- [Online C++ asm code generator](https://godbolt.org/)
+- []() 
+
+
 
 <!-- I am now studying the following courses on my step:
 
