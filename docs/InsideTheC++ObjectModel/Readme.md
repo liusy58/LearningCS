@@ -1,2 +1,2 @@
-### 1.1 C++ Object Model
+### VTable Notes on Multiple Inheritance in GCC C++ Compiler
 
