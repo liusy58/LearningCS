@@ -35,4 +35,7 @@ Use dataflow analysis framework to find Dominators.
 |Transfer function|$f(b) = {b} \cup (\cap_{p = pre(b)}OUT[p])$|
 
 
+
+
+
 From an optimization perspective, not every cycle is a loop. 
