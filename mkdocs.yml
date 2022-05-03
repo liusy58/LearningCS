@@ -47,6 +47,11 @@ markdown_extensions:
   - pymdownx.inlinehilite
   - footnotes
   - admonition
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
   - toc:
       permalink: true
       slugify: !!python/name:pymdownx.slugs.uslugify
