@@ -8,7 +8,7 @@
 
 Node d {==dominates==} node n in agraph (d dom n) if every path from the start node to n goes through d. Dominators can be organized as a tree.
 
-<img src="../images/Dtree.png" alt="l" style="width:500px;"/> 
+<img src="images/Dtree.png" alt="l" style="width:500px;"/> 
 
 
 #### Natural loops
@@ -59,7 +59,7 @@ Optimizations often require code to be executed
 once before the loop. So Create a preheader basic block for every loop.
 
 
-<img src="../images/preheader.png" alt="l" style="width:500px;"/> 
+<img src="images/preheader.png" alt="l" style="width:500px;"/> 
 
 
 From an optimization perspective, not every cycle is a loop. 
