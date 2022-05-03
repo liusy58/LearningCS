@@ -68,3 +68,43 @@ once before the loop. So Create a preheader basic block for every loop.
 From an optimization perspective, not every cycle is a loop. 
 
 
+## Static Single Assignment (SSA)
+
+
+### What is SSA?
+
+{==Static single assignment==} is an IR where every variable is assigned a value at most once in the program text.
+
+$\Phi$ merges multiple definitions along multiple control paths into a single definition.
+
+
+#### How do we choose which $x_i$ to use?
+
+In fact, we don't really care, because we just need to use `mov` on each incoming edge.
+
+<img src="images/phi.png" alt="l" style="width:300px;"/> 
+
+
+### Why SSA?
+
+SSA form makes use-def chains explicit in the IR, which in turn helps to simplify some optimizations.
+
+
+### How to convert to SSA?
+
+In fact, we can directly insert $\Phi$ functions for all live variables at each join point, but this is too costly, because there may be too many useless $\Phi$ functions inserted. See example below, $x_2 = \Phi(x_1,x_1)$ is totally useless and should be deleted.
+
+<img src="images/exp1.png" alt="l" style="width:300px;"/> 
+
+
+So how to get the minimal SSA?
+
+=== "Algorithm"
+
+    1. Place all $\Phi$.
+    2. Rename all variables.
+
+
+#### When Do We Insert $\Phi$?
+
+
