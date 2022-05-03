@@ -37,8 +37,11 @@ Use dataflow analysis framework to find Dominators.
 
 #### Finding Back Edges
 Traverse edges in a depth-first search of the flow graph form a depth-first spanning tree. Then we categorize edges in graph into :
+
     - Advancing (A) edges: from ancestor to proper descendant
+
     - Cross (C) edges: from right to left
+    
     - Retreating (R) edges: from descendant to ancestor (not necessarily proper)
 
 
