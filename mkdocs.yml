@@ -126,8 +126,8 @@ nav:
   - Reading List:
     - Compilers : "ReadingList/Compilers.md"
     - CS143 : "Compiler/CS143.md"
-    - CSCD70 : "CSCD70/README.md"
     - lsy : "lsy/README.md"
+    - CSCD70 : "CSCD70/README.md"
     # - CSAPP:
     #   - Linking : 
     #     - 编译器驱动程序: "CSAPP/Linking/Linking.md"

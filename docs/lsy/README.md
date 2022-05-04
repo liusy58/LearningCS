@@ -26,5 +26,28 @@ Compilers do two things: the first is just to translate one language to another 
 ### 1.3 Structure of a Compiler
 
 
+In fact, you can just hardwire for the particular type of source code and that particular target just like you do in compiler intro class. But it's a real lack of portability. 
+
+
+<img src="images/llvm_compiler_pipeline.png" alt="l" style="width:300px;"/> 
+
+
+### 1.4 Ingredients in a compiler optimization 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
