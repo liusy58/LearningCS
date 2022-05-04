@@ -33,21 +33,3 @@ In fact, you can just hardwire for the particular type of source code and that p
 
 
 ### 1.4 Ingredients in a compiler optimization 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
