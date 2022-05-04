@@ -127,17 +127,18 @@ nav:
     - Compilers : "ReadingList/Compilers.md"
     - CS143 : "Compiler/CS143.md"
     - CSCD70 : "CSCD70/README.md"
-    - CSAPP:
-      - Linking : 
-        - 编译器驱动程序: "CSAPP/Linking/Linking.md"
-        - 静态链接: "CSAPP/Linking/Static Linking.md" 
-        - 目标文件: "CSAPP/Linking/objectfile.md"
-        - 可重定位目标文件: "CSAPP/Linking/relocobj.md"
-        - 符号和符号表: "CSAPP/Linking/Symbols.md"
-        - 符号解析: "CSAPP/Linking/SymbolResolve.md"
-        - 重定位: "CSAPP/Linking/Relocation.md"
-        - 可执行目标文件: "CSAPP/Linking/objfile.md"
-        - 加载可执行目标文件: "CSAPP/Linking/loading.md"    
+    - lsy : "lsy/README.md"
+    # - CSAPP:
+    #   - Linking : 
+    #     - 编译器驱动程序: "CSAPP/Linking/Linking.md"
+    #     - 静态链接: "CSAPP/Linking/Static Linking.md" 
+    #     - 目标文件: "CSAPP/Linking/objectfile.md"
+    #     - 可重定位目标文件: "CSAPP/Linking/relocobj.md"
+    #     - 符号和符号表: "CSAPP/Linking/Symbols.md"
+    #     - 符号解析: "CSAPP/Linking/SymbolResolve.md"
+    #     - 重定位: "CSAPP/Linking/Relocation.md"
+    #     - 可执行目标文件: "CSAPP/Linking/objfile.md"
+    #     - 加载可执行目标文件: "CSAPP/Linking/loading.md"    
   # nav:
 #   - 概览: "index.md"
 #   - 编译链接基础知识:
