@@ -1,5 +1,3 @@
-
-
 ## Loops
 
 ### Definitions
