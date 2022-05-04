@@ -23,5 +23,8 @@ Compilers do two things: the first is just to translate one language to another 
     4. Perform work in parallel. Another thing we can do is to harness all of the parallel hardware such as GPUs which  have thousands of parallel processing elements in them. Here we want to both be doing the work with a thread efficiently (instruction scheduling) and we want to generate work that can take multiple threads. 
 
 
+### 1.3 Structure of a Compiler
+
+
 
 
