@@ -70,9 +70,9 @@ extra_javascript:
 
 nav:
   - Reading List:
-    - Compilers : "ReadingList/Compilers.md"
-    - CS143 : "Compiler/CS143.md"
-    - CSCD70 : "Courses/CSCD70.md"
+    - Compilers: "ReadingList/Compilers.md"
+    - CS143: "Compiler/CS143.md"
+    - CSCD70: "Courses/CSCD70.md"
 
     # - CSAPP:
     #   - Linking : 
