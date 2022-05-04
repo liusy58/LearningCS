@@ -114,8 +114,6 @@ nav:
   #   - TODO: "C++/README.md"
   # - Bookmark:    
   #   - Bookmarks: "Bookmarks/README.md"
-  # - Papers:
-  #   - Papers: "Papers/README.md" 
   # - CS241 System Programming:
   #   - Background: "CS241/Background.md"
   # - Is Parallel Programming Hard, And, If so, What Can You Do About It? :
@@ -126,8 +124,8 @@ nav:
   - Reading List:
     - Compilers : "ReadingList/Compilers.md"
     - CS143 : "Compiler/CS143.md"
-    - CSCD70 : "CSCD70/README.md"
-    - CMU15745 : "CMU15745/README.md"
+    - CSCD70 : "Courses/CSCD70.md"
+
     # - CSAPP:
     #   - Linking : 
     #     - 编译器驱动程序: "CSAPP/Linking/Linking.md"
