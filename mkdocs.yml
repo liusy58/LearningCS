@@ -102,6 +102,11 @@ plugins:
   - git-revision-date-localized:
       type: iso_datetime
       timezone: Asia/Shanghai
+  - exclude:
+      glob:
+        - "*.md"
+        - "*.pdf"
+        - "*.gz"      
 markdown_extensions:
   - pymdownx.highlight
   - pymdownx.details
