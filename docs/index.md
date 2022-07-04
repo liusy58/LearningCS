@@ -21,7 +21,7 @@ TOOLS:
 
 - [Online C++ asm code generator](https://godbolt.org/)
 - [Online editor](https://replit.com/) 
-
+- [explainshell](https://www.explainshell.com/)
 
 
 <!-- I am now studying the following courses on my step:
