@@ -16,6 +16,9 @@
 |`bpf_map_lookup_and_delete_element`|_looking up and deleting elements_|Kernel||
 |`bpf_spin_lock`|_lock an element_||||
 |`bpf_spin_unlock`|_unlock an elemnt_||||
+|`bpf_obj_pin`|save the map in the filesystem `/sys/fs/bpf/`|||
+|`bpf_obj_get`|loads that map from the file system|||
+||||
 
 
 ### Types pf BPF Maps
@@ -39,3 +42,36 @@
 |`BPF_MAP_TYPE_REUSEPORT_SOCKARRAY`|stores references to sockets that can be reused by an open port in the system||
 |`BPF_MAP_TYPE_QUEUE`|||
 |`BPF_MAP_TYPE_STACK`|||
+
+
+
+## Tracing with BPF
+
+### Types of Probes
+
+|Class Name|Probe Name|Notes|Example|
+|-|-|-|-|
+|Kernel Probes|`Kprobes`|Insert BPF programs before any kernel instruction is executed. Need to know the function signature | |
+|Kernel Probes|`Kretprobes`|Insert your BPF program when a kernel instruction returns a value after being executed.|
+|Tracepoints||Tracepoints are static markers in the kernel’s code that you can use to attach code in a running kernel. Available tracepoints in your system by listing all the files in `/sys/kernel/debug/tracing/events`.|
+|User-Space Probes|`Uprobes`|Uprobes are hooks that the kernel inserts into a program’s instruction set before a specific instruction is executed.||
+|User-Space Probes|`Uretprobes`|||
+|User Statically Defined Tracepoints(USDT)|provide static tracepoints for applications in user-space.|||
+
+
+
+## BPF Utilities
+
+### BPFTool
+
+|Command|Functionality|
+|-|-|
+|`bpftool prog show`|Inspecting what eBPF programs you have running in your system|
+|`bpftool prog show --json id 52 | jq -c '[.id, .type, .loaded_at]'`|||
+|`bpftool prog dump xlated id 52`|Dump the eBPF binary with id 52|
+|`sysctl -w kernel.bpf_stats_enabled=1` + `bpftool prog show`|get two more pieces of information: run_cnt / run_time_ns |
+|`pftool map show`||
+
+
+
+
