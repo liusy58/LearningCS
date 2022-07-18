@@ -36,3 +36,6 @@
 |`BPF_MAP_TYPE_XSKMAP`|stores references to open sockets.|useful for forwarding packets|
 |`BPF_MAP_TYPE_SOCKMAP` / `BPF_MAP_TYPE_SOCKHASH`|store references to open sockets in the kernel.||
 |`BPF_MAP_TYPE_CGROUP_STORAGE` / `BPF_MAP_TYPE_PERCPU_CGROUP_STORAGE`|||
+|`BPF_MAP_TYPE_REUSEPORT_SOCKARRAY`|stores references to sockets that can be reused by an open port in the system||
+|`BPF_MAP_TYPE_QUEUE`|||
+|`BPF_MAP_TYPE_STACK`|||
