@@ -28,5 +28,11 @@
 |`BPF_MAP_TYPE_HASH`||This type of map is useful if your BPF program collects metrics and aggregates them in hash-table maps.|
 |`BPF_MAP_TYPE_ARRAY`||Useful for for high-performant lookups and aggregations.|
 |`BPF_MAP_TYPE_STACK_TRACE`|stores stack traces from the running process||
-|`BPF_MAP_TYPE_CGROUP_ARRAY`|||
-
+|`BPF_MAP_TYPE_CGROUP_ARRAY`|stores references to cgroups.|This map is useful when you want to share cgroup references between BPF maps for controlling traffic, debugging, and testing.||
+|`BPF_MAP_TYPE_LRU_HASH` / `BPF_MAP_TYPE_LRU_PERCPU_HASH`|If the map is full, these maps will erase elements that are not used frequently to make room for new elements in the map.||
+|`BPF_MAP_TYPE_LPM_TRIE`|LPM trie maps are types of map that use longest prefix match (LPM) to look up elements in the map.|Require key sizes to be multiples of eight and in a range from 8 to 2,048.|
+|`BPF_MAP_TYPE_ARRAY_OF_MAPS` / `BPF_MAP_TYPE_HASH_OF_MAPS`| store references to other maps |These types of maps are useful when you want to be able to replace entire maps at runtime.|
+|`BPF_MAP_TYPE_DEVMAP`|stores references to network devices.|Useful for network applications that want to manipulate traffic at the kernel level.|
+|`BPF_MAP_TYPE_XSKMAP`|stores references to open sockets.|useful for forwarding packets|
+|`BPF_MAP_TYPE_SOCKMAP` / `BPF_MAP_TYPE_SOCKHASH`|store references to open sockets in the kernel.||
+|`BPF_MAP_TYPE_CGROUP_STORAGE` / `BPF_MAP_TYPE_PERCPU_CGROUP_STORAGE`|||

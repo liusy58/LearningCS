@@ -128,3 +128,4 @@ nav:
   - Reading List:
     - Compilers: "ReadingList/Compilers.md"
     - CS143: "Compiler/CS143.md"
+    - eBPF: "eBPF/README.md"
