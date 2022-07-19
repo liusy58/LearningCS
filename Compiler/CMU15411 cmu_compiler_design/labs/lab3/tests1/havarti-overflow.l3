@@ -1,0 +1,54 @@
+#test exception
+
+int monad(a : int, b : int, c : int, d : int, e : int,
+          f : int, g : int, h : int, i : int, j : int,
+          k : int, l : int, m : int, n : int, o : int,
+          p : int, q : int, r : int, s : int, t : int,
+          u : int, v : int, w : int, x : int, y : int,
+          z : int)
+{
+    a += 1;
+    b += 2;
+    c += 2;
+    d += 2;
+    e += 2;
+    f += 2;
+    g += 2;
+    h += 2;
+    i += 2;
+    j += 2;
+    k += 2;
+    l += 2;
+    m += 2;
+    n += 2;
+    o += 2;
+    p += 2;
+    q += 2;
+    r += 2;
+    s += 2;
+    t += 2;
+    u += 2;
+    v += 2;
+    w += 2;
+    x += 2;
+    y += 2;
+    z += 2;
+    return monad(
+        a, b, c, d, e, 
+        f, g, h, i, j, 
+        k, l, m, n, o, 
+        p, q, r, s, t, 
+        u, v, w, x, y, 
+        z);
+}
+
+int main()
+{
+    return monad(
+    0,0,0,0,0,
+    0,0,0,0,0,
+    0,0,0,0,0,
+    0,0,0,0,0,
+    0,0,0,0,0,
+    0);
+}

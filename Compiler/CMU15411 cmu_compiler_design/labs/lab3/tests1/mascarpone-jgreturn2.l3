@@ -1,0 +1,18 @@
+#test return 10
+
+int main()
+{
+  var z:int;
+  z = recurse(0);
+  return z;
+}
+
+int recurse(x:int)
+{
+  if ( x < 10 )
+  {
+    return recurse(x+1);
+  }
+  return x;
+}
+

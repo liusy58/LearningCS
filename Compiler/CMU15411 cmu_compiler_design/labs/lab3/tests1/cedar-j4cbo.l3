@@ -1,0 +1,166 @@
+#test return 151
+
+/* example tree from http://en.wikipedia.org/wiki/Huffman_coding */
+
+int getbyte(byte: int)
+{
+	if (byte == 0) return 106;
+	if (byte == 1) return 139;
+	if (byte == 2) return 120;
+	if (byte == 3) return 183;
+	if (byte == 4) return 69;
+	if (byte == 5) return 197;
+	if (byte == 6) return 147;
+	if (byte == 7) return 207;
+	if (byte == 8) return 35;
+	if (byte == 9) return 155;
+	if (byte == 10) return 122;
+	if (byte == 11) return 244;
+	if (byte == 12) return 125;
+	if (byte == 13) return 215;
+	if (byte == 14) return 69;
+	if (byte == 15) return 219;
+	if (byte == 16) return 2;
+	if (byte == 17) return 224;
+	return 1/0;
+}
+
+int getbit(bp : int)
+{
+	var byte : int;
+	byte = getbyte(bp/8);
+	return (byte >> (7 - (bp % 8))) & 1;
+}
+
+int h(bitpos: int)
+{
+	if (getbit(bitpos))
+		return h1(bitpos+1);
+	else
+		return h0(bitpos+1);
+}
+
+int h0(bitpos: int)
+{
+	if (getbit(bitpos))
+		return h01(bitpos+1);
+	else
+		return h00(bitpos+1);
+}
+
+int h00(bitpos: int)
+{
+	if (getbit(bitpos))
+		return h001(bitpos+1);
+	else
+		return 69+h(bitpos+1);
+}
+
+int h001(bitpos: int)
+{
+	if (getbit(bitpos))
+		return h0011(bitpos+1);
+	else
+		return 78+h(bitpos+1);
+}
+
+int h0011(bitpos: int)
+{
+	if (getbit(bitpos))
+		return 79+h(bitpos+1);
+	else
+		return 85+h(bitpos+1);
+}
+
+int h01(bitpos: int)
+{
+	if (getbit(bitpos))
+		return h011(bitpos+1);
+	else
+		return 65+h(bitpos+1);
+}
+
+int h011(bitpos: int)
+{
+	if (getbit(bitpos))
+		return 77+h(bitpos+1);
+	else
+		return 84+h(bitpos+1);
+}
+
+int h1(bitpos: int)
+{
+	if (getbit(bitpos))
+		return h11(bitpos+1);
+	else
+		return h10(bitpos+1);
+}
+
+int h10(bitpos: int)
+{
+	if (getbit(bitpos))
+		return h101(bitpos+1);
+	else
+		return h100(bitpos+1);
+}
+
+int h100(bitpos: int)
+{
+	if (getbit(bitpos))
+		return h1001(bitpos+1);
+	else
+		return 73+h(bitpos+1);
+}
+
+int h1001(bitpos: int)
+{
+	if (getbit(bitpos))
+		return 80+h(bitpos+1);
+	else
+		return 88+h(bitpos+1);
+}
+
+int h101(bitpos: int)
+{
+	if (getbit(bitpos))
+		return h1011(bitpos+1);
+	else
+		return 72+h(bitpos+1);
+}
+
+int h1011(bitpos: int)
+{
+	if (getbit(bitpos))
+		return -2169;
+	else
+		return 83+h(bitpos+1);
+}
+
+int h11(bitpos: int)
+{
+	if (getbit(bitpos))
+		return 32+h(bitpos+1);
+	else
+		return h110(bitpos+1);
+}
+
+int h110(bitpos: int)
+{
+	if (getbit(bitpos))
+		return 70+h(bitpos+1);
+	else
+		return h1100(bitpos+1);
+}
+
+int h1100(bitpos: int)
+{
+	if (getbit(bitpos))
+		return 76+h(bitpos+1);
+	else
+		return 82+h(bitpos+1);
+}
+
+int main()
+{
+	return h(0);
+}

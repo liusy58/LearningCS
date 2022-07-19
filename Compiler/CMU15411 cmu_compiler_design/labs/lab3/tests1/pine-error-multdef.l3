@@ -1,0 +1,19 @@
+#test error
+// Multiple definitions of a function in the same file - forbidden by static
+// semantic #1.
+
+int f1(a1 : int, a2 : int) {
+    return a1 + a2;
+}
+
+int f2(a1 : int, a2 : int, a3 : int) {
+    return (a1 + a2) * (a1 + a3);
+}
+
+int f1(ab : int) {
+    return ab;
+}
+
+int main() {
+    return f2(1, 2, 3);
+}

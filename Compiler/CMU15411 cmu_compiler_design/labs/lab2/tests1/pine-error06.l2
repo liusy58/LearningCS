@@ -1,0 +1,11 @@
+#test error
+// reserved word test
+
+{
+  for(while = 3; while < 5; while += 1)
+  {
+    continue;
+  }
+
+  return 1;
+}

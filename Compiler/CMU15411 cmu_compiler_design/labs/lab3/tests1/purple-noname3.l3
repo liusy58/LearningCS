@@ -1,0 +1,19 @@
+#test return 13
+int main()
+{
+	var x : int;
+	x  = 1;
+	x += 1;
+	x += 1;
+	x += 1;
+	x += 1;
+	x += 1;
+	x += 1;
+	x += 1;
+	x += 1;
+	x += 1;
+	x += 1;
+	x += 1;
+	x += 1;
+	return x;
+}

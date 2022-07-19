@@ -1,0 +1,6 @@
+#test error
+// There must be a function named main
+
+int id(n : int) {
+  return n;
+}

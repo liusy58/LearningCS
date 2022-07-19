@@ -1,0 +1,41 @@
+#test return 1593
+// call with too many arguments
+
+int sum_primes (n : int) {
+	var count, total, num, a, factors, isprime, j : int;
+	
+	count = 0;	// prime count
+	total = 0;	// sum so far
+	
+	num = 2;	// start number (first prime)
+	
+	for ( count = 0 ; count < n ; ) {
+		
+		a = num;
+		
+		/* test if num is prime */
+		factors = 0;
+		for ( j = 2 ; j < a ; j += 1 ) {
+			if ( a % j == 0 ) {
+				factors += 1;
+			}
+		}
+		isprime = (factors == 0);
+		
+		if ( isprime ) {
+			total += num;
+			count += 1;
+		}
+		
+		num = num + 1;
+		
+	}
+	
+	return total;
+	
+}
+
+int main () {
+	/* sum the first 30 primes */
+	return sum_primes(30);
+}

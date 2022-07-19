@@ -1,0 +1,12 @@
+#test error
+
+int f(x:int)
+{
+    var x:int;
+    x = 3;
+    return x;
+}
+
+int main() {
+  return f(0);
+}

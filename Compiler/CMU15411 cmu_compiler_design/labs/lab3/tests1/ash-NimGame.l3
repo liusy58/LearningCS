@@ -1,0 +1,40 @@
+#test return 7
+
+// simulate a nim game
+int simulate(s1 : int, s2 : int, s3 : int) {
+  var i : int;
+
+  if ((s1 | s2 | s3) == 0) return -1;
+
+    for (i = s1; i > 0; i -= 1)
+      if (!simulate(s1 - i, s2, s3)) return 1;
+
+    for (i = s2; i > 0; i -= 1)
+      if (!simulate(s1, s2 - i, s3)) return 2;
+
+    for (i = s3; i > 0; i -= 1)
+      if (!simulate(s1, s2, s3 - i)) return 3;
+
+  // current player has no winning move
+  return 0;
+} 
+
+// verify that the simulation yields the same result as the prediction
+int verify(s1 : int, s2 : int, s3 : int) {
+  var prediction : int;
+
+  // compute Grundi's number 
+  prediction = s1 ^ s2 ^ s3;
+
+  return (!!simulate(s1, s2, s3) == !!prediction);
+}
+
+int main() {
+  var test : int;
+
+  test = verify(2,3,4);          // P1 wins
+  test |= verify(5,6,7) << 1;    // P1 wins
+  test |= verify(5,3,6) << 2;    // P2 wins
+
+  return test;
+}

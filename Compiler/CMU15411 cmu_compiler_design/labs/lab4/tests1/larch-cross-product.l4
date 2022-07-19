@@ -1,0 +1,47 @@
+#test return 594
+
+int[][] cross(a:int[], alen:int, b:int[], blen:int) {
+  var result : int[][];
+  var i, j : int;
+  var curr : int[];
+  
+  result = new(int[][alen]);
+  for (i = 0; i < alen; i += 1) {
+    curr = new(int[blen]);
+    for (j = 0; j < blen; j += 1) {
+      curr[j] = a[i] * b[j];
+    }
+    result[i] = curr;
+  }
+  
+  return result;
+}
+
+int sum(a:int[][], x:int, y:int) {
+  var sum : int;
+  var i, j : int;
+  sum = 0;
+  
+  for (i = 0; i < x; i += 1) {
+    for (j = 0; j < y; j += 1) {
+      sum += a[i][j];
+    }
+  }
+  
+  return sum;
+}
+
+int main() {
+  var a, b : int[];
+  a = new(int[3]);
+  b = new(int[4]);
+  a[0] = 3;
+  a[1] = 5;
+  a[2] = 10;
+  b[0] = 11;
+  b[1] = 2;
+  b[2] = 8;
+  b[3] = 12;
+  
+  return sum(cross(a, 3, b, 4), 3, 4);
+}

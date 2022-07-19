@@ -1,0 +1,45 @@
+#test return 0
+// 
+int testAllOperators(n : int) {
+	var i,a : int;
+	a = 0;
+
+	// a should always be 0 upon beginning the loop
+	for(i = 0; i < n; i+=1) {
+		a = a + 1; //  1
+		a = a - 2; // -1
+		a = a * 4; // -4
+		a = a / 2; // -2
+		a = ---a;  //  2
+		a += 9;	   // 11
+		a = a % 3;  // 2
+		a %= 2;     // 0 
+		a -= 10;    // -10
+		a *= -10;   // 100
+		a /= -5;	   // -20
+		a = (a  == -20); // 1
+		a -= 1; // 0
+	
+		// a should be 0
+		a += 1; 	// 1
+		a <<= 31; // TMIN
+		a >>= 31; // -1
+		a = (a != -1); // 0
+		
+		// a should still be 0
+		a |= -1; // -1
+		a ^= -1; // 0
+
+		a += 2;  // 2
+		a &= (a+2); // 0
+
+		a = ~a + 1; // 0
+		a = (!a) - 1; // 0
+	}
+
+	return a; 
+}
+
+int main() {
+	return testAllOperators(5);
+}

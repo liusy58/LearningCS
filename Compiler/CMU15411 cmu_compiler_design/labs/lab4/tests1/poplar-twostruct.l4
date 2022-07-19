@@ -1,0 +1,18 @@
+#test error
+// multiple struct definition
+struct foo {
+        a : int;
+};
+
+struct bar {
+        b : int;
+};
+
+struct foo {
+        c : int;
+};
+
+int main ()
+{
+        return 0;
+}

@@ -1,0 +1,6 @@
+#test error
+// This tests that a main function is defined (L3 static semantic #4).
+
+int foo(main : int) {
+    return main;
+}   

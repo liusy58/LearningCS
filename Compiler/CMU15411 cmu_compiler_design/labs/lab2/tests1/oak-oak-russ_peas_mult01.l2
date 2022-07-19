@@ -1,0 +1,17 @@
+#test return 1760
+// russian peasant multiplication for 32 and 55
+// returns the multiplication of two numbers by repeatedly doubling the
+// first number and halving the second number.  Add the first number
+// doubles when the corresponding half of the second number is odd.
+{
+  x = 32;
+  xtemp = 0;
+  for(y=55; y>0; y /= 2){
+    if((y%2)==1){
+      xtemp += x;
+    }
+    x *= 2;
+  }
+
+  return xtemp;
+}

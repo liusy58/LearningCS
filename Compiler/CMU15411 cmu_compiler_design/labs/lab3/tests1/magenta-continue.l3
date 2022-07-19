@@ -1,0 +1,21 @@
+#test return 55
+
+int main(){
+  return identity(55);
+}
+
+//identity(n) = n (used to test continue)
+int identity(n :int){
+  var i :int;
+  var k :int;
+  i = 1;
+  k = 0;
+  while(i){
+    if(k < n){
+      k += 1;
+      continue;
+    }
+    i = 0;
+  }
+  return k;
+}

@@ -1,0 +1,17 @@
+#test error
+
+// not all paths end in return
+int main ()
+{
+  var x: int;
+  x = 5;
+  if(f(x))
+    return 2;
+  else	
+    x = 4;
+}
+
+int f(x: int)
+{
+ return 2*x;
+}

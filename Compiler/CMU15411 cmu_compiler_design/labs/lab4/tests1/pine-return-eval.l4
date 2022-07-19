@@ -1,0 +1,58 @@
+#test return 21
+
+/* Tree Evaluator
+ * Author: matthewj
+ */
+
+struct expr_t {
+    type : int;
+    op : int;
+    e1 : expr_t *;
+    e2 : expr_t *;
+};
+
+int eval(e : expr_t *) {
+    if (e->type == 0) { return e->op; }
+    if (e->op == 0) {
+        return eval(e->e1) + eval(e->e2);
+    }
+    if (e->op == 1) {
+        return eval(e->e1) * eval(e->e2);
+    }
+    return 1 / 0;
+}
+
+expr_t *expr(type : int, op : int, e1 : expr_t *, e2 : expr_t *) {
+    var e : expr_t *;
+    e = new(expr_t);
+    e->type = type;
+    e->op = op;
+    e->e1 = e1;
+    e->e2 = e2;
+    return e;
+}
+
+int main() {
+    var t1 : expr_t *;
+    var t2 : expr_t *;
+    var t3 : expr_t *;
+    var t4 : expr_t *;
+    var t5 : expr_t *;
+
+    /* t1 <- 5 */
+    t1 = expr(0, 5, NULL, NULL);
+
+    /* t2 <- 2 */
+    t2 = expr(0, 2, NULL, NULL);
+
+    /* t3 <- t1 + t2 */
+    t3 = expr(1, 0, t1, t2);
+
+    /* t4 <- 3 */
+    t4 = expr(0, 3, NULL, NULL);
+
+    /* t5 <- t3 * t4 */
+    t5 = expr(1, 1, t3, t4);
+
+    return eval(t5);
+}

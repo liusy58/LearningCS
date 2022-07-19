@@ -1,0 +1,12 @@
+#test return 3628800
+
+int main() {
+	return fac(fac(4) - 14);
+}
+
+int fac(n : int) {
+	if (n <= 0)
+		return 1;
+	else
+		return n * fac(n - 1);
+}

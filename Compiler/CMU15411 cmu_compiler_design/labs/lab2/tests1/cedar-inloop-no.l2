@@ -1,0 +1,13 @@
+#test error
+{
+	a = 3;
+	b = 5;
+	i = 10;
+	for(i = 0; i < b; i = i + 1) {
+		t = t + b;
+		b = b + a;
+		if(a > 0)
+			a = a - 1;
+	}
+	return t;
+}

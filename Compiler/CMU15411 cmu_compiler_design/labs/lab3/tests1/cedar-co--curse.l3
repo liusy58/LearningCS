@@ -1,0 +1,85 @@
+#test return 15411
+
+int arr8_idx(n0: int, n1: int, n2: int, n3: int, n4: int, n5: int, n6: int, n7: int, idx: int)
+{
+	if(idx == 0)
+		return n0;
+	if(idx == 1)
+		return n1;
+	if(idx == 2)
+		return n2;
+	if(idx == 3)
+		return n3;
+	if(idx == 4)
+		return n4;
+	if(idx == 5)
+		return n5;
+	if(idx == 6)
+		return n6;
+	if(idx == 7)
+		return n7;
+	else
+		return 1/0;
+}
+
+int a(n0: int, n1: int, n2: int, n3: int, n4: int, n5: int, n6: int, n7: int, ctr: int)
+{
+	var _n0, _n1, _n2, _n3, _n4, _n5, _n6, _n7: int;
+	var x0, x1, x2, x3, x4, x5, x6, x7, x8: int;
+
+	if(!ctr)
+		return n0 - n1 + n2 - n3;
+
+	_n0 = n1;
+	_n1 = n2;
+	_n2 = n3;
+	_n3 = n4;
+	_n4 = n5;
+	_n5 = n6;
+	_n6 = n7;
+	_n7 = arr8_idx(n0, n1, n2, n3, n4, n5, n6, n7, (n0 % 8 + 8) % 8);
+	x0 = n1 + n2 - n3 + n4 - n5 + n6 - n7;
+	x1 = n0 + n2 - n3 + n4 - n5 + n6 - n7;
+	x2 = n0 + n1 - n3 + n4 - n5 + n6 - n7;
+	x3 = n0 + n1 - n2 + n4 - n5 + n6 - n7;
+	x4 = n0 + n1 - n2 + n3 - n5 + n6 - n7;
+	x5 = n0 + n1 - n2 + n3 - n4 + n6 - n7;
+	x6 = n0 + n1 - n2 + n3 - n4 + n5 - n7;
+	x7 = n0 + n1 - n2 + n3 - n4 + n5 - n6;
+
+	return b(_n0, _n1, _n2, _n3, _n4, _n5, _n6, _n7, ctr) + a(x0, x1, x2, x3, x4, x5, x6, x7, ctr-1);
+}
+
+int b(n0: int, n1: int, n2: int, n3: int, n4: int, n5: int, n6: int, n7: int, ctr: int)
+{
+	var _n0, _n1, _n2, _n3, _n4, _n5, _n6, _n7: int;
+	var x0, x1, x2, x3, x4, x5, x6, x7, x8: int;
+
+	if(!ctr)
+		return n0 - n1 - n2 + n3;
+
+	_n0 = n1;
+	_n1 = n2;
+	_n2 = n3;
+	_n3 = n4;
+	_n4 = n5;
+	_n5 = n6;
+	_n6 = n7;
+	_n7 = arr8_idx(n0, n1, n2, n3, n4, n5, n6, n7, (n0 % 8 + 8) % 8);
+
+	x0 = n1 - n2 + n3 - n4 + n5 - n6 + n7;
+	x1 = n0 - n2 + n3 - n4 + n5 - n6 + n7;
+	x2 = n0 - n1 + n3 - n4 + n5 - n6 + n7;
+	x3 = n0 - n1 + n2 - n4 + n5 - n6 + n7;
+	x4 = n0 - n1 + n2 - n3 + n5 - n6 + n7;
+	x5 = n0 - n1 + n2 - n3 + n4 - n6 + n7;
+	x6 = n0 - n1 + n2 - n3 + n4 - n5 + n7;
+	x7 = n0 - n1 + n2 - n3 + n4 - n5 + n6;
+
+	return a(_n0, _n1, _n2, _n3, _n4, _n5, _n6, _n7, ctr-1) - b(x0, x1, x2, x3, x4, x5, x6, x7, ctr-1);
+}
+
+int main()
+{
+	return a(1,2,3,4,5,6,70,8,10) - b(1,2,3,4,2,4,2,40,9) + a(1,200,4197,15,5,20,3,30,1);
+}

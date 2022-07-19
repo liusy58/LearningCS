@@ -1,0 +1,17 @@
+#test return 24
+
+{
+  /* Tests for loops, with break and continue */
+  for (n = -1234; 42; n += 1) {
+    if (n != 12) {
+      continue;
+    }
+    break;
+  }
+
+  for (c = n; c; c -= 1) {
+    n += 1;
+  }
+
+  return n;
+}

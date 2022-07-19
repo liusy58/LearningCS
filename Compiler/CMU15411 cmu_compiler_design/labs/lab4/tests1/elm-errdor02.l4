@@ -1,0 +1,33 @@
+#test return 10
+/* it should: divide them first and then subtract them == 10 */
+/* it should NOT: subtract them first and then divide them == exception */
+
+int main()
+{
+  var x, y : int*;
+  x = new(int);
+  y = new(int);
+
+  *x = 10;
+  *y = 10;
+
+  return add_them( div_them(x,y), sub_them(x,y) );
+}
+
+int div_them( x : int*, y : int* )
+{
+  *y = (*x) / (*y);
+  return *y;
+}
+
+int sub_them( x : int*, y : int* )
+{
+  *y = (*x) - (*y);
+  return *y;
+}
+
+int add_them( x : int, y : int )
+{
+  y = x + y;
+  return y;
+}

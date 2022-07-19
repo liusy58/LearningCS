@@ -1,0 +1,14 @@
+#test exception
+
+int main(){
+	var x, y, z:int;
+	x = helps(1, 2, 3);
+	y = helps(1, 2, x);
+	z = helps(1, y, x);
+
+	return helps(x, y, z);
+}
+
+int helps(one:int, two:int, three:int){
+	return three/(two/one);
+}

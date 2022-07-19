@@ -1,0 +1,23 @@
+#test error
+#no return statement
+
+int
+testFn(x:int)
+{
+   var n, y:int;
+   y = 0;
+   for (n=0; n<=x; x+=1) {
+      y += n;
+   }
+}
+
+int
+main()
+{
+   var x:int;
+   x = testFn(100);
+   while (1) {
+       return 1;
+   }
+   if (1 > 0) return 10; else while(0) return 10;
+}

@@ -1,0 +1,1398 @@
+
+  
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://liusy58.github.io/LearningCS/Compiler/CS143/">
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.8">
+    
+    
+      
+        <title>CS143 - LearningCS</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.1d29e8d0.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
+        
+      
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+
+  <script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-C7E0KYN4VG"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&gtag("event","search",{search_term:this.value})}),"undefined"!=typeof location$&&location$.subscribe(function(e){gtag("config","G-C7E0KYN4VG",{page_path:e.pathname})})})</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-C7E0KYN4VG"></script>
+
+
+    
+    
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?e22bc81eba95d694372372b42adabdaf";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#14-01-intermediate-language" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+        <aside class="md-banner">
+          <div class="md-banner__inner md-grid md-typeset">
+            
+<img class="twemoji" alt="🚧" src="https://twemoji.maxcdn.com/2/svg/1f6a7.svg" title=":constrution" /> 本文档还在编写中
+
+          </div>
+        </aside>
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="LearningCS" class="md-header__button md-logo" aria-label="LearningCS" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            LearningCS
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              CS143
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="夜间模式"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="夜间模式" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="白天模式"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="白天模式" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/liusy58/LearningCS" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="LearningCS" class="md-nav__button md-logo" aria-label="LearningCS" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    LearningCS
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/liusy58/LearningCS" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          Reading List
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Reading List" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Reading List
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ReadingList/Compilers/" class="md-nav__link">
+        Compilers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          CS143
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        CS143
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#14-01-intermediate-language" class="md-nav__link">
+    14-01 Intermediate language
+  </a>
+  
+    <nav class="md-nav" aria-label="14-01 Intermediate language">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-intermediate-language" class="md-nav__link">
+    What is Intermediate language?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-bother-to-introduce-intermediate-language" class="md-nav__link">
+    Why bother to introduce Intermediate language?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-02-optimization-overview" class="md-nav__link">
+    14-02 Optimization Overview
+  </a>
+  
+    <nav class="md-nav" aria-label="14-02 Optimization Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#when-should-we-perform-optimizations" class="md-nav__link">
+    When should we perform optimizations?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-the-purpose-of-optimization" class="md-nav__link">
+    What is the purpose of optimization?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#in-practice-often-a-conscious-decision-is-made-not-to-implement-the-fanciest-optimization-known-why" class="md-nav__link">
+    In practice, often a conscious decision is made not to implement the fanciest optimization known, why?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-03-local-optimizations" class="md-nav__link">
+    14-03 Local Optimizations
+  </a>
+  
+    <nav class="md-nav" aria-label="14-03 Local Optimizations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#algebraic-simplification" class="md-nav__link">
+    Algebraic Simplification
+  </a>
+  
+    <nav class="md-nav" aria-label="Algebraic Simplification">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#some-statements-can--be-deleted" class="md-nav__link">
+    Some statements can  be deleted.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#some-statements-can-be-simplified" class="md-nav__link">
+    Some statements can be simplified.
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constant-folding" class="md-nav__link">
+    constant folding
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#eliminate-unreachable-basic-blocks" class="md-nav__link">
+    Eliminate unreachable basic blocks
+  </a>
+  
+    <nav class="md-nav" aria-label="Eliminate unreachable basic blocks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-would-unreachable-basic-blocks-occur" class="md-nav__link">
+    Why would unreachable basic blocks occur?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#some-optimizations-are-simplified-if-each-register-occurs-only-once-on-the-left-hand-side-of-an-assignment" class="md-nav__link">
+    Some optimizations are simplified if each register occurs only once on the left-hand side of an assignment.
+  </a>
+  
+    <nav class="md-nav" aria-label="Some optimizations are simplified if each register occurs only once on the left-hand side of an assignment.">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#common-subexpression-elimination" class="md-nav__link">
+    Common subexpression elimination
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#copy-propogation" class="md-nav__link">
+    copy propogation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sumarry" class="md-nav__link">
+    Sumarry
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-04-peephole-optimizations" class="md-nav__link">
+    14-04 Peephole Optimizations
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#16-01-register-allocation" class="md-nav__link">
+    16-01 Register Allocation
+  </a>
+  
+    <nav class="md-nav" aria-label="16-01 Register Allocation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#history" class="md-nav__link">
+    History
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#register-interface-graphrig" class="md-nav__link">
+    register interface graph(RIG)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#16-02-graph-coloring" class="md-nav__link">
+    16-02 Graph Coloring
+  </a>
+  
+    <nav class="md-nav" aria-label="16-02 Graph Coloring">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#algorithm" class="md-nav__link">
+    Algorithm
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#16-03-spilling" class="md-nav__link">
+    16-03 Spilling
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#16-04-managing-caches" class="md-nav__link">
+    16-04 Managing Caches
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#17-01-automatic-memory-management" class="md-nav__link">
+    17-01 Automatic Memory Management
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#17-03-stop-and-copy" class="md-nav__link">
+    17-03 Stop-and-Copy
+  </a>
+  
+    <nav class="md-nav" aria-label="17-03 Stop-and-Copy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-does-it-work" class="md-nav__link">
+    How does it work?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-to-implement-the-traversal-of-the-object-graph-without-using-any-extra-space" class="md-nav__link">
+    how to implement the traversal of the object graph without using any extra space
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alogrithm" class="md-nav__link">
+    Alogrithm
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advantages" class="md-nav__link">
+    Advantages
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disadvantage" class="md-nav__link">
+    Disadvantage
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../eBPF/" class="md-nav__link">
+        eBPF
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#14-01-intermediate-language" class="md-nav__link">
+    14-01 Intermediate language
+  </a>
+  
+    <nav class="md-nav" aria-label="14-01 Intermediate language">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-intermediate-language" class="md-nav__link">
+    What is Intermediate language?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-bother-to-introduce-intermediate-language" class="md-nav__link">
+    Why bother to introduce Intermediate language?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-02-optimization-overview" class="md-nav__link">
+    14-02 Optimization Overview
+  </a>
+  
+    <nav class="md-nav" aria-label="14-02 Optimization Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#when-should-we-perform-optimizations" class="md-nav__link">
+    When should we perform optimizations?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-the-purpose-of-optimization" class="md-nav__link">
+    What is the purpose of optimization?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#in-practice-often-a-conscious-decision-is-made-not-to-implement-the-fanciest-optimization-known-why" class="md-nav__link">
+    In practice, often a conscious decision is made not to implement the fanciest optimization known, why?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-03-local-optimizations" class="md-nav__link">
+    14-03 Local Optimizations
+  </a>
+  
+    <nav class="md-nav" aria-label="14-03 Local Optimizations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#algebraic-simplification" class="md-nav__link">
+    Algebraic Simplification
+  </a>
+  
+    <nav class="md-nav" aria-label="Algebraic Simplification">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#some-statements-can--be-deleted" class="md-nav__link">
+    Some statements can  be deleted.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#some-statements-can-be-simplified" class="md-nav__link">
+    Some statements can be simplified.
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constant-folding" class="md-nav__link">
+    constant folding
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#eliminate-unreachable-basic-blocks" class="md-nav__link">
+    Eliminate unreachable basic blocks
+  </a>
+  
+    <nav class="md-nav" aria-label="Eliminate unreachable basic blocks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-would-unreachable-basic-blocks-occur" class="md-nav__link">
+    Why would unreachable basic blocks occur?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#some-optimizations-are-simplified-if-each-register-occurs-only-once-on-the-left-hand-side-of-an-assignment" class="md-nav__link">
+    Some optimizations are simplified if each register occurs only once on the left-hand side of an assignment.
+  </a>
+  
+    <nav class="md-nav" aria-label="Some optimizations are simplified if each register occurs only once on the left-hand side of an assignment.">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#common-subexpression-elimination" class="md-nav__link">
+    Common subexpression elimination
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#copy-propogation" class="md-nav__link">
+    copy propogation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sumarry" class="md-nav__link">
+    Sumarry
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-04-peephole-optimizations" class="md-nav__link">
+    14-04 Peephole Optimizations
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#16-01-register-allocation" class="md-nav__link">
+    16-01 Register Allocation
+  </a>
+  
+    <nav class="md-nav" aria-label="16-01 Register Allocation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#history" class="md-nav__link">
+    History
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#register-interface-graphrig" class="md-nav__link">
+    register interface graph(RIG)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#16-02-graph-coloring" class="md-nav__link">
+    16-02 Graph Coloring
+  </a>
+  
+    <nav class="md-nav" aria-label="16-02 Graph Coloring">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#algorithm" class="md-nav__link">
+    Algorithm
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#16-03-spilling" class="md-nav__link">
+    16-03 Spilling
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#16-04-managing-caches" class="md-nav__link">
+    16-04 Managing Caches
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#17-01-automatic-memory-management" class="md-nav__link">
+    17-01 Automatic Memory Management
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#17-03-stop-and-copy" class="md-nav__link">
+    17-03 Stop-and-Copy
+  </a>
+  
+    <nav class="md-nav" aria-label="17-03 Stop-and-Copy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-does-it-work" class="md-nav__link">
+    How does it work?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-to-implement-the-traversal-of-the-object-graph-without-using-any-extra-space" class="md-nav__link">
+    how to implement the traversal of the object graph without using any extra space
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alogrithm" class="md-nav__link">
+    Alogrithm
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advantages" class="md-nav__link">
+    Advantages
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disadvantage" class="md-nav__link">
+    Disadvantage
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+  
+                
+  <a href="https://github.com/liusy58/LearningCS/edit/master/docs/Compiler/CS143.md" title="编辑此页" class="md-content__button md-icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+
+  <h1>CS143</h1>
+
+<h2 id="14-01-intermediate-language">14-01 Intermediate language<a class="headerlink" href="#14-01-intermediate-language" title="Permanent link">&para;</a></h2>
+<h4 id="what-is-intermediate-language">What is Intermediate language?<a class="headerlink" href="#what-is-intermediate-language" title="Permanent link">&para;</a></h4>
+<p>The intermediate language is a language between the source and the target.</p>
+<h4 id="why-bother-to-introduce-intermediate-language">Why bother to introduce Intermediate language?<a class="headerlink" href="#why-bother-to-introduce-intermediate-language" title="Permanent link">&para;</a></h4>
+<p>Because it provides an intermediate level of abstraction, it has more details than the source. For example, we want to optimize register usage, most source languages have no notion of the register at the source level so there is no way to even express the kinds of optimization you might want to do with registers.
+It will also have fewer details than the target. For example, the intermediate language is a little bit above the level of the particular instruction set of a particular machine, and therefore, it is easier to retarget that intermediate level of code to lots of different kinds of machines because it doesn't have all the grubby details of a particular machine.</p>
+<h2 id="14-02-optimization-overview">14-02 Optimization Overview<a class="headerlink" href="#14-02-optimization-overview" title="Permanent link">&para;</a></h2>
+<h4 id="when-should-we-perform-optimizations">When should we perform optimizations?<a class="headerlink" href="#when-should-we-perform-optimizations" title="Permanent link">&para;</a></h4>
+<p>In fact, we can perform them on the AST, a big advantage of that is that it's machine-independent, but it turns out AST is too high for a lot of optimizations we want to do because optimizations depend on lower-level details of the machine. Another possibility would be to perform optimizations directly on the assembly language but they are machine-dependent and we would have to reimplement optimizations for each kind of architecture. So intermediate language is an ideal choice.</p>
+<h4 id="what-is-the-purpose-of-optimization">What is the purpose of optimization?<a class="headerlink" href="#what-is-the-purpose-of-optimization" title="Permanent link">&para;</a></h4>
+<p>The purpose of optimization is to improve a program's resource utilization such as execution time, code size, network messages sent, and so on.
+For languages like C and Cool,  there are three granularities of optimizations. One is called Local optimizations which occur within a single block. Then there're what are called Global optimizations. This is really misnamed because it is not global across the entire program, it's global across an entire function. So global optimizations would apply to a single function and apply to all the basic blocks of that function. And finally, there are inter-procedural optimizations. These are optimizations that work across method boundaries. They take multiple functions and move things around to try to optimize the collection of functions as a whole. </p>
+<h4 id="in-practice-often-a-conscious-decision-is-made-not-to-implement-the-fanciest-optimization-known-why">In practice, often a conscious decision is made not to implement the fanciest optimization known, why?<a class="headerlink" href="#in-practice-often-a-conscious-decision-is-made-not-to-implement-the-fanciest-optimization-known-why" title="Permanent link">&para;</a></h4>
+<p>First, some optimizations are hard to implement for SE. 
+Second, some optimizations are costly in compilation time. Even though the compiling happens offline not part of the running of the program, the programmer still has to wait when the optimizing compiler does its optimizations. 
+Third, some of these optimizations have a low payoff. They might only do it by a small amount.
+Last, unfortunately, many fancy optimizations are all there!</p>
+<p>So the goal of optimization is to maximum benefit for minimum cost.</p>
+<h2 id="14-03-local-optimizations">14-03 Local Optimizations<a class="headerlink" href="#14-03-local-optimizations" title="Permanent link">&para;</a></h2>
+<h3 id="algebraic-simplification">Algebraic Simplification<a class="headerlink" href="#algebraic-simplification" title="Permanent link">&para;</a></h3>
+<h4 id="some-statements-can--be-deleted">Some statements can  be deleted.<a class="headerlink" href="#some-statements-can--be-deleted" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="nl">x</span><span class="w"> </span><span class="p">:</span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span>
+<span class="nl">x</span><span class="w"> </span><span class="p">:</span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+</code></pre></div>
+<h4 id="some-statements-can-be-simplified">Some statements can be simplified.<a class="headerlink" href="#some-statements-can-be-simplified" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="nl">x</span><span class="w"> </span><span class="p">:</span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">     </span><span class="o">=&gt;</span><span class="w">  </span><span class="n">x</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="nl">y</span><span class="w"> </span><span class="p">:</span><span class="o">=</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">**</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w">    </span><span class="o">=&gt;</span><span class="w">  </span><span class="n">y</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">y</span><span class="p">;</span><span class="w"></span>
+<span class="nl">z</span><span class="w"> </span><span class="p">:</span><span class="o">=</span><span class="w"> </span><span class="n">z</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span><span class="w">     </span><span class="o">=&gt;</span><span class="w">  </span><span class="n">z</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">z</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w"></span>
+<span class="nl">p</span><span class="w"> </span><span class="p">:</span><span class="o">=</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">15</span><span class="p">;</span><span class="w">    </span><span class="o">=&gt;</span><span class="w">  </span><span class="n">t</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">p</span><span class="p">;</span><span class="w"></span>
+</code></pre></div>
+<p>For the operator <code>**</code>, it's probably that's going to wind up in our generated code is a call to some built-in math library which will introduce the function call overhead and some kind of general loop in there. So in a special case where we know the exponent is 2, it's much more efficient to just replace that call to exponentiate by an explicit multiply. </p>
+<p>Another example is <code>z := z * 8;</code>. If we have a multiplication by a power of <code>2</code>, we can replace that with a left bit shift. In fact, it doesn't have to be a power of two if we have a multiplication by some other number, that can be replaced by some combination of shifting and subtractions. I want to point out that <strong>these transformations will not result in any kind of speedup</strong> because, on modern machines, multiplication is just as fast as any other single instruction. </p>
+<h3 id="constant-folding">constant folding<a class="headerlink" href="#constant-folding" title="Permanent link">&para;</a></h3>
+<p>Operations on constants can be computed at compile time. 
+<div class="highlight"><pre><span></span><code><span class="nl">x</span><span class="w"> </span><span class="p">:</span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w">  </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span><span class="w"></span>
+<span class="k">if</span><span class="w">  </span><span class="mi">2</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="n">jump</span><span class="w"> </span><span class="n">L</span><span class="w">  </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">jump</span><span class="w"> </span><span class="n">L</span><span class="p">;</span><span class="w"></span>
+</code></pre></div></p>
+<p>There is one situation that you should be aware of in which constant folding can be very dangerous. It's something that really illustrates some of the subtleties of program optimization and programming language semantics. Let's consider the scenario where we have two machines, X, Y.   Now the compiler is running on machine X, and the compiler is producing code for machine Y, and the code will run on it. This is called cross-compiler(Just considering the embedded system code). The problem comes, if X and Y are different architectures. So let's say we have the instruction <code>a := 1.5 + 3.7;</code>, and you would like to constant fold that down to equal <code>5.2</code>. Now the problem is that if you simply execute this as a floating-point operation on X, the roundoff and the pointing number semantics may be slightly different from Y. So on Y you may get something like <code>a:= 5.19;</code> . There might be a small difference in the floating-point result. </p>
+<h3 id="eliminate-unreachable-basic-blocks">Eliminate unreachable basic blocks<a class="headerlink" href="#eliminate-unreachable-basic-blocks" title="Permanent link">&para;</a></h3>
+<p>An unreachable basic block is one that is not the target of any jump or falls through. It will make the code smaller and run faster because of the cache effects to increase the spatial locality.</p>
+<h4 id="why-would-unreachable-basic-blocks-occur">Why would unreachable basic blocks occur?<a class="headerlink" href="#why-would-unreachable-basic-blocks-occur" title="Permanent link">&para;</a></h4>
+<p>There are several ways in which unreachable code can arise.  The most common cause is that the code is actually parameterized with code that is only compiled and used in certain situations. In c, it would be sort of typical to see some code that looks like this:</p>
+<div class="highlight"><pre><span></span><code><span class="cp">#define DEBUG 0</span>
+
+<span class="k">if</span><span class="p">(</span><span class="n">DEBUG</span><span class="p">){</span><span class="w"> </span><span class="p">...}</span><span class="w"></span>
+</code></pre></div>
+<p>Another case where unreachable code comes up is with libraries. So very frequently,  programs are written to use generic libraries that the program might only use a very small part of the interface. But the library might supply hundreds of methods to cover all the situations. But for your program, you might only be using three of those methods and the rest of the methods could potentially be removed from the final binary to make the code smaller. </p>
+<p>And finally,  another way that unreachable basic blocks occur is as the result of other optimizations. So as we can see, optimizations frequently lead to more optimizations. And it could just be through other rearrangements of the compiler to make some redundant BBs removed. </p>
+<h3 id="some-optimizations-are-simplified-if-each-register-occurs-only-once-on-the-left-hand-side-of-an-assignment">Some optimizations are simplified if each register occurs only once on the left-hand side of an assignment.<a class="headerlink" href="#some-optimizations-are-simplified-if-each-register-occurs-only-once-on-the-left-hand-side-of-an-assignment" title="Permanent link">&para;</a></h3>
+<p>If each register is assigned at most once then some of these optimizations are easier to talk about.</p>
+<h4 id="common-subexpression-elimination">Common subexpression elimination<a class="headerlink" href="#common-subexpression-elimination" title="Permanent link">&para;</a></h4>
+<p>In SSA and <code>x :=</code> is the first use of <code>x</code> in a block. Then when two assignments have the same rhs, they compute the same value.</p>
+<p><div class="highlight"><pre><span></span><code><span class="nl">x</span><span class="w"> </span><span class="p">:</span><span class="o">=</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">z</span><span class="p">;</span><span class="w"></span>
+<span class="p">...</span><span class="w"></span>
+<span class="nl">w</span><span class="w"> </span><span class="p">:</span><span class="o">=</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">z</span><span class="p">;</span><span class="w"></span>
+</code></pre></div>
+can be replaced by :</p>
+<div class="highlight"><pre><span></span><code><span class="nl">x</span><span class="w"> </span><span class="p">:</span><span class="o">=</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">z</span><span class="p">;</span><span class="w"></span>
+<span class="p">...</span><span class="w"></span>
+<span class="nl">w</span><span class="w"> </span><span class="p">:</span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"></span>
+</code></pre></div>
+<h4 id="copy-propogation">copy propogation<a class="headerlink" href="#copy-propogation" title="Permanent link">&para;</a></h4>
+<p>If <code>w := x</code>appears in a block, replace subsequent uses of <code>w</code> with the use of <code>x</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="nl">b</span><span class="w"> </span><span class="p">:</span><span class="o">=</span><span class="w"> </span><span class="n">z</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">y</span><span class="p">;</span><span class="w"></span>
+<span class="nl">a</span><span class="w"> </span><span class="p">:</span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w"></span>
+<span class="nl">x</span><span class="w"> </span><span class="p">:</span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">a</span><span class="p">;</span><span class="w"></span>
+</code></pre></div>
+<p>can be replaced by:</p>
+<div class="highlight"><pre><span></span><code><span class="nl">b</span><span class="w"> </span><span class="p">:</span><span class="o">=</span><span class="w"> </span><span class="n">z</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">y</span><span class="p">;</span><span class="w"></span>
+<span class="nl">a</span><span class="w"> </span><span class="p">:</span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w"></span>
+<span class="nl">x</span><span class="w"> </span><span class="p">:</span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w"></span>
+</code></pre></div>
+<p>This optimization can only be useful in conjunction with some of other optimizations such as constant folding and dead code elimination.</p>
+<h3 id="sumarry">Sumarry<a class="headerlink" href="#sumarry" title="Permanent link">&para;</a></h3>
+<p>Each of these optimizations presented actually doesn't make the program run faster at all. They don't make program run slower either, but by themselves, they don't actually make any improvement to the program. But typically, the optimizations will interact , so performing one optimization will enable another. So the way to think about an optimizing compiler is that it has a big bag of tricks(program transformations), when faced with a program to optimize,  it is going to rummage around in its bag looking for an optimization that applies to some part of the code. If it finds one,  it will do the optimization. And it will repeat it and look back and see if there is another optimization that applies. Then it will just keep doing this until it reaches a point where none of the optimizations it knows can be applied. </p>
+<h3 id="14-04-peephole-optimizations">14-04 Peephole Optimizations<a class="headerlink" href="#14-04-peephole-optimizations" title="Permanent link">&para;</a></h3>
+<p>Let's see a variation on local optimization that applies directly to assembly code called peephole optimization. Peephole optimization in one such technique that peephole stands for a short (usually continuous) sequence of instructions, what optimizer will do is to replace the sequence with another equivalent one(but faster). </p>
+<p>One example is:</p>
+<div class="highlight"><pre><span></span><code><span class="nf">move</span><span class="w"> </span><span class="no">$a</span><span class="w"> </span><span class="no">$b</span><span class="w"></span>
+<span class="nf">move</span><span class="w"> </span><span class="no">$b</span><span class="w"> </span><span class="no">$a</span><span class="w"></span>
+</code></pre></div>
+<p>can be replaced by the following code if <code>move $b $a</code> is not the target of a jump.</p>
+<div class="highlight"><pre><span></span><code><span class="nf">move</span><span class="w"> </span><span class="no">$a</span><span class="w"> </span><span class="no">$b</span><span class="w"></span>
+</code></pre></div>
+<p>Another example is</p>
+<p><div class="highlight"><pre><span></span><code><span class="nf">addiu</span><span class="w"> </span><span class="no">$a</span><span class="w"> </span><span class="no">$a</span><span class="w"> </span><span class="no">i</span><span class="c1">;</span>
+<span class="nf">addiu</span><span class="w"> </span><span class="no">$a</span><span class="w"> </span><span class="no">$a</span><span class="w"> </span><span class="no">j</span><span class="c1">;</span>
+</code></pre></div>
+can be replaced by the following code</p>
+<div class="highlight"><pre><span></span><code><span class="nf">addiu</span><span class="w"> </span><span class="no">$a</span><span class="w"> </span><span class="no">$a</span><span class="w"> </span><span class="no">i</span><span class="err">+</span><span class="no">j</span><span class="c1">;</span>
+</code></pre></div>
+<p>Many basic block optimizations can be cast also as peephole optimizations.:</p>
+<ul>
+<li><code>addiu $a $b 0</code> -&gt; <code>move $a $b</code></li>
+<li><code>move $a $a</code> -&gt; </li>
+</ul>
+<p>Peephole optimizations must be applied repeatedly for maximum effect. In fact, program optimization is grossly misnamed, I think program improvement is a more appropriate term because compilers will just improve the program as much as they can, and there is no guarantee that the best code will be produced. </p>
+<h3 id="16-01-register-allocation">16-01 Register Allocation<a class="headerlink" href="#16-01-register-allocation" title="Permanent link">&para;</a></h3>
+<h4 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h4>
+<p>Intermediate code can use an unlimited number of temporaries, this simplifies optimization because they don't have to worry about preserving the right number of registers in the code but it does complicate the final translation into assembly code because we might be using too many temporaries and this is actually a problem in practice. So it's common for intermediate code to use more temporaries than physical registers on the machine. Then the problem is to rewrite the intermediate code to use no more temporaries than physical registers. And we are going to assign multiple temporaries to each register. So we are going to have a many-one mapping from temporaries to registers. How can we actually make a single register hold multiple values? Well, the trick is that it's fine for registers to have local values as long as it only has one value at a time.</p>
+<p>Let's consider this program:</p>
+<div class="highlight"><pre><span></span><code><span class="nl">a</span><span class="w"> </span><span class="p">:</span><span class="o">=</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">d</span><span class="p">;</span><span class="w"></span>
+<span class="nl">e</span><span class="w"> </span><span class="p">:</span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w"></span>
+<span class="nl">f</span><span class="w"> </span><span class="p">:</span><span class="o">=</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+</code></pre></div>
+<p>Here, I'm assuming that a and e are not used anywhere else and so it turns out that a, e, and f could all actually live in the same register. Alright, that's assuming that a and e are dead after their uses. And what will that look like, well let's allocate them all to a particular register <code>r1</code> and let's assign <code>c</code>, <code>d</code>, and <code>b</code> into their own individual registers and the code would like this:</p>
+<div class="highlight"><pre><span></span><code><span class="nl">r1</span><span class="w"> </span><span class="p">:</span><span class="o">=</span><span class="w"> </span><span class="n">r2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">r3</span><span class="p">;</span><span class="w"></span>
+<span class="nl">r1</span><span class="w"> </span><span class="p">:</span><span class="o">=</span><span class="w"> </span><span class="n">r1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">r4</span><span class="p">;</span><span class="w"></span>
+<span class="nl">r1</span><span class="w"> </span><span class="p">:</span><span class="o">=</span><span class="w"> </span><span class="n">r1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+</code></pre></div>
+<p>And so now notice this is just a translation of the code over here into registers but there is a many one mapping of names above to register names below.</p>
+<h4 id="history">History<a class="headerlink" href="#history" title="Permanent link">&para;</a></h4>
+<p>A register allocation is an old problem. In fact, it was first recognized way back in the 1950s in the original Fortran project but originally, register allocation was done with a fairly crude algorithm, and someone rapidly or very quickly noticed that was actually a bottleneck in the quality of code generation that actually limitations on the ability of register allocation have a really significant effect on the overall quality of the code that compilers could produce. And then about 30 years later, in 1980, a breakthrough occurred where a group of researchers at IBM discovered a register allocation scheme based on graph coloring. And the great thing about this scheme is that it's pretty simple. It's easy to explain. It's global, meaning it takes advantage of
+information from the entire control flow graph at the same time and also happens to work well in practice. </p>
+<h4 id="register-interface-graphrig">register interface graph(RIG)<a class="headerlink" href="#register-interface-graphrig" title="Permanent link">&para;</a></h4>
+<p>And here's the basic principle that underlies the modern register allocation algorithms. So, if I have two temporaries <code>t1</code> and <code>t2</code>, I want to know when they can share register. So, <strong>they're allowed to share a register if they are not live at the same time.</strong>  </p>
+<p>Let's take a look at a control flow graph and now, we know that in order to do the register allocation to solve the register allocation at least in this in this way, we're going to need liveness information. Well, we're going to construct an undirected graph and in this graph, there will be a node for each temporary so each variable will have a node in the graph and there'll be an edge between two temporaries if they are live simultaneously at some point in the program. This is the graph (RIG) constructed from the code and the line analysis above, it's easy to read off from the graph what the constraints are. </p>
+<p><img src="https://user-images.githubusercontent.com/45984215/159105388-a2ae4110-5068-412e-9b69-c5dfff04666b.png" alt="l" style="width:400px;"/>
+<img src="https://user-images.githubusercontent.com/45984215/159105394-6df657f4-0742-4d4a-9ebb-12cca0f9ad9a.png" alt="r" style="width:300px;"/></p>
+<p>So, for example, b and c cannot be in the same register because b and c are connected by an edge, which means they're live simultaneously at some part, some point in the program and so they have to live in different registers. On the other hand, there is at, there is no edge between b and d. So, this edge is missing, and therefore, it's possible that b and d could be allocated in the same register. </p>
+<p>So a great thing about the register interference graph (RIG) is that it extracts exactly the information needed to characterize a legal register assignment. So, it gives us a representation of all the possible legal register assignments. Now, we haven't actually gotten a register assignment out of the register interference graph, but the first step is to characterize the problem in some kind of precise way. The other thing that is good about is a global view of the register requirements meaning it's over
+the entire control flow graphs. So, takes into account information from every part of the control flow graph which will help us to make good global decisions about what value is very important to live in registers. And finally, the other thing to notice is that, after reconstruction, the register allocation for the algorithm is architecture-independent. </p>
+<h3 id="16-02-graph-coloring">16-02 Graph Coloring<a class="headerlink" href="#16-02-graph-coloring" title="Permanent link">&para;</a></h3>
+<p>A graph coloring is an assignment of colors to nodes such that the nodes connected by an edge have different colors. And then the graph is k-colorable if it has a coloring that uses k or fewer colors. In our problem, the colors correspond to registers so we want to do is to assign colors or registers to the graph nodes. And we're going to let k, the number, the maximum number of colors we're allowed to use be the number of machine registers. </p>
+<p><img src="https://user-images.githubusercontent.com/45984215/159107869-5f61d491-4723-4fc5-ab83-45779a4ab097.png" alt="l" style="width:300px;"/>
+<img src="https://user-images.githubusercontent.com/45984215/159107891-b065bbdf-0ac9-4d0f-aa80-c281cff6fe9d.png" alt="l" style="width:300px;"/>
+<img src="https://user-images.githubusercontent.com/45984215/159107900-eca3de7c-a552-4936-88b2-42c08e84e141.png" alt="l" style="width:300px;"/></p>
+<!-- ![image](https://user-images.githubusercontent.com/45984215/159107869-5f61d491-4723-4fc5-ab83-45779a4ab097.png)
+![image](https://user-images.githubusercontent.com/45984215/159107891-b065bbdf-0ac9-4d0f-aa80-c281cff6fe9d.png)
+![image](https://user-images.githubusercontent.com/45984215/159107900-eca3de7c-a552-4936-88b2-42c08e84e141.png) -->
+
+<h4 id="algorithm">Algorithm<a class="headerlink" href="#algorithm" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Step1</li>
+<li>Pick a node <code>t</code> with fewer than k neighbors in RIG</li>
+<li>Eliminate t and its edges from RIG</li>
+<li>If the resulting graph is k-colorable, then so is the original graph</li>
+<li>Step2: Assign colors to nodes on the stack </li>
+<li>Start with the last node added</li>
+<li>At each step pick a color different from those assigned to already colored neighbors</li>
+</ul>
+<h3 id="16-03-spilling">16-03 Spilling<a class="headerlink" href="#16-03-spilling" title="Permanent link">&para;</a></h3>
+<p>In this lecture, we are going to continue our discussion of register allocation, and this time we are going to talk about what happens when we can't successfully color the graph, in which case we have to do something known as spilling. The graph coloring algorithm that we discussed in the previous last doesn't always succeed in coloring an arbitrary graph. And it may well get stuck and not be able to find a coloring. And so in that case the only conclusion we can reach is that we can't hold all the values to register. And those temporary values have to live somewhere so where should they live? Well, they're going to have to live in memory. That's the only other kind of story that we have. And so we're going to pick some values and spill them into memory. The ideas that we have, the
+picture in your mind should be a bucket and it can hold a fixed amount of stuff, those are the registers and when it gets too full, some of the stuff spills over, and ends up someplace else. <strong>Now, when does the graph coloring do get stuck?</strong> Well, the only situation in which we won't be able to make progress is all the nodes have k or more neighbors. Given that the machine we want to use only has three registers and so we, instead of finding a 4-coloring of this graph, we need to find a 3-coloring. So let's think about how to find the three coloring of this graph. If we apply the heuristic, we'll remove A from the graph but then we're going to get stuck. Because once you take <code>A</code> out of the graph and its edge is out and every node left has three or more neighbors as at least three neighbors. So, there's no node that we can delete from the graph and be guaranteed to be able to find the coloring for it with the heuristic that we discussed in the previous lecture. So, in this situation, what we're going to do is we're going to pick and know that there is a candidate for spilling. This is a node that we think we may have to assign into a memory location rather than to our register.</p>
+<p><img src="https://user-images.githubusercontent.com/45984215/159150863-b9e1bda2-e8f5-422d-ace5-4a6687399d29.png" alt="l" style="width:300px;"/>
+<img src="https://user-images.githubusercontent.com/45984215/159150867-a96d109e-828f-4e39-8e1a-9b35eb8f627f.png" alt="l" style="width:300px;"/></p>
+<!-- ![image](https://user-images.githubusercontent.com/45984215/159150863-b9e1bda2-e8f5-422d-ace5-4a6687399d29.png)
+
+![image](https://user-images.githubusercontent.com/45984215/159150867-a96d109e-828f-4e39-8e1a-9b35eb8f627f.png) -->
+
+<p>Let's assume for the sake of this example that we pick <code>f</code> and we're going to spill <code>f</code>.  Now we have to try to assign a color to <code>f</code> and it could be, we could get lucky and discover that even though <code>f</code> had more than there neighbors or three or more neighbors when we remove it from the graph, it could be that when we go to construct the coloring for the subgraph that those neighbors actually don't use all of the registers. And so, this is called <strong>optimistic coloring</strong>. So we pick a candidate for spilling. We tried to color the subgraph. Once we have a coloring for the sub-graph, now we see if we just get lucky are able to assign a register to <code>f</code> in which case we can just go ahead and continue the color of the rest of the graph as if nothing had
+happened. </p>
+<p>So in this case let's take a look at what happens. We're going to add <code>f</code> back into the graph.  And in this case, optimistic coloring will not work so, in fact, <code>f</code> had more than K neighbors and after we color the sub-graph, it turns out that those neighbors are using all K. And so there is no register leftover for <code>f</code> and we're going to have to
+actually spill it and store it in memory. So, if optimistic coloring fails as it does in
+this example, then we spill <code>f</code>. So, what we're going to do is allocate the memory
+location for <code>f</code> and typically, what that means is that we'll allocate a position in
+the current stack frame. Let's call this address <code>fa</code> for the address of  <code>f</code>. And then
+we're going to modify the control flow graph. We're going to change the code for
+that compiling. So, before each operation that reads <code>f</code>, we're going to insert a load
+that loads from that address to the current value of  <code>f</code> into a temporary name. And similarly, after each operation that writes <code>f</code>, we're going to insert the store so we're going to save the current value of <code>f</code> into its location in memory. So, here is the original code from which we constructed the registry interference graph and notice that there are few references to f in here and we just highlight them, alright. </p>
+<p><img src="https://user-images.githubusercontent.com/45984215/159151093-205118ec-0a26-460a-9313-bbd163597693.png" alt="l" style="width:300px;"/>
+<img src="https://user-images.githubusercontent.com/45984215/159151101-bd6d86a1-c2a2-4654-bb0f-9179864f03be.png" alt="l" style="width:300px;"/></p>
+<!-- ![image](https://user-images.githubusercontent.com/45984215/159151093-205118ec-0a26-460a-9313-bbd163597693.png)
+![image](https://user-images.githubusercontent.com/45984215/159151101-bd6d86a1-c2a2-4654-bb0f-9179864f03be.png) -->
+
+<p>So, here we had the use of <code>f</code>, the read of <code>f</code> in this statement and now we preceded that by a load. And notice that I've given a new name here I've called <code>f1</code>, that's because the different uses of <code>f</code> in the control flow graph don't all have to have the same temporary name and actually, it would be a good idea to separate them so
+each distinct to use of <code>f</code> will get its own name. So here we load the value of <code>f</code>
+and then it gets to use in the statement. Here we have a write to <code>f</code> and so we store
+the current value of <code>f</code> to a different name <code>f2</code>. And finally, the third use of <code>f</code> there's another load of <code>f</code> right here which is then used in this computation here of <code>b</code>. Okay. So, that is the systematic way to modify the code to use <code>f</code> in storage. And now, we have to recompute the aliveness of <code>f</code>.  And so, whathappens there? Well, here is the original aliveness information from which we computed the register interference graph, okay.</p>
+<p><img src="https://user-images.githubusercontent.com/45984215/159151281-7daa19bc-e182-4fe6-914c-59c3834d1109.png" alt="m" style="width:500px;"/></p>
+<!-- ![image](https://user-images.githubusercontent.com/45984215/159151281-7daa19bc-e182-4fe6-914c-59c3834d1109.png) -->
+
+<p>And now notice that <code>f</code> is gone. We no longer use <code>f</code> in the programs so we can delete all the places where we mentioned that <code>f</code> was live and now we have the three new names, <code>f1</code>, <code>f2</code>, and <code>f3</code>. And we have to add in their aliveness information so it creates a new program where we inserted statements. And of course, where we have a load of the current value of <code>f</code> lives right before the use in the next statement. Here, we have the right of the current value of <code>f</code> and that's live right before the store, and then here's another load of the current value of <code>f</code> which is live until the use in the next statement. Okay. And so, now notice here that <code>f</code> used to be live in many places in the code. And now not only is <code>f</code> of the different versions in fewer places also we've distinguished them. So, it actually separates the different uses of <code>f</code> and so this will
+have their own nodes in their own set of interferences in the graph and they won't
+share them with the other users of <code>f</code> and that will actually also reduce the number
+of edges in the graph. </p>
+<p>To summarize the example above, once we have decided that we are actually going to spill a temporary <code>f</code>, that means we're going to change the program where have loads and stores to the program and now we're going to have a different program and that's going to change our register allocation problems. We're going to have to recompute the aliveness of information, we have to rebuild the restrain interference graph and then we're going to have to try again to color that block graph. Now, it turns out that this new aliveness information is almost the same as it was before. So, all the temporary names other than <code>f</code> are not much affected by new statements that are added. And, <code>f</code> itself has changed fairly dramatically. Certainly the old name <code>f</code> is no longer used and so it's like this information goes away and then we've also split <code>f</code> into three, in this case, three different temporaries, one for each of the different uses of <code>f</code> in the control flow graph. And I noticed that each of these new uses of <code>f</code> or these new versions of <code>f</code> is live in a very, very small area. </p>
+<p>For a load instruction, <code>f</code> is live only between the load and the next instruction where it's used and similarly for a store, <code>f</code> is live only between the store itself and the proceeding instruction, the one they created <code>f</code>.  <strong>And the effect  is to greatly reduce the live range of the spilled variable</strong>. So because the live range of <code>f</code> is reduced by
+spilling, it has fewer interferences in the new program than it did in the old program. </p>
+<p>And so what that means the particulars in the rebuild register interference graph. <code>f</code> will have fewer neighbors. Some of the neighbors that it had before have gone away because it's live in fewer places. </p>
+<p><img src="https://user-images.githubusercontent.com/45984215/159151824-ae19cdb0-dcad-49fe-8caa-5bce47e7b917.png" alt="m" style="width:300px;"/></p>
+<!-- ![image](https://user-images.githubusercontent.com/45984215/159151824-ae19cdb0-dcad-49fe-8caa-5bce47e7b917.png) -->
+
+<p>So if we look at the new register interference graph, we can see that among all the different versions of <code>f</code>. Remember that <code>f</code> has been split into three temporaries in this graph. We see that they only interfere with <code>d</code> and <code>c</code>, whereas before f have several other neighbors in the graph. And now, in fact, this new graph is three colorable. </p>
+<p>Of course, it might be the case that we can't just spill one name. We might have to spill several different temporaries before the coloring is found. And, the tricky part is what to spill. So, this is the hard decision that has to be made during restore allocation. Now any choice is correct. It's only a question of performance so you know some choices of spilling will lead to better code than others but any choice of spilling is going to resolve in a correct program. And there's heuristics that people use to pick which temporaries to spill and here are a few or I think three of the most popular ones. One is to spill the temporaries have the most conflicts. And the reason for that is that the temporary will most affect the number of interferences in the graph. We'll remove enough edges from the graph that they become tolerable with the number of registers we have. Another possibility is spilling temporaries that have few definitions and uses. And, here the idea is that by spilling those since they're not used very much, the number of load and write in storage will have to add, will be relatively small and so if a variable just isn't used in many places, then the actual cost, in terms of additional instructions that are going to be executed to spill it, is relatively small. And another one and this is actually the one that I think that all the compilers implement is to avoid spilling in an inner loops. So, if you have a choice between spilling a variable that's used within innermost loop for the program and one that is used someplace else. It's probably preferred that you spill the one that is used not in the innermost loop absolutely because again, that will result in fewer loads in stores. You really want to avoid adding additional instructions to your inner loop.</p>
+<h3 id="16-04-managing-caches">16-04 Managing Caches<a class="headerlink" href="#16-04-managing-caches" title="Permanent link">&para;</a></h3>
+<p>In this lecture, we're going to talk about another very important resource, the cache, and what compilers can and can't do to manage them. Modern computer systems have quite elaborate memory hierarchies. </p>
+<p><img src="https://user-images.githubusercontent.com/45984215/159200117-5033b56b-6520-4dbd-a351-350589af20f5.png" alt="m" style="width:300px;"/></p>
+<!-- ![image](https://user-images.githubusercontent.com/45984215/159200117-5033b56b-6520-4dbd-a351-350589af20f5.png) -->
+
+<p>So the bottom line is that it's very important for high performance to manage these resources properly. Particular to manage the registers and the cache as well if you want your program to perform well. Compilers have become very good at managing registers and in fact, I think today, most people would agree that for almost all programs, compilers do a better job at managing registers than
+programmers can. And so, it's very worthwhile to leave the job of allocating registers or assigning registers to the compiler. However, compilers are not good at managing caches. If programmers want to get good cache performance, they have to understand the
+behavior of the cache is on the machine and have to understand what their program is doing, you have to understand a little bit about what the compiler is capable of doing and then they still have to write the program in such a way that is going to be cache-friendly. So, it's still very much an open question. How much a compiler can do to improve cache performance? Although, there are a few things that we've found compilers can do reliably. So, to see one of those things that compilers can actually do let's take a look at this example loop. So, we have an outer loop on <code>j</code> and inner loop on <code>i</code> and then in each iteration of the inner loop we're reading from, some vector <code>B</code>, performing some computational and storing the results into the ith element of the vector. Now, as it turns out, this particular program has really, really terrible cache performance. This is going to behave very badly. And so, let's think about what's going to happen. </p>
+<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">&lt;</span><span class="mi">100000</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">*=</span><span class="w"> </span><span class="n">b</span><span class="p">[</span><span class="n">j</span><span class="p">];</span><span class="w"></span>
+</code></pre></div>
+<p>The important thing here is that on every iteration of the loop, we're referring to fresh data. And, and if these data values are large enough, if they take up an entire cache line, then each iteration of the loop is going to be a cache miss for both elements, and we won't get any benefit of the cache. And this loop will run at the rate of the main memory and not at the rate of the cache.
+Now, the other thing that's important here is that this loop bound here is very large and I picked it to be very large to suggest that it's much larger than the size of the cache. So, as we get towards the end of the loop what's going to happen is we will have filled up the whole cache, so this whole cache will be filled with values from a and b, and then it's going to start swapping values that are already in the cache. And if this loop, the size of these vectors is twice the size of the cache, by the time we come around and complete the entire execution of the inner loop, what's in the cache is the second half of the a and b arrays, it's not the first half of the a and b arrays. And so, then when we go back around and execute another iteration of the outer loop, now what's in the cache is also, going to be not the data that we're referencing. And so when we come back and begin the execution of the inner loop the second time, what's in the cache are the values from the high numbered elements of the a and b vector but not the low numbered elements. And so, these references are all misses again. </p>
+<p>A better version is below.</p>
+<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">&lt;</span><span class="mi">100000</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="k">for</span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">*=</span><span class="w"> </span><span class="n">b</span><span class="p">[</span><span class="n">j</span><span class="p">];</span><span class="w"></span>
+</code></pre></div>
+<p>Now compilers can perform this simple loop interchange optimization. This particular kind of optimization is called <strong>loop interchange</strong>, where you just switch in the order of loops.  Not many compilers actually implement this optimization because in general, it's not easy to decide whether you can reverse the orders of the loops. </p>
+<h3 id="17-01-automatic-memory-management">17-01 Automatic Memory Management<a class="headerlink" href="#17-01-automatic-memory-management" title="Permanent link">&para;</a></h3>
+<p>In this lecture, we're going to start our discussion of garbage collection or automatic memory management. To set the stage, let's first talk about the problem that we're trying to solve. So, if one has to manage memory manually, meaning you have to do all the allocation and deallocation explicitly yourself, that is a hard way to programming leads to certain kinds of bugs that are very difficult to eliminate from programs. So, in particular, these days you see this primarily in C and C++ programs, those are the main languages that are used that have manual memory management and, the kinds of storage bugs that you can get because
+it has manual memory management are things like forgetting to free unused memory so that's a memory leak, dereferencing dangling pointers, overriding parts of a data structure, unintentionally.  And I want to emphasize that these kinds of bugs are often some of the very last bugs to be found in complex systems. They often persist into production and sometimes for a very long time after the code is in production use. And why is that? The reason is that these kinds of bugs, storage bugs, typically have effects that are far away in time and space from the source and so how can that happen? Well let's think about some objects in memory and now let's say for these objects you might have some fields, let's say you have a few fields and I am keeping some pointers to it. So somewhere on the program is a reference to this particular object and now I free it. So I am doing my own memory management like free this object but I forget that I had this pointer. And so now what's happened all the storage has been freed it's no longer really valid memory but the pointer still exist to it. And then when I come along and allocate something else it might allocate the same piece of memory. So this might now be a different kind of object, okay. So I might
+have a different type here even. This memory might be used for something completely different and that will probably cause my program to crash. So this is a very, very old problem, it's been studied since at least the 1950s. It was first thought about
+carefully in Lisp. And there are some well-known techniques for completely automatic memory management so you don't have to manage memory yourself. And this only became mainstream actually in the 1990s so with the popularity of Java.</p>
+<p>The basic strategy in automatic memory management is pretty simple.  When an object is created, when we allocate a new object, the run time system will find some unused space for that object and it will just allocate it. So whenever you say new of some class name in Cool. Some memory is automatically allocated by the system, some previously unused memory is automatically allocated by the system for that object. And if you keep doing this over and over and over again and after a while, you're going to run out of space. So eventually there is no more unused space left for additional objects. And at that point, you have to do something, you have to reclaim some of the space in order to allocate more objects and the observation that garbage
+collection systems rely upon is that some of the spaces being used are probably occupied by objects that will never be used again. So some of these objects are not going to be referred to again by the program and if we can figure out which
+objects those are then we could deallocate them and reuse the space for new objects. So the big question is, how can we know that an object will never be used again? And, most of the garbage collection techniques that are out there today rely on the following observation that a program can only use the objects that it can find. </p>
+<p>We're going to say that an object x is reachable if and only if one of the following two things is true. So either a register contains a pointer to x or either the x is reachable immediately from some register.  So all the other objects, the ones that you were not able to reach by recursively starting at registers and following pointers as far as you could, those objects can never be used. </p>
+<p>Reachability is an approximation.</p>
+<div class="highlight"><pre><span></span><code>x := new A;
+y := new B
+x := y;
+if alwaysTrue() then x := new A else x.foo() fi
+</code></pre></div>
+<p>So let's take a look at another example that illustrates some interesting aspects of reachability and its use in automatic memory
+management. So what does this example do? The first thing it does is to allocate an A object, on the heap and assigns that to the variable x. So, x is a pointer to that object. And then it allocates a B object and y will point to that object. And then, it assigns the value of y to x, alright. And then we're going to go off and we're going to execute this conditional. And notice that this conditional is going to do. It's going to always be true, alright? So the predicate will always be true so it'll never take the false branch. All it's going to ever do is take the true branch and what's it going to do there, is immediately going to overwrite x. And so x is going to wind up pointing at some other new object. It doesn't matter what it is. And now, let's say that at this point right here, is where we try to do a garbage collection. So you know, for some reason this is the point where the program stops and tries to collect unused memory. And what can it collect? We can see that this object is unreachable, okay. So the first A object
+becomes unreachable at that point and it can be collected. Now, what about the second object? Well, it is reachable, it's clearly reachable. It's reachable through x, okay at that point and it's also reachable as it happens through y. And so it's not garbage and it's not going to be collected but notice that the x value is always going to be overwritten, okay? So the program, the compiler doesn't know that this branch is always going to be true. So, it doesn't realize that the value that x has at this point won't ever be used again but that value is immediately going to be overwritten, every time we take this conditional. So in fact the B value will never be used again even though it is reachable. And so what this tells you is that reachability is an approximation. And by that I mean it's an approximation for the objects that will never be used again. What we're really interested in when we do garbage collection is collecting objects that will never be used in the future execution of the program. Because obviously that space is wasted and could be put to some other use that might be better and reachability approximates that. So if an object is
+unreachable it definitely won't be used again however, just because an object is reachable it's not a guarantee that it will be used again. </p>
+<p>So now let's talk about how we do garbage collection in Cool. </p>
+<p><img src="https://user-images.githubusercontent.com/45984215/159206784-8bfe9aa2-510c-4443-b0a8-ec527edf6ea5.png" alt="m" style="width:300px;"/></p>
+<p>So Cool has a fairly simple structure. It uses an accumulator which of course points to an object and that object may point to other objects and so on. So we have to trace all the objects reachable from the accumulator but we also have to worry about the stack pointer so there's also stuff reachable from the stack. And each stack frame of course may contain pointers like, and you know for example the method parameters that are stored on the stack. Each stack frame may also contain some non-pointers, alright? So if I think about the layout of each activation record there would be some mix of pointers and non-pointers. Things like the return address so we have to know the layout of the frame. But if we do know the layout and of course, the compiler is
+deciding on the layout so it naturally does know the layout, it can find all the pointers in the frame. Essentially, the compiler has to keep a record for each kind of activation record it builds for each method. In Cool, we start tracing from the accumulator and the stack and these are called the roots.</p>
+<h3 id="17-03-stop-and-copy">17-03 Stop-and-Copy<a class="headerlink" href="#17-03-stop-and-copy" title="Permanent link">&para;</a></h3>
+<p>In this lecture, we are going to look at the second garbage collection technique, stop and copy. In stop-and-copy garbage collection, memory is organized into two areas. The old space is used for allocation and the new space is reserved for the garbage collector. </p>
+<p><img src="https://user-images.githubusercontent.com/45984215/160266156-e7fb828a-ef08-4756-9ef5-1ed73d4b5f81.png" alt="m" style="width:300px;"/></p>
+<h4 id="how-does-it-work">How does it work?<a class="headerlink" href="#how-does-it-work" title="Permanent link">&para;</a></h4>
+<p>In fact, there are some more advanced techniques that allow the program to use more than half of the space, but a fairly significant fraction of the space has to be reversed for the GC. There's a heap pointer in the old space and everything to the left of the heap pointer is currently in use. When it comes to allocating an object, it will just keep marching through the old space. When the old space is full, the program stops, and GC will copy all the reachable objects from the old space to the new space. After that, simply swap the roles of the old and new space, and then the program resumes. </p>
+<h4 id="how-to-implement-the-traversal-of-the-object-graph-without-using-any-extra-space">how to implement the traversal of the object graph without using any extra space<a class="headerlink" href="#how-to-implement-the-traversal-of-the-object-graph-without-using-any-extra-space" title="Permanent link">&para;</a></h4>
+<p><img src="https://user-images.githubusercontent.com/45984215/160267482-32d390ad-411b-440c-b6a1-95f889eb6c17.png" alt="m" style="width:300px;"/></p>
+<p>We're going to partition the new space into three contiguous regions. There's a region called<br />
+the empty region where we're allocating new objects and there's an allocation pointer that points to the beginning of that region. Immediately to the left of that region are the objects that have already been copied, but not scanned. What does that mean? Well, that means that the object has been copied but we haven't yet looked at its pointers inside the object to see where they go. To the left of that are the objects that have been copied and scanned. These are objects that have been copied over and we've also processed all the pointers inside those objects. The area between the scanned pointer and the allocation pointer is the work quest. </p>
+<h4 id="alogrithm">Alogrithm<a class="headerlink" href="#alogrithm" title="Permanent link">&para;</a></h4>
+<p><img src="https://user-images.githubusercontent.com/45984215/160267511-ea7cc77b-80a9-4817-a48e-bf577507a76a.png" alt="m" style="width:300px;"/></p>
+<h4 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h4>
+<p>forwarding pointer: a pointer stored in the old version object points to the new copy. </p>
+<p><img src="https://user-images.githubusercontent.com/45984215/160268372-9b7193a1-e65e-43a2-b831-3eeaa9f1f604.png" alt="m" style="width:300px;"/></p>
+<table>
+<thead>
+<tr>
+<th>step</th>
+<th>graph</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><img src="https://user-images.githubusercontent.com/45984215/160266699-f2367c09-3ad6-47b8-9dc1-e24bdf7eda59.png" alt="m" style="width:300px;"/></td>
+</tr>
+<tr>
+<td>2</td>
+<td><img src="https://user-images.githubusercontent.com/45984215/160266702-8b3e8a06-a822-451e-a362-5c44e0bff09c.png" alt="m" style="width:300px;"/></td>
+</tr>
+<tr>
+<td>3</td>
+<td><img src="https://user-images.githubusercontent.com/45984215/160266704-e7cb6506-a135-44c1-9e6f-741be9f354a5.png" alt="m" style="width:300px;"/></td>
+</tr>
+<tr>
+<td>4</td>
+<td><img src="https://user-images.githubusercontent.com/45984215/160266710-7b5e6a6c-a454-4804-bbf1-9ae408b7cc40.png" alt="m" style="width:300px;"/></td>
+</tr>
+<tr>
+<td>5</td>
+<td><img src="https://user-images.githubusercontent.com/45984215/160266788-06c2a719-5e3b-4aa9-9feb-bf462269bf85.png" alt="m" style="width:300px;"/></td>
+</tr>
+<tr>
+<td>6</td>
+<td><img src="https://user-images.githubusercontent.com/45984215/160266790-056515d4-0c59-4118-8b63-ea500f6b2cf4.png" alt="m" style="width:300px;"/></td>
+</tr>
+</tbody>
+</table>
+<h4 id="advantages">Advantages<a class="headerlink" href="#advantages" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Very simple and fast for allocation. (just increment the heap pointer)</li>
+<li>Collection is relatively cheap (mark-and-sweep: O(memory), strop-and-copy: O(reachable objects))</li>
+</ul>
+<h4 id="disadvantage">Disadvantage<a class="headerlink" href="#disadvantage" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Not suitable for C/C++ because pointer is part of the semantics.</li>
+</ul>
+
+  <hr>
+<div class="md-source-file">
+  <small>
+    
+      最后更新:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_datetime">2022-03-27 13:40:24</span>
+      
+    
+  </small>
+</div>
+
+              
+
+  
+    <div class="md-source-date">
+      <small>
+          本页作者: <span class='git-page-authors git-authors'><a href='mailto:mg21330037@smail.nju.edu.cn'>liusy58</a></span>
+      </small>
+    </div>
+  
+
+            </article>
+            
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            回到页面顶部
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="页脚" >
+      
+        
+        <a href="../../ReadingList/Compilers/" class="md-footer__link md-footer__link--prev" aria-label="上一页: Compilers" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              Compilers
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../../eBPF/" class="md-footer__link md-footer__link--next" aria-label="下一页: eBPF" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              eBPF
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.top"], "search": "../../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.0238f547.min.js"></script>
+      
+    
+  </body>
+</html>

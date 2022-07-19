@@ -1,0 +1,15 @@
+#test return 1
+
+int main () {
+  var x:int;
+  x = 20;
+  for (x = 0; 1; x += 1) {
+    if (x % 2 != 0) {
+      continue;
+    }
+    if (x > 100) {
+      break;
+    }
+  }
+  return 1;
+}

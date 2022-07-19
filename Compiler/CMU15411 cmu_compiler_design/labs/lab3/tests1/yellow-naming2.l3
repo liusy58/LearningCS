@@ -1,0 +1,33 @@
+#test return -4064
+
+/* make sure that token-matching works properly /* nested comment! */ */
+
+int inte (x : int)
+{
+  var returnv : int;
+  var ifq : int;
+  var forr : int;
+  var while2 : int;
+  var continue_ : int;
+  var breaker : int;
+  var else_5 : int;
+  var int2 : int;
+
+  ifq = 3 / x;
+  while2 = ifq + x;
+  continue_ = 5 - while2;
+  breaker = continue_ * while2;
+  int2 = 2;
+  returnv = breaker >> 2;
+  forr = x;
+  else_5 = x * x;
+
+  returnv += forr - else_5 * int2;
+
+  return returnv;
+}
+
+int main ()
+{
+  return inte(43);
+}

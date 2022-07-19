@@ -1,0 +1,63 @@
+#test return 1225
+// yay, Christmas!
+// can your compiler handle spilling?
+
+int f( rv:int, n0:int, n1:int, n2:int, n3:int, n4:int, n5:int, n6:int, n7:int, n8:int, n9:int, n10:int, n11:int, n12:int, n13:int, n14:int, n15:int, n16:int, n17:int, n18:int, n19:int, n20:int, n21:int, n22:int, n23:int, n24:int, n25:int, n26:int, n27:int, n28:int, n29:int, n30:int, n31:int, n32:int, n33:int, n34:int, n35:int, n36:int, n37:int, n38:int, n39:int, n40:int, n41:int, n42:int, n43:int, n44:int, n45:int, n46:int, n47:int, n48:int, n49:int ) {
+	rv += n0;
+	rv += n1;
+	rv += n2;
+	rv += n3;
+	rv += n4;
+	rv += n5;
+	rv += n6;
+	rv += n7;
+	rv += n8;
+	rv += n9;
+	rv += n10;
+	rv += n11;
+	rv += n12;
+	rv += n13;
+	rv += n14;
+	rv += n15;
+	rv += n16;
+	rv += n17;
+	rv += n18;
+	rv += n19;
+	rv += n20;
+	rv += n21;
+	rv += n22;
+	rv += n23;
+	rv += n24;
+	rv += n25;
+	rv += n26;
+	rv += n27;
+	rv += n28;
+	rv += n29;
+	rv += n30;
+	rv += n31;
+	rv += n32;
+	rv += n33;
+	rv += n34;
+	rv += n35;
+	rv += n36;
+	rv += n37;
+	rv += n38;
+	rv += n39;
+	rv += n40;
+	rv += n41;
+	rv += n42;
+	rv += n43;
+	rv += n44;
+	rv += n45;
+	rv += n46;
+	rv += n47;
+	rv += n48;
+	rv += n49;
+	return rv;
+}
+
+int main()
+{
+	 return f( 0, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49 );
+}
+

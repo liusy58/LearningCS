@@ -1,0 +1,35 @@
+#test return 1
+// Verifies that perfect squares are the only numbers with an odd number of
+// divisors.
+int main() {
+    var max, d, i, square : int;
+    var nats : int[];
+
+    max = 100;
+    nats = new(int[max + 1]);
+
+    // Invert the state of each number for each divisor
+    for (d = 1; d <= 100; d += 1) {
+        for (i = 0; i <= 100; i += d) {
+            nats[i] = !(nats[i] != 0) ? 1 : 0;
+        }
+    }
+
+    // Test that perfect squares are 1, if so, set to zero
+    for (i = 1; i <= 10; i += 1) {
+        square = i * i;
+        if (nats[square] != 1) {
+            return 0;
+        }
+        nats[square] = 0;
+    }
+
+    // Test that everything is now zero
+    for (i = 1; i <= 100; i += 1) {
+        if (nats[i] != 0) {
+            return 0;
+        }
+    }
+
+    return 1;
+}

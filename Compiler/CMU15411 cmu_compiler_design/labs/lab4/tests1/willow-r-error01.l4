@@ -1,0 +1,10 @@
+#test error
+
+struct foo {
+	a,b : int;
+};
+
+int main()
+{
+	return 0;
+}

@@ -1,0 +1,10 @@
+#test return 0
+
+/* Variables must be initialized to 0 by the compiler. */
+
+int main () {
+  var a, b, c, d, e, f, g, h, i, j, k : int;
+  a = 0; b = 0; c = 0; d = 0; e = 0; f = 0; g = 0;
+  h = 0; i = 0; j = 0; k = 0;
+  return a + b*2 + c*4 + d*8 + e*16 + f*32 + g*64 + h*128 + i*256 + k*512;
+}

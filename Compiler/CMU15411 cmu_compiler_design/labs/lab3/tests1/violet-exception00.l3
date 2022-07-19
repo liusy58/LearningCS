@@ -1,0 +1,71 @@
+#test exception 8
+/* Mod by 0 exception.  Also tests spilling and dead assignments. */
+
+int main() {
+  var result:int;
+  result = big_product() / 3;
+  return result;
+}
+
+int big_product()
+{
+  /* /* Borrowed from azure-return02.l1 */ */
+  var x00,x01,x02,x03,x04,x05,x06,x07,x08,x09,x0A,x0B,x0C,x0D,x0E,x0F,x10,x11,
+    x12,x13,x14,x15,x16,x17,x18,x19,x1A,x1B,x1C,x1D,x1E,x1F:int;
+  var a,b,c,d,e,f,g,i:int;
+
+  x00 = 1;
+  x01 = x00*2;
+  x02 = x01*2;
+  x03 = x02*2;
+  x04 = x03*2;	
+  a = 34;
+  x05 = x04*2;
+  x06 = x05*2;
+  x07 = x06*2;
+  x08 = x07*2;
+  x09 = x08*2;
+  x0A = x09*2;
+  x0B = x0A*2;
+  b = a;
+  x0C = x0B*2;
+  x0D = x0C*2;
+  x0E = x0D*2;
+  x0F = x0E*2;
+  x10 = x0F*2;
+  c = 3;
+  x11 = x10*2;
+  x12 = x11*2;
+  x13 = x12*2;
+  x14 = x13*2;
+  c = x0B;
+  d = x13;
+  x15 = x14*2;
+  x16 = x15*2;
+  x17 = x16*2;
+  x18 = x17*2;
+  x19 = x18*2;
+  e = 4;
+  f = -3;
+  g = 3;
+  x1A = x19*2;
+  x1B = x1A*2;
+  x1C = x1B*2;
+  x1D = x1C*2;
+  x1E = x1D*2;
+  x1F = x1E*2;
+
+  for (i = 0; i < 100; i = i + 1) {
+    f = a % b;
+    a += c;
+  }
+
+  return (x00+x01+x02+x03+x04+x05+x06+x07
+    +x08+x09+x0A+x0B+x0C+x0D+x0E+x0F
+    +x10+x11+x12%f+x13+x14+x15+x16+x17%f
+    +x18+x19+x1A+x1B+x1C+x1D+x1E+x1F)
+    % ((x00+x01+x02+x03+x04+x05+x06+x07
+    +x08+x09+x0A+x0B+x0C+x0D+x0E+x0F
+    +x10+x11+x12+x13%f+x14+x15+x16+x17
+    +x18+x19+x1A+x1B+x1C+x1D+x1E+x1F) * 0);
+}

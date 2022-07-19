@@ -1,0 +1,9 @@
+#test return 26
+// Compute the digit sum of an integer x
+{
+  x = 43129313;
+  sum = 0;
+  for (;x > 0; x /= 10)
+    sum += x % 10;
+  return sum;
+}

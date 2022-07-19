@@ -1,0 +1,8 @@
+#test exception 8
+// divide by zero exception
+
+int main(){
+  var x:int;
+  x = 0;
+  return 5 % x;
+}

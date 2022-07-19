@@ -1,0 +1,90 @@
+#test return 1
+
+/* RC4 Cipher
+ * Author: matthewj
+ */
+
+extern int printint(c : int);
+extern int printchar(c : int);
+
+struct rc4_t {
+    s : int[];
+    x : int;
+    y : int;
+};
+
+rc4_t *init(key : int[], klen : int) {
+    var i : int;
+    var s : rc4_t *;
+    var t : int;
+
+    s = new(rc4_t);
+    s->s = new(int[256]);
+
+    for (i = 0; i < 256; i += 1) {
+        s->s[i] = i;
+    }
+
+    s->x = 0;
+    s->y = 0;
+
+    for (i = 0; i < 256; i += 1) {
+        s->x = (key[i % klen] + s->s[i] + s->x) & 255;
+        t = s->s[i];
+        s->s[i] = s->s[s->x];
+        s->s[s->x] = t;
+    }
+
+    return s;
+}
+
+int[] enc(s : rc4_t *, in : int[], len : int) {
+    var out : int[];
+    var i : int;
+    var t : int;
+    var r : int;
+
+    out = new(int[len]);
+
+    for (i = 0; i < len; i += 1) {
+        s->x = (s->x + 1) & 255;
+        s->y = (s->s[s->x] + s->y) & 255;
+        t = s->s[s->x];
+        s->s[s->x] = s->s[s->y];
+        s->s[s->y] = t;
+        r = s->s[(s->s[s->x] + s->s[s->y]) & 255];
+        out[i] = in[i] ^ r;
+    }
+
+    return out;
+}
+
+int main() {
+    var m : int[];
+    var c : int[];
+    var k : int[];
+    var s : rc4_t *;
+    var _ : int;
+
+    k = new(int[8]);
+    k[0] = 1882820625;
+    k[1] = 209061463;
+    k[2] = 1534737120;
+    k[3] = -1975893912;
+    k[4] = -808818904;
+    k[5] = -679523726;
+    k[6] = -1411517094;
+    k[7] = -1965756105;
+
+    s = init(k, 8);
+
+    m = new(int[4]);
+    m[0] = 82;
+    m[1] = 67;
+    m[2] = 52;
+    m[3] = 33;
+    
+    c = enc(s, m, 4);
+
+    return ((c[0] == 199) && (c[1] == 100) && (c[2] == 93) && (c[3] == 75) ? 1 : 0);
+}

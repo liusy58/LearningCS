@@ -1,0 +1,13 @@
+#test return 0
+// Tests all of the assignment operators.
+
+int main()
+{
+ var a, b : int;
+ b = 0;
+
+ a = 1;
+ b <<= a;
+
+ return 0;
+}

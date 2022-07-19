@@ -1,0 +1,18 @@
+#test return 305419896
+
+/* Packs 4 bytes into a 4-byte int. Tests <<, |, and & operators and
+ * precedence of these operators. */
+int pack_bytes(a:int, b:int, c:int, d:int) {
+  return d & 255 | (c & 255) << 8 | (b & 255) << 16 | (a & 255) << 24;
+}
+
+int main() {
+  var a, b, c, d :int;
+  
+  a = 18; /* 0x12 */
+  b = 52; /* 0x34 */
+  c = 86; /* 0x56 */
+  d = 120; /* 0x78 */
+
+  return pack_bytes(a, b, c, d);
+}

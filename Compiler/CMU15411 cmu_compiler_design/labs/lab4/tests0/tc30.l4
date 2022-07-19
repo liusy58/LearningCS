@@ -1,0 +1,18 @@
+#test error
+/* using an int as a boolean */
+
+bool xor (b:bool, c:bool) {
+  return (b && c) || (!b && !c);
+}
+
+int main () {
+  var b,c:bool;
+  var x:int;
+  b = true;
+  c = false;
+  x = 1;
+  if (xor(x,c))
+    return 1;
+  else
+    return 0;
+}

@@ -1,0 +1,15 @@
+#test error
+
+// Identifiers must be unique
+
+int func() {
+  return 5;
+}
+
+int main() {
+  return func(3)*func();
+}
+
+int func(a : int) {
+  return a;
+}

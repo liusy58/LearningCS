@@ -1,0 +1,20 @@
+#test return 256
+/* Team Blue
+ * Ackermann function
+ */
+
+/* Assume x, y are positive */
+int ackermann(x: int, y: int) {
+	if (x == 0)
+		return (y + 1);
+		
+	if (y == 0)
+		return ackermann(x - 1, 1);
+	
+	return ackermann(x - 1, ackermann(x, y - 1));
+}
+
+int main() {
+	/* ackermann(3, n) == 2^{n+3} - 3 */
+	return ackermann(3, 5) + 3;
+}

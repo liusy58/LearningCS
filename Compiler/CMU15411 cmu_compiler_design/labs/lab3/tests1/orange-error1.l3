@@ -1,0 +1,12 @@
+#test error
+// Tests parser
+
+int main()
+{
+  var x : int;
+
+  x = 1;
+
+  if (if (x) return 7;)
+    return 8;
+}

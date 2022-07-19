@@ -1,0 +1,16 @@
+#test return -10
+// tests definition in both blocks of if statement
+{
+x=0;
+
+for(i=0; i<=3; i+=1){
+  if(i%2) {x += 1;}
+  else {x -= 1;}
+
+  x *= 2;
+}
+
+return x;
+
+
+}

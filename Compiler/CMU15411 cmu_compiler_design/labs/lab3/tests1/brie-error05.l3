@@ -1,0 +1,11 @@
+#test error
+
+int nus1 (foo : int, foo : int)
+{
+	return 0;
+}
+
+int main ()
+{
+	return 0;
+}

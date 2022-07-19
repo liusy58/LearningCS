@@ -1,0 +1,48 @@
+#test return 0
+/* test proper precedence order with bitmasks */
+/* the reference compiler currently returns the wrong result (oops) */
+
+int main () {
+  var v, mask : int;
+
+  v = 66;
+  mask = 15;
+
+  if ((v & mask == 2) == 1)
+  {
+    /* this is actually an error state */
+    return 1;
+  }
+
+  if ((v | mask == 79) == 1)
+  {
+    /* error */
+    return 2;
+  }
+
+  if ((v ^ mask == 77) == 1)
+  {
+    /* error */
+    return 3;
+  }
+
+  if ((v & mask) != 2)
+  {
+    /* error */
+    return 4;
+  }
+
+  if ((v | mask) != 79)
+  {
+    /* error */
+    return 5;
+  }
+
+  if ((v ^ mask) != 77)
+  {
+    /* error */
+    return 6;
+  }
+
+  return 0;
+}

@@ -1,0 +1,7 @@
+#test return 2
+// test unary vs binary minus
+{
+  x = 3;
+  x -= x-----------2;
+  return x;
+}

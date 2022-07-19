@@ -1,0 +1,23 @@
+#test return 1
+// Says if a number is happy or not
+
+int ishappy (n : int)
+{
+	var accum : int;
+	accum = 0;
+	if ( n < 10 )
+		return n == 1;
+
+	while ( n > 0 )
+	{
+		accum = accum + (n % 10) * (n % 10);
+		n = n / 10;
+	}
+
+	return ishappy(accum);
+}
+
+int main ()
+{
+	return ishappy(100);
+}

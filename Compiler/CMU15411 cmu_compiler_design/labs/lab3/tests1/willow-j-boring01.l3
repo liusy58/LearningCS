@@ -1,0 +1,12 @@
+#test return 60
+int f(a:int) {
+	return 2*a;
+}
+
+int g(a:int) {
+	return 3*a;
+}
+
+int main() {
+	return f(g(f(5)));
+}

@@ -1,0 +1,9 @@
+#test return 3271
+
+{
+	a = 10948037; /* /* number to get a factor of */ */
+	for(i=2;i<a;i+=1) 
+		if (a%i == 0)
+			return i;
+	return a;
+}

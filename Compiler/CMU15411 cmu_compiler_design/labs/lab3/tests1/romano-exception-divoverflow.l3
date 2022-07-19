@@ -1,0 +1,12 @@
+#test exception 8
+// division error due to overflow
+int main() {
+  var s : int;
+  s = 2;  // 2^1
+  s *= s; // 2^2
+  s *= s; // 2^4
+  s *= s; // 2^8
+  s *= s; // 2^16
+  s *= -(s / 2); // -(2^31)
+  return s / -1;
+}

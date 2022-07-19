@@ -1,0 +1,12 @@
+#test exception 8
+int rec ()
+{
+	return 0;
+}
+
+int main ()
+{
+	var x : int;
+	x = 200 / rec ();
+	return x;
+}

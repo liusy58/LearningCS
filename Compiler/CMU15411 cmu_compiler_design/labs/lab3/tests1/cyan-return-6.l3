@@ -1,0 +1,10 @@
+#test return 4
+// Tests a simple function call. 
+
+int return4 () {
+  return 4;
+}
+
+int main () {
+  return return4();
+}

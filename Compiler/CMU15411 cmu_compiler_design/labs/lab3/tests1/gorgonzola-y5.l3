@@ -1,0 +1,37 @@
+#test return 260
+int main(){
+    var x,y,z,a,s,xx3t,g,e,w2312,er,ye,yw,ty,rt,gsf,h,t,taw4y : int;
+    x = 13;
+    y = 20;
+    return mult(x,y);
+}
+
+
+int mult(x : int,y : int){
+    return x*y;
+}
+
+int mult1(x : int,y : int){
+    return x*y;
+}
+int mult2(x : int,y : int){
+    return x*y;
+}
+int mult3(x : int,y : int){
+    return x*y;
+}
+int mult4(x : int,y : int){
+    return x*y;
+}
+int mult5(x : int,y : int){
+    return x*y;
+}
+int mult6(x : int,y : int){
+    return x*y;
+}
+int mult7(x : int,y : int){
+    return x*y;
+}
+int mult8(x : int,y : int){
+    return x*y;
+}

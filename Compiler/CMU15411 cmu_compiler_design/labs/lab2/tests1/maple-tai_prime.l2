@@ -1,0 +1,18 @@
+#test return 173
+// Calculate the nth prime number
+{
+  n = 40;
+  for (i = 2; n > 0; i += 1)
+  {
+    x = 1;
+    for (j = 2; j < i - 1; j += 1)
+      if (i % j == 0)
+      {
+        x = 0;
+        break;
+      }
+    if (x)
+      n -= 1;
+  }
+  return i - 1;
+}

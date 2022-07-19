@@ -1,0 +1,7 @@
+#test error
+// consecutive infix operators
+{
+  x = 2;
+  y = x+*x;
+  return -y/3;
+}

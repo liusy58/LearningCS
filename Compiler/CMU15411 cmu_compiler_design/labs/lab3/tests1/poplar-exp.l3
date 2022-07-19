@@ -1,0 +1,16 @@
+#test return 1024
+// exponential recursion
+
+int exp(n : int)
+{
+        var pid, q : int;
+        if (n == 0)
+                return 1;
+        return exp(n - 1) + exp(n - 1);
+}
+                
+int main()
+{
+        var q : int;
+        return exp(10);
+}

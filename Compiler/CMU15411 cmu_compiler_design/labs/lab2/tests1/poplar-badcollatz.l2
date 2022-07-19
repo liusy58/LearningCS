@@ -1,0 +1,20 @@
+#test exception
+// == has a higher precedence than &, the number is never halved and an
+// exception results
+{
+    input = 27;
+    while (input != 1) {
+        // If input is even
+        if (input & 1 == 0) {
+            // Halve it
+            input >>= 1;
+        } else {
+            input = 3 * input + 1;
+        }
+        // Exception on overflow
+        if (input < 0) {
+            return 1/0;
+        }
+    }
+    return input;
+}

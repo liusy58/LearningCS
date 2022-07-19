@@ -1,0 +1,12 @@
+#test return 1
+// Shift works approppriately.
+{
+  TMAX = 2147483647;
+  val1 = TMAX + TMAX;
+  val2 = TMAX << 1;
+
+  if(((val1 & val2) == -2) && 1)
+    return (1 || 0);
+
+  return (0 && 2);
+}

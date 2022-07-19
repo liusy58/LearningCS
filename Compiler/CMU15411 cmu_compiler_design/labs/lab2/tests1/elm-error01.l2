@@ -1,0 +1,24 @@
+#test error
+// Given a rectangle's area and perimeter, find if the rectangle is a square
+// Plus plus is not in language 2
+{
+  Area = 16;
+  Perimeter = 9;
+
+  flag = 0;
+  x = Perimeter/2;
+
+  if(x+x == Perimeter) {
+    flag++;
+  }
+  if(x*x == Area) {
+    flag++;
+  }
+
+  if(flag == 2) {
+    return 1;
+  }
+  else {
+    return 0;
+  }
+}

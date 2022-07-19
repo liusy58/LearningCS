@@ -1,0 +1,23 @@
+#test error
+// Tests that each function has an explicit return with a value (static semantic
+// #3).
+
+int f1(a : int, b : int) {
+    if (a % 2) {
+        if (b % 2) {
+            return 3;
+        } else {
+            return 2;
+        }
+    } else {
+        if (b % 2) {
+            return 1;
+        } else {
+            
+        }
+    }
+}
+
+int main() {
+    return f1(3, 1);
+}

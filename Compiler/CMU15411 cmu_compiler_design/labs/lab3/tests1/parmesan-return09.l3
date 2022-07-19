@@ -1,0 +1,17 @@
+#test return 5
+
+int main(){
+
+	var x, y, z:int;
+
+	x = 4;
+	y = 5;
+	if(x){
+		return y;
+	}else{
+		return x;
+	}
+
+	z += 4;
+	return z;
+}

@@ -1,0 +1,23 @@
+#test return 0
+// Given a rectangle's area and perimeter, find if the rectangle is a square
+{
+  Area = 16;
+  Perimeter = 9;
+
+  flag = 0;
+  x = Perimeter/2;
+
+  if(x+x == Perimeter) {
+    flag += 1;
+  }
+  if(x*x == Area) {
+    flag += 1;
+  }
+
+  if(flag == 2) {
+    return 1;
+  }
+  else {
+    return 0;
+  }
+}

@@ -1,0 +1,12 @@
+#test error
+# no return statement from foo
+
+int foo(x : int) {
+  while(x > 0) {
+    x -= 1;
+  }
+}
+
+int main () {
+  return foo(5);
+}

@@ -1,0 +1,22 @@
+#test return -128
+
+int fun1(a:int, b:int, c:int){
+  return a+b+c;
+}
+int fun2(a:int, b:int, c:int){
+  return a*b*c;
+}
+int fun3(a:int, b:int, c:int){
+  return a-b-c;
+}
+
+int main(){
+  var w,x,y,z:int;
+  
+  x = 2;
+  y = fun2(x, x, x); //8
+  z = fun3(y, y, y); //-8
+  w = fun1(fun2(fun3(x, y, z), y, z), y, z);
+
+  return w;
+}

@@ -1,0 +1,10 @@
+#test error
+//circular reference 
+struct s {
+  f: int;
+  t: s;
+};
+
+int main() {
+  return 1;
+}

@@ -1,0 +1,26 @@
+15-411 Compiler Design
+Fall 2008
+Instructor: Frank Pfenning
+TAs: Ruy Ley-Wild and Miguel Silva
+
+Lab 2 Handout
+
+doc/       -- lab specification
+tests0/    -- some provided test files
+tests1/    -- some more provided test files
+runtime/   -- runtime environment for generated assembly
+           -- generate executable with
+	      % gcc <testfile>.s l2rt.c
+driver/    -- driver used by autolab, use for testing
+
+To be created (details see doc/lab2.pdf):
+
+tests/     -- directory with your own test file *.l2
+compiler/  -- directory with your own compiler
+
+We recommend to copy driver and runtime into your
+compiler directory.
+
+cp driver/* runtime/* compiler/
+
+See README-driver for more info on driver.

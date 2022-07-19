@@ -1,0 +1,13 @@
+#test return -2147483648
+// test register allocation and modular arithmetic
+{
+  x1 = 2;
+  x2 = x1 * x1;
+  x4 = x2 * x2;
+  x8 = x4 * x4;
+  x16 = x8 * x8;
+  x15 = x16 / x1;
+  x30 = x15 * x15;
+  x31 = x30 * x1;
+  return x31;
+}

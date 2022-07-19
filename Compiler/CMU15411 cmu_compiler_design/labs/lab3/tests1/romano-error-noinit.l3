@@ -1,0 +1,8 @@
+#test error
+// Uninitialized variable i.
+int main() {
+  var i : int;
+  if(0) {}
+  else i = 1;
+  return i;
+}

@@ -1,0 +1,19 @@
+#test return 1
+// test short-circuiting of && and ||
+
+int div0() {
+  return 1/0;
+}
+
+int main() {
+  var x : int;  // initialized to 0
+  x = 0;
+
+  if (1 || div0())
+    x += 1;
+
+  if (0 && div0())
+    x += 1;
+
+  return x;
+}

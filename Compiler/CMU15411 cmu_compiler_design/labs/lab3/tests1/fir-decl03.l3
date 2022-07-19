@@ -1,0 +1,14 @@
+#test return 1
+
+// Ensure that functions and variables are in separate namespaces
+
+int frob(x: int) {
+	return (x + 1) / 2;
+}
+
+int main() {
+	var frob : int;
+	frob = 1;
+	frob = frob(frob);	
+	return frob;
+}

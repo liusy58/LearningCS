@@ -1,0 +1,19 @@
+#test return 0
+// infinite mutual recursion
+
+int getfirst (x:int, y:int) 
+{
+  return 0 | x + 0 & getsecond(x,y);
+}
+
+int main () 
+{
+  return getfirst(32,48) + getsecond(64,24);
+}
+
+int getsecond (x:int, y:int)
+{
+  return 0 && getfirst(x,y) + 0 | y;
+}
+
+

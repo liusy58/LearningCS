@@ -1,0 +1,8 @@
+#test return 0
+{
+	i = 100;
+	a = 0;
+	if(a == 0 || i/a == 10)
+		return a;
+	return 0;
+}

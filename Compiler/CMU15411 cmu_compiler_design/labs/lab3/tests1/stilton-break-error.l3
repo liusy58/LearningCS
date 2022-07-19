@@ -1,0 +1,15 @@
+#test error
+
+int plzbreak() {
+	break;
+	return 1;
+}
+
+int main() {
+{
+	while(1) {
+		plzbreak();
+	}
+
+	return 1;
+}

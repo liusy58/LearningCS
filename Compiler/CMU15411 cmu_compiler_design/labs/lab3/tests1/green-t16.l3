@@ -1,0 +1,33 @@
+#test return 0
+
+int a(x : int) {
+  return x;
+}
+
+int b(x : int) {
+  return a(x-1);
+}
+
+int c(x : int) {
+  return b(x-1);
+}
+
+int d(x : int) {
+  return c(x-1);
+}
+
+int e(x : int) {
+  return d(x-1);
+}
+
+int f(x : int) {
+  return e(x-1);
+}
+
+int g(x : int) {
+  return f(x-1);
+}
+
+int main () {
+  return (a(0) + b(1) + c(2) + d(3) + e(4) + f(5)) * g(6);
+}

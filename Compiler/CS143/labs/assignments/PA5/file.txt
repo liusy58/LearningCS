@@ -1,0 +1,20 @@
+#1
+_program
+  #1
+  _class
+    Main
+    Object
+    "test.cl"
+    (
+    #2
+    _method
+      main
+      Int
+      #2
+      _block
+        #2
+        _int
+          0
+        : Int
+      : Int
+    )

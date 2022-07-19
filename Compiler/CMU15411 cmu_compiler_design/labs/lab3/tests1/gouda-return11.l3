@@ -1,0 +1,11 @@
+#test return 4
+// Finds non- duplicate number
+
+int find_dup (a:int, b:int, c:int, d:int, e:int, f:int, g:int, h:int, i:int) {
+  return a^b^c^d^e^f^g^h^i;
+}
+
+int main () {
+  return find_dup(1,4,3,2,2,1,5,5,3);
+}
+

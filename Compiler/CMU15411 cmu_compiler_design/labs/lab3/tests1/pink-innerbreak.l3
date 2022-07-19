@@ -1,0 +1,19 @@
+#test return 1
+// break should only break from the inner loop
+
+int fun(n : int) {
+  while (n > 0) {
+    while (1)
+      break;
+    n -= 1;
+  }
+
+  return n;
+}
+
+int main() {
+  var n : int;
+
+  n = 25;
+  return fun(n) <= 0;
+}

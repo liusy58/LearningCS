@@ -1,0 +1,13 @@
+#test error
+// Function declared more than once
+int badfun() {
+    return 1;
+}
+
+int main() {
+    return 0;
+}
+
+int badfun(arg : int) {
+    return arg;
+}

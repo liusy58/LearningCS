@@ -1,0 +1,26 @@
+#test return 16490
+
+int f1 (x : int) {
+  if (x == 0)
+    return 1;
+  else
+    return x * f2(x-1);
+}
+
+
+int f2 (y : int) {
+  if (y == 0)
+    return 2;
+  else
+    return y + f1(y-1);
+}
+
+int main() {
+  var val : int;
+
+  val = 10;
+
+  val = f1(val);
+
+  return val;
+}

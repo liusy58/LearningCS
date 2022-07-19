@@ -1,0 +1,127 @@
+package edu.cmu.cs.l1.parse;
+
+import edu.cmu.cs.l1.absyn.*;
+import edu.cmu.cs.l1.symbol.Symbol;
+import edu.cmu.cs.l1.errormsg.*;
+
+action code {: static Symbol sym(String s) {
+	         return Symbol.symbol(s);
+	        }
+	    :};
+
+parser code  {:
+  public ASStatement parseResult;
+  Lexer lexer;
+
+  public void syntax_error(java_cup.runtime.Symbol current) {
+   report_error("Syntax error (" + current.sym + ")", current);
+  }
+
+  ErrorMsg errorMsg;
+
+  public void report_error(String message,
+			   java_cup.runtime.Symbol info) {
+      errorMsg.error(info.left, message);
+  }
+
+  public parser(Lexer l, ErrorMsg err) {
+    this();
+    errorMsg=err;
+    lexer=l;
+  }
+:};
+
+scan with {: return lexer.nextToken(); :};
+
+terminal String ID;
+terminal String INT;
+terminal LBRACE, RBRACE, LPAREN, RPAREN, SEMICOL,
+	 PLUS, MINUS, TIMES, DIVIDE, ASSIGN, MOD, NEG,
+	 PLUSASSIGN, MINUSASSIGN, TIMESASSIGN, DIVIDEASSIGN, MODASSIGN,
+	 RETURN;
+
+non terminal program, stmtseq, stmt, assgnstmt, expr, lval;
+
+precedence left PLUS, MINUS;
+precedence left TIMES, DIVIDE, MOD;
+precedence right NEG;
+
+start with program;
+
+program ::=
+    LBRACE:l stmtseq:ss RETURN:rs expr:e SEMICOL RBRACE
+	{: ASStatement retstm = new ASReturnStatement(rsleft, (ASExpression)e);
+	  parser.parseResult = ((ASStatementList)ss).append(retstm); :}
+  | LBRACE:l RETURN:rs expr:e SEMICOL RBRACE
+	{: ASStatement retstm = new ASReturnStatement(rsleft, (ASExpression)e); 
+	  parser.parseResult = new ASStatementList(lleft, retstm); :}
+        ;
+
+stmtseq ::=
+    stmt:s
+	{: RESULT = new ASStatementList(sleft, (ASStatement)s); :}
+  | stmt:s stmtseq:ss
+	{: ASStatementList tail = new ASStatementList(sleft, (ASStatement)ss);
+           RESULT = tail.prepend((ASStatement)s); :}
+	;
+
+stmt ::=
+    assgnstmt:s SEMICOL
+	{: RESULT = s; :}
+	;
+
+lval ::=
+    ID:i
+        {: RESULT = new ASSimpleLval(ileft, Symbol.symbol(i)); :}
+        ;
+
+assgnstmt ::=
+    lval:i ASSIGN expr:e
+	{: RESULT = new ASAssignStatement(ileft, (ASLval)i, (ASExpression)e); :}
+  | lval:i PLUSASSIGN:o expr:e
+	{: RESULT =
+	   new ASAssignStatement(ileft,(ASLval)i, new ASOpExpression(oleft,ASOpExpression.PLUS,
+	       new ASLvalExpression(ileft, (ASLval)i), (ASExpression)e));
+	:}
+  | lval:i MINUSASSIGN:o expr:e
+	{: RESULT =
+	   new ASAssignStatement(ileft,(ASLval)i, new ASOpExpression(oleft,ASOpExpression.MINUS,
+	       new ASLvalExpression(ileft, (ASLval)i), (ASExpression)e));
+	:}
+  | lval:i TIMESASSIGN:o expr:e
+	{: RESULT =
+	   new ASAssignStatement(ileft,(ASLval)i, new ASOpExpression(oleft,ASOpExpression.MUL,
+	       new ASLvalExpression(ileft, (ASLval)i), (ASExpression)e));
+	:}
+  | lval:i DIVIDEASSIGN:o expr:e
+	{: RESULT =
+	   new ASAssignStatement(ileft,(ASLval)i, new ASOpExpression(oleft,ASOpExpression.DIV,
+	       new ASLvalExpression(ileft, (ASLval)i), (ASExpression)e));
+	:}
+  | lval:i MODASSIGN:o expr:e
+	{: RESULT =
+	   new ASAssignStatement(ileft,(ASLval)i, new ASOpExpression(oleft,ASOpExpression.MOD,
+	       new ASLvalExpression(ileft, (ASLval)i), (ASExpression)e));
+	:}
+	;
+
+expr ::=
+    LPAREN expr:e RPAREN
+	{: RESULT = e; :}
+  | INT:n
+	{: RESULT = new ASIntConstant(nleft, Integer.parseInt(n)); :}
+  | ID:i
+	{: RESULT = new ASLvalExpression(ileft, new ASSimpleLval(ileft, Symbol.symbol(i))); :}
+  | MINUS:o expr:e
+	{: RESULT = new ASOpExpression(oleft, ASOpExpression.NEG, (ASExpression)e, null); :} %prec NEG
+  | expr:e1 PLUS:o expr:e2
+	{: RESULT = new ASOpExpression(oleft, ASOpExpression.PLUS, (ASExpression)e1, (ASExpression)e2); :}
+  | expr:e1 MINUS:o expr:e2
+	{: RESULT = new ASOpExpression(oleft, ASOpExpression.MINUS, (ASExpression)e1, (ASExpression)e2); :}
+  | expr:e1 TIMES:o expr:e2
+	{: RESULT = new ASOpExpression(oleft, ASOpExpression.MUL, (ASExpression)e1, (ASExpression)e2); :}
+  | expr:e1 DIVIDE:o expr:e2
+	{: RESULT = new ASOpExpression(oleft, ASOpExpression.DIV, (ASExpression)e1, (ASExpression)e2); :}
+  | expr:e1 MOD:o expr:e2
+	{: RESULT = new ASOpExpression(oleft, ASOpExpression.MOD, (ASExpression)e1, (ASExpression)e2); :}
+	;

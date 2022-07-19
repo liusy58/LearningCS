@@ -1,0 +1,19 @@
+#test return 1
+// tests short circuit of logical operators
+{
+x = 2;
+y = 1;
+z = 0;
+if(x>=y || (y % z) == 1){
+  if((x % y) < 0 && (x / z) == 123456){
+    return z;
+  } 
+  else{
+    return y;
+  }
+}
+
+else{
+return x;
+}
+}

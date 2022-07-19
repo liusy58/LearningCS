@@ -1,0 +1,9 @@
+#test error
+// Should fail due to a continue outside of a loop
+{
+  if (1) {
+    while (2 != 1) a = 4;
+    continue;
+  }
+  return 4;
+}

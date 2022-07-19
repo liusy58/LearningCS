@@ -1,0 +1,12 @@
+#test error
+// too many things in a for loop...
+
+{
+  y = 0;
+  z = 5;
+  for(x = 0; x < 5; x++; y++)
+  {
+    z += y;
+  }
+  return z;
+}

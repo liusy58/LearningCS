@@ -1,0 +1,7 @@
+#test exception 8
+// Tests that divide by zero STILL throws an exception. These tests really
+// aren't getting any more interesting...
+
+int main() {
+    return 0 / 0;
+}

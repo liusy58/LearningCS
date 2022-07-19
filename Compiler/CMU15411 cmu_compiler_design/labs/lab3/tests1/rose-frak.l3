@@ -1,0 +1,41 @@
+#test return 6561
+
+# Functions... call other functions!
+
+int f1 (x : int)
+{
+    return x / 2 + 3;
+}
+
+int f2 (x : int)
+{
+    return 13 * x - 7;
+}
+
+int f3 (x : int)
+{
+    return 5 * (x - 1);
+}
+
+int g1 (x : int, y : int)
+{
+    return f1 (f2 (y)) + f1 (f3 (y));
+}
+
+int g2 (x : int, y : int)
+{
+    return (f1 (x) + f2 (x) + f3 (x)) * (f1 (y) + f2 (y) + f3 (y));
+}
+
+int h1 (x : int, y : int, z : int)
+{
+    return (g1 (x, y) + g1 (y, z) + g1 (x, z)) *
+           (g2 (x, y) + g2 (y, z) + g2 (x, z));
+}
+
+int main ()
+{
+    return h1 (1, 1, 1);
+}
+
+

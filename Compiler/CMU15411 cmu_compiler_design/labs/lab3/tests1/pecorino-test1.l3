@@ -1,0 +1,9 @@
+#test exception 14
+// test for timeout
+
+int main(){
+  var x:int;
+  while (1){}
+//  x = main();
+  return 1;
+}

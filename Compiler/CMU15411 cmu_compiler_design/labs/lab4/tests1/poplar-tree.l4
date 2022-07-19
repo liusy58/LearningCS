@@ -1,0 +1,44 @@
+#test return 75790
+// play with trees
+
+struct tree {
+        v : int;
+        ch : tree*[];
+        nch : int;
+};
+
+int sum_tree (t : tree*)
+{
+        var s, i : int;
+        
+        s = 0;
+        for (i = 0; i < t->nch; i += 1)
+                s += sum_tree (t->ch[i]);
+        
+        return s + t->v;      
+}
+
+tree* gen_tree (v : int)
+{
+        var t : tree*;
+        t = new(tree);
+        t->v = v;
+        if (v > 100)
+                t->nch = 0;
+        else {
+                t->nch = 3;
+                t->ch = new (tree*[3]);
+                t->ch[0] = gen_tree(2 * v);
+                t->ch[1] = gen_tree(3 * v);
+                t->ch[2] = gen_tree(4 * v);
+        }
+        return t;
+}
+
+int main ()
+{
+        var t : tree*;
+
+        t = gen_tree(1);
+        return sum_tree(t);
+}

@@ -1,0 +1,6 @@
+#test error
+// main must have no parameters
+
+int main(n : int) {
+  return n;
+}

@@ -1,0 +1,6 @@
+#test error
+// illegal character
+{
+  x &= 0;
+  return x;
+}

@@ -1,0 +1,15 @@
+#test error
+int main(){
+    var x : int;
+    var y : int;
+    x = 13;
+    y = 20;
+    return mult(x,y);
+	var t : int
+	t = 100;
+}
+
+
+int mult(x : int,y : int){
+    return x*y;
+}

@@ -1,0 +1,29 @@
+#test return 1
+// Tests logical operators
+
+int powerOfTwo(n : int) {
+	if(n < 0) return 0;
+	if(n == 0) return 1;
+	return powerOfTwo(n-1)*2;
+}
+
+// Checks each bit of the number and sums the total of the bits 
+// Times they're respective powers of two to get the original number
+int testBitLogic(n : int) {
+	var i,bit,mask,total : int;
+
+	total = 0;
+
+	for(i = 0; i < 32; i += 1) {
+		mask = 1 << i;
+		bit = mask & n; 
+		if(!!bit) 
+			total += powerOfTwo(i);		
+	}
+
+	return (total == n);
+}
+
+int main() {
+	return testBitLogic(5973);
+}

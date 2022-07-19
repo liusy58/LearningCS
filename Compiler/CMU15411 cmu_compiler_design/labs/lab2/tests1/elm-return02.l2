@@ -1,0 +1,21 @@
+#test return 13
+//sum of total digits
+{
+  total = 256;
+  size = 3;
+
+  sum = 0;
+  while (size >= 1) {
+    j = 1;
+    place = 1;
+    while ( j < size ) {
+      place *= 10;
+      j+=1;
+    }
+
+    sum += total/place;
+    total -= (total/place)*place;
+    size-=1;
+  }
+  return sum;
+}

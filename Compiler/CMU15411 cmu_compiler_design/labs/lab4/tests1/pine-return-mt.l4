@@ -1,0 +1,66 @@
+#test return 178800895
+
+/* The Mersenne Twister - MT19937
+ * Author: matthewj
+ */
+
+struct mt_t {
+    s : int[];
+    idx : int;
+};
+
+int init(m : mt_t *, seed : int) {
+    var i : int;
+    m->s[0] = seed;
+    for (i = 1; i < 623; i += 1) {
+        m->s[i] = 1812433253 * (m->s[i - 1] ^ (m->s[i - 1] >> 30)) + i;
+    }
+    return 0;
+}
+
+int next(m : mt_t *) {
+    var _ : int;
+    var y : int;
+
+    if (!(m->idx != 0)) {
+        _ = gen(m);
+    }
+    y = m->s[m->idx];
+    y = y ^ (y >> 11);
+    y = y ^ ((y << 7) & 2636928640);
+    y = y ^ ((y << 15) & 4022730752);
+    y = y ^ (y >> 18);
+
+    m->idx = (m->idx + 1) % 624;
+    return y;
+}
+
+int gen(m : mt_t *) {
+    var i : int;
+    var y : int;
+    for (i = 0; i < 623; i += 1) {
+        y = (m->s[i] >> 31) & 1;
+        y = y + (m->s[(i + 1) % 624] & 2147483647);
+        m->s[i] = m->s[(i + 397) % 624] ^ (y >> 1);
+        if (y % 2 != 0) {
+            m->s[i] = m->s[i] ^ 2567483615;
+        }
+    }
+    return 0;
+}
+
+int main() {
+    var n : int;
+    var _ : int;
+    var m : mt_t *;
+
+    m = new(mt_t);
+    m->s = new(int[624]);
+
+    init(m, 12345678);
+    for (n = 0; n < 1024; n += 1) {
+        _ = next(m);
+    }
+
+    return next(m);
+}

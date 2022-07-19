@@ -1,0 +1,7 @@
+#test exception 8
+// Tests division by zero.
+
+int main () 
+{
+	return (42 / 0);
+}

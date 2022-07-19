@@ -1,0 +1,45 @@
+#test return 0
+// test spilling across function calls
+int main() {
+  var a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,sum1,sum2 : int;
+  a = 1;
+  b = 2;
+  c = 3;
+  d = 4;
+  e = 5;
+  f = 6;
+  g = 7;
+  h = 8;
+  i = 9;
+  j = 10;
+  k = 11;
+  l = 12;
+  m = 13;
+  n = 14;
+  o = 15;
+  p = 16;
+  sum1 = sum(16);
+  sum2 = a+b+c+d+e+f+g+h+i+j+k+l+m+n+o+p;
+  return sum1 - sum2; 
+}
+
+int sum(n:int) {
+  var a,b,c,d,e,f,g,h,i,j,k,l,m,n2,o,p : int;
+  a = n+1;
+  b = n+1;
+  c = n+1;
+  d = n+1;
+  e = n+1;
+  f = n+1;
+  g = n+1;
+  h = n+1;
+  i = n+1;
+  j = n+1;
+  k = n+1;
+  l = n+1;
+  m = n+1;
+  n2 = n+1;
+  o = n+1;
+  p = n+1;
+  return (a+b+c+d+e+f+g+h+i+j+k+l+m+n2+o+p)/2; 
+}

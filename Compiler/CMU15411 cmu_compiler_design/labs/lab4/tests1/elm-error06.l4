@@ -1,0 +1,7 @@
+#test error
+/* type mismatch */
+
+int main () 
+{
+  return NULL;
+}

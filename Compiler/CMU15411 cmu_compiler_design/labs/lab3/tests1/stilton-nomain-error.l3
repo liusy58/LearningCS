@@ -1,0 +1,5 @@
+#test error
+
+int _l3_main() {
+  return 0;
+}

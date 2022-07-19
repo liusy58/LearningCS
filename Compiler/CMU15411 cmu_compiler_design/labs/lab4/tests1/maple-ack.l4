@@ -1,0 +1,37 @@
+#test return 16381
+
+// The infamous Ackermann function
+// I promise this terminates!
+
+int main() {
+  var x,y:int*;
+  x = new(int);
+  *x = 4;
+  y = new(int);
+  *y = 3;
+  return Ack(f2(4)-f1(3)-f2(1),f2(4)+f2(1));
+}
+
+int f1(x:int)
+{
+  if (x != 0)
+    return x * f2(x-1);
+  return x;
+}
+
+int f2(y:int)
+{
+  if (y != 0)
+    return y + f1(y-1);
+  return y;
+}
+
+int Ack(m:int,n:int)
+{
+  if (m == 0)
+    return n+1;
+  if (m > 0 && n == 0)
+    return Ack(m-1,1);
+  return Ack(m-1,Ack(m,n-1));
+}
+

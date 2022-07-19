@@ -1,0 +1,17 @@
+#test error
+/* recursively defined struct */
+
+struct list {
+  head : tree;
+  tail : list*;
+};
+
+struct tree {
+  data : int;
+  subtrees : list;
+};
+
+int main () {
+  return -1;
+}
+  

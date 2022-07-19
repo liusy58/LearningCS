@@ -1,0 +1,33 @@
+#test return 1229
+
+int is_prime(num:int){
+
+	var i:int;
+
+	if(num < 2)
+		return 0;
+
+	if(num == 2)
+		return 1;
+	
+	for(i = 2; i < num; i += 1){
+		if( num % i == 0)
+			return 0;
+	}
+
+	return 1;
+
+}
+
+int main(){
+
+	var i:int;
+	var num_primes:int;
+	
+	num_primes = 0;
+	for(i = 2; i < 10000; i+=1){
+		num_primes += is_prime(i);
+	}
+
+	return num_primes;
+}

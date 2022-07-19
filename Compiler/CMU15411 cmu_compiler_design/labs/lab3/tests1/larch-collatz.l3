@@ -1,0 +1,15 @@
+#test return 1
+
+int main() {
+  return collatz(4823879);
+}
+
+int collatz (n:int) {
+  if (n == 1) {
+    return 1;
+  } else if (n % 2 == 0) {
+    return collatz(n / 2);
+  } else {
+    return collatz(3 * n + 1);
+  }
+}

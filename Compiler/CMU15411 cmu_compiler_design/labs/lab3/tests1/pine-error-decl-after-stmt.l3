@@ -1,0 +1,15 @@
+#test error
+// Tests a feature of the L3 grammar: statements may only appear after
+// declarations.
+
+int main() {
+    var i : int;
+    var j : int;
+    i = 0;
+    j = 0;
+    for (i = 0; i < 10; i += 1) {
+        var k : int;
+        k = i;
+    }
+    return j;
+}

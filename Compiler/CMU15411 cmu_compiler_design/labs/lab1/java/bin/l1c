@@ -1,0 +1,1 @@
+java -mx64m -ss64m -jar l1.jar $*

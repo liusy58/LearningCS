@@ -1,0 +1,9 @@
+#test return 0
+
+int _l3_main() {
+  return 1;
+}
+
+int main() {
+  return 0;
+}

@@ -1,0 +1,18 @@
+#test exception 8
+
+/**
+ * Recursive function without a base-case allows for div by zero.
+ */
+
+int main ()
+{
+    return fun(1563, -14342);
+}
+
+int fun (x : int, y : int)
+{
+    x /= 2;
+    y *= 2/x;
+
+    return (x ^ y) + fun(x, y);
+}

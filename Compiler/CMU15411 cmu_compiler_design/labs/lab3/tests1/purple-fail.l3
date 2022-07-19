@@ -1,0 +1,13 @@
+#test exception 8
+
+int strange(n : int)
+{
+	if (n == 1)
+	   return 5;
+	return n / strange(n-1);
+}
+
+int main()
+{
+	return strange(20);
+}

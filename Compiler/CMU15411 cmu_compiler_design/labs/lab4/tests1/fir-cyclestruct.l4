@@ -1,0 +1,12 @@
+#test return 0
+struct a { b: b *; };
+struct b { c: c *; };
+struct c { d: d *; };
+struct d { e: e *; };
+struct e { f: f *; };
+struct f { g: g *; };
+struct g { h: h *; };
+struct h { a: a *; };
+int main() {
+	return 0;
+}

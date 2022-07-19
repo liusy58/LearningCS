@@ -1,0 +1,11 @@
+#test error
+// Can't call function outside of assignment
+
+int fun() {
+  return 3 + 4;
+}
+
+int main() {
+  fun();
+  return 6;
+}

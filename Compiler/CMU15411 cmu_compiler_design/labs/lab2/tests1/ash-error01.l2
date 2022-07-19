@@ -1,0 +1,20 @@
+#test error
+// Not all branches return
+{
+  if (1) 
+    if (1) 
+      if (1) return 1;
+      else return 1;
+    else return 1;
+  else
+    if (1)
+      if (1) {
+        if (1) return 1;
+        noReturn = 42;
+      } else 
+          if (1) return 1;
+          else return 1;
+    else return 1;
+}
+
+

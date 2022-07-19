@@ -1,0 +1,19 @@
+#test return 2739128
+// parses the value X in base B to a decimal
+{
+  X = 12345670;
+  B = 8;
+
+  decimal = 0;
+  x = X;
+  w = 1;
+  while (x > 0) {
+    decimal += w * (x % 10);
+    w *= B;
+    x /= 10;
+  }
+
+  return decimal;
+}
+
+

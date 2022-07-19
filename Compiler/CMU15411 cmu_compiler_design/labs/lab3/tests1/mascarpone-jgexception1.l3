@@ -1,0 +1,11 @@
+#test exception 8
+
+int main()
+{
+  return divide(5, 0);
+}
+
+int divide(x:int, y:int)
+{
+  return x / y;
+}

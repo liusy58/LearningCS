@@ -1,0 +1,6 @@
+#test exception
+//overflow
+{
+ tmin = 1<<31; 
+ return tmin/(~0);
+}

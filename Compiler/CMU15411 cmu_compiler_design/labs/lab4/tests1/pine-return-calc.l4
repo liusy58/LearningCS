@@ -1,0 +1,68 @@
+#test return 25
+
+/* A little stack-based calculator.
+ * Author: matthewj
+ */
+
+struct calc_t {
+    s : int[];
+    slen : int;
+    sp : int;
+};
+
+int push(s : calc_t *, v : int) {
+    if (s->sp >= s->slen) { return 1 / 0; }
+    s->s[s->sp] = v;
+    s->sp += 1;
+    return v;
+}
+
+int pop(s : calc_t *) {
+    s->sp -= 1;
+    if (s->sp < 0) { return 1 / 0; }
+    return s->s[s->sp];
+}
+
+int plus(s : calc_t *) {
+    return push(s, pop(s) + pop(s));
+}
+
+int minus(s : calc_t *) {
+    return push(s, pop(s) - pop(s));
+}
+
+int times(s : calc_t *) {
+    return push(s, pop(s) * pop(s));
+}
+
+int dup(s : calc_t *) {
+    var v : int;
+    v = pop(s);
+    v = push(s, v);
+    v = push(s, v);
+    return v;
+}
+
+int main() {
+    var s : calc_t *;
+    var _ : int;
+
+    s = new(calc_t);
+    s->s = new(int[512]);
+    s->slen = 512;
+    s->sp = 0;
+
+    _ = push(s, 1); /* 1 */
+    _ = push(s, 2); /* 1, 2 */
+    _ = push(s, 3); /* 1, 2, 3 */
+    _ = push(s, 4); /* 1, 2, 3, 4 */
+    _ = push(s, 5); /* 1, 2, 3, 4, 5 */
+    _ = plus(s);    /* 1, 2, 3, 9 */
+    _ = minus(s);   /* 1, 2, 6 */
+    _ = times(s);   /* 1, 12 */
+    _ = dup(s);     /* 1, 12, 12 */
+    _ = plus(s);    /* 1, 24 */
+    _ = plus(s);    /* 25 */
+    
+    return pop(s);
+}

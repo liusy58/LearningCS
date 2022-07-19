@@ -1,0 +1,12 @@
+#test error
+/* circular reference from a struct to itself */
+
+struct this   {x:int; y:int; p:points;};
+struct points {x:int; y:int; p:back;};
+struct back   {x:int; y:int; p:to;};
+struct to     {x:int; y:int; p:itself;};
+struct itself {x:int; y:int; p:this;};
+
+int main () {
+  return 1;
+}

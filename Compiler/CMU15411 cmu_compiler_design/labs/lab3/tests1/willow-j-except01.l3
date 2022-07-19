@@ -1,0 +1,11 @@
+#test exception
+
+// this could fail to terminate SIGALRM (14) or raise SIGSEGV (11)
+
+int foo(a:int) {
+ return foo(a);
+}
+
+int main() {
+	return foo(1);
+}

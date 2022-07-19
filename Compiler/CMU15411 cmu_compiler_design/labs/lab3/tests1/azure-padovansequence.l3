@@ -1,0 +1,15 @@
+#test return 9
+// padovan sequence: http://mathworld.wolfram.com/PadovanSequence.html
+
+int main ()
+{
+  return padovan(9);
+}
+
+int padovan (n : int)
+{
+  if(n == 0 || n == 1 || n == 2)
+    return 1;
+  else
+    return padovan(n-2)+padovan(n-3);
+}

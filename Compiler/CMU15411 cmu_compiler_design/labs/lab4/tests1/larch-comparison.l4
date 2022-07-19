@@ -1,0 +1,17 @@
+#test return 2
+
+int main() {
+  var p : int*;
+  var q : int*;
+  
+  p = new(int);
+  q = new(int);
+  
+  // Make sure pointer comparison works right. It'd be nice to be able to force the
+  // pointers to use some of the upper 32 bits.
+  if (p == q) {
+    return 4;
+  } else {
+    return 2;
+  }
+}

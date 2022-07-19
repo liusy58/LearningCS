@@ -1,0 +1,34 @@
+#test return 134217728
+
+/* 
+ * Tests asops ^= &= <<= >>=
+ *
+ * From 15-213 S07 
+ *
+ * byteSwap - swaps the nth byte and the mth byte
+ *  Examples: byteSwap(0x12345678, 1, 3) = 0x56341278
+ *            byteSwap(0xDEADBEEF, 0, 2) = 0xDEEFBEAD
+ *  Assumes that 0 <= n <= 3, 0 <= m <= 3
+ */
+int byteSwap(x:int, n:int, m:int) {
+  var byteAllOnes, xm, xn, xcm, xcn, combined : int;
+  byteAllOnes = 255;
+
+  n <<= 3;
+  m <<= 3;
+  xm = (x >> m);
+  xn = (x >> n);
+  combined = xm;
+  combined ^= xn;
+  combined &= byteAllOnes;
+  xcm = combined << m;
+  xcn = combined << n;
+
+  return xcm^xcn^x;
+}
+
+int main () {
+  var x : int;
+  x = 1 << 3;
+  return byteSwap(x, 0, 3);
+}

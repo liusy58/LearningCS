@@ -1,0 +1,9 @@
+#test return 0
+// Unreachable divide by 0
+
+int main() {
+  var x : int;
+
+  return 0;
+  x = 1 / 0;
+}

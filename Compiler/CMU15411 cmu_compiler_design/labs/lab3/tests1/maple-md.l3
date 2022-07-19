@@ -1,0 +1,24 @@
+#test error
+
+int main() {
+  var m,n:int;
+  m = 3234;
+  n = 821;
+  return goB(m,n);
+}
+
+// multiple declarations of one function 
+int goA(a:int,b:int)
+{
+  if (a>b) return 1; return 0;
+}
+
+int goB(a:int,b:int)
+{
+  return goA(b,a);
+}
+
+int goA()
+{
+  return 1;
+}

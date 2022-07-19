@@ -1,0 +1,12 @@
+#test return 0
+// test parsing
+int	# this is a comment
+main(/* //*/ #*/*/) {
+  ///* this is a one-line comment
+  return-/***/-
+0
+;}
+
+int a0123456789b(x/* anywhere I can put a comment */:/**/int)
+{ return x; }
+#

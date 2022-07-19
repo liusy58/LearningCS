@@ -1,0 +1,18 @@
+#test return 5
+
+// factor
+
+int factor(num: int, acc: int) {
+	var x: int;
+
+	for (x = 2; x < num; x += 1) {
+		if (num % x == 0) {
+			return factor(num / x, acc + 1);
+		}
+	}
+	return acc;
+}
+
+int main() {
+	return factor(24150, 0);
+}

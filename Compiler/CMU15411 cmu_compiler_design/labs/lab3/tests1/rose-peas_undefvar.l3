@@ -1,0 +1,27 @@
+#test error
+
+# Tries to use an undefined variable#
+
+int peas (n : int)
+{
+    var nrep : int;
+
+    nrep = n * 1001;
+    y = nrep / 7;
+    y += y;
+    y = y / n;
+    y = y / 22; 
+    y = (y + 26) / (-y);
+    y -= 7;
+    y *= 12; 
+    y = -y; 
+    y /= 30; 
+    y -= 4;
+    return y;
+}
+
+int main ()
+{
+    return peas (42);
+}
+

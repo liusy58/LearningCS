@@ -1,0 +1,10 @@
+#test error
+/* break must occur inside of a for or while loop */
+
+int main() {
+  var x : 8;
+  while( x>0 )
+    x /= 2;
+  break;
+  return x;
+}

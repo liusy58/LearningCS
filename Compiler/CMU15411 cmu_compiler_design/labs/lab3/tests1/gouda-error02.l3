@@ -1,0 +1,14 @@
+#test error
+// function declared more than once
+
+int a() {
+  return 1;
+}
+
+int a() {
+  return 2;
+}
+
+int main () {
+  return 1;
+}

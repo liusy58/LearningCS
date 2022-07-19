@@ -1,0 +1,17 @@
+#test return 1
+
+/* Determines primality of n, returns 1 if prime, 0 if composite or 1 */
+
+int prime(n:int, i:int) {
+  if(n/2==i)
+    return 1;
+  
+   if(n%i==0)
+     return 0;
+   else
+     return prime(n, i+1);
+}
+
+int main() {
+  return prime(3361, 2);
+}

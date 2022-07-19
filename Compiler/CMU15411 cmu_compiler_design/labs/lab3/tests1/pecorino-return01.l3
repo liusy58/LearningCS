@@ -1,0 +1,25 @@
+#test return 25
+/* Returns the number of prime numbers
+   from 1 to 100
+	 */
+
+int main () {
+	var i, c:int ;
+  c = 0;	
+	for (i = 2; i <= 100; i= i+1) {
+		if (isprime(i))
+			c = c + 1;
+	}
+	return c;
+	
+}
+
+int isprime(x:int) {
+	var i,c :int ;
+	c = 0;
+	for (i = 2; i < x; i = i + 1) {
+		if ( x % i == 0 )
+			return 0;
+	}
+	return 1;
+}

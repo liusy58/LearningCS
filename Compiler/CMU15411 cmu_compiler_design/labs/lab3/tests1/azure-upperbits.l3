@@ -1,0 +1,28 @@
+#test return 0
+// tests shifting by creating number with upper n bits set
+
+int main () {
+  var i : int;
+  for(i = 0; i < 32; i+=1) {
+    if(upperBits(i) != upperBits2(i))
+      return -1;
+  }
+  return 0;
+}
+
+int upperBits(n:int) {
+  var inv_n, neg_n, neg_n_mask, shift, result : int;
+  inv_n = ~n;
+  neg_n = inv_n + 1;
+  neg_n_mask = neg_n>>31; /* 0xffffffff if n>0, else (n=0) 0x00000000 */
+  shift = neg_n; // 32+neg_n; since upper bits ignored
+  result = neg_n_mask<<shift;
+  return result;
+}
+
+int upperBits2(n:int) {
+  if(n == 0)
+    return 0;
+  else
+    return (1<<31) | (upperBits2(n-1)>>1);
+}

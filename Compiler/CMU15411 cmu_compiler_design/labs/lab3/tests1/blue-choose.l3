@@ -1,0 +1,31 @@
+#test return 128
+/* Team Blue
+ * Binomial coefficient
+ */
+
+/* "fun fact" indeed...
+ * Assume x nonnegative
+ */
+int fact(x: int) {
+	if (x == 0)
+		return 1;
+	
+	return x * fact(x - 1);
+}
+
+int choose(n: int, k: int) {
+	return fact(n) / (fact(k) * fact(n - k));
+}
+
+int main() {
+	/* sum_{i=0}^{n} {n \choose i} = 2^n */
+	var i, n, accum: int;
+	
+	n = 7;
+	accum = 0;
+	
+	for (i = 0; i <= n; i += 1)
+		accum += choose(n, i);
+	
+	return accum;
+}

@@ -1,0 +1,13 @@
+#test error
+// Two variables declared with the same identifier in the same function
+// One is a parameter, the other is a local variable
+
+int fun(x : int) {
+  var x : int;
+
+  return 0;
+}
+
+int main() {
+  return fun();
+}

@@ -1,0 +1,18 @@
+#test return -2147483648
+#short circuit for logical ops
+
+int
+main()
+{
+  var a, x:int;
+  a = -1;
+  x = -2147483648;
+  if (1 || x / a) {
+     x -= 1;
+     x ^= a;
+     if (0 || x > 0 && (a == 2/0)) {
+        return 0;
+     }
+  }
+  return x;
+}

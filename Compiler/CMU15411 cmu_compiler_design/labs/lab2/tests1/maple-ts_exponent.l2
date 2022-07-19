@@ -1,0 +1,20 @@
+#test return 823543
+// Compute x^n using fast exponentiation
+{
+  n = 7;
+  x = 7;
+
+  ret = 1;
+
+  while(n > 0)
+  {
+     if (n % 2 == 1)
+     {
+        ret *= x;
+     }
+     x *= x;
+     n /= 2;
+  }
+
+  return ret;
+}

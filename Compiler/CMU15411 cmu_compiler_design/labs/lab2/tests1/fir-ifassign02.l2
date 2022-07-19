@@ -1,0 +1,12 @@
+#test error
+{
+  if (1) {
+    hello = 2;
+  } else {
+    while (1) {
+      hello = 1;
+    }
+  }
+  return hello;
+}
+

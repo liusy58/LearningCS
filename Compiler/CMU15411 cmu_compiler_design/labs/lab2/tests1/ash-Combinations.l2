@@ -1,0 +1,24 @@
+#test return 210
+// Combinations: N choose K
+{
+N = 10;
+K = 6;
+
+if (N - K < K) k = N - K;
+else k = K;
+
+num = 1;
+den = 1;
+
+a = N;
+b = k;
+
+while (b > 0) {
+  num *= a;
+  den *= b;
+  a -= 1;
+  b -= 1;
+}
+
+return num / den;
+}

@@ -1,0 +1,13 @@
+#test error
+
+int foo (x : int, y : int) {
+    return x + y + 1;
+}
+
+int foo (x : int) {
+    return x + 1;
+}
+
+int main () {
+    return foo(7) + foo(8,9);
+}

@@ -1,0 +1,9 @@
+#test error
+int main(){
+  var x : int;
+  x = 3;
+  var y : int;
+  y = 4;
+  return 1;
+}
+

@@ -1,0 +1,16 @@
+#test error
+/* tests function defintion and usage
+*/
+
+int main ()
+{
+	var _ : int ;
+	_ = calling_bogus() ;
+	
+	return _;
+}
+
+int calling bogus(x: int, y: int) {
+	return 0;
+}
+

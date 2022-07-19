@@ -1,0 +1,44 @@
+#test return 3
+// tests xor and passing 6 arguments.
+
+int main()
+{
+  return f(1, 2, 3, 4, 5, 6);
+}
+
+int min(x : int, y : int)
+{
+  if (x < y)
+  {
+    x = x ^ y;
+    y = x ^ y;
+    x = x ^ y;
+  }
+
+  return y;
+}
+
+int max(x : int, y : int)
+{
+  if (x > y)
+  {
+    x = x ^ y;
+    y = x ^ y;
+    x = x ^ y;
+  }
+
+  return y;
+}
+
+int f(x : int, y : int, z : int, a : int, b : int, c : int)
+{
+  var max1, max2 : int;
+
+  max1 = max(x, y);
+  max1 = max(max1, z);
+
+  max2 = max(a, b);
+  max2 = max(max2, c);
+
+  return min(max1, max2);
+}

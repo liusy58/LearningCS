@@ -1,0 +1,11 @@
+#test error
+
+int main() {
+  var p : int[]*;
+  p = new(int[]);
+  *p = new(int[3]);
+  
+  // [] has higher precedence, so this should not typecheck
+  *p[0] = 0;
+  return *p[0];
+}

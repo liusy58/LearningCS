@@ -1,0 +1,13 @@
+#test return 5
+
+int main(){
+ 
+     var a : int;
+
+     a = 5;
+
+     if( 0 == 1 )
+     	return main();
+     else
+     	return a;
+}

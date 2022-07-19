@@ -1,0 +1,28 @@
+15-411 Compiler Design
+Fall 2009
+Instructor: Frank Pfenning
+TAs: Ruy Ley-Wild and Miguel Silva
+
+Lab 1 Handout
+
+doc/       -- lab specification
+sml/       -- starter code targeting pseudo assembly, in SML
+           -- if you'd like to use this as your starting point, do
+              % svn copy sml compiler
+           -- to get a private copy
+java/      -- starter code targeting pseudo assembly, in Java
+           -- if you'd like to use this as your starting point, do
+              % svn copy java compiler
+           -- to get a private copy
+tests0/    -- some provided test files
+driver/    -- driver files (almost) identical to those on Autolab
+           -- test your copiler with
+              % ./driver.pl file1.l1 file2.l1 ...
+runtime/   -- runtime environment for generated assembly
+           -- generate executable with
+	      % gcc -m64 <testfile>.s l1rt.c
+
+To be created (details see doc/lab1.pdf):
+
+tests/     -- directory with your own test file *.l1
+compiler/  -- directory with your own compiler

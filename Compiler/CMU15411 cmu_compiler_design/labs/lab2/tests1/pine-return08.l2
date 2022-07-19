@@ -1,0 +1,9 @@
+#test return 5
+// Tests that continue inside a for loop jumps to the step statement properly
+{
+    for (i = 0; i < 5; i += 1) {
+        if (i == 1) { }
+        else if (i == 3) { continue; }
+    }
+    return i;
+}

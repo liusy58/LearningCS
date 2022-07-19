@@ -1,0 +1,9 @@
+#test error
+
+struct foo {
+	foo : foo;
+};
+
+int main() {
+	return 1;
+}

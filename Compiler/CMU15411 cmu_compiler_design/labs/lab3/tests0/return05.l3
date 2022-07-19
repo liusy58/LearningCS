@@ -1,0 +1,22 @@
+#test return 75
+/* Testing external function calls to
+ * floating point operations
+ */
+
+extern int printchar(n:int);
+extern int printint(n:int);
+extern int printfloat(x:int);
+extern int tofloat(n:int);
+extern int fromfloat(x:int);
+extern int fadd(x:int,y:int);
+extern int fsub(x:int,y:int);
+extern int fmul(x:int,y:int);
+extern int fdiv(x:int,y:int);
+
+int main () {
+  var x, _:int;
+  x = tofloat(10);
+  x = fmul(x,fdiv(fadd(x,tofloat(5)),tofloat(2)));
+  _ = printfloat(x); _ = printchar(10);
+  return fromfloat(x);
+}

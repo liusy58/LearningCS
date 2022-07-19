@@ -1,0 +1,31 @@
+#test error
+
+/* A structure which contains itself? Madness!
+ * Author: matthewj
+ */
+
+struct t {
+    q : int;
+    m : s;
+};
+
+struct s {
+    a : int;
+    b : int;
+    p : r;
+};
+
+struct r {
+    p : int;
+    x : int[];
+    q : q;
+};
+
+struct q {
+    y : int;
+    t : t;
+};
+
+int main() {
+    return 0;
+}

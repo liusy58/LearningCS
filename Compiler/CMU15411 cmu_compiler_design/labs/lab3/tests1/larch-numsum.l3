@@ -1,0 +1,13 @@
+#test return 761995
+
+int main() {
+  return sumints(0, 1234);
+}
+
+int sumints(sum:int, x:int) {
+  if (!x) {
+    return sum;
+  }
+
+  return sumints(sum + x, x - 1);
+}

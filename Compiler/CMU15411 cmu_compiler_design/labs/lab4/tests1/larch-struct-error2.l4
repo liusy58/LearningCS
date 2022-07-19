@@ -1,0 +1,18 @@
+#test error
+
+// Duplicate field name
+
+struct fine {
+  a : int;
+  b : int;
+};
+
+struct error {
+  a : int;
+  b : int;
+  a : fine*;
+};
+
+int main() {
+  return 1/0;
+}

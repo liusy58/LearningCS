@@ -1,0 +1,41 @@
+#test return 120
+
+int arr8_idx(n0: int, n1: int, n2: int, n3: int, n4: int, n5: int, n6: int, n7: int, idx: int)
+{
+	if(idx == 0)
+		return n0;
+	if(idx == 1)
+		return n1;
+	if(idx == 2)
+		return n2;
+	if(idx == 3)
+		return n3;
+	if(idx == 4)
+		return n4;
+	if(idx == 5)
+		return n5;
+	if(idx == 6)
+		return n6;
+	if(idx == 7)
+		return n7;
+	else
+		return 1/0;
+}
+
+int arrmulsum(n0: int, n1: int, n2: int, n3: int, n4: int, n5: int, n6: int, n7: int,
+              m0: int, m1: int, m2: int, m3: int, m4: int, m5: int, m6: int, m7: int)
+{
+	var x, i: int;
+
+	x = 0;
+	for(i = 0; i < 8; i = i + 1)
+		x += arr8_idx(n0, n1, n2, n3, n4, n5, n6, n7, i) * arr8_idx(m0, m1, m2, m3, m4, m5, m6, m7, i);
+
+	return x;
+}
+
+int main()
+{
+	return arrmulsum(1, 2, 3, 4, 5, 6, 7, 8,
+	                 8, 7, 6, 5, 4, 3, 2, 1);
+}

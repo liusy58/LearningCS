@@ -1,0 +1,136 @@
+#test return 127
+
+struct List {
+  head : int;
+  tail : List*;
+};
+
+// test list manipulations
+
+int main() {
+  var test : int;
+  var a,b,c,aRev : List*;
+  
+  test = 0;
+  
+  a = upto(10);
+  aRev = reverse(a);
+  b = cons(11, range(12, 21));
+  c = upto(20);
+  
+  test |= (equal(a, a) ? 1 : 0);
+  test |= (!equal(a, b) ? 1 : 0) << 1;
+  test |= (!equal(a, aRev) ? 1 : 0) << 2;
+  test |= (equal(a, reverse(aRev)) ? 1 : 0) << 3;
+  test |= (equal(c, concatRev(aRev, b)) ? 1 : 0) << 4;
+  test |= (equal(c, concat(a, b)) ? 1 : 0) << 5;
+  test |= (equal(reverse(c), concatRev(b, aRev)) ? 1 : 0) << 6;
+  
+  return test;
+}
+
+/* list manipulation */ 
+
+List* reverse(list : List*) {
+  return foldLeft_List(nil(), list, 1);
+}
+
+List* concatRev(frontRev : List*, back : List*) {
+  return foldLeft_List(back, frontRev, 1);
+}
+
+List* concat(front : List*, back : List*) {
+  return concatRev(reverse(front), back);
+}
+
+List* foldLeft_List(z : List*, list : List*, funselect : int) {
+  while (!isEmpty(list)) {
+    // reverse
+    if (funselect == 1)
+	  z = cons(list->head, z);
+	//  ...
+	
+	list = list->tail;
+  }
+  return z;
+}
+
+/*  list analysis */
+
+int length(list : List*) {
+  return foldLeft_int(0, list, 1);
+}
+
+bool onlyZeroes(list : List*) {
+  return foldLeft_int(1, list, 2) != 0;
+}
+
+int sum(list : List*) {
+  return foldLeft_int(0, list, 3);
+}
+
+bool isSorted(list : List*) {
+  var min : int;
+  min = -2147483648;
+  while (!isEmpty(list)) {
+    if (list->head < min) return false;
+    else min = list->head;
+    list = list->tail;
+  }
+  return true; 
+}
+
+bool equal(as : List*, bs : List*) {
+  return isEmpty(as) == isEmpty(bs) && (isEmpty(as) || (as->head == bs->head && equal(as->tail, bs->tail)));
+} 
+
+int foldLeft_int(z : int, list : List*, funselect : int) {
+  while (!isEmpty(list)) {
+    // length
+    if (funselect == 1)
+	  z += 1;
+	// onlyZeroes
+	else if (funselect == 2)
+	  z = (z != 0) && (list->head == 0) ? 1 : 0;
+	//  sum
+	else if (funselect == 3)
+	  z += list->head;
+	// ...
+	
+	list = list->tail;
+  }
+  return z;
+}
+
+/* list creation */
+
+// list [start, ..., end)
+List* range(start : int, end : int) {
+  if (start < end)
+    return cons(start, range(start + 1, end));
+  else
+    return nil();
+}
+
+// list [1, ..., end]
+List* upto(end : int) {
+  return range(1, end + 1);
+}
+
+/* basic list */
+
+List* nil() {
+  return NULL;
+}
+
+List* cons(i : int, list : List*) {
+  var newList : List*;
+  newList = new(List);
+  newList->head = i;
+  newList->tail = list;
+  return newList;
+}
+
+bool isEmpty(list : List*) {
+  return list == NULL;
+}

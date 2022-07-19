@@ -1,0 +1,20 @@
+#test return 45152016
+
+# The flib function: given three base values, do exponential recursion
+# Similar to fib function, but generalized and over three variables.
+
+int flib (b0 : int, b1 : int, b2 : int, n : int)
+{
+    if (n == 0) return b0;
+    if (n == 1) return b1;
+    if (n == 2) return b2;
+    return (flib (b0, b1, b2, n - 1)) +
+           (flib (b0, b1, b2, n - 2)) +
+           (flib (b0, b1, b2, n - 3));
+}
+
+int main ()
+{
+    return (flib (0, 1, 2, 30));
+}
+

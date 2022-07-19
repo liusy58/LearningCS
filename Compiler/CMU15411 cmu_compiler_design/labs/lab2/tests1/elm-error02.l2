@@ -1,0 +1,9 @@
+#test error
+// return not in every path of execution
+{
+  i = 5;
+  if(i == 5)
+    return 4;
+  else
+    i += 2;
+}

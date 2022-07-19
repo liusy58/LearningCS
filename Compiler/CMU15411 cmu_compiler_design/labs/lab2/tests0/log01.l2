@@ -1,0 +1,10 @@
+#test return 7
+
+{
+  one = !!78;
+  zero = !one;
+  one = (one || 1/0 || 1/0) && !(zero && 1/0 && 1/0);
+  one_ = 76 && 198372;
+  one__ = one == 1;
+  return (one<<2|one_<<1|one__<<0);
+}

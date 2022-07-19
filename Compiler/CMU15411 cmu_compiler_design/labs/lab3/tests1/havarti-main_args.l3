@@ -1,0 +1,9 @@
+#test error
+
+/**
+ * main() should not have arguments.
+ */
+int main (arg : int)
+{
+    return 1;
+}

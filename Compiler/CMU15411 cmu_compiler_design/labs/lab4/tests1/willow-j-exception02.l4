@@ -1,0 +1,42 @@
+#test exception
+struct list {
+  head : int;
+  tail : list*;
+};
+
+list* uptoinf(n : int) {
+  var p,q : list*;
+  q = NULL;
+  while (n > 0) {
+    p = new(list);
+    p->head = n;
+    p->tail = q;
+    q = p;
+    n -= 1;
+  }
+	p = q;
+	while(p != NULL) {
+		if(p->tail == NULL) {
+			p->tail = q;
+			break;
+		}
+	}
+  return q;
+}
+
+int sum (p : list*) {
+  var sum : int;
+  sum = 0;
+  while (p != NULL) {
+    sum += p->head;
+    p = p->tail;
+  }
+  return sum;
+}
+
+int main () {
+  var p : list*;
+  p = NULL;
+  p = uptoinf(100);
+  return sum(p);
+}

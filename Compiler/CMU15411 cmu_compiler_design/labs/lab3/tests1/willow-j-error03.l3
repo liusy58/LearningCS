@@ -1,0 +1,7 @@
+#test error
+int main() {
+	int foo(a:int) {
+	 return a;
+	}
+	return foo(1);
+}

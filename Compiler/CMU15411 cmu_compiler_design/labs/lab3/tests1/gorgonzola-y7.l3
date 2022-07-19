@@ -1,0 +1,9 @@
+#test return 10
+int main(){
+    var x : int;
+    var y : int;
+    x = 32;
+    y = 10;
+    y = y<<32;
+    return y;
+}

@@ -1,0 +1,10 @@
+#test return 1
+// recursive printint
+
+extern int printint(n:int);
+
+int main () {
+  var _:int;
+  _ = printint(printint(printint(printint(printint(printint(5))))));
+  return 1;
+}

@@ -1,0 +1,34 @@
+#test return 17
+
+# Good old iterative Euclidean GCD algorithm
+
+int gcd (n : int, m : int)
+{
+    var p, q, t : int;
+
+    if (n < m)
+    {
+        p = m;
+        q = n;
+    }
+    else
+    {
+        p = n;
+        q = m;
+    }
+
+    for (t = p % q; t != 0; t = p % q)
+    {
+        p = q;
+        q = t;
+    }
+
+    return q;
+
+}
+
+int main ()
+{
+    return gcd (629, 1649);
+}
+

@@ -1,0 +1,18 @@
+#test return 134
+// tests passing more than 6 arguments.
+
+int main()
+{
+  var x, y, z : int;
+  
+  x = 27;
+  y = x * 3;
+  z = y * 3;
+
+  return f(x, y, z, y - x, z/y, z/x, y/x);
+}
+
+int f(a : int, b : int, c : int, d : int, e : int, f : int, g : int)
+{
+  return a ^ b ^ c ^ d ^ e ^ f ^ g;
+}

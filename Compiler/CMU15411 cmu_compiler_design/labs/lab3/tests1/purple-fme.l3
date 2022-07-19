@@ -1,0 +1,21 @@
+#test return  96040
+//does fast modular exponentiation
+
+int fme(base : int,exponent : int,modulus : int)
+{
+	var temp  : int;
+	if (exponent == 0)
+	return 1;
+	if(exponent % 2 == 0)
+		return fme((base*base) % modulus, exponent / 2, modulus);
+	else
+	{
+		temp = fme(base, exponent / 2, modulus);
+		return (temp * temp * base) % modulus;
+	}
+		
+}
+int main()
+{
+	return fme(257, 40096, 101537);
+}

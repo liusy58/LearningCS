@@ -1,0 +1,9 @@
+#test exception
+//stack overflow
+// or time-out, depending on system resources
+
+int main(){
+  var x:int;
+  x = main();
+  return 1;
+}

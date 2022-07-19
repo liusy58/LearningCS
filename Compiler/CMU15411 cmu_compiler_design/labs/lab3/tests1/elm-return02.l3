@@ -1,0 +1,18 @@
+#test return 10
+/* Variable name and function name are the same
+ */
+/* Nested function calls */
+
+int main () {
+  var n,m,sum:int;
+  n = 3;
+  m = 7;
+  sum = 0;
+  return sum+sum(n,m);
+}
+
+int sum (pair1:int, pair2:int)
+{
+  return pair1+pair2;
+}
+

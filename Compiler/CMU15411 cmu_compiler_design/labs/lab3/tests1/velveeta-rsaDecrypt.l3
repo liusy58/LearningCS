@@ -1,0 +1,61 @@
+#test return 8
+// Computes the message given the cipher text M and the private key
+// example is same as in rsaEncrypt.
+
+int main()
+{
+  var n,p,q,e,d,c,phi:int;
+  p = 3;
+  q = 11;
+  n = p * q;
+  phi = (p-1)*(q-1);
+  e = 7;
+  d = 3;
+
+  c = 2;
+
+  if(rsaDecrypt(n,rsaEncrypt(n,8,e),d) != 8){
+    return 0;
+  }
+  if(rsaDecrypt(n,rsaEncrypt(n,7,e),d) != 7){
+    return 0;
+  }
+  if(rsaDecrypt(n,rsaEncrypt(n,6,e),d) != 6){
+    return 0;
+  }
+  if(rsaDecrypt(n,rsaEncrypt(n,5,e),d) != 5){
+    return 0;
+  }
+  if(rsaDecrypt(n,rsaEncrypt(n,4,e),d) != 4){
+    return 0;
+  }
+  if(rsaDecrypt(n,rsaEncrypt(n,3,e),d) != 3){
+    return 0;
+  }
+  if(rsaDecrypt(n,rsaEncrypt(n,2,e),d) != 2){
+    return 0;
+  }
+  
+  return rsaDecrypt(n,c,d);
+}
+
+int rsaEncrypt(n:int, m:int, e:int){
+  var c:int;
+
+  c = exp(m,e);
+  return c % n;
+}
+
+int rsaDecrypt(n:int, c:int, d:int){
+  var m:int;
+
+  m = exp(c,d);
+  return m % n;
+}
+
+int exp(a:int, b:int){
+  if(b == 0)
+    return 1;
+  return a * exp(a, b-1);
+}
+

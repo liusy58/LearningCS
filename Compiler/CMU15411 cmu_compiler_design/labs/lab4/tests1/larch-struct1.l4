@@ -1,0 +1,26 @@
+#test return 3
+
+struct inner {
+  a : int;
+  b : int;
+};
+
+struct blah {
+  n : int;
+  i : inner;
+  p : int;
+};
+
+int* copy(s : blah*) {
+  s->i.b = s->i.a;
+  return NULL;
+}
+
+int main() {
+  var b : blah*;
+  
+  b = new(blah);
+  b->i.a = 3;
+  copy(b);
+  return b->i.b;
+}

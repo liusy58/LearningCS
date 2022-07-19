@@ -1,0 +1,17 @@
+#test return 0
+// Tests that the typechecker analyses as thoroughly as required
+int main() {
+  var x, y, z, technicallyThisVariableIsDefined : int;
+  
+  if (1) x = 0;
+  else x = 1;
+  
+  for (y = 0; 1;) {
+    z = y;
+    break;
+    return technicallyThisVariableIsDefined;
+  }
+  
+  if (x) return !x;
+  else return x;
+}

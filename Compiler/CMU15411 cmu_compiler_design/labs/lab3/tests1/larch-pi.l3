@@ -1,0 +1,20 @@
+#test return 314159214
+
+//Approximates 100000000 * pi
+
+int main() {
+  return pi(100000000);
+}
+
+int pi(iters:int) {
+  var pi, i, numer : int;
+  pi = 0;
+  numer = 400000000;
+
+  for (i = 0; i < iters; i += 1) {
+    pi += numer / (2*i + 1);
+    numer *= -1;
+  }
+
+  return pi;
+}

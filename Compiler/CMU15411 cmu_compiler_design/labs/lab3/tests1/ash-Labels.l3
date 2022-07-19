@@ -1,0 +1,23 @@
+#test return 45
+
+int L1 () { return 1; }
+int l2 () { return 2; } 
+int L_3 (L_3 : int) { return 3 + L_3; } 
+int l_4 (l_4 : int) { return 4 + l_4; } 
+int _L5 () { return 5; }
+int _l6 (_l6 : int) { return _l6+6; }
+int _7 () { return 7; }
+int L8_ () { return 8; }
+int l9_ () { return 9; }
+
+int main() {
+  var L1,l2,L_3,l_4,_L5,_l6,_7,L8_,l9_ : int;
+  L_3 = 33;l_4 = 44;_l6 = 66;
+  if (L1()==l2()) if (L_3(L_3)<l_4(l_4))  if (_L5()>=_l6(_l6)) _7=(7); else _7=(7);
+                  else                    if (_L5()>_l6(_l6))  _7=(7); else _7=(7);
+  else            if (L_3(L_3)<=l_4(l_4)) if (_L5()>_l6(_l6))  _7=(7); else _7=(7);
+                  else                    if (_L5()>=_l6(_l6)) _7=(7); else _7=(7);
+
+  return (L1()+(l2()+L_3(l_4(_L5()+_l6(_7()+(L8_()+l9_()))))));
+}
+

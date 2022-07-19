@@ -1,0 +1,54 @@
+#test return 127
+
+struct Array {
+  size : int;
+  elements : int[];
+};
+
+// test array
+
+int main() {
+  var test : int;
+  var a : Array*;
+  
+  a = create (10);
+  
+  set(2, 7, a);
+  set(3, 6, a);
+  set(4, 5, a);
+  set(5, 4, a);
+  set(6, 3, a);
+  set(7, 2, a);
+  
+  test = 1;
+  test |= ((get(2, a) == 7) ? 1 : 0) << 1;
+  test |= ((get(3, a) == 6) ? 1 : 0) << 2;
+  test |= ((get(4, a) == 5) ? 1 : 0) << 3;
+  test |= ((get(5, a) == 4) ? 1 : 0) << 4;
+  test |= ((get(6, a) == 3) ? 1 : 0) << 5;
+  test |= ((get(7, a) == 2) ? 1 : 0) << 6;
+  
+  return test;
+}
+
+/* array operations */
+
+Array* create(n : int) {
+   var a : Array*;
+   a = new (Array);
+   a->size = n;
+   a-> elements = new(int[n]);
+   return a;
+}
+
+int get(i : int, a : Array*) {
+  var p : int *;
+  p = NULL;
+  if (i >= 0 && i < a->size) return a->elements[i];
+  else return *p;
+}
+
+int set(i : int, x : int, a : Array*) {
+  if (i >= 0 && i < a->size) a->elements[i] = x;
+  return 0;
+}

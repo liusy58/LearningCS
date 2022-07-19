@@ -1,0 +1,17 @@
+#test return 42
+
+int main() {
+	return conditional(0,37,42);
+}
+
+//Same as x ? y : z - this is the last bitlab thing, I promise!
+
+int conditional(x : int, y : int, z : int) {
+	var notx, notmask, yesmask : int;
+
+	notx = !x;
+	notmask = (notx << 31) >> 31;
+	yesmask = ~notmask;
+
+	return (y & yesmask) | (z & notmask);
+}

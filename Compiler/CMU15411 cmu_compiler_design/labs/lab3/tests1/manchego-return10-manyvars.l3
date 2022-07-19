@@ -1,0 +1,58 @@
+#test return 651
+
+int main() {
+	var a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q : int;
+	var x, y, z : int;
+
+	a = 1;
+	b = 2;
+	c = 3;
+	d = 4;
+	e = 5;
+	f = 6;
+	g = 7;
+	h = 8;
+	i = 9;
+	j = 10;
+	k = 11;
+	l = 12;
+	m = 13;
+	n = 14;
+	o = 15;
+	p = 16;
+	q = 17;
+
+	x = func(1, 2, 3);	// 159
+	y = func(3, 4, 5);	// 165
+	z = func(6, 7, 8);	// 174
+
+	// 159 + 165 + 174 + 153 = 651
+	return x + y + z
+		+ a + b + c + d + e + f + g + h + i + j + k + l + m + n + o + p + q;
+}
+
+/* 153 + x + y + z */
+int func(x : int, y : int, z : int) {
+	var a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q : int;
+
+	a = 1;
+	b = 2;
+	c = 3;
+	d = 4;
+	e = 5;
+	f = 6;
+	g = 7;
+	h = 8;
+	i = 9;
+	j = 10;
+	k = 11;
+	l = 12;
+	m = 13;
+	n = 14;
+	o = 15;
+	p = 16;
+	q = 17;
+
+	return x + y + z
+		+ a + b + c + d + e + f + g + h + i + j + k + l + m + n + o + p + q;
+}

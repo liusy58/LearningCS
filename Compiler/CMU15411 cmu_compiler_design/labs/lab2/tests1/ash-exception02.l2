@@ -1,0 +1,9 @@
+#test exception
+// dead code is not dead
+{
+  x = 1 && (0 || 1 / 0);
+
+  return 42;
+}
+
+

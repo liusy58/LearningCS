@@ -1,0 +1,30 @@
+#test return 6619
+#adds prime factors of a number
+int getfactor(a:int)
+{
+  var i:int;
+	for(i=2;i<a;i+=1) 
+		if (a%i == 0)
+			return i;
+	return a;
+}
+
+int addfactors(a:int)
+{
+	var b,new,sum:int;
+	sum = 0;
+	new = a;
+	while(1) {
+		b = getfactor(new);
+		new /= b;
+		sum += b;
+		if(b == 1)
+			break;
+  }
+	return sum;
+}
+
+int main() 
+{
+ return addfactors(10948037);
+}

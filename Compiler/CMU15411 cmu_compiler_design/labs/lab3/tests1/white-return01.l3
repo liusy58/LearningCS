@@ -1,0 +1,12 @@
+#test return 1
+int test_if(){
+  if(0){
+    return 0/0;
+  } else {
+    return 1;
+  }
+}
+
+int main(){
+  return test_if();
+}

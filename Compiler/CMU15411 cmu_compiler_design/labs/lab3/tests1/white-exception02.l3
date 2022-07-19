@@ -1,0 +1,8 @@
+#test exception 8
+int main(){
+  var x : int;
+  x= 1;
+  x /= 0;
+  return 1;
+}
+

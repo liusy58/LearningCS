@@ -1,0 +1,11 @@
+#test return 4
+// Ensures that short-circuit logical AND works
+{
+  a = 4;
+  b = a - 4;
+  if (b && (a / b)) {
+    return b;
+  } else {
+    return a;
+  }
+}

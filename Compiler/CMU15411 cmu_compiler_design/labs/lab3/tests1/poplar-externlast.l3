@@ -1,0 +1,12 @@
+#test error
+// externs must come before functions
+
+int main ()
+{
+        var a : int;
+        a = printhex(42);
+        return 0;
+}
+
+extern int printhex(a : int);
+

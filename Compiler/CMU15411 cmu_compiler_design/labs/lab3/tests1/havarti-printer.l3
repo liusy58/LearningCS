@@ -1,0 +1,23 @@
+#test return 1
+
+extern int printchar(c : int);
+
+int main()
+{
+var x : int;
+x = printchar(72);x = printchar(101);x = printchar(108);x = printchar(108);x = printchar(111);x = printchar(32);x = printchar(87);x = printchar(111);x = printchar(114);x = printchar(108);
+x = printchar(100);x = printchar(33);x = printchar(10);x = printchar(87);x = printchar(111);x = printchar(117);x = printchar(108);x = printchar(100);x = printchar(32);x = printchar(121);
+x = printchar(111);x = printchar(117);x = printchar(32);x = printchar(108);x = printchar(105);x = printchar(107);x = printchar(101);x = printchar(32);x = printchar(116);x = printchar(111);
+x = printchar(32);x = printchar(112);x = printchar(108);x = printchar(97);x = printchar(121);x = printchar(32);x = printchar(97);x = printchar(32);x = printchar(103);x = printchar(97);
+x = printchar(109);x = printchar(101);x = printchar(32);x = printchar(111);x = printchar(102);x = printchar(32);x = printchar(108);x = printchar(117);x = printchar(99);x = printchar(107);
+x = printchar(121);x = printchar(32);x = printchar(104);x = printchar(105);x = printchar(116);x = printchar(63);x = printchar(10);x = printchar(73);x = printchar(116);x = printchar(39);
+x = printchar(115);x = printchar(32);x = printchar(97);x = printchar(32);x = printchar(115);x = printchar(117);x = printchar(112);x = printchar(101);x = printchar(114);x = printchar(32);
+x = printchar(102);x = printchar(117);x = printchar(110);x = printchar(32);x = printchar(97);x = printchar(119);x = printchar(101);x = printchar(115);x = printchar(111);x = printchar(109);
+x = printchar(101);x = printchar(32);x = printchar(115);x = printchar(117);x = printchar(112);x = printchar(101);x = printchar(114);x = printchar(32);x = printchar(103);x = printchar(97);
+x = printchar(109);x = printchar(101);x = printchar(33);x = printchar(10);x = printchar(10);x = printchar(10);x = printchar(10);x = printchar(10);x = printchar(78);x = printchar(111);
+x = printchar(63);x = printchar(44);x = printchar(32);x = printchar(97);x = printchar(108);x = printchar(114);x = printchar(105);x = printchar(103);x = printchar(104);x = printchar(116);
+x = printchar(32);x = printchar(116);x = printchar(104);x = printchar(101);x = printchar(110);x = printchar(44);x = printchar(32);x = printchar(105);x = printchar(32);x = printchar(103);
+x = printchar(117);x = printchar(101);x = printchar(115);x = printchar(115);x = printchar(46);x = printchar(46);x = printchar(46);x = printchar(46);x = printchar(10);x = printchar(66);
+x = printchar(121);x = printchar(101);x = printchar(33);x = printchar(10);
+return 1;
+}

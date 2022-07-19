@@ -1,0 +1,6 @@
+#test error
+//main function has no type
+
+main (x:int) {
+	return x+x;
+}

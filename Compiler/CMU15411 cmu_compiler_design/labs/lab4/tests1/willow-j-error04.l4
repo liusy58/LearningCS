@@ -1,0 +1,6 @@
+#test error
+int main() {
+	var a:int*[];
+	a = new(int*[10]);
+	return a[5];
+}

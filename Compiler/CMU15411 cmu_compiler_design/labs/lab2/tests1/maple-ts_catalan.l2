@@ -1,0 +1,38 @@
+#test return 42
+// Compute the nth catalan number 
+{
+  n = 5;
+
+  num = 2*n;
+
+  denom = n + 1;
+
+  //compute n!
+  x=1;
+  while(n)
+  {
+    x*=n; 
+    n-=1;
+  }
+  n = x;
+
+  //compute num!
+  x=1;
+  while(num)
+  {
+    x*=num; 
+    num-=1;
+  }
+  num = x;
+
+  //compute denom!
+  x=1;
+  while(denom)
+  {
+    x*=denom; 
+    denom-=1;
+  }
+  denom = x;
+  
+  return num/(denom*n);
+}

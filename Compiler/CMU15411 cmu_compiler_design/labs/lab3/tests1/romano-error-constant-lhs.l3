@@ -1,0 +1,7 @@
+#test error
+// constant on LHS of assignment
+int main() {
+  var 2 : int;
+  2 = 3;
+  return 2;
+}

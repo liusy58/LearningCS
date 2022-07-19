@@ -1,0 +1,20 @@
+#test error
+
+// Now this should be an error
+extern int _l4__l4_func(x:int);
+
+int main()
+{
+  var s:int;
+  s = _l4_func(NULL);
+  return s;
+}
+
+int _l4_func(x:int*)
+{
+  var i,sum:int;
+  sum = *x;
+  for (i = 0; i < sum; i+=1)
+    *x += i;
+  return 0;
+}

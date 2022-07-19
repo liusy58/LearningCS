@@ -1,0 +1,65 @@
+#test return 2
+# The reference compiler can't handle w > 3.
+
+{
+	iters = 7;
+	w = 3;
+
+	r0=0;r1=0;r2=0;
+
+	r1 = 7;
+
+	for (iter = 0; iter < iters; iter+=1)
+	{
+		nr0=0;nr1=0;nr2=0;
+		for (c = 0; c < w; c+=1)
+		{
+			
+			n = 0;
+			if (c > 0) n += (r0 >> (c-1)) & 1;
+			if (c < (w-1)) n += (r0 >> (c+1)) & 1;
+			
+			n += (r1 >> c) & 1;
+			
+			
+			if (c>0) n += (r1 >> (c-1)) & 1;
+			if (c<(w-1)) n += (r1 >> (c+1)) & 1;
+			ob = (r0 >> c) & 1;
+			b = ((n==2)&&ob) || (n==3);
+			nr0 |= (b << c);
+			
+			n = 0;
+			if (c > 0) n += (r1 >> (c-1)) & 1;
+			if (c < (w-1)) n += (r1 >> (c+1)) & 1;
+			n += (r0 >> c) & 1;
+			n += (r2 >> c) & 1;
+			if (c>0) n += (r0 >> (c-1)) & 1;
+			if (c<(w-1)) n += (r0 >> (c+1)) & 1;
+			if (c>0) n += (r2 >> (c-1)) & 1;
+			if (c<(w-1)) n += (r2 >> (c+1)) & 1;
+			ob = (r1 >> c) & 1;
+			b = ((n==2)&&ob) || (n==3);
+			nr1 |= (b << c);
+			
+			n = 0;
+			if (c > 0) n += (r2 >> (c-1)) & 1;
+			if (c < (w-1)) n += (r2 >> (c+1)) & 1;
+			n += (r1 >> c) & 1;
+			
+			if (c>0) n += (r1 >> (c-1)) & 1;
+			if (c<(w-1)) n += (r1 >> (c+1)) & 1;
+			
+			
+			ob = (r2 >> c) & 1;
+			b = ((n==2)&&ob) || (n==3);
+			nr2 |= (b << c);
+			
+		}
+		r0=nr0;r1=nr1;r2=nr2;
+	}
+
+	xor = 0;
+	xor ^= r0;xor ^= r1;xor ^= r2;
+
+	return xor;
+}

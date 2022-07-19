@@ -1,0 +1,105 @@
+#test return 1
+//test function calls, large number of arguments, and return control flow
+int main() {
+  var start,end : int;
+  var mat0,mat1,mat2,mat3,mat4,mat5,mat6,mat7,mat8,mat9 : int;
+  var visited : int;
+  var i: int;
+
+  // start and end nodes
+  start = 1;
+  end   = 2;
+
+  // initialize adjacency matrix
+  mat9 = get_pos(8);
+  mat8 = get_pos(9) | get_pos(7);
+  mat7 = get_pos(8) | get_pos(5);
+  mat6 = get_pos(5);
+  mat5 = get_pos(6) | get_pos(7);
+  mat4 = get_pos(0) | get_pos(3);
+  mat3 = get_pos(1) | get_pos(2) | get_pos(4);
+  mat2 = get_pos(1) | get_pos(3);
+  mat1 = get_pos(0) | get_pos(2) | get_pos(3);
+  mat0 = get_pos(1) | get_pos(2) | get_pos(4);
+
+  // DFS
+  visited = 0;
+  visited = dfs(start, end, visited, mat0, mat1, mat2, mat3, 
+      mat4, mat5, mat6, mat7, mat8, mat9);
+
+  //return whether start and end node are connected by some path
+  return was_found(visited);
+}
+
+int dfs(v:int, end:int, visited:int, 
+        mat0:int, mat1:int, mat2:int, mat3:int, mat4:int, 
+        mat5:int, mat6:int, mat7:int, mat8:int, mat9:int) 
+{
+  var new_visited, adj_list:int;
+  var was_found:int;
+  var i:int;
+
+  new_visited = mark(v, visited);
+  adj_list = get_adjlist(v, mat0, mat1, mat2, mat3, 
+      mat4, mat5, mat6, mat7, mat8, mat9);
+
+  if(v == end)
+    return make_found(new_visited);
+
+  for(i = 0; i < 10; i += 1) {
+    if(is_adj(i, adj_list)) {
+      if(!was_visited(i, new_visited)) {
+        new_visited |=  dfs(i, end, new_visited,
+              mat0, mat1, mat2, mat3, mat4,
+              mat5, mat6, mat7, mat8, mat9);
+      }
+    }
+  }
+  return new_visited;
+}
+
+
+int get_adjlist(v:int, mat0:int, mat1:int, mat2:int, mat3:int, mat4:int, 
+                mat5:int, mat6:int, mat7:int, mat8:int, mat9:int)
+{
+  if(v == 0) return mat0;
+  else if(v == 1) return mat1;
+  else if(v == 2) return mat2;
+  else if(v == 3) return mat3;
+  else if(v == 4) return mat4;
+  else if(v == 5) return mat5;
+  else if(v == 6) return mat6;
+  else if(v == 7) return mat7;
+  else if(v == 8) return mat8;
+  else if(v == 9) return mat9;
+  return mat0;
+}
+
+int is_adj(v:int, adj_list:int) {
+  return (adj_list & get_pos(v)) >> v; 
+}
+
+int make_found(visited:int) {
+  return visited | (1<<30);
+}
+
+int was_found(visited:int) {
+  return (1<<30 & visited) >> 30;
+}
+
+int mark(v:int, visited:int) {
+  return visited | get_pos(v);
+}
+
+int was_visited(v:int, visited:int) {
+  return (visited & get_pos(v)) >> v;
+}
+
+int get_pos(v:int) {
+  return 1 << v;
+}
+
+
+
+
+

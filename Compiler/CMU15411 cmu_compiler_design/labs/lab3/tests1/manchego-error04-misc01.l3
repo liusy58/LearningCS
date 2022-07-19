@@ -1,0 +1,11 @@
+#test error
+
+extern int printhex(x : int);
+
+int main() {
+	return printhex(1, 2);
+}
+
+int printhex(x : int, y : int) {
+	return 1;
+}

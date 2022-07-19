@@ -1,0 +1,15 @@
+#test return 9
+// Computes floor(log_2(input)), using strange for loop expressions
+{
+    input = 1000;
+    i = 12345;
+    log2 = 0;
+    // Assume input is positive
+    for (i &= 0; i < 31; input >>= 1) {
+        if (input & 1) {
+            log2 = i;
+        }
+        i += 1;
+    }
+    return log2;
+}

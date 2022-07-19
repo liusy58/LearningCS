@@ -1,0 +1,32 @@
+#test return 411
+
+int main() {
+  var x,y,z,i,f:int;
+
+  i = 1;
+  f = 3487;
+  x = 18;
+  y = 0;
+  z = f * x;
+
+  while (i > 0)
+  {
+    x *= y;
+    y += f;
+    f = z << (x + y);
+    i += z;
+  }
+
+  // Should not be confusing 
+  return f(f);
+}
+
+int f(hmmm:int) {
+  if (hmmm == 0)
+    return f(hmmm + 1);
+  if (hmmm == 32)
+    return 411;
+  else if (hmmm == 64)
+    return 511;
+  return f(hmmm*2);
+}

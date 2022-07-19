@@ -1,0 +1,14 @@
+#test return 1
+
+int main() {
+	var x:int;
+
+	if(1) {
+		x = 1;
+	}
+	else {
+		x = 2;
+	}
+
+	return x;
+}

@@ -1,0 +1,13 @@
+#test exception 8
+
+int mod0()
+{
+  if(1)
+    return 1/0;
+  return -1;
+}
+
+int main()
+{
+  return mod0();
+}

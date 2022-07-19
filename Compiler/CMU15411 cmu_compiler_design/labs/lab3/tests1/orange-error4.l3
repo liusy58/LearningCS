@@ -1,0 +1,24 @@
+#test error
+// Redefines a function.
+
+int main()
+{
+  var x : int;
+
+  x = 12;
+
+  return f(x, x/2);
+}
+
+int f(x : int)
+{
+  return 2*x;
+}
+
+int f(x : int, y : int)
+{
+  if (x < y)
+    return f(x);
+  else
+    return f(y);
+}

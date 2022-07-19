@@ -1,0 +1,14 @@
+#test return 8
+// Compute the number of set bits in n
+{
+  n = 255;
+  sum = 0;
+
+  while(n)
+  {
+     n = n&(n-1);
+     sum+=1;
+  }
+
+  return sum;
+}

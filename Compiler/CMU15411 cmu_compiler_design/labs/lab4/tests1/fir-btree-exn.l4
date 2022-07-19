@@ -1,0 +1,113 @@
+#test exception 11
+
+struct twister_t
+{
+  index:int;
+  states:int[];
+};
+struct btree {
+	id: int;
+	left: btree *;
+	right: btree *;
+};
+
+
+twister_t *twister_new(seed:int)
+{
+  var twister:twister_t *;
+  var states:int[];
+  var i:int;
+  twister = new(twister_t);
+  states = new(int[624]);
+  twister->states = states;
+
+  states = twister->states;
+  states[0] = seed;
+  for (i = 1; i <= 623; i += 1)
+  {
+      states[i] = (1812433253 * (states[i-1] ^ (states[i-1] >> 30 )) + i) ;
+  }
+  return twister;
+}
+
+int twister_rand(twister:twister_t *) {
+  var y:int;
+  var unit:int;
+  if (twister->index == 0)
+  {
+    unit = twister_gen(twister);
+  }
+
+  y = twister->states[twister->index];
+    y ^= (y >> 11);
+    y ^= (y << 7) & (2636928640) ;
+    y ^= (y << 15) & (4022730752) ;
+    y ^= (y >> 18);
+
+    twister->index = (twister->index + 1) % 624;
+    return y;
+}
+
+
+int twister_gen(twister:twister_t *)
+{
+  var i,y:int;
+  var states:int[];
+  states = twister->states;
+  for (i = 0; i <= 623; i += 1)
+  {
+    y = ((((states[i])) & (1 << (31))) != 0 ? 1 : 0) + (~(1 << (31)) & (states[(i+1) % 624]));
+    states[i] = states[(i + 397) % 624] ^ (y >> 1);
+    if ((y % 2) == 1)
+    {
+
+      states[i] = states[i] ^ (2567483615) ;
+    }
+  }
+  return 0;
+}
+
+btree * btree_insert (tree: btree *, value: int) {
+	if (tree == NULL) {
+		tree = new(btree);
+		tree->id = value;
+		return tree;
+	}
+	else if (value > tree->id) {
+		tree->right = btree_insert(tree->right, value);
+		return tree;
+	}
+	else {
+		tree->left = btree_insert(tree->left, value);
+		return tree;
+	}
+}
+	
+
+int main()
+{
+  var random:twister_t *;
+  var t: btree *;
+
+  random = twister_new(8151337);
+  t = NULL;
+
+  t = btree_insert(t, twister_rand(random));
+  t = btree_insert(t, twister_rand(random));
+  t = btree_insert(t, twister_rand(random));
+  t = btree_insert(t, twister_rand(random));
+  t = btree_insert(t, twister_rand(random));
+  t = btree_insert(t, twister_rand(random));
+  t = btree_insert(t, twister_rand(random));
+  t = btree_insert(t, twister_rand(random));
+  t = btree_insert(t, twister_rand(random));
+  t = btree_insert(t, twister_rand(random));
+  t = btree_insert(t, twister_rand(random));
+  t = btree_insert(t, twister_rand(random));
+  t = btree_insert(t, twister_rand(random));
+  t = btree_insert(t, twister_rand(random));
+  t = btree_insert(t, twister_rand(random));
+  t = btree_insert(t, twister_rand(random));
+  
+  return t->left->right->left->left->right->right->id;
+}

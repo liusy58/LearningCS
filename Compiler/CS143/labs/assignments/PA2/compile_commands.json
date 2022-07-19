@@ -1,0 +1,82 @@
+[
+    {
+        "arguments": [
+            "g++",
+            "-c",
+            "-g",
+            "-Wall",
+            "-Wno-unused",
+            "-Wno-write-strings",
+            "-I.",
+            "-I../../include/PA2",
+            "-I../../src/PA2",
+            "cool-lex.cc"
+        ],
+        "directory": "/home/bigdataflow/lsy/LearningCS/docs/Compiler/CS143/labs/assignments/PA2",
+        "file": "cool-lex.cc"
+    },
+    {
+        "arguments": [
+            "g++",
+            "-c",
+            "-g",
+            "-Wall",
+            "-Wno-unused",
+            "-Wno-write-strings",
+            "-I.",
+            "-I../../include/PA2",
+            "-I../../src/PA2",
+            "stringtab.cc"
+        ],
+        "directory": "/home/bigdataflow/lsy/LearningCS/docs/Compiler/CS143/labs/assignments/PA2",
+        "file": "stringtab.cc"
+    },
+    {
+        "arguments": [
+            "g++",
+            "-c",
+            "-g",
+            "-Wall",
+            "-Wno-unused",
+            "-Wno-write-strings",
+            "-I.",
+            "-I../../include/PA2",
+            "-I../../src/PA2",
+            "handle_flags.cc"
+        ],
+        "directory": "/home/bigdataflow/lsy/LearningCS/docs/Compiler/CS143/labs/assignments/PA2",
+        "file": "handle_flags.cc"
+    },
+    {
+        "arguments": [
+            "g++",
+            "-c",
+            "-g",
+            "-Wall",
+            "-Wno-unused",
+            "-Wno-write-strings",
+            "-I.",
+            "-I../../include/PA2",
+            "-I../../src/PA2",
+            "lextest.cc"
+        ],
+        "directory": "/home/bigdataflow/lsy/LearningCS/docs/Compiler/CS143/labs/assignments/PA2",
+        "file": "lextest.cc"
+    },
+    {
+        "arguments": [
+            "g++",
+            "-c",
+            "-g",
+            "-Wall",
+            "-Wno-unused",
+            "-Wno-write-strings",
+            "-I.",
+            "-I../../include/PA2",
+            "-I../../src/PA2",
+            "utilities.cc"
+        ],
+        "directory": "/home/bigdataflow/lsy/LearningCS/docs/Compiler/CS143/labs/assignments/PA2",
+        "file": "utilities.cc"
+    }
+]

@@ -1,0 +1,41 @@
+#test return 65
+
+int main()
+{
+    var a,b,i:int;
+    a = 0;
+    b = 64;
+
+    a = mahna(mahna(a+b,a-b),a);
+    if(a)
+    {
+        for(i = 0; i < 5; i+=1)
+        {
+            i += do(b);
+        }
+
+        return i;
+    }
+    else {
+        return dontdo();
+    }
+}
+
+int mahna(a:int,b:int)
+{
+    return !(a & b);
+}
+
+int do(a:int)
+{
+    if(a > 0)
+        return a;
+    else
+        return -a;
+}
+
+int dontdo()
+{
+    return main();
+}
+

@@ -1,0 +1,27 @@
+#test return 42
+
+# Nothing special
+
+int fnord (n : int)
+{
+    var i : int;
+
+    i = 1;
+
+    while (n > 0)
+    {
+        if ((n % 2) == 0)
+            i = (i + 3) * 3;
+        else
+            i = (i + 1) / 2;
+        n -= 1;
+    }
+
+    return i;
+}
+
+int main ()
+{
+    return (fnord (9) - fnord (1) - fnord (0));
+}
+

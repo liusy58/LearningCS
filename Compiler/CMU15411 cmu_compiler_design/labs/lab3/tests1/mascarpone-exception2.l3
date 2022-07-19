@@ -1,0 +1,12 @@
+#test exception 8
+int main () {
+  return function(2,0);
+}
+
+int function(x:int, y:int) {
+  var z:int;
+
+  z = x / y;
+
+  return z;
+}

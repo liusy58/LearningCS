@@ -1,0 +1,16 @@
+#test return 4096
+// Find the next highest power of two
+{
+  N = 3333;
+
+  n = N - 1;
+  bitspace = 32;
+
+  for (k = 1; k <= bitspace / 2; k *= 2) {
+    n |= n >> k;
+  }
+  
+  return n + 1;
+}
+
+

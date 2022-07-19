@@ -1,0 +1,9 @@
+#test error
+
+/**
+ * Well, we wanted to test that compilers didn't accidentally accept
+ * main as an external function definition.  But we're only allowed
+ * to gdecl the print functions anyways.  So now this ensures that
+ * non-print functions cannot be externally declared.
+ */
+extern int main ();

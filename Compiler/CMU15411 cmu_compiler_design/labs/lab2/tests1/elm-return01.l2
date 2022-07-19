@@ -1,0 +1,11 @@
+#test return 7
+
+{
+  square = 49;
+  root = 0;
+
+  while ( root*root != square ) {
+    root += 1;
+  }
+  return root;
+}

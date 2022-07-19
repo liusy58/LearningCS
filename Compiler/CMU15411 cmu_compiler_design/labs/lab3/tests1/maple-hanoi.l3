@@ -1,0 +1,28 @@
+#test return 65535
+
+// Calculate the number of steps to finish hanoi with n disks
+
+int main() {
+  var x,y,z,answer:int;
+
+  x = 4;
+  y = 1;
+  z = 1;
+
+  x *= y;
+  y >>= z;
+  z |= x + y;
+
+  answer = hanoi(x*x<<z*y);
+  return answer;
+}
+
+// This is just 2^n-1 :)
+// But don't fall into the trap
+int hanoi(n:int) {
+  if (n == 1)
+    return 1;
+  if (n > 1)
+    return 2*hanoi(n-1)+1;
+  return -99999999;
+}

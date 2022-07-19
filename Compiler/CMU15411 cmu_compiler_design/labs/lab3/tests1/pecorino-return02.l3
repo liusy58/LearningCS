@@ -1,0 +1,24 @@
+#test return 1
+/* Tests of a number is prime or not
+	 */
+
+int main () {
+	var n:int ;
+	n = 101 ;
+	
+	if (isprime(n))
+		return 1;
+	else
+		return 0;
+	
+}
+
+int isprime(x:int) {
+	var i,c :int ;
+	c = 0;
+	for (i = 2; i < x; i = i + 1) {
+		if ( x % i == 0 )
+			return 0;
+	}
+	return 1;
+}

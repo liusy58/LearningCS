@@ -1,0 +1,52 @@
+#test return 0
+// tests if a number is probably prime using Fermat's primality test
+// rand constants from Numerical Recipes in C
+// Fermat algorithm from wikipedia
+// modular exponentiation algorithm from wikipedia
+
+int main()
+{
+  if(isProbablyPrime(8329,100) != 1)
+    return -1;
+  if(isProbablyPrime(29,100) != 1)
+    return -1;
+  if(isProbablyPrime(2730,100) != 0)
+    return -1;
+  if(isProbablyPrime(15470,100) != 0)
+    return -1;
+  if(isProbablyPrime(1664525,100) != 0)
+    return -1;
+  if(isProbablyPrime(1024,100) != 0)
+    return -1;
+  return 0;
+}
+
+int isProbablyPrime(n:int, k:int)
+{
+  var i, a, r : int;
+  r = 0;
+  for(i = 0; i < k; i+=1) {
+    r = rand(r);
+    a = (r%(n-1)) + 1; // a is rand between 1 and n-1 inclusive
+    if(mod_exp(a,n-1,n) != 1)
+      return 0;
+  }
+  return 1;
+}
+
+int mod_exp(a:int, k:int, n:int)
+{
+  var c, e : int;
+  c = 1;
+  e = 0;
+  while(e < k) {
+    e += 1;
+    c = (a*c)%n;
+  }
+  return c;
+}
+
+int rand(r:int)
+{
+  return 1664525*r + 1013904223;
+}

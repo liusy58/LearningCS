@@ -1,0 +1,9 @@
+#test error
+/* Team Blue
+ * No main function
+ */
+
+/* Almost but not quite */
+int _ltwo_main() {
+	return 2;
+}

@@ -1,0 +1,15 @@
+#test return 1073741824
+// Exponentiation by squaring
+int main() {
+  return pow(2, 30);
+}
+
+int pow(x : int, n : int) {
+  var t : int;
+  if (n == 0) return 1;
+  else if (n & 1) return x * pow(x, n-1);
+  else {
+    t = pow(x, n/2);
+    return t * t;
+  }
+}

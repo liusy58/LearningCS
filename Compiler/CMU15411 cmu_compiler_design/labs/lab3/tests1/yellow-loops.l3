@@ -1,0 +1,34 @@
+#test return 11
+/* make sure that break and continue are associated properly */
+/* I have *NO IDEA* what this actually computes */
+
+int main () {
+  var i, j : int;
+
+  for (i = 0; i < 100; i += 1)
+  {
+    j = i * 3 + 4;
+
+    if (j - i == 26)
+      break;
+
+    while (j < 100)
+    {
+      if (i < j)
+      {
+        j -= 1;
+        continue;
+      }
+
+      if (j == i)
+      {
+        break;
+      }
+    }
+
+    if (i % 2 == 0)
+      continue;
+  }
+
+  return i;
+}

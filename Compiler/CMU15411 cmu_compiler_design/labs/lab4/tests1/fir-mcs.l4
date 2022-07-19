@@ -1,0 +1,130 @@
+#test return 6
+
+/* A somewhat fail implementation of maximum cardinality search.
+ * Real data not included
+ */
+
+struct list {
+	i: int;
+	next: list *;
+};
+
+struct varList {
+	id: int;
+	weight: int;
+	adj: list *;
+	next: varList *;
+};
+
+int findMaxCardinality(vars: varList *) {
+	var cur: varList *;
+	var maxWeight: int;
+	var maxId: int;
+	maxWeight = -1;
+	maxId = 0;
+	for (cur = vars; cur != NULL; cur = cur->next) {
+		if (cur->weight > maxWeight) {
+			maxWeight = cur->weight;
+			maxId = cur->id;
+		}
+	}
+	return maxId;
+}
+
+varList * find (vars: varList *, index: int) {
+	var cur: varList *;
+	for (cur = vars; cur != NULL; cur = cur->next) {
+		if (cur->id == index) {
+			return cur;
+		}
+	}
+	return NULL;
+}
+
+varList * remove(vars: varList *, index: int) {
+	var cur: varList *;
+	var prev: varList *;
+
+	if (vars == NULL) {
+		return NULL;
+	}
+
+	if (vars->id == index) {
+		return vars->next;
+	}
+
+	prev = vars;
+	for (cur = vars->next; cur != NULL; cur = cur->next) {
+		if (cur->id == index) {
+			prev->next = cur->next;
+			break;
+		}
+	}
+	return vars;
+}
+
+varList * bump(vars: varList *, index: int) {
+	var cur: varList *;
+	for (cur = vars; cur != NULL; cur = cur->next) {
+		if (cur->id == index) {
+			cur->weight += 1;
+			break;
+		}
+	}
+	return vars;
+}
+int iter(lh: varList * *) {
+	var max: int;
+	var adjNode: list *;
+	var foo: varList *;
+
+	max = findMaxCardinality(*lh);
+	adjNode = find(*lh, max)->adj;
+	while (adjNode != NULL) {
+		foo = bump(*lh, adjNode->i);
+		adjNode = adjNode->next;
+	}
+	*lh = remove(*lh, max);
+	return max;
+}
+
+int main() {
+	var one, two, three: list *;
+	var a, b, c: varList *;
+	var q: varList * *;
+	var max : int;
+	one = new(list);
+	one->next = NULL;
+	one->i = 1;
+	two = new(list);
+	two->next = one;
+	two->i = 2;
+	three = new(list);
+	three->next = two;
+	three->i = 3;
+
+	a = new(varList);
+	b = new(varList);
+	c = new(varList);
+	a->id = 1;
+	b->id = 2;
+	c->id = 3;
+	a->next = b;
+	b->next = c;
+	c->next = NULL;
+	a->weight = 0;
+	b->weight = 0;
+	c->weight = 0;
+	a->adj = one;
+	b->adj = two;
+	c->adj = three;
+
+	q = new(varList *);
+	*q = a;
+
+	max = iter(q);
+	max += iter(q);
+	max += iter(q);
+
+	return max;
+}

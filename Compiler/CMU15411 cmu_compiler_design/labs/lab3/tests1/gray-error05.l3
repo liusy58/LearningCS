@@ -1,0 +1,26 @@
+#test error
+#redefinition in function name and parameters
+#use of continue and break outside of a loop
+
+int
+fn(x:int, y:int, z:int)
+{
+  var fn:int;
+  return x + y + z;
+}
+
+int
+fn(x:int, fn:int)
+{
+   var x:int;
+   return x + fn + fn(1, 2, 3);
+}
+
+int
+main()
+{
+   while (0);
+   continue;
+   break;
+   return fn(100, 100);
+}

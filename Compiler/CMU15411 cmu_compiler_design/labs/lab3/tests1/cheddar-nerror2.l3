@@ -1,0 +1,14 @@
+#test error
+
+// function call with the wrong number of arguments
+int main ()
+{
+  var x : int;
+  x = onearg(6,7);
+  return x;
+}
+
+int onearg(n: int)
+{
+  return 2;
+}

@@ -1,0 +1,34 @@
+#test return 98
+// Test Nested Ifs Without Braces
+
+int nestedIfs(n : int) {
+	var a, b : int;
+	a = 5;
+	b = 4;
+
+	if(a < n)
+		if(b < n)
+			if(a + b < n)
+				if(a * b < n) {
+					a = n*n;
+					b = -1;
+				}
+				else { // Control reaches here with n=10 
+					a = -2;
+					b = n*n;
+				}
+			else
+				a = n;
+		else
+			b = n;
+	else {
+		a = -1;
+		b = -1;
+	}
+
+	return a + b;
+}
+
+int main() {
+	return nestedIfs(10);
+}

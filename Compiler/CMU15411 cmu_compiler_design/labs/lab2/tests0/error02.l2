@@ -1,0 +1,8 @@
+#test error
+
+{
+  x = 3;
+  break = 4;
+  else = 2;
+  return 3;
+}

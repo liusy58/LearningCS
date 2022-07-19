@@ -1,0 +1,13 @@
+#test error
+
+extern int func1(); extern int func2(x:int, y:int);
+extern int func3(); extern int func4(x:int, y:int);
+
+int mainn() {
+	var a,b,c,d:int;
+	a = func1();
+	b = func3();
+	c = func2(a,b);
+	d = func4(c,b);
+	return 0;
+}

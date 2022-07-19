@@ -1,0 +1,18 @@
+#test return 18
+
+/* bitCount - return the number of 1s in the two's complement representation of x */
+
+{
+  MASK1 = 1431655765;
+  MASK2 = 858993459;
+  MASK3 = 252645135;
+  MASK4 = 16711935;
+  MASK5 = 65535;
+
+  x = -8366247;
+  x = (x>>1 & MASK1) + (x & MASK1);
+  x = (x>>2 & MASK2) + (x & MASK2);
+  x = (x>>4 & MASK3) + (x & MASK3);
+  x = (x>>8 & MASK4) + (x & MASK4);
+  return (x>>16 & MASK5) + (x & MASK5);
+}

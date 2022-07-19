@@ -1,0 +1,21 @@
+#test return 0
+
+/* Tests short circuiting of || and &&, precedence of && before ||. */
+
+int infinite_loop() {
+  var b:int;
+  b = 0;
+  while (1) {
+    b = b + 2;
+  }
+
+  return 0;
+}
+
+int main() {
+  if (!(1 || infinite_loop()) || 0 && infinite_loop()) {
+    return -1;
+  } else {
+    return 0;
+  }
+}

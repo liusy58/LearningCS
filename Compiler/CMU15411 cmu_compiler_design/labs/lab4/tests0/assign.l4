@@ -1,0 +1,16 @@
+#test return 9
+/* testing assignment operator with effect */
+
+int* inc (p:int*) {
+  *p += 1;
+  return p;
+}
+
+int main () {
+  var p : int*;
+  p = new(int);
+  *p = 0;			/* *p = 0 */
+  inc(p);			/* *p = *p+1 = 1 */
+  *inc(p) += 7;			/* *p = *p+1 = 2; *p = *p+7 = 9 */
+  return *p;
+}

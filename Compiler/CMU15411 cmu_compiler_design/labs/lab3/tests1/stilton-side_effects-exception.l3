@@ -1,0 +1,27 @@
+#test exception
+
+// This would be more interesting if we could test printed values.
+
+extern int printint(n:int);
+
+int f1() {
+	var _:int;
+	_=printint(0);
+  return 1;
+}
+
+int f2() {
+	var _:int;
+  _=printint(42);
+  return 2;
+}
+
+int f3() {
+  var x:int;
+  x = 4/0;
+  return 4;
+}
+
+int main() {
+  return f1() + f3() + f2();
+}

@@ -1,0 +1,7 @@
+#test error
+// return not last statement
+{
+  x = 0;
+  return x;
+  return 1;
+}

@@ -1,0 +1,20 @@
+#test return 10100
+
+/* Compute LCM(100,101) */
+int lcm(x:int, y:int) {
+	var i, a, b : int;
+	
+	for ( i = 1 ; i < 100000 ; i += 2 ) {
+		a = x * i;
+		b = a % y;
+		if ( b == 0 ) {
+			return a;
+		}
+	}
+	
+	return -1;
+}
+
+int main() {
+	return lcm(100,101);
+}

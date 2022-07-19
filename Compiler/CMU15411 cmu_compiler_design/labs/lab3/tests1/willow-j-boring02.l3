@@ -1,0 +1,14 @@
+#test return 4683
+int bar(bar:int) {
+	return bar / 5;
+}
+
+int foo(a:int,b:int) {
+	if(a % 2)
+		return bar(b);
+	return foo(2*a + 1,a-1);
+}
+
+int main() {
+  return foo(23420, 0);
+}

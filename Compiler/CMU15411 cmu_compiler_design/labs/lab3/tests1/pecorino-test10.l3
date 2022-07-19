@@ -1,0 +1,16 @@
+#test return -1
+
+extern int fmul(x:int, y:int);
+extern int printfloat(x:int);
+
+int main(){
+  var x,y:int;
+  
+  x = 1 << 31;
+  y = -1;
+ 
+  x = fmul(x, y);
+  y = printfloat(x);
+
+  return(x);
+}

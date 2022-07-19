@@ -1,0 +1,15 @@
+#test return 1186570
+//check no segfault is raised from deep recursion
+
+int main() {
+  var n:int;
+  n = rec(rec(rec(10)));
+  return n;
+}
+
+int rec(n:int)
+{
+  if (n == 0)
+    return n;
+  return n+rec(n-1);
+}

@@ -1,0 +1,106 @@
+#test return 0
+
+
+extern int printchar(c:int);
+extern int printint(n:int);
+extern int printhex(n:int);
+
+int bits_exists(bits:int,ind:int)
+{
+  return ((1 << ind) & bits);
+}
+int bits_is_leaf(bits:int,ind:int)
+{
+ if (ind >= 16) return 1;
+ else return !(bits_exists(bits,(2 * (1 + ind) - 1)) &&
+          bits_exists(bits,(2 * (1 + ind))));
+}
+
+int tree_print_iter ( bits:int,n1:int,n2:int,n3:int,n4:int,n5:int,n6:int,n7:int, n8:int,n9:int,n10:int,n11:int,n12:int,n13:int,n14:int,n15:int, n16:int,n17:int,n18:int,n19:int,n20:int,n21:int,n22:int,n23:int, n24:int,n25:int,n26:int,n27:int,n28:int,n29:int,n30:int,n31:int)
+{
+  var step,index,action,iter,depth,ret:int;
+ ret = 0;
+  step = 0;
+ index = 0;
+ depth = 0;
+ iter = 0;
+
+  while (1)
+  {
+  action = 0;
+    if ((index >= 30) || (index < 0))
+    {
+      return -1;
+    }
+    if (step == 0)
+    {
+   if (bits_exists(bits,index))
+   {
+    ret = printchar(10); for (iter = 0; iter < depth; iter += 1) { ret = printchar(9); } ret = printint(index); ret = printchar(58); ret = printchar(32); action = 4;
+    if (index >= 16) step = 3;
+    else step = 1;
+   }
+   else step = 3;
+    }
+    else if (step == 1)
+    {
+   if (bits_exists(bits,index))
+   {
+    index = (2 * (1 + index) - 1);
+    depth += 1;
+    step = 0;
+   }
+   else step = 3;
+    }
+    else if (step == 2)
+    {
+   if (bits_exists(bits,index))
+   {
+    index = (2 * (1 + index));
+    depth += 1;
+    step = 0;
+   }
+   else step = 3;
+    }
+    else if (step == 3)
+    {
+      index = ((index + 1) / 2 - 1);
+   depth -= 1;
+   if (index == 0) step = 4;
+   else step = 1;
+    }
+    else
+    {
+      break;
+    }
+  if (index == 0) if (action == 1) { n1 = ret; } else if (action == 2) { ret = n1; } else if (action == 3) { n1^=ret; ret^=n1; n1^=ret; } else if (action == 4) { ret=printint(n1); } else if (index == 1) if (action == 1) { n2 = ret; } else if (action == 2) { ret = n2; } else if (action == 3) { n2^=ret; ret^=n2; n2^=ret; } else if (action == 4) { ret=printint(n2); } else if (index == 2) if (action == 1) { n3 = ret; } else if (action == 2) { ret = n3; } else if (action == 3) { n3^=ret; ret^=n3; n3^=ret; } else if (action == 4) { ret=printint(n3); } else if (index == 3) if (action == 1) { n4 = ret; } else if (action == 2) { ret = n4; } else if (action == 3) { n4^=ret; ret^=n4; n4^=ret; } else if (action == 4) { ret=printint(n4); } else if (index == 4) if (action == 1) { n5 = ret; } else if (action == 2) { ret = n5; } else if (action == 3) { n5^=ret; ret^=n5; n5^=ret; } else if (action == 4) { ret=printint(n5); } else if (index == 5) if (action == 1) { n6 = ret; } else if (action == 2) { ret = n6; } else if (action == 3) { n6^=ret; ret^=n6; n6^=ret; } else if (action == 4) { ret=printint(n6); } else if (index == 6) if (action == 1) { n7 = ret; } else if (action == 2) { ret = n7; } else if (action == 3) { n7^=ret; ret^=n7; n7^=ret; } else if (action == 4) { ret=printint(n7); } else if (index == 7) if (action == 1) { n8 = ret; } else if (action == 2) { ret = n8; } else if (action == 3) { n8^=ret; ret^=n8; n8^=ret; } else if (action == 4) { ret=printint(n8); } else if (index == 8) if (action == 1) { n9 = ret; } else if (action == 2) { ret = n9; } else if (action == 3) { n9^=ret; ret^=n9; n9^=ret; } else if (action == 4) { ret=printint(n9); } else if (index == 9) if (action == 1) { n10 = ret; } else if (action == 2) { ret = n10; } else if (action == 3) { n10^=ret; ret^=n10; n10^=ret; } else if (action == 4) { ret=printint(n10); } else if (index == 10) if (action == 1) { n11 = ret; } else if (action == 2) { ret = n11; } else if (action == 3) { n11^=ret; ret^=n11; n11^=ret; } else if (action == 4) { ret=printint(n11); } else if (index == 11) if (action == 1) { n12 = ret; } else if (action == 2) { ret = n12; } else if (action == 3) { n12^=ret; ret^=n12; n12^=ret; } else if (action == 4) { ret=printint(n12); } else if (index == 12) if (action == 1) { n13 = ret; } else if (action == 2) { ret = n13; } else if (action == 3) { n13^=ret; ret^=n13; n13^=ret; } else if (action == 4) { ret=printint(n13); } else if (index == 13) if (action == 1) { n14 = ret; } else if (action == 2) { ret = n14; } else if (action == 3) { n14^=ret; ret^=n14; n14^=ret; } else if (action == 4) { ret=printint(n14); } else if (index == 14) if (action == 1) { n15 = ret; } else if (action == 2) { ret = n15; } else if (action == 3) { n15^=ret; ret^=n15; n15^=ret; } else if (action == 4) { ret=printint(n15); } else if (index == 15) if (action == 1) { n16 = ret; } else if (action == 2) { ret = n16; } else if (action == 3) { n16^=ret; ret^=n16; n16^=ret; } else if (action == 4) { ret=printint(n16); } else if (index == 16) if (action == 1) { n17 = ret; } else if (action == 2) { ret = n17; } else if (action == 3) { n17^=ret; ret^=n17; n17^=ret; } else if (action == 4) { ret=printint(n17); } else if (index == 17) if (action == 1) { n18 = ret; } else if (action == 2) { ret = n18; } else if (action == 3) { n18^=ret; ret^=n18; n18^=ret; } else if (action == 4) { ret=printint(n18); } else if (index == 18) if (action == 1) { n19 = ret; } else if (action == 2) { ret = n19; } else if (action == 3) { n19^=ret; ret^=n19; n19^=ret; } else if (action == 4) { ret=printint(n19); } else if (index == 19) if (action == 1) { n20 = ret; } else if (action == 2) { ret = n20; } else if (action == 3) { n20^=ret; ret^=n20; n20^=ret; } else if (action == 4) { ret=printint(n20); } else if (index == 20) if (action == 1) { n21 = ret; } else if (action == 2) { ret = n21; } else if (action == 3) { n21^=ret; ret^=n21; n21^=ret; } else if (action == 4) { ret=printint(n21); } else if (index == 21) if (action == 1) { n22 = ret; } else if (action == 2) { ret = n22; } else if (action == 3) { n22^=ret; ret^=n22; n22^=ret; } else if (action == 4) { ret=printint(n22); } else if (index == 22) if (action == 1) { n23 = ret; } else if (action == 2) { ret = n23; } else if (action == 3) { n23^=ret; ret^=n23; n23^=ret; } else if (action == 4) { ret=printint(n23); } else if (index == 23) if (action == 1) { n24 = ret; } else if (action == 2) { ret = n24; } else if (action == 3) { n24^=ret; ret^=n24; n24^=ret; } else if (action == 4) { ret=printint(n24); } else if (index == 24) if (action == 1) { n25 = ret; } else if (action == 2) { ret = n25; } else if (action == 3) { n25^=ret; ret^=n25; n25^=ret; } else if (action == 4) { ret=printint(n25); } else if (index == 25) if (action == 1) { n26 = ret; } else if (action == 2) { ret = n26; } else if (action == 3) { n26^=ret; ret^=n26; n26^=ret; } else if (action == 4) { ret=printint(n26); } else if (index == 26) if (action == 1) { n27 = ret; } else if (action == 2) { ret = n27; } else if (action == 3) { n27^=ret; ret^=n27; n27^=ret; } else if (action == 4) { ret=printint(n27); } else if (index == 27) if (action == 1) { n28 = ret; } else if (action == 2) { ret = n28; } else if (action == 3) { n28^=ret; ret^=n28; n28^=ret; } else if (action == 4) { ret=printint(n28); } else if (index == 28) if (action == 1) { n29 = ret; } else if (action == 2) { ret = n29; } else if (action == 3) { n29^=ret; ret^=n29; n29^=ret; } else if (action == 4) { ret=printint(n29); } else if (index == 29) if (action == 1) { n30 = ret; } else if (action == 2) { ret = n30; } else if (action == 3) { n30^=ret; ret^=n30; n30^=ret; } else if (action == 4) { ret=printint(n30); } else if (index == 30) if (action == 1) { n31 = ret; } else if (action == 2) { ret = n31; } else if (action == 3) { n31^=ret; ret^=n31; n31^=ret; } else if (action == 4) { ret=printint(n31); }
+  }
+ return 0;
+}
+
+int tree_print_rec ( bits:int,n1:int,n2:int,n3:int,n4:int,n5:int,n6:int,n7:int, n8:int,n9:int,n10:int,n11:int,n12:int,n13:int,n14:int,n15:int, n16:int,n17:int,n18:int,n19:int,n20:int,n21:int,n22:int,n23:int, n24:int,n25:int,n26:int,n27:int,n28:int,n29:int,n30:int,n31:int,depth:int,index:int)
+{
+  var depth_iter,ret:int;
+ ret = 0;
+  if ((index >= 30) || (index < 0)) return -1;
+
+ if (bits_exists(bits,index))
+ {
+  ret = printchar(10); for (depth_iter = 0; depth_iter < depth; depth_iter += 1) { ret = printchar(9); } ret = printint(index); ret = printchar(58); ret = printchar(32); if (index == 0) ret=printint(n1); else if (index == 1) ret=printint(n2); else if (index == 2) ret=printint(n3); else if (index == 3) ret=printint(n4); else if (index == 4) ret=printint(n5); else if (index == 5) ret=printint(n6); else if (index == 6) ret=printint(n7); else if (index == 7) ret=printint(n8); else if (index == 8) ret=printint(n9); else if (index == 9) ret=printint(n10); else if (index == 10) ret=printint(n11); else if (index == 11) ret=printint(n12); else if (index == 12) ret=printint(n13); else if (index == 13) ret=printint(n14); else if (index == 14) ret=printint(n15); else if (index == 15) ret=printint(n16); else if (index == 16) ret=printint(n17); else if (index == 17) ret=printint(n18); else if (index == 18) ret=printint(n19); else if (index == 19) ret=printint(n20); else if (index == 20) ret=printint(n21); else if (index == 21) ret=printint(n22); else if (index == 22) ret=printint(n23); else if (index == 23) ret=printint(n24); else if (index == 24) ret=printint(n25); else if (index == 25) ret=printint(n26); else if (index == 26) ret=printint(n27); else if (index == 27) ret=printint(n28); else if (index == 28) ret=printint(n29); else if (index == 29) ret=printint(n30); else if (index == 30) ret=printint(n31);
+
+    ret = tree_print_rec(bits,n1,n2,n3,n4,n5,n6,n7,n8,n9,n10,n11,n12,n13,n14,n15,n16,n17,n18,n19,n20,n21,n22,n23,n24,n25,n26,n27,n28,n29,n30,n31,(depth + 1),(2 * (1 + index) - 1));
+    ret = tree_print_rec(bits,n1,n2,n3,n4,n5,n6,n7,n8,n9,n10,n11,n12,n13,n14,n15,n16,n17,n18,n19,n20,n21,n22,n23,n24,n25,n26,n27,n28,n29,n30,n31,(depth + 1),(2 * (1 + index)));
+ }
+  return index;
+}
+
+int main ()
+{
+  var bits,n1,n2,n3,n4,n5,n6,n7,n8,n9,n10,n11,n12,n13,n14,n15,n16,n17,n18,n19,n20,n21,n22,n23,n24,n25,n26,n27,n28,n29,n30,n31:int;
+ var ret:int;
+ ret = 0;
+  bits=(~(1<<31)); n1=16; n2=8; n3=24; n4=4; n5=12; n6=20; n7=28; n8=2; n9=6; n10=10; n11=14; n12=18; n13=22; n14=26; n15=30; n16=1; n17=3; n18=5; n19=7; n20=9; n21=11; n22=13; n23=15; n24=17; n25=19; n26=21; n27=23; n28=25; n29=27; n30=29; n31=31;
+
+  ret = tree_print_rec(bits,n1,n2,n3,n4,n5,n6,n7,n8,n9,n10,n11,n12,n13,n14,n15,n16,n17,n18,n19,n20,n21,n22,n23,n24,n25,n26,n27,n28,n29,n30,n31,0,0);
+ return 0;
+}

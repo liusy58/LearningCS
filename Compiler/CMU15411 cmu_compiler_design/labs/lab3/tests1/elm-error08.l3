@@ -1,0 +1,5 @@
+#test error
+//variable declared twice
+int main() {
+  var x,x:int;
+}

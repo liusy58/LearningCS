@@ -1,0 +1,21 @@
+#test error
+
+{
+  ten = 10;
+
+  if( ten-10 == 0 ) {
+    for(i=0; i<ten; i+=1)
+    {
+      result = 0;
+      if(i == (ten-1))
+      {
+        result = ten*ten;
+      }
+    }
+  }
+  else {
+    result = 0;
+  }
+
+  return result;
+}

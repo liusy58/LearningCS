@@ -1,0 +1,29 @@
+#test return 46233
+// Tests recursion
+
+int main()
+{
+  var x1, x2, x3, x4, x5, x6, x7, x8 : int;
+
+  x1 = factorial(1);
+  x2 = factorial(2);
+  x3 = factorial(3);
+  x4 = factorial(4);
+  x5 = factorial(5);
+  x6 = factorial(6);
+  x7 = factorial(7);
+  x8 = factorial(8);
+
+  return x1 + x2 + x3 + x4 + x5 + x6 + x7 + x8;
+}
+
+int factorial(x : int)
+{
+  if (x < 0)
+    return -1;
+  else
+    if (x == 0)
+      return 1;
+    else
+      return x * factorial(x - 1);
+}

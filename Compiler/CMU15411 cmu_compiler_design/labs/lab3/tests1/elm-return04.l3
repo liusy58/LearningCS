@@ -1,0 +1,21 @@
+#test return 32
+// functions on either side of main
+// getfirst gets x
+// getsecond doesnt get y, it gets x&y
+
+int getfirst (x:int, y:int) 
+{
+  return x | 0 + y & 0;
+}
+
+int main () 
+{
+  return getfirst(32,48) + getsecond(64,24);
+}
+
+int getsecond (x:int, y:int)
+{
+  return x & 0 + y | 0;
+}
+
+

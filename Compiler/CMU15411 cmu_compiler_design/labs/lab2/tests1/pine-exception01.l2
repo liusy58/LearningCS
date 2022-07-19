@@ -1,0 +1,10 @@
+#test exception
+// The other exception test
+{
+    x = 65535;
+    y = (x << 16);
+    z = x ^ y;
+    a = (x << 15) | x;
+    a = ~a;
+    return a % z;
+}

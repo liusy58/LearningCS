@@ -1,0 +1,12 @@
+#test error
+
+int main() {
+	var x, y, z, x : int;
+
+	return func(1, 2);
+}
+
+int func(x : int, y : int) {
+	var x : int;
+	return 1;
+}

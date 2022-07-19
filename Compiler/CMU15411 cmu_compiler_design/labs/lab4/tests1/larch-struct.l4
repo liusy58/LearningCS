@@ -1,0 +1,12 @@
+#test return 3
+
+struct guy {
+    num : int;
+};
+
+int main() {
+    var man : guy*;
+    man = new(guy);
+    man->num = 3;
+    return man->num;
+}

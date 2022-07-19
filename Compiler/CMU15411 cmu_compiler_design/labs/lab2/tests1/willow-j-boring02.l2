@@ -1,0 +1,17 @@
+#test return 3562
+{
+	a = 5343;
+	i = 0;
+	while ( i       < a || a< i) {
+	a = a ^ i;
+	i ^= a;
+	a = a ^ i;
+	if (a < i)
+		a += 3;
+	a -= 1;
+	if(i < a)
+		i += 3;
+	i -= 1;}
+	return i;
+}
+	

@@ -1,0 +1,17 @@
+#test return 479001600
+#this computes the n factorial 
+
+int 
+factorial(n:int)
+{
+   if (n == 0) {
+      return 1;
+   }
+   return n * factorial(n - 1);
+}
+
+int 
+main()
+{
+   return factorial(12);
+}

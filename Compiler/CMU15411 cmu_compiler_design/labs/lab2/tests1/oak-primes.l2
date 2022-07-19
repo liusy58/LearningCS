@@ -1,0 +1,17 @@
+#test return 101
+{
+  count=0;
+  for (i=1; i<=23; i+=1) {
+  prime = 1;
+    for (j=2; j<i; j+=1) {
+      if (i%j==0) {
+        prime = 0;
+        break;
+      }
+    }
+    if (prime) {
+      count += i;
+    }
+  }
+  return count;
+}

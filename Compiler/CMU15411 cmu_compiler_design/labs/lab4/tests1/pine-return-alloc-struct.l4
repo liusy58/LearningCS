@@ -1,0 +1,36 @@
+#test return 10
+
+struct buf {
+    v : int[];
+    s : int;
+};
+
+int setup(b : buf *) {
+    b->v[0] = 0;
+    b->v[1] = 1;
+    b->v[2] = 2;
+    b->v[3] = 3;
+    b->v[4] = 4;
+    return 0;
+}
+
+int sum(b : buf *) {
+    var t : int;
+    var i : int;
+    t = 0;
+    for (i = 0; i < b->s; i += 1) {
+        t += b->v[i];
+    }
+    return t;
+}
+
+int main() {
+    var b : buf *;
+
+    b = new(buf);
+    b->s = 5;
+    b->v = new(int[b->s]);
+
+    setup(b);
+    return sum(b);
+}

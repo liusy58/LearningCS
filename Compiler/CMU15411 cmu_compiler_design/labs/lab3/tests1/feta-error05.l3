@@ -1,0 +1,14 @@
+#test error
+
+int fun() {
+	return 0;
+}
+
+int main() {
+	var n:int;
+	n = 0;
+	if (n)
+		n = fun();
+	else
+		n = fun1();
+}

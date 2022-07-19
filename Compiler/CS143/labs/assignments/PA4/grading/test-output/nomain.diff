@@ -1,0 +1,5 @@
+1,2c1
+< Class Main is not defined.
+< Compilation halted due to static semantic errors.
+---
+> ./mysemant: line 8: syntax error: unexpected end of file

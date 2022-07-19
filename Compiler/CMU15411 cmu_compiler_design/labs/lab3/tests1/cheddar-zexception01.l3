@@ -1,0 +1,23 @@
+#test exception
+
+int main() {
+	var x, y, z : int;
+
+	x = retzero();
+
+	if(x)
+		return 1/0;
+	else {
+		y = !x;
+		if (y) {
+			return y/retzero();
+		}
+		else
+			return y;
+	}
+
+}
+
+int retzero() {
+	return 0;
+}

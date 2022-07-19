@@ -1,0 +1,26 @@
+#test return 630
+/* really dumb multiplication thing */
+
+int rec_multiply (x : int, n : int) {
+  if (n <= 0)
+    return 0;
+  else if (n == 1)
+    return x;
+  else
+    return x + rec_multiply(x, n-1);
+}
+
+int main () {
+  var i, sum : int;
+  sum = 0;
+
+  i = 4;
+
+  while (i > 0)
+  {
+    sum += rec_multiply(7, 3<<i);
+    i -= 1;
+  }
+
+  return sum;
+}

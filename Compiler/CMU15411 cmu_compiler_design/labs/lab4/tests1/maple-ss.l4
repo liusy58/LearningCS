@@ -1,0 +1,34 @@
+#test return 1394906282
+
+struct s {x:int*;y:int**;z:int[];};
+
+int main()
+{
+  var nope:s*;
+  nope = new(s);
+  nope->x = new(int);
+  *nope->x = 300;
+  nope->y = new(int*);
+  nope->z = new(int[givemeanint(givemeanint(givemeanint(15411)))]);
+  nope->z[0] = 3;
+  return loops(nope);
+}
+
+int loops(n:s*)
+{
+  var ip:int *;
+  if (*n->x != 0)
+  {
+    ip = new(int);
+    *ip = *n->x-1;
+    n->x = ip;
+    return givemeanint(*ip)+loops(n);
+  }
+  return 1;
+}
+
+int givemeanint(seed:int)
+{
+  return (seed*324387-1772)%9483287;
+}
+

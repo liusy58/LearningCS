@@ -1,0 +1,28 @@
+#test return 4096
+/*you do have OOM exception, or stack overflow foo, right*/
+int inc(x : int)
+{
+	return x + 1;
+}
+int add(x : int , y : int)
+{
+	if ( x == 0 )
+	   return y;
+	return add(x-1, inc(y));
+}
+int prod(x : int , y : int)
+{
+	if(x == 0)
+		return 0;
+	return add(y,prod(x-1, y));
+}
+int exp(x : int , y : int)
+{
+	if(x == 0)
+		return 1;
+	return prod(y,exp(x-1, y));
+}
+int main()
+{
+	return exp(12,2);
+}

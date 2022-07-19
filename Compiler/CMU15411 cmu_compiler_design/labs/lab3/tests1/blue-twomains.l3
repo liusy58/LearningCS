@@ -1,0 +1,12 @@
+#test error
+/* Team Blue
+ * Two main functions
+ */
+
+int main() {
+	return 3;
+}
+
+int main() {
+	return 5;
+}

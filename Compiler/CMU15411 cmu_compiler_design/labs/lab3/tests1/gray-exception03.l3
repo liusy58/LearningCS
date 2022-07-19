@@ -1,0 +1,8 @@
+#test exception 8
+#floating point exception
+
+int 
+main()
+{
+   return (1 << 31) / (1024 >> 11);
+}

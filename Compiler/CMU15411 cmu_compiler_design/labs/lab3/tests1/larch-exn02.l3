@@ -1,0 +1,20 @@
+#test exception 8
+
+int main() {
+  return 5 / zero(1000);
+}
+
+int sign(x:int) {
+  if (x < 0) {
+    return -1;
+  } else {
+    return 1;
+  }
+}
+
+int zero(x:int) {
+  if (sign(x) == -1) {
+    return x + 1;
+  }
+  return zero(x - 1);
+}

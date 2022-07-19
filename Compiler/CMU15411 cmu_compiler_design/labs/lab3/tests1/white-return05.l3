@@ -1,0 +1,25 @@
+#test return 1
+int gcd(a : int, b : int){
+  if(b == 0){
+    return a;
+  }
+  return gcd(b, a % b);
+}
+
+int gcd_it(a : int, b : int){
+  var t : int;
+  while(b != 0){
+   t = b;
+   b = a % b;
+   a = t;
+  }
+  return a;
+}
+
+int main(){
+  var a, b: int;
+  a = 45;
+  b = 24;
+  return gcd(a, b) == gcd_it(a, b);
+}
+

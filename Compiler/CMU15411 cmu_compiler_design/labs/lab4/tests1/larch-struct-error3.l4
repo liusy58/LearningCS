@@ -1,0 +1,19 @@
+#test error
+
+// Tests the self reference through small type thing
+
+struct first {
+  s : second;
+};
+
+struct second {
+  t : third;
+};
+
+struct third {
+  f : first;
+};
+
+int main() {
+  return 0;
+}

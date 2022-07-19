@@ -1,0 +1,15 @@
+#test return 57
+
+struct s {
+  i : int;
+};
+
+int main()
+{
+  var i : int;
+  var s : s *;
+  s = new(s);
+  s->i = 57;
+  i = 48;
+  return s->i; 
+}

@@ -1,0 +1,20 @@
+#test return 15411
+
+int a(x :int)
+{
+	if(x)
+		return b(x/2) + a(x - 1);
+	return 1;
+}
+
+int b(x: int)
+{
+	if(x)
+		return a(x) + a(x - 1);
+	return 0;
+}
+
+int main()
+{
+	return a(35) + b(32) - 4450/28;
+}

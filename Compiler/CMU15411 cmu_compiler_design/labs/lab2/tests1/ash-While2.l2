@@ -1,0 +1,18 @@
+#test return 0
+// while loop with unreachable code
+{
+  a = 3;
+
+  while (a) {
+   a -= 1;
+
+   if (a) continue;
+   else break;
+
+   weirdExp = ~--!!!~-~(234 ^ 456);
+  }
+
+  return a;
+}
+
+

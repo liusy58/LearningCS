@@ -1,0 +1,13 @@
+#test return 0
+# zeroed array
+
+int main()
+{
+	var a : int[];
+	var i,c : int;
+	c = 0;
+	a = new(int[100]);
+	for (i = 0; i < 100; i+=1)
+		c += a[i];
+	return c;
+}

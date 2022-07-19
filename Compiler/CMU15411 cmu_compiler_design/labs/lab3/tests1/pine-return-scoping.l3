@@ -1,0 +1,20 @@
+#test return 250
+// Tests variable scoping - variables with the same names in corecursive
+// functions.
+
+int f1(a1 : int, a2 : int) {
+    var a3 : int;
+    a3 = a1 + a2;
+    return f2(a3);
+}
+
+int f2(a1 : int) {
+    var a3 : int;
+    a3 = a1 << 1;
+    if (a3 > 100) { return a3; }
+    else return f1(a3, a3 >> 2);
+}
+
+int main() {
+    return f2(50);
+}

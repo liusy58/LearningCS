@@ -1,0 +1,24 @@
+#test error
+
+/* Repeated struct name
+ * Author: matthewj
+ */
+
+struct s1 {
+    a : int;
+    b : int;
+};
+
+struct s2 {
+    c : int;
+    d : s1 *;
+};
+
+struct s1 {
+    a : int;
+    b : int;
+};
+
+int main() {
+    return 1 / 0;
+}

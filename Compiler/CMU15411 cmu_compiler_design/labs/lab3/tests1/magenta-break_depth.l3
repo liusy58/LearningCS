@@ -1,0 +1,11 @@
+#test return 42
+
+int main() {
+    while(1) {
+        while(1) {
+            break; /* test break depth */
+        }
+        return 42;
+    }
+    return 43;
+}

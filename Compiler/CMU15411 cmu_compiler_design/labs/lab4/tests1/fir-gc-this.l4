@@ -1,0 +1,18 @@
+#test exception 14
+
+/* Load up the GC */
+
+struct recursive {
+	oshi: recursive *;
+};
+
+int main() {
+	var i, p: recursive *;
+	p = new(recursive);
+	while (true) {
+		i = new(recursive);
+		p->oshi = i;
+		p = i;
+	}
+	return 42;
+}

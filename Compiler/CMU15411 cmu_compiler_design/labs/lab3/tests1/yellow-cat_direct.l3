@@ -1,0 +1,28 @@
+#test return 14
+// Computes the catalan numbers.
+
+int fact(n : int)
+{
+	var ret, i : int;
+
+	ret = 1;
+	for(i=1; i<= n; i = i+1)
+		ret = ret * i;
+
+	return ret;
+}
+
+int cat_direct(n : int)
+{
+	var num, denom : int;
+
+	num = fact(2*n);
+	denom = fact(n+1) * fact(n);
+
+	return (num/denom);
+}
+
+int main ()
+{
+	return cat_direct(4);
+}

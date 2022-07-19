@@ -1,0 +1,11 @@
+#test return 10
+
+int main() {
+    var a : int;
+    var t : int;
+    t = 0;
+    for (a = 0; a < 5; a += 1) {
+        t += a;
+    }
+    return t;
+}

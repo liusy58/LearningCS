@@ -1,0 +1,15 @@
+#test exception 8
+// divide by 0 by for loop
+
+int div_countdown(n : int) {
+  var sum, i : int;  // initialized to 0
+  sum = 0;
+  for (i = n; i >= 0; i -= 1)
+    sum += n / i;
+
+  return sum;
+}
+
+int main() {
+  return div_countdown(10);
+}

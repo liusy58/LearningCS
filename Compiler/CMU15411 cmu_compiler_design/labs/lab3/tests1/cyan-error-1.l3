@@ -1,0 +1,28 @@
+#test error
+// A confusing series of if statements, one of which does not have a return.
+
+int main () 
+{
+	var x:int;
+	if (1)
+	{
+		if (0)
+		{
+			if (2)
+				return 2;
+			else
+				return 5;
+		}
+		else
+		{
+			if (3)
+				x = 3;
+			else
+				return 7;
+		}
+	}
+	else
+	{
+		return 12;
+	}
+}

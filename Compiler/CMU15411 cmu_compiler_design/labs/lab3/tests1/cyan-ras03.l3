@@ -1,0 +1,14 @@
+#test return 0
+
+/* An interesting test.  Very recently, it was discovered that a particular 
+ * well-known compiler, running at full optimization, would "optimize out"
+ * the last operation if the first two numbers were variables and the last was
+ * a constant.  I thought it would make a good test case.
+ */
+int main()
+{
+  var a, b : int;
+  a = 7;
+  b = 3;
+  return a & b & 0; // probably isn't 3
+}

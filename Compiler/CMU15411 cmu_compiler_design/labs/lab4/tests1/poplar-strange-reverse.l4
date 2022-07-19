@@ -1,0 +1,75 @@
+#test return 1
+// Reverse a linked list using a convoluted recursive method.
+struct List {
+    val : int;
+    next : List *;
+};
+
+int main() {
+    var i, len : int;
+    var list : List *;
+
+    len = 1000;
+    list = NULL;
+    for (i = 0; i < len; i += 1) {
+        list = prepend(i, list);
+    }
+
+    list = recrev(list);
+
+    // Verify reversal
+    for (i = 0; i < len; i += 1) {
+        if (list->val != i) {
+            return 0;
+        }
+        list = list->next;
+    }
+
+    return 1;
+}
+
+List *prepend(elem : int, list : List *) {
+    var node : List *;
+    node = new(List);
+    node->val = elem;
+    node->next = list;
+    return node;
+}
+
+List *recrev(list : List *) {
+    var prev, curr, fast : List *;
+
+    if (list == NULL || list->next == NULL) {
+        return list;
+    }
+
+    // Split list in two
+    prev = list;
+    curr = list->next;
+    fast = list->next->next;
+    while (fast != NULL) {
+        fast = fast->next;
+        if (fast != NULL) {
+            prev = curr;
+            curr = curr->next;
+            fast = fast->next;
+        }
+    }
+    prev->next = NULL;
+
+    // Concatenate reversed halves
+    return concat(recrev(curr), recrev(list));
+}
+
+List *concat(before : List *, after : List *) {
+    var node : List *;
+
+    if (before == NULL) {
+        return after;
+    } else if (after != NULL) {
+        for (node = before; node->next != NULL; node = node->next)
+            /* Search for end */;
+        node->next = after;
+    }
+    return before;
+}

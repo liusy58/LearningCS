@@ -1,0 +1,12 @@
+#test return 25
+
+int ignarg(a : int, b : int, c : int, d:int, e:int, f:int, g:int,
+			h:int, j:int, k:int, l:int, m:int) {
+	return m;
+}
+
+int main() {
+	var a : int;
+	a = 5;
+	return 5*ignarg(0,0,0,0,0,0,0,0,0,0,0,5);
+}

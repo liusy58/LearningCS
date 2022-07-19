@@ -1,0 +1,20 @@
+#test return 8128
+// Compute the next perfect number after x with simple optimizations
+{
+  x = 1000;
+  while (1)
+  {
+    x += 1;
+    sum = 1;
+    y = x / 2;
+    for (i = 2; sum <= x && i <= y; i += 1)
+    {
+      if (x % i == 0)
+        sum += i;
+    }
+    // found one
+    if (sum == x)
+      break;
+  }
+  return x;
+}

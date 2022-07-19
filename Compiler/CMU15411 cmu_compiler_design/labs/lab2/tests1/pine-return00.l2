@@ -1,0 +1,16 @@
+#test return 1
+// what is that (boring)
+
+{
+  x = 1;
+  y = 0;
+  while(x == 1)
+  {
+    y += 10;
+    if(y == 1110)
+    {
+      break;
+    }
+  }
+  return x;
+}

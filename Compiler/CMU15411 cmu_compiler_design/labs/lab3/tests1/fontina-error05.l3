@@ -1,0 +1,13 @@
+#test error
+
+int main() {
+	var a : int; 
+
+	return bob(a);
+}
+
+int bob(b : int) {
+
+	b += 5;
+	return b;
+}

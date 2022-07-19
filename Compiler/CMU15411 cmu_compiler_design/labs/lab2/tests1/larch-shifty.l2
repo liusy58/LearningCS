@@ -1,0 +1,13 @@
+#test return 20
+// Abuses the shift operators
+{
+  a = 20;
+
+  a <<= (a >> 1);
+  b = (a << 12) | (a >> 12);
+  b >>= (a >> b);
+  one = ((1 << 31) >> 31) + (1 << 1);
+  c = (b << a) >> ((b >> a) + one);
+  c <<= ((a << b) >> c);
+  return c >> 16;
+}

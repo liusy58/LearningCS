@@ -1,0 +1,9 @@
+#test exception 8
+# divides by zero...
+
+int main () {
+  var useless : int;
+  useless = 1;
+  useless = useless / 0;
+  return 1337;
+}

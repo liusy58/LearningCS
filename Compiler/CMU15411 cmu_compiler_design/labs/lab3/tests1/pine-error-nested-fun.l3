@@ -1,0 +1,21 @@
+#test error
+//nested functions - no
+int main()
+{
+  var i,j : int;
+  i = 0;
+  j = 1342;
+  if(i < j)
+  {
+    int newfunction(i : int)
+    {
+      return onoes(i);
+    }
+  }
+  return 0;
+}
+
+int onoes(i : int)
+{
+  return -1;
+}

@@ -1,0 +1,12 @@
+#test error
+
+//Undeclared variables after return
+
+int main() {
+	var x, y, z : int;
+	z = 3;
+	y = 2;
+	x = y * 2 + z;
+	return x;
+	a = b + c;
+}

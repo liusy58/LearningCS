@@ -1,0 +1,44 @@
+#test return 3
+struct ringbuffer {
+	head : int;
+	tail : int;
+	buf : int[];
+	bufsize : int;
+};
+
+int main() {
+	var b:ringbuffer*;
+	var c:int;
+	b = new(ringbuffer);
+	b->buf = new(int[100]);
+	b->bufsize = 100;
+	c = enqueue(b,1);
+	c = enqueue(b,2);
+	c = enqueue(b,3);
+	c = enqueue(b,4);
+	c = enqueue(b,5);
+	c = dequeue(b);
+	c = dequeue(b);
+	c = enqueue(b,6);
+	c = enqueue(b,7);
+	c = dequeue(b);
+	return c;
+}
+
+int enqueue(buf:ringbuffer*, n:int) {
+	if((buf->head - buf->tail) >= buf->bufsize)
+		return -1;
+	buf->buf[buf->head % buf->bufsize] = n;
+	buf->head += 1;
+	return 0;
+}
+
+int dequeue(buf:ringbuffer*) {
+	var a:int;
+	if(buf->head <= buf->tail)
+		return -1;
+	a = buf->buf[buf->tail % buf->bufsize];
+	buf->tail += 1;
+	return a;
+}
+	

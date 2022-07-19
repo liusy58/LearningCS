@@ -1,0 +1,67 @@
+#test return 5
+#performs an DFS search and returns node number
+extern int printint(n:int);
+
+int main(){
+  var edges, nodes : int;
+  edges = 0;
+  nodes = 0;
+
+  edges = setChildren(edges,0,1,7);
+  edges = setChildren(edges,1,7,2);
+  edges = setChildren(edges,2,3,4);
+  edges = setChildren(edges,3,7,7);
+  edges = setChildren(edges,4,5,7);
+  edges = setChildren(edges,5,7,7);
+
+  nodes = setValue(nodes,0,15);
+  nodes = setValue(nodes,1,10);
+  nodes = setValue(nodes,2,20);
+  nodes = setValue(nodes,3,5);
+  nodes = setValue(nodes,4,12);
+  nodes = setValue(nodes,5,18);
+
+  return DFS(nodes,edges,0,18);
+}
+
+int DFS(nodes:int, edges:int, idx:int, value:int){
+  var a : int;
+  if(nullNode(idx) || getValue(nodes,idx)==value) return idx;
+
+  a = DFS(nodes,edges,getChild(getChildren(edges,idx),1),value);
+  if(nullNode(a)) {
+    a = DFS(nodes,edges,getChild(getChildren(edges,idx),2),value);
+  }
+  return a;
+}
+
+
+int setValue(nodes:int, idx:int, value:int){
+  return nodes | ((value & 31) << (5*idx));
+}
+
+int getValue(nodes:int, idx:int){
+  return (nodes >> (5*idx)) & 31;
+}
+
+int setChildren(edges:int, from:int, c1:int, c2:int){
+  c1 &= 7;
+  c2 &= 7;
+
+  return edges | (((c1 << 3) | c2) << (6*from));
+}
+
+int getChildren(edges:int, from:int){
+  return (edges>>(6*from)) & 63;
+}
+
+int getChild(children:int, num:int){
+  if(num == 1) return ((children >> 3) & 7);
+  else if(num == 2) return (children & 7);
+  return 7;
+}
+
+int nullNode(idx:int){
+  if(idx == 7) return 1;
+  return 0;
+}

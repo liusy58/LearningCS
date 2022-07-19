@@ -1,0 +1,24 @@
+#test return 1
+// Calculate the nth square pyramidal number
+
+int sqpyramid(n : int) {
+  var sum, i : int;  // initialized to 0
+  sum = 0;
+  for (i = 1; i <= n; i += 1)
+    sum += i * i;
+
+  return sum;
+}
+
+int main() {
+  var n : int;
+
+  n = 10;
+
+  if (sqpyramid(n) == (2*n*n*n + 3*n*n + n) / 6)
+    return 1;
+
+  return 0;
+}
+
+  

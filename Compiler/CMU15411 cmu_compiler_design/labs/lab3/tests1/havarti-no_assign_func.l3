@@ -1,0 +1,17 @@
+#test error
+
+/**
+ * Compiler must force return value to be saved from function.
+ */
+
+int main ()
+{
+    func();
+    
+    return 1;
+}
+
+int func ()
+{
+    return 1;
+}

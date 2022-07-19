@@ -1,0 +1,13 @@
+#test error
+//every variable should be initialized before use
+
+{
+  x = 0;
+  if(y == 42)
+  {
+    return y;
+  }
+
+  return x;
+
+}

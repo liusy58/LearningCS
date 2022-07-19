@@ -1,0 +1,9 @@
+#test return 45
+
+//Makes sure the lexer handles reserved words vs. identifiers correctly
+{
+  while_ = 20;
+  _for_ = 2;
+  ifelse = 5;
+  return while_ * _for_ + ifelse;
+}

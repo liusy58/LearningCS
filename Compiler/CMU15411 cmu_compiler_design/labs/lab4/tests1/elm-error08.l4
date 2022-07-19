@@ -1,0 +1,44 @@
+#test error
+/* checks for correct parsing: cannot have struct between functions */
+
+struct node {val:int; left:node*; right:node*;};
+
+extern int printchar(c:int);
+
+struct dummy1node {val:int; left:node*; right:node*;};
+
+// extern int isprint(c:int);	/* from stdlib */
+
+struct dummy2node {val:int; left:node*; right:node*;};
+
+extern int printint(n:int);
+
+struct dummy3node {val:int; left:node*; right:node*;};
+
+extern int printhex(n:int);
+
+int main () {
+  return print_ascii (32,127);
+}
+
+int print_ascii (c:int,n:int) {
+  var _:int;
+  while (c <= n) {
+    _ = printint(c);
+    _ = printchar(32);
+    _ = printchar(61);
+    _ = printchar(32);
+    if (c < 127) _ = printchar(c);
+    _ = newline();
+    c += 1;
+  }
+  return c;
+}
+
+struct dummy4node {val:int; left:node*; right:node*;};
+
+int newline () {
+  var _:int;
+  _ = printchar(10);
+  return 0;
+}

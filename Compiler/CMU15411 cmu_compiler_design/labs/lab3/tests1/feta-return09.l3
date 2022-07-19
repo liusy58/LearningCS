@@ -1,0 +1,14 @@
+#test return 0
+
+int main() {
+	var n:int;
+	n = 100;
+	return grow_stack(n);
+}
+
+int grow_stack(n:int) {
+	if (n) 
+		return grow_stack(n - 1);
+	else
+		return 0;
+}

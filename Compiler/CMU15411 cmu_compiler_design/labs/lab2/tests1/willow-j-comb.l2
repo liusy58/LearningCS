@@ -1,0 +1,11 @@
+#test return 6435
+{
+	n=15;
+	k=7;
+	total = 1;
+	for(i=n;i>(n - k);i-=1)
+		total *= i;
+	for(i=1;i<=k;i+=1)
+		total /= i;
+	return total; 
+}

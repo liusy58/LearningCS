@@ -1,0 +1,8 @@
+#test exception 11
+
+int main()
+{
+	var x: int[];
+	x = new(int[-1]);
+	return 0;
+}

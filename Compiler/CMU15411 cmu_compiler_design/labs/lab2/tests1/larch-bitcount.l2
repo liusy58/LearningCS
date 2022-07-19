@@ -1,0 +1,34 @@
+#test return 19
+
+{
+  /* Returns the number of bits that are set in n */
+  n = 2056452334;
+
+  mask = 286331153; /* 0x11111111 */
+  counts = 0;
+  counts += n & mask;
+  n >>= 1;
+  counts += n & mask;
+  n >>= 1;
+  counts += n & mask;
+  n >>= 1;
+  counts += n & mask;
+  n >>= 1;
+  //counts has 8 4-bit 0-4 sums
+
+  counts += (counts >> 16);
+  //counts has 4 4-bit 0-8 sums
+
+  mask = 15;
+  result = 0;
+  result += counts & mask;
+  counts >>= 4;
+  result += counts & mask;
+  counts >>= 4;
+  result += counts & mask;
+  counts >>= 4;
+  result += counts & mask;
+  counts >>= 4;
+
+  return result;
+}

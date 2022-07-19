@@ -1,0 +1,15 @@
+#test error
+//typecheck simple assign
+
+struct s {
+  k: int;
+};
+
+int main() {
+  var x: int;
+  var y: s*;
+
+  y = new(s);
+  x = y;
+  return x;
+}

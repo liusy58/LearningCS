@@ -1,0 +1,19 @@
+#test exception 8
+
+# This will take a number mod 0.  This is bad.
+
+int factor (n : int, m : int)
+{
+    var i : int;
+
+    for (i = 0; (n % m) == 0; i += 1)
+        n = n / m;
+
+    return i;
+}
+
+int main ()
+{
+    return factor (347621349, 0);
+}
+

@@ -1,0 +1,11 @@
+#test error
+
+int fun(x:int) {
+  var x:int;
+  x = 1;
+  return x;
+}
+
+int main() {
+  return fun();
+}

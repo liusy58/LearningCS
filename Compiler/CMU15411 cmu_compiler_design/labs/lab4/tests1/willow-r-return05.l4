@@ -1,0 +1,91 @@
+#test return 67108863
+
+struct foo {
+	a:int;
+	b:int;
+	c:int;
+	d:int;
+	e:int;
+	f:int;
+	g:int;
+	h:int;
+	i:int;
+	j:int;
+	k:int;
+	l:int;
+	m:int;
+	n:int;
+	o:int;
+	p:int;
+	q:int;
+	r:int;
+	s:int;
+	t:int;
+	u:int;
+	v:int;
+	w:int;
+	x:int;
+	y:int;
+	z:int;
+};
+
+int main()
+{
+	var foo : foo*;
+	foo = new(foo);
+
+	foo->a = 1<<0;
+	foo->b = 1<<1;
+	foo->c = 1<<2;
+	foo->d = 1<<3;
+	foo->e = 1<<4;
+	foo->f = 1<<5;
+	foo->g = 1<<6;
+	foo->h = 1<<7;
+	foo->i = 1<<8;
+	foo->j = 1<<9;
+	foo->k = 1<<10;
+	foo->l = 1<<11;
+	foo->m = 1<<12;
+	foo->n = 1<<13;
+	foo->o = 1<<14;
+	foo->p = 1<<15;
+	foo->q = 1<<16;
+	foo->r = 1<<17;
+	foo->s = 1<<18;
+	foo->t = 1<<19;
+	foo->u = 1<<20;
+	foo->v = 1<<21;
+	foo->w = 1<<22;
+	foo->x = 1<<23;
+	foo->y = 1<<24;
+	foo->z = 1<<25;
+
+	return 
+		foo->a +
+		foo->b +
+		foo->c +
+		foo->d +
+		foo->e +
+		foo->f +
+		foo->g +
+		foo->h +
+		foo->i +
+		foo->j +
+		foo->k +
+		foo->l +
+		foo->m +
+		foo->n +
+		foo->o +
+		foo->p +
+		foo->q +
+		foo->r +
+		foo->s +
+		foo->t +
+		foo->u +
+		foo->v +
+		foo->w +
+		foo->x +
+		foo->y +
+		foo->z;
+}

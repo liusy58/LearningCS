@@ -1,0 +1,8 @@
+#test error
+int main () {
+  return function;
+}
+
+int function() {
+  return 1;
+}

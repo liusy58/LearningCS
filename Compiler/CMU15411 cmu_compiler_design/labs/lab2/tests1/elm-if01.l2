@@ -1,0 +1,16 @@
+#test error
+
+{
+  ten = 10;
+
+  if(ten-10 == 0)
+  {
+    result = 0;
+    for(i=0; i<ten; i+=1)
+    {
+      result += ten;
+    }
+  }
+
+  return result;
+}

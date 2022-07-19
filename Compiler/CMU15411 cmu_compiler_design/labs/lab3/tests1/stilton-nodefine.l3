@@ -1,0 +1,6 @@
+#test return 1
+
+int main() {
+  var x:int;
+  return 1;
+}

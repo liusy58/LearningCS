@@ -1,0 +1,35 @@
+#test exception 0
+
+// infinite recursion~
+
+int f1(a : int, b : int[])
+{
+  var i : int;
+  for(i = 0; i < a; i += 1)
+  {
+    b[i] = i;
+  }
+
+  return f2(a,b);
+}
+
+int f2(a : int, b : int[])
+{
+  var i : int;
+  for(i = 0; i < a; i += 2)
+  {
+    b[i] = i << 3;
+  }
+
+  return f1(a,b);
+}
+
+int main()
+{
+  var i : int;
+  var j : int[];
+  i = 512;
+  j = new(int[512]);
+
+  return f1(i,j);
+}

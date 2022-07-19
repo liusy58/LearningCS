@@ -1,0 +1,36 @@
+#test exception 8
+
+struct node {val:int; left:node*; right:node*;};
+
+int divide (root:node*) 
+{
+  if(root->val == 0)
+  {
+    return 1;
+  }
+  else
+  {
+    if (root->val < 32)
+      return root->val;
+  }
+
+  root->left  = new(node);
+  root->right = new(node);
+
+  root->left->val  = root->val / 2;
+  root->right->val = root->val / 4;
+
+  return divide(root->left)/divide(root->right);
+}
+
+int main () 
+{
+  var ret:int;
+
+  var root:node*;
+  root = new(node);
+  root->val = 1000;
+
+  ret = divide (root);
+  return ret;
+}

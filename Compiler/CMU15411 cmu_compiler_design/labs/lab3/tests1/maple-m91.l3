@@ -1,0 +1,40 @@
+#test return 1
+
+// Compare recursive and non-recursive versions of the McCarthy 91 function 
+
+int main() {
+  var i,a,b:int;
+
+  for (i = 0; i < 15411; i+=1)
+  {
+    a = m91(i);
+    b = m91_rec(i);
+    if (a != b)
+      return 0;
+  }
+
+  return 1; // true
+}
+
+int m91(n:int) {
+  var i:int;
+  for (i = 1; i;) {
+    if (n>100){
+      n -= 10;
+      i -= 1;
+    }
+    else
+    {
+      n += 11;
+      i += 1;
+    }
+  }
+  return n;
+}
+
+int m91_rec(n:int) {
+  if (n > 100)
+    return n-10;
+  else
+    return m91_rec(m91_rec(n+11));
+}

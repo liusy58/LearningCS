@@ -1,0 +1,4 @@
+#test error
+{
+    return a;
+}

@@ -1,0 +1,15 @@
+#test error
+
+/* 'return' is a reserved keyword */
+
+int func (x : int)
+{
+  var return : int;
+  return = 3 / x;
+  return return;
+}
+
+int main ()
+{
+  return func(34);
+}

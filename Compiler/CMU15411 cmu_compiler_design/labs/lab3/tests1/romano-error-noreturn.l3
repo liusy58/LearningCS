@@ -1,0 +1,8 @@
+#test error
+// Not guaranteed to return (if you're deadbrained)
+int main() {
+  var i : int;
+  i = 0;
+  if(0) {}
+  else return i;
+}

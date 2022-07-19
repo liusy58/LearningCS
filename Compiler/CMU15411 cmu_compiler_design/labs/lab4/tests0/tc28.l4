@@ -1,0 +1,11 @@
+#test error
+/* struct multiply defined */
+
+struct point {x:int; y:int;};
+struct point {x:int; y:int;};
+
+int main () {
+  var x:point*;
+  x = new(point);
+  return 2;
+}

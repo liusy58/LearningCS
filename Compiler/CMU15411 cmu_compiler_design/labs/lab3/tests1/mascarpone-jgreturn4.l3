@@ -1,0 +1,12 @@
+#test return 1
+
+int main()
+{
+  return pythag_triple(3,4,5);
+}
+
+int pythag_triple(a:int, b:int, c:int)
+{
+  return (a*a + b*b) == c*c;
+}
+

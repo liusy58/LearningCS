@@ -1,0 +1,22 @@
+#test return 30
+
+int main ()
+{
+	var i: int;
+	i = 0;
+	while(1)
+	{
+		if(doneyet(i))
+			break;
+		i += 1;
+	}
+	return i;
+}
+
+int doneyet(i: int)
+{
+	if(i == 30)
+		return 1;
+	else
+		return 0;
+}

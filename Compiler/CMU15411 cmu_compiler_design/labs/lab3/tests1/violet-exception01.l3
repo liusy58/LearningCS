@@ -1,0 +1,12 @@
+#test exception 8
+
+/* exception from %0, tests ==*/
+
+int main() {
+  var x, y, z : int;
+  x = 3;
+  y = 5;
+  z=3==5;
+
+  return  x % z;
+}

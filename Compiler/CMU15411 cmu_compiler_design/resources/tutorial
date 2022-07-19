@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+<title>C0 Tutorial - Home</title>
+<link rel="stylesheet" href="../c0.css" type="text/css" charset="utf-8" />
+<link rel="stylesheet" href="../highlight.css" type="text/css" charset="utf-8" />
+<link rel="stylesheet" href="../gollumstuff.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-25437040-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+</head>
+
+<body>
+
+<div id="top">
+<span class="top1"><a href="../">C0</a></span>
+<span class="top2">|</span> 
+<span class="top3">Documentation</span>
+</div>
+
+<div id="bar">
+
+<div id="c0-search">
+<form action="http://www.google.com/cse" id="cse-search-box">
+<input type="hidden" name="cx" value="014152638895862855817:acstjj0uklk" />
+<input type="hidden" name="ie" value="UTF-8" />
+<input type="text" name="q" id="q" autocomplete="off" size="30" />
+</form>
+<script type="text/javascript" src="http://www.google.com/cse/brand?form=cse-search-box&amp;lang=en"></script>
+</div>
+
+<a href="../">About</a>
+
+<a href="../downloads.html">Downloads</a>
+
+<a href="../tutorial/" class="current">Tutorial</a>
+
+<a href="../references.html">References</a>
+
+<a href="http://c0.typesafety.net/courses/15122/">Courses</a>
+
+
+</div>
+
+<div id="frame">
+
+<div id="subbar">
+
+C0 Tutorial
+<ul>
+<li><a href="Basic-Building-Blocks.html">Basic Building
+Blocks</a></li>
+<li><a href="Running-C0-Programs.html">Running C0 Programs</a></li>
+<li><a href="Debugging-C0-Programs.html">Debugging C0 Programs</a></li>
+<li><a href="Ints.html">Ints</a></li>
+<li><a href="Booleans.html">Booleans</a></li>
+<li><a href="Statements.html">Statements</a></li>
+<li><a href="Contracts.html">Contracts</a></li>
+<li><a href="Strings.html">Strings</a></li>
+<li><a href="Arrays.html">Arrays</a></li>
+<li><a href="Pointers.html">Pointers</a></li>
+<li><a href="Structs.html">Structs</a></li>
+<li><a href="Characters.html">Characters</a></li>
+<li><a href="Comments.html">Comments</a></li>
+</ul>
+
+C0 and other languages
+<ul>
+<li><a href="Computing-primes,-in-Python-and-C0.html">Primes in Python
+and C0</a></li>
+<li><a href="http://c0.typesafety.net/tutorial/From-C0-to-C:-Basics.html">From C0 to C: Basics</a></li>
+</ul>
+
+Other references
+<ul>
+<li><a href="C0-at-CMU.html">C0 at CMU</a></li>
+<li><a href="../doc/c0-reference.pdf">C0 Language Reference</a> (PDF)</li>
+<li><a href="../doc/c0-libraries.pdf">C0 Library Reference</a> (PDF)</li>
+</ul>
+
+</div> 
+
+<div id="content-bar">
+
+<h1>Home</h1>
+
+<div id="wiki-content">
+  <div class="wrap  ">
+    <div id="wiki-body" class="gollum-markdown-content">
+      <div id="template">
+<p>Welcome to the C0 Tutorial wiki! </p>
+
+<p>C0 is a small safe subset of the C programming language, augmented with <em>contracts</em>, specifically developed for teaching the course 15-122 <a href="http://c0.typesafety.net/doc/c0-at-andrew.html">Principles of Imperative Computation</a> at Carnegie Mellon University.</p>
+
+<p>Here is a suggested reading order, after this home page:</p>
+
+<ul>
+<li>
+<a class="internal present" href="/tutorial/Basic-Building-Blocks.html">Basic Building Blocks</a> </li>
+<li>
+<a href="http://c0.typesafety.net/doc/c0-at-andrew.html">C0 on Andrew</a> (at CMU)</li>
+<li><a class="internal present" href="/tutorial/Running-C0-Programs.html">Running C0 Programs</a></li>
+<li><a class="internal present" href="/tutorial/Ints.html">Ints</a></li>
+<li><a class="internal present" href="/tutorial/Booleans.html">Booleans</a></li>
+<li><a class="internal present" href="/tutorial/Statements.html">Statements</a></li>
+<li><a class="internal present" href="/tutorial/Contracts.html">Contracts</a></li>
+<li><a class="internal present" href="/tutorial/Strings.html">Strings</a></li>
+<li><a class="internal present" href="/tutorial/Arrays.html">Arrays</a></li>
+<li><a class="internal present" href="/tutorial/Pointers.html">Pointers</a></li>
+<li><a class="internal present" href="/tutorial/Structs.html">Structs</a></li>
+<li><a class="internal present" href="/tutorial/Characters.html">Characters</a></li>
+<li><a class="internal present" href="/tutorial/Comments.html">Comments</a></li>
+<li><a class="internal present" href="/tutorial/Debugging-C0-Programs.html">Debugging C0 Programs</a></li>
+</ul><p>Some external authoritative sources on C0:</p>
+
+<ul>
+<li><a href="http://c0.typesafety.net/doc/c0-reference.pdf">C0 language reference</a></li>
+<li><a href="http://c0.typesafety.net/doc/c0-libraries.pdf">C0 library reference</a></li>
+</ul><p>C0 has not yet been publicly released, but a first beta distribution (binary only) is now available for download (see the links in the left side-bar on the C0 home page):</p>
+
+<ul>
+<li><a href="http://c0.typesafety.net">C0 downloads</a></li>
+</ul><p>Many people have contributed to C0 and its tool suite.  The principal designers are Rob Arnold and Frank Pfenning; additional contributors include Laura Abbott, Tom Cortina, Jason Koenig, William Lovas, Karl Naden, Rob Simmons, Nathan Snyder, Anand Subramanian, and Jakob Uecker.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+</div>
+
+</body>
+
+</html>

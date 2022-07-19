@@ -1,0 +1,27 @@
+#test return 81
+
+/* compute n ^ 4 recursively */
+
+int main()
+{
+	var x:int;
+	x = 3;
+	return pow_4(x);
+}
+
+int pow_4(x:int)
+{
+	return helper(x, 4);
+}
+
+int helper(x:int, i:int)
+{
+	if(i == 0)
+	{
+		return 1;
+	}
+	else
+	{
+		return x * helper(x, i - 1);
+	}
+}

@@ -1,0 +1,14 @@
+#test return 0
+{
+  a = 1;
+  b = a << a; // 2
+  c = a << b; // 4
+  d = b << c; // 32
+  e = c << d; // 4
+  f = d << e; // 512
+  g = a | b | c | d | e | f; // 551
+  h = a + b + c + d + e + f; // 555
+  i = (g - h) >> e; // -1
+  return ~i;
+}
+

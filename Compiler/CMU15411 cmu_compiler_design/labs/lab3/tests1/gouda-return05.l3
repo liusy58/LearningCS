@@ -1,0 +1,43 @@
+#test return 1
+// Print 3 numbers in sorted order
+
+extern int printint(n:int);
+
+int main() {
+  return print_sorted_order(3,1,2);
+}
+
+int print_sorted_order(a:int, b:int, c:int) {
+  var max, min, mid, _:int;
+  max = max(a,max(b,c));
+  min = min(a,min(b,c));
+  if (a != min && a != max) {
+    mid = a;
+  } else {
+    if (b != min && b != max) {
+      mid = b;
+    } else {
+      mid = c;
+    }
+  }
+  _ = printint(min);
+  _ = printint(mid);
+  _ = printint(max);
+  return 1;
+}
+
+int max(a:int, b:int) {
+  if (a > b) {
+    return a;
+  } else {
+    return b;
+  }
+}
+
+int min(a:int, b:int) {
+  if (a > b) {
+    return b;
+  } else {
+    return a;
+  }
+}

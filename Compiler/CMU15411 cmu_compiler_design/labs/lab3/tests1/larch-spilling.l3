@@ -1,0 +1,33 @@
+#test return -111732684
+// Tests simultaneously spilling local vars and arguments onto stack
+
+int bunch_of_args (a:int, b:int, c:int, d:int, e:int, f:int, g:int, h:int) {
+  var one, two, three, four, five, six, seven, eight, nine, ten:int;
+  var eleven, twelve, thirteen, fourteen, fifteen, sixteen, seventeen:int;
+  one = a + b;
+  two = b + (c << 2);
+  three = c - d;
+  four = ((d << 10) + 345) / e;
+  five = e - (-f);
+  six = f * g;
+  seven = g - (h >> 3);
+  eight = h + a;
+  
+  nine = one + two;
+  ten = two + (three << 2);
+  eleven = three - four;
+  twelve = ((four << 10) + 345) / five;
+  thirteen = five - (-six);
+  fourteen = six * seven;
+  fifteen = seven - (eight >> 3);
+  sixteen = eight + one;
+  
+  seventeen = 804;
+  
+  return ((one + two + three + four) - (five + six + seven + eight) - (nine + ten + eleven
+    + twelve) - (thirteen + fourteen + fifteen + sixteen)) * seventeen;
+}
+
+int main() {
+  return bunch_of_args(9, 2, 3, 1, 2, 3, 5, 6);
+}

@@ -1,0 +1,12 @@
+#test error
+
+int main(){
+
+	var x:int;
+	x = sum(7, 5);
+	return x;
+}
+
+int sum(x, y){
+	return x + y;
+}

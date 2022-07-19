@@ -1,0 +1,33 @@
+#test exception 11
+
+// should raise a NULL-dereference exception (11) and nothing else
+
+int die() {
+  var p : int*;
+  p = NULL;
+  *p;
+  return (p == NULL) ? 1 : 0;
+}
+
+int div0() {
+  return -1 / 0;
+}
+
+int forever() {
+  while(true == true == true == true) continue;
+  return div0();
+}
+
+int harmless(a : int, b : int, c : int) {
+  return a+b+c;
+}
+
+int main() {
+  var p : int***;
+  p = new(int**);
+  *p = new(int*);
+  **p = new(int);
+  ***p = 7;
+  
+  return harmless(die(), forever(), div0());
+}

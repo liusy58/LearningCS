@@ -1,0 +1,16 @@
+#test error
+
+struct s {
+  a : int[];
+  b : int *;
+} 
+
+int main()
+{
+  var x : *s;
+  x =  new(s);
+
+  x->a = 0;
+
+  return 1;
+} 

@@ -1,0 +1,107 @@
+[
+    {
+        "arguments": [
+            "gcc",
+            "-c",
+            "-Wall",
+            "-O2",
+            "-m32",
+            "-fsanitize=address",
+            "-o",
+            "memlib.o",
+            "memlib.c"
+        ],
+        "directory": "/home/bigdataflow/lsy/LearningCS/docs/CSAPP/source/malloclab-handout",
+        "file": "memlib.c"
+    },
+    {
+        "arguments": [
+            "gcc",
+            "-c",
+            "-Wall",
+            "-O2",
+            "-m32",
+            "-fsanitize=address",
+            "-o",
+            "mdriver.o",
+            "mdriver.c"
+        ],
+        "directory": "/home/bigdataflow/lsy/LearningCS/docs/CSAPP/source/malloclab-handout",
+        "file": "mdriver.c"
+    },
+    {
+        "arguments": [
+            "gcc",
+            "-c",
+            "-Wall",
+            "-O2",
+            "-m32",
+            "-fsanitize=address",
+            "-o",
+            "ftimer.o",
+            "ftimer.c"
+        ],
+        "directory": "/home/bigdataflow/lsy/LearningCS/docs/CSAPP/source/malloclab-handout",
+        "file": "ftimer.c"
+    },
+    {
+        "arguments": [
+            "gcc",
+            "-c",
+            "-Wall",
+            "-O2",
+            "-m32",
+            "-fsanitize=address",
+            "-o",
+            "clock.o",
+            "clock.c"
+        ],
+        "directory": "/home/bigdataflow/lsy/LearningCS/docs/CSAPP/source/malloclab-handout",
+        "file": "clock.c"
+    },
+    {
+        "arguments": [
+            "gcc",
+            "-c",
+            "-Wall",
+            "-O2",
+            "-m32",
+            "-fsanitize=address",
+            "-o",
+            "fcyc.o",
+            "fcyc.c"
+        ],
+        "directory": "/home/bigdataflow/lsy/LearningCS/docs/CSAPP/source/malloclab-handout",
+        "file": "fcyc.c"
+    },
+    {
+        "arguments": [
+            "gcc",
+            "-c",
+            "-Wall",
+            "-O2",
+            "-m32",
+            "-fsanitize=address",
+            "-o",
+            "fsecs.o",
+            "fsecs.c"
+        ],
+        "directory": "/home/bigdataflow/lsy/LearningCS/docs/CSAPP/source/malloclab-handout",
+        "file": "fsecs.c"
+    },
+    {
+        "arguments": [
+            "gcc",
+            "-c",
+            "-Wall",
+            "-O2",
+            "-m32",
+            "-fsanitize=address",
+            "-o",
+            "mm.o",
+            "mm.c"
+        ],
+        "directory": "/home/bigdataflow/lsy/LearningCS/docs/CSAPP/source/malloclab-handout",
+        "file": "mm.c"
+    }
+]

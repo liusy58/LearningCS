@@ -1,0 +1,22 @@
+#test exception 11 
+
+// Segfaulttttttttt
+
+int main()
+{
+  var _:int[]*;
+  var __:int*[];
+  // Pointer and array mix
+  _ = new(int[]);
+  *_ = new(int[1]);
+  __ = new(int*[1]);
+  if (_ == NULL)
+    return -1;
+  return *process(_,__);
+}
+
+int *process(x:int[]*,y:int*[])
+{
+  *y[0] = (*x)[0];
+  return new(int);
+}

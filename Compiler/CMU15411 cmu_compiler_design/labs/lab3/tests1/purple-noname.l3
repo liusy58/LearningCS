@@ -1,0 +1,11 @@
+#test return 55
+int tri(n : int) 
+{
+	if (n == 0) 
+	   return 0;
+	return n + tri(n-1);
+}
+int main()
+{
+	return tri (10);
+}

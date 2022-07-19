@@ -1,0 +1,22 @@
+#test error
+/* continue outside loop */
+
+struct point {x:int; y:int;};
+
+point* newpoint () {
+  var p:point*;
+  p = new(point);
+  p->x = 0;
+  p->y = 0;
+  return p;
+}
+
+int main () {
+  var x:int;
+  x = 20;
+  while (x > 0)
+    x -= 1;
+    continue;
+    x -= 1;
+  return -1;
+}

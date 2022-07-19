@@ -1,0 +1,15 @@
+#test return 111
+// Compute the stopping time of the collatz function on some input x
+{
+  x = 27;
+  steps = 0;
+  for (n = x; n != 1;)
+  {
+    if (n % 2 == 0)
+      n /= 2;
+    else
+      n = 3 * n + 1;
+    steps += 1;
+  }
+  return steps;
+}

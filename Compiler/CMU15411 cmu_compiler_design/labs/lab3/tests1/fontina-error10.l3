@@ -1,0 +1,9 @@
+#test error
+
+var a:int;
+
+int main()
+{
+    return 9;
+}
+

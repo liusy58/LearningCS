@@ -1,0 +1,5 @@
+#test exception
+// division by 0
+{
+  return 1/0;
+}

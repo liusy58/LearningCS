@@ -1,0 +1,33 @@
+#test return 0
+
+# The idea here is that if you choose a number n, with three digits,
+# after manipulations you will always get back the same number.  It is
+# a fun trick to play on kids so that they think that you are psychic.
+# (Actually, the number can be an arbitrary number of digits, but if you
+# tell a kid to type in a three digit number, and type it in again,
+# (s)he will see the number multiplied by 1001).
+# This will return 0 for arbitrary n.
+
+int peas (n : int)
+{
+    var nrep, y : int;
+
+    nrep = n * 1001;
+    y = nrep / 7;
+    y += y;
+    y = y / n;
+    y = y / 22; 
+    y = (y + 26) / (-y);
+    y -= 7;
+    y *= 12; 
+    y = -y; 
+    y /= 30; 
+    y -= 4;
+    return y;
+}
+
+int main ()
+{
+    return peas (42);
+}
+

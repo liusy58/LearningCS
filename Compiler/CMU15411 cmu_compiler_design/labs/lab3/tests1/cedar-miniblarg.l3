@@ -1,0 +1,205 @@
+#test return -293203597
+
+extern int printchar(a:int);
+
+int abort()
+{
+	return 1/0;
+}
+
+int fetch(x: int)
+{
+	if (x == 0) return 3632;
+	if (x == 1) return 9;
+	if (x == 2) return 3584;
+	if (x == 3) return 57;
+	if (x == 4) return 3600;
+	if (x == 5) return 16384;
+	if (x == 6) return 3616;
+	if (x == 7) return 65535;
+	if (x == 8) return 11792;
+	if (x == 9) return 20018;
+	if (x == 10) return 19970;
+	if (x == 11) return 24114;
+	if (x == 12) return 592;
+	if (x == 13) return 8;
+	if (x == 14) return 3584;
+	if (x == 15) return 10;
+	if (x == 16) return 11792;
+	if (x == 17) return 65535;
+	return abort();
+}
+
+int crc32_update(crc: int, byte: int)
+{
+	var i, j : int;
+	
+	crc ^= byte;
+	for (i = 0; i < 8; i += 1)
+	{
+		if (crc & 1)
+			j = 3988292384;
+		else
+			j = 0;
+		crc = (crc >> 1) ^ j;
+	}
+	return crc;
+}
+
+int muxreg(reg: int, r0: int, r1: int, r2: int, r3: int, fr: int, pc: int, sp: int)
+{
+	if (reg == 0) return r0;
+	if (reg == 1) return r1;
+	if (reg == 2) return r2;
+	if (reg == 3) return r3;
+	if (reg == 4) return fr;
+	if (reg == 5) return pc;
+	if (reg == 6) return sp;
+	return abort();
+}
+
+int predcheck(pred: int, fr: int)
+{
+	if (pred == 0)	return 0;
+	if (pred == 1)	return !(fr & 4);
+	if (pred == 2)	return (fr & 4);
+	if (pred == 3)	return (fr & 1);
+	if (pred == 4)	return (fr & 2);
+	if (pred == 7)	return 1;
+	return abort();
+}
+
+int main()
+{
+	var r0, r1, r2, r3, fr, pc, sp, crc, iv, insn, pred, rt, rs, d : int;
+	
+	crc = 0;
+	iv = 0;
+	insn = 0;
+	pc = 0;
+	r0 = 0;
+	r1 = 0;
+	r2 = 0;
+	r3 = 0;
+	fr = 0;
+	sp = 0;
+	
+	while (insn != 15)
+	{
+		iv = fetch(pc);
+		insn = iv >> 12;
+		pred = (iv >> 9) & 7;
+		rt = (iv >> 4) & 15;
+		rs = iv & 15;
+		crc = crc32_update(crc, r0);
+		crc = crc32_update(crc, r1);
+		crc = crc32_update(crc, r2);
+		crc = crc32_update(crc, r3);
+		crc = crc32_update(crc, fr);
+		crc = crc32_update(crc, sp);
+		crc = crc32_update(crc, pc);
+		
+		if (insn == 0)
+		{
+			pc += 1;
+			if (!predcheck(pred, fr))
+			{
+				pc += 1;
+				continue;
+			}
+			d = fetch(pc);
+			pc += 1;
+			if (rt == 0) r0 = d;
+			if (rt == 1) r1 = d;
+			if (rt == 2) r2 = d;
+			if (rt == 3) r3 = d;
+			if (rt == 4) fr = d;
+			if (rt == 5) pc = d;
+			if (rt == 6) sp = d;
+		} else if (insn == 1) {
+			pc += 1;
+			if (!predcheck(pred, fr))
+				continue;
+			d = fetch(muxreg(rs, r0, r1, r2, r3, fr, pc, sp));
+			if (rt == 0) r0 = d;
+			if (rt == 1) r1 = d;
+			if (rt == 2) r2 = d;
+			if (rt == 3) r3 = d;
+			if (rt == 4) fr = d;
+			if (rt == 5) pc = d;
+			if (rt == 6) sp = d;
+		} else if (insn == 2) {
+			pc += 1;
+			if (!predcheck(pred, fr))
+				continue;
+			d = muxreg(rs, r0, r1, r2, r3, fr, pc, sp);
+			if (muxreg(rt, r0, r1, r2, r3, fr, pc, sp) != 16384)
+				return abort();
+			d = printchar(d);
+		} else if (insn == 3) {
+			pc += 1;
+			if (!predcheck(pred, fr))
+				continue;
+			d = muxreg(rs, r0, r1, r2, r3, fr, pc, sp);
+			if (rt == 0) r0 = d;
+			if (rt == 1) r1 = d;
+			if (rt == 2) r2 = d;
+			if (rt == 3) r3 = d;
+			if (rt == 4) fr = d;
+			if (rt == 5) pc = d;
+			if (rt == 6) sp = d;
+		} else if (insn == 4) {
+			pc += 1;
+			if (!predcheck(pred, fr))
+				continue;
+			d = muxreg(rs, r0, r1, r2, r3, fr, pc, sp);
+			d += muxreg(rt, r0, r1, r2, r3, fr, pc, sp);
+			d &= 65535;
+			if (rt == 0) r0 = d;
+			if (rt == 1) r1 = d;
+			if (rt == 2) r2 = d;
+			if (rt == 3) r3 = d;
+			if (rt == 4) fr = d;
+			if (rt == 5) pc = d;
+			if (rt == 6) sp = d;
+		} else if (insn == 5) {
+			pc += 1;
+			if (!predcheck(pred, fr))
+				continue;
+			d = muxreg(rs, r0, r1, r2, r3, fr, pc, sp);
+			d -= muxreg(rt, r0, r1, r2, r3, fr, pc, sp);
+			fr = 0;
+			if (d == 0) fr |= 4;
+			if (d > 0) fr |= 1;
+			if (d < 0) fr |= 2;
+		} else if (insn == 6) {
+			pc += 1;
+			if (!predcheck(pred, fr))
+				continue;
+			d = muxreg(rs, r0, r1, r2, r3, fr, pc, sp);
+			d &= muxreg(rt, r0, r1, r2, r3, fr, pc, sp);
+			if (rt == 0) r0 = d;
+			if (rt == 1) r1 = d;
+			if (rt == 2) r2 = d;
+			if (rt == 3) r3 = d;
+			if (rt == 4) fr = d;
+			if (rt == 5) pc = d;
+			if (rt == 6) sp = d;
+		} else if (insn == 7) {
+			pc += 1;
+			if (!predcheck(pred, fr))
+				continue;
+			d = muxreg(rt, r0, r1, r2, r3, fr, pc, sp);
+			d = ~d;
+			d &= 65535;
+			if (rt == 0) r0 = d;
+			if (rt == 1) r1 = d;
+			if (rt == 2) r2 = d;
+			if (rt == 3) r3 = d;
+			if (rt == 4) fr = d;
+			if (rt == 5) pc = d;
+			if (rt == 6) sp = d;
+		}
+	}
+	return crc;
+}

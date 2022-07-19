@@ -1,0 +1,26 @@
+#test return 1
+// 2 ways of calculating greatest common denominator
+
+int gcd_recursive (x : int, y : int) {
+  if (y == 0)
+     return x;
+  else
+     return gcd_recursive(y, x % y);
+}
+
+int gcd_iterative(x : int, y : int)
+{
+  var r : int;
+  while (y != 0) {
+    r = x % y;
+    x = y;
+    y = r;
+  }
+  return x;
+}
+
+int main () {
+  if(gcd_recursive(42,56) == gcd_iterative(42,56))
+    return 1;
+  return 0;
+}

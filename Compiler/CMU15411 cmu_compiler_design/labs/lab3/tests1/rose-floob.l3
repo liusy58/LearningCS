@@ -1,0 +1,24 @@
+#test return 168498
+
+# Fun with nested for loops
+
+int ret0 (mx : int, my : int)
+{
+    var i, j, q : int;
+
+    q = 0;
+
+    for (i = 0; i < mx; i += 1)
+        for (j = 0; j < my; j += 1)
+        {
+            q += i * j;
+        }
+    
+    return q;
+}
+
+int main ()
+{
+    return ret0 (23, 37);
+}
+

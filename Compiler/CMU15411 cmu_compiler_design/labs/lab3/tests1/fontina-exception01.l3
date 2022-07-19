@@ -1,0 +1,17 @@
+#test exception 8
+
+int main()
+{
+    return innocentBystander(7,EXPLODE(6));
+}
+
+int innocentBystander(a:int,b:int)
+{
+    return a;
+}
+
+int EXPLODE(i:int)
+{
+    return i/0;
+}
+

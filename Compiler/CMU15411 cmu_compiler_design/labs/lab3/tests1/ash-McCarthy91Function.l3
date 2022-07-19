@@ -1,0 +1,11 @@
+#test return 91
+
+// Returns 91 for all integer arguments n <= 101
+int f91(n : int) {
+  if (n > 100) return n - 10;
+  else return f91( f91( n + 11 ) );
+}
+
+int main () {
+  return (f91(23) + f91(67) + f91(78)) / 3;
+}

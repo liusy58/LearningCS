@@ -1,0 +1,54 @@
+#test return 50
+// Computes the number of ways to make change using 1, 5, 10, 25, and 50 cent
+// coins using dynamic programming.
+int count_change(amount : int, denominations : int[], num_denoms : int) {
+    var a, d, use_coin, less_a : int;
+    var table : int[][];
+
+    // Allocate table
+    table = new(int[][amount + 1]);
+    for (a = 0; a <= amount; a += 1) {
+        table[a] = new(int[num_denoms + 1]);
+    }
+
+    // If we reach amount 0, we've made correct change
+    for (d = 0; d <= num_denoms; d += 1) {
+        table[0][d] = 1;
+    }
+
+    // No change possible without denominations
+    for (a = 1; a <= amount; a += 1) {
+        table[a][0] = 0;
+    }
+
+    // Fill table
+    for (a = 1; a <= amount; a += 1) {
+        for (d = 1; d <= num_denoms; d += 1) {
+            less_a = a - denominations[d - 1];
+            // Special case: if remaining amount is less than zero, no change
+            if (less_a < 0) {
+                use_coin = 0;
+            } else {
+                use_coin = table[less_a][d];
+            }
+            table[a][d] = table[a][d - 1] + use_coin;
+        }
+    }
+
+    return table[amount][num_denoms];
+}
+
+int main() {
+    var num_denoms : int;
+    var denoms : int[];
+
+    num_denoms = 5;
+    denoms = new(int[num_denoms]);
+    denoms[0] = 1;   // Penny
+    denoms[1] = 5;   // Nickel
+    denoms[2] = 10;  // Dime
+    denoms[3] = 25;  // Quarter
+    denoms[4] = 50;  // Half-Dollar
+
+    return count_change(50, denoms, num_denoms);
+}

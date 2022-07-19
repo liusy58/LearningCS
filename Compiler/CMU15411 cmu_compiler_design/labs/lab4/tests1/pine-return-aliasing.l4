@@ -1,0 +1,33 @@
+#test return 38
+
+/* If aliasing optimization is being done, tests that it is being done properly.
+ * Author: matthewj
+ */
+
+struct point {
+    x : int;
+    y : int;
+};
+
+int flip(p : point*, q : point*) {
+    p->x = p->x - (q->x - p->x);
+    p->y = p->y - (q->y - p->y);
+    q->x = p->x + q->x;
+    q->y = p->x + q->y;
+    return 0;
+}
+
+int main() {
+    var p : point*;
+    var q : point*;
+    var _ : int;
+    p = new(point);
+    q = new(point);
+    p->x = 5;
+    p->y = 7;
+    q->x = 3;
+    q->y = -1;
+
+    _ = flip(p, q);
+    return p->x + p->y + q->x + q->y;
+}

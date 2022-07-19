@@ -1,0 +1,9 @@
+#test return 1
+# (lazy) heap allocation
+
+int main()
+{
+	var x : int[];
+	x = new(int[256*1024*1024*1024]); // 1 TB
+	return 1;
+}

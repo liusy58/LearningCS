@@ -1,0 +1,17 @@
+#test return 0
+
+int error () {
+  return (1/0);
+}
+
+int main () {
+  var t1,t2,f : int;
+  f = 0;
+  t1 = 3;
+  t2 = 7;
+  if (!(f && error()))
+    if (t1 || error())
+      if ((t1 && t2) == 1)
+	return 0;
+  return -1;
+}

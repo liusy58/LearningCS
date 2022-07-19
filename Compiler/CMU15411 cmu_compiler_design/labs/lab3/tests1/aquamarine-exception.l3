@@ -1,0 +1,12 @@
+#test exception 8
+
+int main()
+{
+	var a : int;
+	var x : int;
+	a = 0;
+	for(x = 3; x > 0; x -= 1) {
+		a = a + 2;
+	}
+	return a / x;
+}

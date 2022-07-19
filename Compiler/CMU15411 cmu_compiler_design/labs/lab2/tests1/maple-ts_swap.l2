@@ -1,0 +1,12 @@
+#test return 7
+// swaps the value held in x and y using the xor trick 
+{
+  x = 5;
+  y = 7;
+
+  x ^= y;
+  y ^= x;
+  x ^= y;
+
+  return x;
+}

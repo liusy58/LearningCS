@@ -1,0 +1,9 @@
+#test return 3333327
+int main(){
+  var x,y,z : int;
+  x = 1 << 512;
+  y = 6666655 >> 257;
+  z = 534543 << 4324 >> 3423;
+  return x | y | z;
+}
+

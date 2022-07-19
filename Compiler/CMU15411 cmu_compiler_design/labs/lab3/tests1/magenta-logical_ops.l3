@@ -1,0 +1,9 @@
+#test return 7
+
+int main () {
+    var x : int;
+
+    x = 6;
+    x += x && x; /* logical true should be always equal to 1 */
+    return x;
+}

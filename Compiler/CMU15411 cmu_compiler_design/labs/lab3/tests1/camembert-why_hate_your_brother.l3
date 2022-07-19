@@ -1,0 +1,14 @@
+#test error
+
+extern int printchar(c:int);
+
+int main()
+{
+    return 1;
+}
+
+int printchar(arm : int, leg : int)
+{
+    return 100;
+}
+ 

@@ -1,0 +1,7 @@
+#test error
+// no type
+int main() {
+  var x;
+  x+=1;
+  return x;
+}

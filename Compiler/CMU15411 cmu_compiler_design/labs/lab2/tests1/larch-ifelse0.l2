@@ -1,0 +1,10 @@
+#test return 67890
+
+{
+  wrong = 12345;
+  right = 67890;
+  if(-4--4)
+    return wrong;
+  else
+    return right;
+}

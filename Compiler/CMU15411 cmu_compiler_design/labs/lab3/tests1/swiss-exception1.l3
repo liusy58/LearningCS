@@ -1,0 +1,16 @@
+#test exception 8
+int r(x:int) {
+  var y:int;
+  y = 1/x;
+  if(x == 0) {
+    return 0;
+  } else {
+    return r(x-1);
+  }
+}
+
+int main() {
+  var x:int;
+  x = 100000;
+  return r(x);
+}

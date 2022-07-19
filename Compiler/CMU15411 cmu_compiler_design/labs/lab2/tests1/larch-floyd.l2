@@ -1,0 +1,19 @@
+#test return 14
+// Floyd's cycle-finding algorithm for f(x) = x^2 - 1 (mod 67)
+{
+  offset = -1;
+  modulus = 67;
+  
+  x = 19;
+  
+  slow = (x * x + offset) % modulus;
+  fast = (slow * slow + offset) % modulus;
+  steps = 0;
+  while (slow != fast) {
+    fast = (fast * fast + offset) % modulus;
+    fast = (fast * fast + offset) % modulus;
+    slow = (slow * slow + offset) % modulus;
+    steps += 1;
+  }
+  return steps;
+}

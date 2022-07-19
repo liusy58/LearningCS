@@ -1,0 +1,15 @@
+#test return 9694845
+// catalan numbers: http://en.wikipedia.org/wiki/Catalan_number
+
+int main () {
+  return catalan(15);
+}
+
+int catalan (n : int) {
+  if(n == 0)
+    return 1;
+  else {
+    n -= 1;
+    return 2*(2*n+1)*catalan(n)/(n+2);
+  }
+}

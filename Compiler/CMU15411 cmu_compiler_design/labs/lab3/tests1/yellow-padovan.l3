@@ -1,0 +1,15 @@
+#test return 12
+/* calculates padovan numbers */
+
+int pad_rec (n : int)
+{
+  if (n <= 2)
+    return 1;
+  else
+    return pad_rec(n-2) + pad_rec(n-3);
+}
+
+int main ()
+{
+  return pad_rec(10);
+}

@@ -1,0 +1,11 @@
+#test error
+
+int main()
+{
+  return isodd(42);
+}
+
+bool isodd(x:int)
+{
+  return (x % 2 == 1);
+}

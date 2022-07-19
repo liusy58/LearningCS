@@ -1,0 +1,13 @@
+#test error
+
+int fun() {
+  return 1;
+}
+
+int main() {
+  return fun();
+}
+
+int fun() {
+  return 1;
+}

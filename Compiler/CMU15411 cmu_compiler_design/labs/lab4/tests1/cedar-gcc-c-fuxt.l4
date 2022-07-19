@@ -1,0 +1,20 @@
+#test return 0
+
+/* from gcc.c-torture */
+
+int f (a:int) {
+        if (a != 2) {
+                a = -a;
+                if (a == 2)
+                  return 0;
+                return 1;
+        }
+        return 1;
+}
+
+int main () {
+        if (f (-2) != 0)
+                return 1;
+        return 0;
+}
+

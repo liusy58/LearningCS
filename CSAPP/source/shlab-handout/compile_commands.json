@@ -1,0 +1,15 @@
+[
+    {
+        "arguments": [
+            "gcc",
+            "-c",
+            "-Wall",
+            "-O2",
+            "-o",
+            "tsh",
+            "tsh.c"
+        ],
+        "directory": "/home/bigdataflow/lsy/LearningCS/docs/CSAPP/source/shlab-handout",
+        "file": "tsh.c"
+    }
+]

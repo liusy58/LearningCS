@@ -1,0 +1,6 @@
+#test error
+int main() {
+var (y) : int;
+y = 1;
+return y;
+}

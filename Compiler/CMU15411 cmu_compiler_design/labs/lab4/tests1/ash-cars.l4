@@ -1,0 +1,186 @@
+#test return 15
+
+extern int printint(i:int);
+extern int printchar(i:int);
+
+struct List {
+  head : int;
+  tail : List*;
+};
+
+// solves the 'cars' problem
+
+int main() {
+  var next, test : int;
+  var streetIN, streetOUT, streetWAIT : List**;
+  
+  // init
+  streetIN = new (List*);
+  streetOUT = new (List*);
+  streetWAIT = new (List*);
+  *streetIN = cons(8, cons(7, cons(1, cons(4, cons(3, cons(2, cons(6, cons(5, nil()))))))));
+  *streetOUT = nil();
+  *streetWAIT = nil();
+  
+  // solve
+  for (next = 1; next < 9;) {
+    printint(length(*streetIN));
+	printint(length(*streetWAIT));
+    printint(length(*streetOUT));
+	printchar(10);
+	
+    if (!isEmpty(*streetIN) && first(streetIN) == next) {
+	  enqueue(first(streetIN), streetOUT);
+	  dequeue(streetIN);
+	  next += 1;
+	}
+	else if (!isEmpty(*streetWAIT) && first(streetWAIT) == next) {
+	  enqueue(first(streetWAIT), streetOUT);
+	  dequeue(streetWAIT);
+	  next += 1;
+	}
+	else if (!isEmpty(*streetIN)) {
+	  enqueue(first(streetIN), streetWAIT);
+	  dequeue(streetIN);
+	}
+	else {
+	  // fail
+	  1/0;
+	  // this causes the ref-compiler to crash :(
+	  //*NULL;
+	}
+  }
+  
+  printint(length(*streetIN));
+  printint(length(*streetWAIT));
+  printint(length(*streetOUT));
+  printchar(10);
+  
+  // test
+  test = (isSorted(reverse(*streetOUT)) ? 1 : 0);
+  test |= (isEmpty(*streetIN) ? 1 : 0) << 1;
+  test |= (isEmpty(*streetWAIT) ? 1 : 0) << 2;
+  test |= ((length(*streetOUT) == 8) ? 1 : 0) << 3;
+  
+  return test;
+}
+
+int first(street : List**) {
+  return (*street)->head;
+}
+
+int enqueue(car : int, street : List**) {
+  *street = cons(car, *street);
+  return 0;
+}
+int dequeue(street : List**) {
+  *street = (*street)->tail;
+  return 0;
+}
+
+/* list manipulation */ 
+
+List* reverse(list : List*) {
+  return foldLeft_List(nil(), list, 1);
+}
+
+List* concatRev(frontRev : List*, back : List*) {
+  return foldLeft_List(back, frontRev, 1);
+}
+
+List* concat(front : List*, back : List*) {
+  return concatRev(reverse(front), back);
+}
+
+List* foldLeft_List(z : List*, list : List*, funselect : int) {
+  while (!isEmpty(list)) {
+    // reverse
+    if (funselect == 1)
+	  z = cons(list->head, z);
+	//  ...
+	
+	list = list->tail;
+  }
+  return z;
+}
+
+/*  list analysis */
+
+int length(list : List*) {
+  return foldLeft_int(0, list, 1);
+}
+
+int onlyZeroes(list : List*) {
+  return foldLeft_int(1, list, 2);
+}
+
+int sum(list : List*) {
+  return foldLeft_int(0, list, 3);
+}
+
+bool isSorted(list : List*) {
+  var min : int;
+  min = -2147483648;
+  while (!isEmpty(list)) {
+    if (list->head < min) return false;
+    else min = list->head;
+    list = list->tail;
+  }
+  return true; 
+}
+
+bool equal(as : List*, bs : List*) {
+  return (isEmpty(as) == isEmpty(bs)) && (isEmpty(as) || (as->head == bs->head && equal(as->tail, bs->tail)));
+} 
+
+int foldLeft_int(z : int, list : List*, funselect : int) {
+  while (!isEmpty(list)) {
+    // length
+    if (funselect == 1)
+	  z += 1;
+	// onlyZeroes
+	else if (funselect == 2)
+	  z = (z != 0) && (list->head == 0) ? 1 : 0;
+	//  sum
+	else if (funselect == 3)
+	  z += list->head;
+	// ...
+	
+	list = list->tail;
+  }
+  return z;
+}
+
+/* list creation */
+
+// list [start, ..., end)
+List* range(start : int, end : int) {
+  if (start < end)
+    return cons(start, range(start + 1, end));
+  else
+    return nil();
+}
+
+// list [1, ..., end]
+List* upto(end : int) {
+  return range(1, end + 1);
+}
+
+/* basic list */
+
+List* nil() {
+  return NULL;
+}
+
+List* cons(i : int, list : List*) {
+  var newList : List*;
+  newList = new(List);
+  newList->head = i;
+  newList->tail = list;
+  return newList;
+}
+
+bool isEmpty(list : List*) {
+  return list == NULL;
+}
+

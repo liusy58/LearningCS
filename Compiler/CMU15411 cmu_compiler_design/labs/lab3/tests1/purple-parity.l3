@@ -1,0 +1,16 @@
+#test return 1
+int is_even(n : int)
+{
+	if(n == 0) 
+	     return 1;
+	else
+	     return (is_odd(n-1));
+}
+int is_odd(n : int)
+{
+	return (is_even(n-1));
+}
+int main()
+{
+	return is_odd(321);
+}

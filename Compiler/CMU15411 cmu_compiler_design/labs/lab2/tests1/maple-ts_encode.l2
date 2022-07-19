@@ -1,0 +1,19 @@
+#test return 672
+// encodes two integers in one  
+{
+  x = 5;
+  y = 10;
+  code = 2;
+
+  for(i=1; i<x; i+=1)
+  {
+    code*=2;
+  }
+
+  code = code*(2*y + 1);
+
+  //going from left to right
+  //the binary expansion of code is x zeros followed by a 1 followed by 
+  //the binary expansion of y
+  return code;
+}

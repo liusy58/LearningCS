@@ -1,0 +1,202 @@
+#test return 1243791692
+// There are some magic constants in this file.
+{
+  x = 2666579;
+
+  if (x == 0)
+    return 0;
+  if (x == 2147483648)
+    return 3472883712;
+
+  done1 = 0;done2 = 0;done3 = 0;done4 = 0;done5 = 0;done6 = 0;done7 =
+  0;done8 = 0;done9 = 0;done10 = 0;done11 = 0;done12 = 0; loop1 = 0;loop2 =
+  0;loop3 = 0;loop4 = 0;loop5 = 0;loop6 = 0;loop7 = 0;loop8 = 0; sig = 0;abs
+  = 0;exp = 0;a = 0;rbit = 0;gbit = 0;sbit = 0;a1 = 0;a2 = 0;int1 = 0;bitpos
+  = 0;rnd = 0;sh = 0;res = 0;
+  res_add = 0;
+
+  op1 = x;
+  op2 = 2147483648;
+
+  while(1) {
+    res_rshift = op1 >> op2;
+    res_lshift = op1 << op2;
+    res_and = op1 & op2;
+    res_add = op1 + op2;
+    res_or = op1 | op2;
+
+    if(done12) {
+      if(rbit) {
+        if(gbit) {
+          return res_add;
+        }
+        if(sbit) {
+          return res_add;
+        }
+      }
+      return res;
+    }
+    else if(done11) {
+      res = res_or;
+      op1 = 1;
+      op2 = res;
+      done12 = 1;
+    }
+    else if(done10) {
+      abs = res_and;
+      op1 = abs;
+      op2 = res;
+      done11 = 1;
+    }
+    else if(done9) {
+      res = res_or;
+      op1 = 8388607;
+      op2 = abs;
+      done10 = 1;
+    }
+    else if(done8) {
+      exp = res_lshift;
+      op1 = sig;
+      op2 = exp;
+      done9 = 1;
+    }
+    else if(done7) {
+      exp = res_add;
+      op1 = exp;
+      op2 = 23;
+      done8 = 1;
+    }
+    else if(done6) {
+      if(rnd)
+        abs = res_rshift;
+      else
+        abs = res_lshift;
+      op1 = 126;
+      op2 = bitpos;
+      done7 = 1;
+    }
+    else if(done5) {
+      gbit = res_and;
+      op1 = abs;
+      op2 = sh;
+      done6 = 1;
+    }
+    else if(done4) {
+      rbit = res_and;
+      op1 = gbit;
+      op2 = abs;
+      done5 = 1;
+    }
+    else if(done3) {
+      sbit = res_and;
+      op1 = rbit;
+      op2 = abs;
+      done4 = 1;
+    }
+    else if(int1) {
+      if (a2 == 0) { return 0; }
+      else if (a2 == 1) { bitpos = 1; sh = 23; }
+      else if (a2 == 3) { bitpos = 2; sh = 22; }
+      else if (a2 == 7) { bitpos = 3; sh = 21; }
+      else if (a2 == 15) { bitpos = 4; sh = 20; }
+      else if (a2 == 31) { bitpos = 5; sh = 19; }
+      else if (a2 == 63) { bitpos = 6; sh = 18; }
+      else if (a2 == 127) { bitpos = 7; sh = 17; }
+      else if (a2 == 255) { bitpos = 8; sh = 16; }
+      else if (a2 == 511) { bitpos = 9; sh = 15; }
+      else if (a2 == 1023) { bitpos = 10; sh = 14; }
+      else if (a2 == 2047) { bitpos = 11; sh = 13; }
+      else if (a2 == 4095) { bitpos = 12; sh = 12; }
+      else if (a2 == 8191) { bitpos = 13; sh = 11; }
+      else if (a2 == 16383) { bitpos = 14; sh = 10; }
+      else if (a2 == 32767) { bitpos = 15; sh = 9; }
+      else if (a2 == 65535) { bitpos = 16; sh = 8; }
+      else if (a2 == 131071) { bitpos = 17; sh = 7; }
+      else if (a2 == 262143) { bitpos = 18; sh = 6; }
+      else if (a2 == 524287) { bitpos = 19; sh = 5; }
+      else if (a2 == 1048575) { bitpos = 20; sh = 4; }
+      else if (a2 == 2097151) { bitpos = 21; sh = 3; }
+      else if (a2 == 4194303) { bitpos = 22; sh = 2; }
+      else if (a2 == 8388607) { bitpos = 23; sh = 1; }
+      else if (a2 == 16777215) { bitpos = 24; sh = 0; }
+      else if (a2 == 33554431) { bitpos = 25; rnd = 1; sh = 1; sbit = 0; rbit = 1; gbit = 2; }
+      else if (a2 == 67108863) { bitpos = 26; rnd = 1; sh = 2; sbit = 1; rbit = 2; gbit = 4; }
+      else if (a2 == 134217727) { bitpos = 27; rnd = 1; sh = 3; sbit = 3; rbit = 4; gbit = 8; }
+      else if (a2 == 268435455) { bitpos = 28; rnd = 1; sh = 4; sbit = 7; rbit = 8; gbit = 16; }
+      else if (a2 == 536870911) { bitpos = 29; rnd = 1; sh = 5; sbit = 15; rbit = 16; gbit = 32; }
+      else if (a2 == 1073741823) { bitpos = 30; rnd = 1; sh = 6; sbit = 31; rbit = 32; gbit = 64; }
+      else if (a2 == 2147483647) { bitpos = 31; rnd = 1; sh = 7; sbit = 63; rbit = 64; gbit = 128; }
+      else if (a2 == 4294967295) { bitpos = 32; rnd = 1; sh = 8; sbit = 127; rbit = 128; gbit = 256; }
+      op1 = sbit;
+      op2 = abs;
+      done3 = 1;
+    }
+    else if(loop8) {
+      a1 = res_rshift;
+      op1 = a1;
+      op2 = a2;
+      int1 = 1;
+    }
+    else if(loop7) {
+      a2 = res_or;
+      op1 = a2;
+      op2 = 16;
+      loop8 = 1;
+    }
+    else if(loop6) {
+      a1 = res_rshift;
+      op1 = a1;
+      op2 = a2;
+      loop7 = 1;
+    }
+    else if(loop5) {
+      a2 = res_or;
+      op1 = a2;
+      op2 = 8;
+      loop6 = 1;
+    }
+    else if(loop4) {
+      a1 = res_rshift;
+      op1 = a1;
+      op2 = a2;
+      loop5 = 1;
+    }
+    else if(loop3) {
+      a2 = res_or;
+      op1 = a2;
+      op2 = 4;
+      loop4 = 1;
+    }
+    else if(loop2) {
+      a1 = res_rshift;
+      op1 = a1;
+      op2 = a2;
+      loop3 = 1;
+    }
+    else if(loop1) {
+      a2 = res_or;
+      op1 = a2;
+      op2 = 2;
+      loop2 = 1;
+    }
+    else if(done2) {
+      a1 = res_rshift;
+      op1 = a1;
+      op2 = a2;
+      loop1 = 1;
+    }
+    else {
+      sig = res_and;
+      if (sig == 0)
+	abs = x;
+      else
+        abs = -x;
+      a2 = abs;
+      op1 = abs;
+      op2 = 1;
+      done2 = 1;
+    }
+  }
+
+  return res_add;
+}

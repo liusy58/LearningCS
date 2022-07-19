@@ -1,0 +1,21 @@
+#test return 832040
+
+/* Computes a general second order recurrence. */
+int second_order_recurrence(n:int, c0:int, c1:int, c2:int, base0:int,
+                            base1:int) {
+  if (n < 0) {
+    return -1;
+  } else if (n == 0) {
+    return base0;
+  } else if (n == 1) {
+    return base1;
+  } else {
+    return c0 + c1 * second_order_recurrence(n-1, c0, c1, c2, base0, base1)
+      + c2 * second_order_recurrence(n-2, c0, c1, c2, base0, base1);
+  }
+}
+
+int main() {
+  /* Fibonacci sequence special case. */
+  return second_order_recurrence(30, 0, 1, 1, 0, 1);
+}

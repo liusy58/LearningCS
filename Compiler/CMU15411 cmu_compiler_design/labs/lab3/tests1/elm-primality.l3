@@ -1,0 +1,30 @@
+#test return 1
+//test function calls and arithmetic ops
+int main() {
+  var i: int;
+  var num,conf: int;
+
+  // number to test for primality
+  num = 7;
+  
+  for(i = 1; i < num; i += 1) {
+    if(is_witness(num, i) == 1)
+      return 0;
+    else
+      continue;
+  }
+  return 1;
+}
+
+
+int is_witness(num:int, a:int) {
+  var pow:int;
+  var i:int;
+
+  pow = a;
+  for(i = 1; i < num-1; i += 1)
+    pow *= a;
+  
+  if((pow % num) != 1) return 1;
+  else return 0;
+}

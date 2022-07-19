@@ -1,0 +1,6 @@
+#test error
+/* too many argument for main */
+
+int main (x:int) {
+  return x;
+}

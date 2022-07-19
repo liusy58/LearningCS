@@ -1,0 +1,9 @@
+#test error
+/* type not small */
+
+struct point {x:int; y:int;};
+
+int main () {
+  var x : point;
+  return 0;
+}

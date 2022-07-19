@@ -1,0 +1,30 @@
+#test return 65535
+/* Two separate functions have same variable names
+ */
+/* Nested function calls */
+
+int main () {
+  var n,m,sum:int;
+  n = 1<<16;
+  m = -1;
+  sum = 0;
+  return sum1(n,m) & sum2(m,n);
+}
+
+int sum1 (pair1:int, pair2:int)
+{
+  var x,y:int;
+  x = pair1;
+  y = pair2;
+
+  return x+y;
+}
+
+int sum2 (pair1:int, pair2:int)
+{
+  var x,y:int;
+  x = pair1;
+  y = pair2;
+
+  return x+--y;
+}

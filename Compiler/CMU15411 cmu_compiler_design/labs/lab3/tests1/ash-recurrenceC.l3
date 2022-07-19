@@ -1,0 +1,27 @@
+#test return 184756
+
+// recurrence relation for Combinations(2n, n)
+int rec(n : int) {
+  if (n == 0) return 1;
+  else return (4 * n - 2) * rec(n - 1) / n;
+}
+
+int binCoeff(n : int, k: int) {
+  if (k == 0) return 1;
+  else return n * binCoeff(n - 1, k - 1) / k;
+}
+
+int verify(n : int) {
+  var calc, exp : int;
+
+  exp = binCoeff(n << 1, n << 0);
+  calc = rec(n);
+
+  if (exp == calc) return exp; else return -1;
+}
+
+int main() {
+  return verify(10);
+}
+
+ 

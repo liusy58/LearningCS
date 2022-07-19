@@ -1,0 +1,42 @@
+#test return 10
+// max of 10 args
+
+int max(arg1:int, arg2:int, arg3:int, arg4:int, arg5:int, arg6:int, arg7:int, arg8:int, arg9:int, arg10:int) {
+  var i, max:int;
+  max = 1 << 31;
+  if (arg1 > max) {
+    max = arg1;
+  }
+  if (arg2 > max) {
+    max = arg2;
+  }
+  if (arg3 > max) {
+    max = arg3;
+  }
+  if (arg4 > max) {
+    max = arg4;
+  }
+  if (arg5 > max) {
+    max = arg5;
+  }
+  if (arg6 > max) {
+    max = arg6;
+  }
+  if (arg7 > max) {
+    max = arg7;
+  }
+  if (arg8 > max) {
+    max = arg8;
+  }
+  if (arg9 > max) {
+    max = arg9;
+  }
+  if (arg10 > max) {
+    max = arg10;
+  }
+  return max;
+}
+
+int main () {
+  return max(3,1,2,5,4,10,8,6,7,9);
+}

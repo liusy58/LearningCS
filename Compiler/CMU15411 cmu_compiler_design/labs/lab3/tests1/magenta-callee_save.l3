@@ -1,0 +1,39 @@
+#test return 0
+
+/* makes sure that a function call does not change the value of any of the live variables
+ * - the compiler should deal with caller-save and callee-save registers appropriately
+ */
+
+int foobar (a : int, b : int, c : int, d : int, e : int, f : int, g : int, h : int, i : int, j : int) {
+    var a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11 : int;
+    a1 = 1;
+    a2 = 2;
+    a3 = 3;
+    a4 = 4;
+    a5 = 5;
+    a6 = 6;
+    a7 = 7;
+    a8 = 8;
+    a9 = 9;
+    a10 = 10;
+    a11 = 11;
+    return (a1 + a2 + a3 + a4 + a5 + a6 + a7 + a8 + a9 + a10 + a11);
+}
+
+int main () {
+    var x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, foo : int;
+    x1 = 10;
+    x2 = 20;
+    x3 = 30; 
+    x4 = 40;
+    x5 = 50;
+    x6 = 60;
+    x7 = 70;
+    x8 = 80;
+    x9 = 90;
+    x10 = 100;
+    foo = foobar (x1, x2, x3, x4, x5, x6, x7, x8, x9, x10);
+    if(x1 != 10 | x2 != 20 | x3 != 30 | x4 != 40 | x5 != 50 | x6 != 60 | x7 != 70 | x8 != 80 | x9 != 90 | x10 != 100)
+        return 777;
+    return 0;    
+}

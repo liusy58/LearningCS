@@ -1,0 +1,13 @@
+#test error
+// Two variables declared in the same function with the same identifier
+
+int fun() {
+  var x : int;
+  var x : int;
+
+  return x;
+}
+
+int main() {
+  return fun();
+}

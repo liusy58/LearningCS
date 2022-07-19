@@ -1,0 +1,11 @@
+#test return 3
+
+int fun() {
+  return 1;
+}
+
+int main() {
+  var fun:int;
+  fun = 2;
+  return fun() + fun;
+}

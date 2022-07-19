@@ -1,0 +1,14 @@
+#test return -1
+// tests short-circuiting for logical && and ||
+
+int main () {
+  var x : int;
+  x = 0;
+  if(!x || 1/x) {
+    x -= 1;
+  }
+  if(x > 0 && 1%x) {
+    x += 1;
+  }
+  return x;
+}

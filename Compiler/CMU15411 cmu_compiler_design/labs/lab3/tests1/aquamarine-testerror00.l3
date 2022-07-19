@@ -1,0 +1,19 @@
+#test error
+// break doesn't have semicolon
+ 
+int badBreak(){ 
+        var x : int;
+        while(x <= 25)
+        {
+                x += 1;
+                if(x == 10) break
+        }
+        return x;
+}
+
+int main() {
+        return badBreak();
+}
+
+
+

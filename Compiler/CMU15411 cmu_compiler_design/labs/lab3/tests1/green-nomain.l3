@@ -1,0 +1,7 @@
+#test error
+# no main function
+
+int banana() {
+  var a : int;
+  return 99;
+}

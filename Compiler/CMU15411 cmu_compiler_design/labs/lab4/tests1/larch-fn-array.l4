@@ -1,0 +1,20 @@
+#test return 2
+
+int[] stuff() {
+  var result : int[];
+  result = new(int[5]);
+  result[0] = 3;
+  result[1] = 1;
+  result[2] = 4;
+  result[3] = 1;
+  result[4] = 5;
+  return result;
+}
+
+int odd(idx : int) {
+  return idx * 2 + 1;
+}
+
+int main() {
+  return stuff()[odd(0)] + stuff()[odd(1)];
+}

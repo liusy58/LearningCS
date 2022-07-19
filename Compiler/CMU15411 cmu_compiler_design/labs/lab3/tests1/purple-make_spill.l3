@@ -1,0 +1,44 @@
+#test return 109714557
+
+int spill(i: int)
+{
+	var j : int;
+	var k : int;
+	var l : int;
+	var m : int;
+	var n : int;
+	var o : int;
+	var p : int;
+	var q : int;
+	var r : int;
+	var s : int;
+	var t : int;
+	
+	j = i * 3;
+	k = 3;	
+	l = 1;
+	m = i * k -1;
+        n = 0;
+	o = 0;
+	p = 20;
+	q = 16;
+	r = 50 - k;
+	s = j * k - m;
+	t = 20 + 13 * l;
+	if (i <= 0)
+	   return j + k + l + m + n + o + p + q + r + s + t;
+	j = spill(i-1);
+	k = j * 2;
+	i = spill(i-2);
+	m = j + k - l;
+	n =  p * k - k;
+	o = o * n;
+	q = 14 - p + t - l + s * ( q - i + o);
+	p = 10 + k;
+	return i + j + k + l + m + n + o + q + q + r + s + t; 
+	
+}
+int main()
+{
+	return spill(10);
+}

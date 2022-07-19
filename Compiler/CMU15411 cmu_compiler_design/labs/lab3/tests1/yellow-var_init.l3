@@ -1,0 +1,43 @@
+#test return 0
+/* ensure vars are initialized to 0 properly, also oh god spilling */
+
+int do_stuff (x: int, y: int, z: int, q: int) {
+  var a, b, c, d, e, f, g, h, i, j, k : int;
+  a = 0; b = 0; c = 0; d = 0; e = 0; f = 0;
+  g = 0; h = 0; i = 0; j = 0; k = 0;
+
+  a = a + x;
+  b = a + b + y;
+  c = a + b + c + z;
+  d = a + b + c + d + q;
+  e = a + b + c + d + e;
+  f = a + b + c + d + e + f;
+  g = a + b + c + d + e + f + g;
+  h = a + b + c + d + e + f + g + h;
+  i = a + b + c + d + e + f + g + h + i;
+  j = a + b + c + d + e + f + g + h + i + j;
+  k = a + b + c + d + e + f + g + h + i + j + k;
+
+  return k;
+}
+
+int main () {
+  var r1, r2, r3, r4, r5, r6, r7, r8 : int;
+
+  r1 = do_stuff(1, 2, 3, 4);
+  r2 = do_stuff(1, 2, 3, 4);
+  r3 = do_stuff(1, 2, 3, 4);
+  r4 = do_stuff(1, 2, 3, 4);
+  r5 = do_stuff(1, 2, 3, 4);
+  r6 = do_stuff(1, 2, 3, 4);
+  r7 = do_stuff(1, 2, 3, 4);
+  r8 = do_stuff(1, 2, 3, 4);
+
+  if (r1 != 1664)
+    return 1;
+
+  if (r1 == r2 && r2 == r3 && r3 == r4 && r4 == r5 && r5 == r6 && r6 == r7 && r7 == r8)
+    return 0;
+  
+  return 2;
+}

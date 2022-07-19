@@ -1,0 +1,8 @@
+#test exception
+// test division by zero
+
+int main () {
+  var x : int;
+  x = 0;
+  return 0*(1/x);
+}

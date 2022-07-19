@@ -1,0 +1,26 @@
+#test exception 8
+/* Divide by zero exception.  Spilling with deep recursion. */
+
+int infinite_loop(in:int) {
+  var v,a,b,c,d,e,f,g,h,i,j,k,l : int;
+
+  a = 1;
+  b = a;
+  c = b;
+  d = c;
+  e = d;
+  f = e;
+  g = f;
+  h = g;
+  i = h;
+  j = i;
+  k = j;
+  l = k;
+
+  v = l / in;
+  return infinite_loop(in - 1);
+}
+
+int main() {
+  return infinite_loop(1000);
+}

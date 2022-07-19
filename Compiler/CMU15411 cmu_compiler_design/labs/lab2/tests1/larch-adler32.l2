@@ -1,0 +1,24 @@
+#test return 71958962
+{
+  byte0 = 119;
+  byte1 = 97;
+  byte2 = 110;
+  byte3 = 107;
+
+  a = 1;
+  b = 0;
+
+  a += byte0;
+  b += a;
+  a += byte1;
+  b += a;
+  a += byte2;
+  b += a;
+  a += byte3;
+  b += a;
+
+  a %= 65521;
+  b %= 65521;
+
+  return (b << 16) | a;
+}

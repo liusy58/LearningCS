@@ -1,0 +1,13 @@
+#test exception
+// recursion with mod by 0 eventually
+
+int divide_by_zero(n : int) {
+	if ( n < -1 ) {
+		return n;
+	}
+	return (n % divide_by_zero(n - 1));
+}
+
+int main () {
+	return divide_by_zero(30);
+}

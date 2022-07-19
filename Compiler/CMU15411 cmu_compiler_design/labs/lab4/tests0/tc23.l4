@@ -1,0 +1,13 @@
+#test error
+/* missing return statement */
+
+int* strange (b:int) {
+  if (b) return NULL;
+  else new(int);
+}
+
+int main () {
+  var p:int*;
+  p = strange(1);
+  return 0;
+}

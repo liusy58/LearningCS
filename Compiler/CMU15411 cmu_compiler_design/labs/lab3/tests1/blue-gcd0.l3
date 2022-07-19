@@ -1,0 +1,22 @@
+#test exception 8
+/* Team Blue
+ * Modulus by 0
+ */
+
+/* Assume x and y are positive */
+int gcd(x: int, y: int) {
+	if (y == 0)
+		return x;
+	
+	return gcd(y, x % y);
+}
+
+/* Assume x and y are positive */
+int lcm(x: int, y: int) {
+	return (x * y) / gcd(x, y);
+}
+
+int main() {
+	/* Break our previous assumption */
+	return lcm(0, 0);
+}

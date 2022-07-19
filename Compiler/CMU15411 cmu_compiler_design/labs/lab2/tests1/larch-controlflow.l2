@@ -1,0 +1,16 @@
+#test return 20
+// Tests static checks for variable definition
+{
+  a = 5;
+  if (a < 6) {
+    if (a > 4) {
+      return 20;
+    } else {
+      return 19;
+    }
+  } else {
+    return 21;
+  }
+  // This should not cause an error
+  x = y;
+}

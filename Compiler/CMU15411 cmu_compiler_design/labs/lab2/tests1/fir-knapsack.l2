@@ -1,0 +1,51 @@
+#test return 1918
+{
+  //Returns a solution to the knapsack problem or -1 if no solution could be found
+  target = 438;
+
+  item0 = 13;
+  item1 = 24;
+  item2 = 35;
+  item3 = 46;
+  item4 = 57;
+  item5 = 68;
+  item6 = 79;
+  item7 = 80; 
+  item8 = 32; 
+  item9 = 43;
+  item10 = 54;
+  item11 = 65;
+  item12 = 76;
+  item13 = 87;
+  item14 = 98;
+  item15 = 27;
+
+  for (number = 1 ; (number <= ((1<<16) - 1)) ; number += 1) 
+  {
+    sum = 0;
+    for (i = 15 ; i >=0  ; i -= 1 )
+    {   
+      if ( (number >> i) & 1)
+        if (i == 0) sum += item0;
+        else if (i == 1) sum += item1;
+        else if (i == 2) sum += item2;
+        else if (i == 3) sum += item3;
+        else if (i == 4) sum += item4;
+        else if (i == 5) sum += item5;
+        else if (i == 6) sum += item6;
+        else if (i == 7) sum += item7;
+        else if (i == 8) sum += item8;
+        else if (i == 9) sum += item9;
+        else if (i == 10) sum += item10;
+        else if (i == 11) sum += item11;
+        else if (i == 12) sum += item12;
+        else if (i == 13) sum += item13;
+        else if (i == 14) sum += item14;
+        else if (i == 15) sum += item15;
+      if (sum>target) break;
+      else if (sum == target) return number;
+    }   
+  }
+  return -1;
+}
+

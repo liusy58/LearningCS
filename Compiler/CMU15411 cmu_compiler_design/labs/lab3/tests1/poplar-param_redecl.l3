@@ -1,0 +1,14 @@
+#test error
+// Function parameter redeclared as a local variable
+int bad(x : int, y : int, z : int) {
+    var a, b, c, x : int;
+    a = x;
+    b = y;
+    c = z;
+    x = a + b + c;
+    return x;
+}
+
+int main() {
+    return bad(11, 10, 13);
+}

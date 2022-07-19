@@ -1,0 +1,149 @@
+#test return 1
+
+extern int printhex (x : int);
+extern int printint (x : int);
+extern int printchar (x : int);
+
+/**
+ * Breadth-first search on a graph with 5 nodes.
+ */
+int main ()
+{
+    var start, end, visited, queue, current, n, garbage : int;
+    
+    start = 0;
+    end = graph_size() - 1;
+    
+    visited = set_init();
+    
+    queue = list_init();
+    queue = list_add(queue, start);
+
+    while (!list_empty(queue))
+    {
+        /* dequeue the value from the BFS */
+        current = list_get(queue);
+        queue = list_remove(queue);
+        
+        /* add to the visited */
+        visited = set_add(visited, current);
+
+        if (current == end)
+            return 1;
+        
+	for (n = 0; n < graph_size(); n+=1)
+        {
+            if (edge_exists(current, n))
+            {
+                if (set_contains(visited, n))
+                    continue;
+
+                queue = list_add(queue, n);
+            }
+        }
+    }
+    
+    return 0;
+}
+
+int set_init ()
+{
+    return 0;
+}
+
+int set_add (set : int, element : int)
+{
+    if (element < 0 || element > 31)
+        return 0/0;
+    
+    return (set | (1 << element));
+}
+
+int set_contains (set : int, element : int)
+{
+    if (element < 0 || element > 31)
+        return 0/0;
+
+    return (set >> element) & 1;
+}
+
+int list_init ()
+{
+    return 0;
+}
+
+int list_empty (list : int)
+{
+    var size : int;
+    
+    size = list & 15;
+    
+    return size == 0;
+}
+
+int list_get (list : int)
+{
+    var size, element : int;
+    
+    size = list & 15;
+    if (size == 0)
+        return -1;
+    
+    element = (list >> 4) & 7;
+
+    return element;
+}
+
+int list_remove (list : int)
+{
+    var size, tail : int;
+    
+    size = list & 15;
+    if (size == 0)
+        return list;
+    
+    tail = list >> 7;
+    size = size - 1;
+
+    return size | (tail << 4);
+}
+
+int list_add (list : int, element : int)
+{
+    var size : int;
+    
+    /* elements must be 3 bits */
+    if (element > 7 || element < 0)
+        return 0/0;
+        
+    size = (list & 15);
+    /* if list overflows, throw overflow exception */
+    if (size == 8)
+        return 0/0;
+    
+    list = list | (element << (size * 3 + 4));
+    
+    size = size + 1;
+    list = (list & ~15) | size;
+    
+    return list;
+}
+
+int graph_size ()
+{
+    return 5;
+}
+
+int edge_exists (from : int, to : int)
+{
+    var adj_matrix : int;
+
+    /* 0b000000001011
+                10110
+                10001
+                01101
+                10010 */
+    adj_matrix = 12273074;
+
+    return (adj_matrix >> (graph_size() * from + to)) & 1;
+}

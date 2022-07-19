@@ -1,0 +1,9 @@
+#test error
+
+// No global variables allowed
+
+var x : int;
+
+int main() {
+  return x^~x;
+}

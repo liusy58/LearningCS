@@ -1,0 +1,34 @@
+#test return 222
+#nested function calls, function names with reserved words
+
+int
+ifelse(x:int, y:int)
+{
+   if (x > y) return x; else return y;
+}
+
+int
+whiledo(n:int)
+{
+   var k:int;
+   k = 1;
+   while (n > 0) {
+     k = k * 19 % 75 + 53;
+     n -= 1;
+   }
+   return k;
+}
+
+int
+returnvar(x:int, y:int)
+{
+   return x + y;
+}
+
+int
+main()
+{
+   return returnvar(100, ifelse(whiledo(ifelse(whiledo(20), whiledo(30))), 
+                                whiledo(ifelse(whiledo(40), whiledo(50)))));
+   return 0;
+}

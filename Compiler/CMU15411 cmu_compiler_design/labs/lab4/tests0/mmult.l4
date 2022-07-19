@@ -1,0 +1,39 @@
+#test return 366
+
+int mmult (A:int[], B:int[], C:int[], n:int) {
+  var i,j,k : int;
+  var sum : int;
+  for (i = 0; i < n; i += 1) {
+    for (j = 0; j < n; j += 1) {
+      sum = 0;
+      for (k = 0; k < n; k += 1)
+	sum += A[k+j*n] * B[i+k*n];
+      C[i+j*n] = sum;
+    }
+  }
+  return 0;
+}
+
+int init (A:int[], k:int, n:int) {
+  var i:int;
+  for (i = 0; i < n*n; i += 1) {
+    A[i] = k;
+    k += 1;
+  }
+  return 0;
+}
+
+int main () {
+  var A,B,C : int[];
+  var i,j,k : int;
+  var n : int;
+  n = 3;
+  k = 1;
+  A = new(int[n*n]);
+  init(A, 1, n);
+  B = new(int[n*n]);
+  init(B, n*n+1, n);
+  C = new(int[n*n]);
+  mmult (A, B, C, n);
+  return C[n*n-1];
+}

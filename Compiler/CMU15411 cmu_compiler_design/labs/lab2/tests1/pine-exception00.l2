@@ -1,0 +1,12 @@
+#test exception
+// Divide by zero - still one of the only two runtime errors we can have
+{
+    x = 4;
+    y = 2;
+    z = x >> y;
+    a = 1;
+    a = a << 31;
+    a = a >> 31;
+    z += a;
+    return x / z;
+}

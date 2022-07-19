@@ -1,0 +1,12 @@
+#test error
+// Tests static analysis
+
+int main()
+{
+  return f(0, 1);
+}
+
+int f(x : int)
+{
+  return x + 1;
+}

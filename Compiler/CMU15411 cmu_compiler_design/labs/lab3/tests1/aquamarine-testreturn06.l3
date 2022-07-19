@@ -1,0 +1,35 @@
+#test return 1
+// Tests some standard boolean expressions 
+// against mathematical equivalents
+
+// The mathematical choose function
+int choose(n : int, k : int) {
+	var i, numerator, denominator : int;
+
+	numerator = 1;
+	for(i = 0; i < k; i += 1) {
+		numerator *= (n-i);
+	}
+
+	denominator = 1;
+	for(i = k; i >= 1; i -= 1) {
+		denominator *= i;
+	}
+	
+	return (numerator / denominator);
+}
+
+int main() {
+	var i,x,y,z : int;
+	x = 0;
+	// sum from 1 to 100
+	for (i = 0; i <= 100; i += 1) {
+		x += i;
+	}
+	y = 5050;
+
+	// 101 choose 2
+	z = choose(101, 2);
+	
+	return ((x==y) && (x==z) && (y==z));
+}

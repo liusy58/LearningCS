@@ -1,0 +1,25 @@
+#test return 1
+//no, this does not require tail call optimizations.
+
+int nus1 (nus2 : int)
+{
+	if (nus2 == 0) {return 1;}
+	else {return nus2 (nus2 - 1);}
+}
+
+int nus2 (nus3 : int)
+{
+	if (nus3 == 0) {return 1;}
+	else {return nus3 (nus3 - 1);}
+}
+
+int nus3 (nus1 : int)
+{
+	if (nus1 == 0) {return 1;}
+	else {return nus1 (nus1 - 1);}
+}
+
+int main()
+{
+	return nus1(250000);
+}

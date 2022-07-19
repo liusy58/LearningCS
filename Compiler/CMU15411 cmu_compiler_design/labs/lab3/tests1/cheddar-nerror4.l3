@@ -1,0 +1,12 @@
+#test error
+
+// bad function name
+int main()
+{
+  return 1;
+}
+
+int 98980(x:int)
+{
+  return 2;
+}

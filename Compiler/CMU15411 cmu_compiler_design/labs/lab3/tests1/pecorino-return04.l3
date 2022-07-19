@@ -1,0 +1,19 @@
+#test return 355779
+extern int fadd(x : int, y : int) ;
+extern int printfloat(x:int) ;
+extern int printchar(x:int) ;
+
+/* Tests calling other functions */
+int main() {
+	var _, x, y: int;
+	x = 123456;
+	y = 232323; 
+
+	y = fadd(x, y);
+	x = printfloat(x);
+	x = printchar(x);
+  _ = printchar(13);
+	
+	return y;
+}
+

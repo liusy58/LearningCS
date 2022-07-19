@@ -1,0 +1,17 @@
+#test return 1024
+
+int[] ass()
+{
+	var x: int[];
+	x = new(int[1024]);
+	return x;
+}
+
+int main()
+{
+	var i: int;
+	for(i = 0; i < 1024; i = i + 1) {
+		ass()[i] = i;
+	}
+	return i;
+}

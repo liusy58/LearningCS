@@ -1,0 +1,16 @@
+#test error
+// Checks that break can only occur inside a for/while loop (Static semantic
+// #4).
+
+int main() {
+    for (i = 0; i < 10; i += 1) {
+        if (i == 3) {
+            return 0;
+        }
+        if (i == 5) {
+            break;
+        }
+    }
+    break;
+    return 1;
+}

@@ -1,0 +1,10 @@
+#test exception 8
+// This tests that all function arguments are properly evaluated.
+
+int foo(a : int, b : int) {
+    return a / b;
+}
+
+int main() {
+    return foo(((1 << 31) >> 27) & 127, 0);
+}

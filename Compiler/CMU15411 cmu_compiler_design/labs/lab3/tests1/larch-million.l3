@@ -1,0 +1,21 @@
+#test return 1000001
+
+// Searches for the smallest integer greater than 1000000
+
+int main() {
+  return smallest_greater(1000000);
+}
+
+int smallest_greater(n:int) {
+  var i : int;
+  i = 0;
+  while (1) {
+    if (i > n) {
+      return i;
+    }
+
+    i += 1;
+  }
+
+  return -1;
+}

@@ -1,0 +1,11 @@
+#test return 1
+// isequal
+
+int isequal(x:int, y:int) {
+  return (x == y);
+}
+
+int main () {
+  return isequal(isequal(3,3), isequal(5,5));
+}
+

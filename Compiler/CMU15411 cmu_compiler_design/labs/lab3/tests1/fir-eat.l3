@@ -1,0 +1,30 @@
+#test return 0
+
+int eat1(x: int) {
+	if (x == 0) return 0;
+	else return eat2(x - 1);
+}
+
+int eat2(x: int) {
+	if (x == 0) return 0;
+	else return eat3(x - 1);
+}
+
+int eat3(x: int) {
+	if (x == 0) return 0;
+	else return eat4(x - 1);
+}
+
+int eat4(x: int) {
+	if (x == 0) return 0;
+	else return eat5(x - 1);
+}
+
+int eat5(x: int) {
+	if (x == 0) return 0;
+	else return eat1(x - 1);
+}
+
+int main() {
+	return eat1(42);
+}

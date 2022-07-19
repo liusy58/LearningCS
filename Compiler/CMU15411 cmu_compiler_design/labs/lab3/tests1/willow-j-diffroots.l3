@@ -1,0 +1,19 @@
+#test return 932
+#returns the difference between a number and a simple square root squared
+int sqrt(a:int) {
+	var i,b,c:int;
+	c = 0;
+	for(i=0;i<a;i += 1) {
+		b = i * i;
+		if (b > a)
+			break;
+		c = i;
+	}
+	return c;
+}
+
+int main () {
+	var a:int;
+	a = 3423432;
+	return a - (sqrt(a)*sqrt(a));
+}

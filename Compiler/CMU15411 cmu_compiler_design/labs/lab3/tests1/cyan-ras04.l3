@@ -1,0 +1,22 @@
+#test return 4
+
+/* check namespace collisions between int, fn */
+
+int a(n:int)
+{
+  if(n <= 0) return 0;
+  return 1 + a(n - 1);
+}
+
+int b(n:int)
+{
+  if(n <= 0) return 0;
+  return 1 + a(n - 2) + b(n - 1);
+}
+
+int main()
+{
+  var b : int;
+  b = 0;
+  return b(3);
+}

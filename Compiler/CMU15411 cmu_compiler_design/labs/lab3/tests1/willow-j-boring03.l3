@@ -1,0 +1,13 @@
+#test return 1
+
+int g(a:int) {
+	return 1 + a;
+}
+
+int h(a:int) {
+	return a/0;
+}
+
+int main() {
+	return g(1) || h(1);
+}

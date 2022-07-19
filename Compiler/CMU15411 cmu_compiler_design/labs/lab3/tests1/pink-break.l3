@@ -1,0 +1,11 @@
+#test error
+// break must occur inside a loop
+
+int fun() {
+  break;
+  return 0;
+}
+
+int main() {
+  return fun();
+}

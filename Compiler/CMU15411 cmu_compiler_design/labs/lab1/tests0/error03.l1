@@ -1,0 +1,6 @@
+#test error
+// missing return statement
+{
+  x = 15;
+  y = x % -6;
+}

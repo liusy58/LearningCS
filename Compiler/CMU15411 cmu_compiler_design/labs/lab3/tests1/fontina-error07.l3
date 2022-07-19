@@ -1,0 +1,8 @@
+#test error
+
+int main() {
+	val it : bool;
+
+	return 0;
+
+}

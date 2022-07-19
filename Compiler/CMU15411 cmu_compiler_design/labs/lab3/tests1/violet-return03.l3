@@ -1,0 +1,17 @@
+#test return 8388607
+
+/* Towers of Hanoi */
+int hanoi(h:int, from:int, to:int, remaining:int) {
+  if (h == 0) {
+    return 0;
+  }
+
+  return hanoi(h-1, from, remaining, to) + 1 + hanoi(h-1, remaining, to, from);
+}
+
+int main() {
+  var height:int;
+  height = 23;
+
+  return hanoi(height, 0, 2, 1);
+}

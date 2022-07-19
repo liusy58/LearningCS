@@ -1,0 +1,43 @@
+#test return -384337
+
+int f(i : int) 
+{
+  return ff(i * 17);
+}
+
+int ff(i : int)
+{
+  return fff(i + 19 << 6);
+}
+
+int fff(i : int)
+{
+  return ffff(i * i); //legit?
+}
+
+int ffff(i : int)
+{
+  return fffff(i / 33333);
+}
+
+int fffff(i : int)
+{
+  return ffffff(i % 3829);
+}
+
+int ffffff(i : int)
+{
+  return fffffff(i >> 3 ^ 384322);
+}
+
+int fffffff(i : int)
+{
+  return -i;
+}
+
+int main()
+{
+  var i : int;
+  i = 1;
+  return f(i);
+}

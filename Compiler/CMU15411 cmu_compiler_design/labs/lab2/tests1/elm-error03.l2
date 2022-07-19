@@ -1,0 +1,6 @@
+#test error
+// if used as a variable
+{
+  if = 2;
+  return if;
+}

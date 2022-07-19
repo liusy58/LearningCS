@@ -1,0 +1,12 @@
+#test exception 8
+
+int main() {
+  var x : int;
+  x = 0;
+  if (x) 
+    x += 1;
+  else
+    x /= x;
+    
+  return x;
+}

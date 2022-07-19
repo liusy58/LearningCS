@@ -1,0 +1,17 @@
+#test return 7
+
+int two() {
+	return 2;
+}
+
+int three() {
+	return 3;
+}
+
+int four() {
+	return 4;
+}
+
+int main() {
+	return 0 - two() + four() + three() + two();
+}

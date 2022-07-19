@@ -1,0 +1,16 @@
+#test return 34
+
+{
+  n = 9;
+  f1 = 1;
+  f2 = 1;
+  for (i = 3; i <= n; i+=1) {
+    t = f2 + f1;
+    f1 = f2;
+    f2 = t;
+  }
+  if (i > 0)
+    return f2;  /* t here would be an error */
+  else
+    return 0;
+}

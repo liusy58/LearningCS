@@ -1,0 +1,24 @@
+#test return -2098101519
+// Fletcher checksum - as described in http://tools.ietf.org/html/rfc1146
+// Adapted because of the lack of arrays in this language. Inner loop unrolled a
+// bit.
+{
+    s1 = 65535;
+    s2 = 65535;
+    d1 = 11328;
+    d2 = 21001;
+    d3 = 11169;
+    d4 = 55558;
+    for (len = 0; len < 4; len += 1) {
+        d = 0;
+        if (len == 0) { d = d1; }
+        if (len == 1) { d = d2; }
+        if (len == 2) { d = d3; }
+        if (len == 3) { d = d4; }
+        s1 += d;
+        s2 += d;
+        s1 = (s1 & 65535) + (s1 >> 16);
+        s2 = (s2 & 65535) + (s2 >> 16);
+    }
+    return (s2 << 16) | s1;
+}

@@ -1,0 +1,27 @@
+#name "./grading/addedlet.test"
+#1 CLASS
+#1 TYPEID Foo
+#1 '{'
+#2 OBJECTID bar
+#2 '('
+#2 ')'
+#2 ':'
+#2 TYPEID Int
+#2 '{'
+#2 LET
+#2 OBJECTID a
+#2 ':'
+#2 TYPEID Int
+#2 IN
+#2 OBJECTID a
+#2 '+'
+#2 LET
+#2 OBJECTID b
+#2 ':'
+#2 TYPEID String
+#2 IN
+#2 OBJECTID b
+#2 '}'
+#2 ';'
+#3 '}'
+#3 ';'

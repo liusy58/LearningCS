@@ -1,0 +1,16 @@
+#test return 0
+// initial struct values are 0
+
+struct s {
+        foo : int;
+        a : int[][][]***[][][]***;
+        b : s[]**[];
+};
+
+int main ()
+{
+        var a : s*;
+        a = new (s);
+        
+        return a->foo;
+}

@@ -1,0 +1,9 @@
+#test exception 8
+
+int main () {
+  return recurse(100,5);
+}
+
+int recurse(x:int, y:int) {
+  return recurse(x/y, y-1);
+}

@@ -1,0 +1,27 @@
+#test return 462
+
+/* Computes factorial using a for loop. */
+int factorial(n:int) {
+  var i,p:int;
+
+  if (n < 0) {
+    return -1;
+  }
+
+  p = 1;
+  for (i = 1; i <= n; i = i+1) {
+    p *= i;
+  }
+  
+  return p;
+}
+
+/* Computes choose in a very bad way (only works for small values of
+ * n and k). */
+int choose(n:int, k:int) {
+  return factorial(n) / (factorial(k) * factorial(n-k));
+}
+
+int main() {
+  return choose(11,5);
+}

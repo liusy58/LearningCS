@@ -1,0 +1,11 @@
+#test error
+// continue must occur inside a loop
+
+int fun() {
+  continue;
+  return 0;
+}
+
+int main() {
+  return fun();
+}

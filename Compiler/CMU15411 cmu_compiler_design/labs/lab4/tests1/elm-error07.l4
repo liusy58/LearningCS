@@ -1,0 +1,14 @@
+#test error
+/* NULL cannot be a variable name */
+
+int main () 
+{
+  var int1:int;
+  var NULL:int*;
+  var int2:int;
+
+  int1 = 1;
+  int2 = 1;
+
+  return int1/int2;
+}

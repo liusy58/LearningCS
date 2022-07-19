@@ -1,0 +1,9 @@
+#test error
+
+// No double-defining of variables
+
+int main() {
+	var x, y : int;
+	var y, z : int;
+	return 0;
+}

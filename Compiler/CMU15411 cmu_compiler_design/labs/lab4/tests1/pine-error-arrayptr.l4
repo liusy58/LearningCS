@@ -1,0 +1,20 @@
+#test error
+
+// arrays vs. pointers
+
+struct s {
+  a : int[];
+  b : int *;
+};
+
+int main()
+{
+  var x : s *;
+  x = new(s);
+  x->a[0] = 0;
+  x->a[1] = 1;
+  x->a[2] = 2;
+  x->b[0] = 5;
+
+  return 0;
+} 

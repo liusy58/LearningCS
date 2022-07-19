@@ -1,0 +1,10 @@
+#test error
+/* field name used twice */
+
+struct point {x:int; y:int; z:int; y:int*;};
+
+int main () {
+  var x:point*;
+  x = new(point);
+  return -1;
+}

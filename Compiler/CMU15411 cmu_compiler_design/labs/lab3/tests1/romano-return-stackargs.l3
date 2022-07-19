@@ -1,0 +1,39 @@
+#test exception 8
+// Check that the compiler can handle stack spilling and stack arguments
+int main() {
+  return foo(1,2,3,4);
+}
+
+int foo(a:int, b:int, c:int, d:int) {
+  var e,f,g,h,i,j,k,l,m,n,o,p,z : int;
+  
+  // let's make some live variables
+  e = a + b + c + d;
+  f = a - b - c - d;
+  g = a * b * c * d;
+  h = a / b / c / d;
+  
+  i = a | b | c | d;
+  j = a & b & c & d;
+  k = a % b % c % d;
+  l = a ^ b ^ c ^ d;
+  
+  m = a + b - c * d;
+  n = a / b | c & d;
+  o = a ^ b + c - d;
+  p = a * b / c | d;
+  
+  // now call a many-argument function
+  z = bar(a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p);
+  
+  // and again, just for kicks.
+  return bar(z,o,n,m,l,k,j,i,h,g,f,e,d,c,b,a);
+}
+
+int bar(a:int, b:int, c:int, d:int,
+        e:int, f:int, g:int, h:int,
+        i:int, j:int, k:int, l:int,
+        m:int, n:int, o:int, p:int)
+{
+   return a + b - c * d / e | f & g % h ^ i + j - k * l / m | n & o % p;
+}

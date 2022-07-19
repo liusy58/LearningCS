@@ -1,0 +1,20 @@
+#test return 7
+/* Addition of numbers
+ */
+/* Nested function calls */
+
+int main () {
+  var n,m:int;
+  n = 0;
+  m = 7;
+  return addpairs(n,m);
+}
+
+int addpairs (pair1:int, pair2:int)
+{
+  if(pair1 && (pair2/0))
+    return pair1+pair2;
+  else
+    return pair1 | pair2;
+}
+

@@ -1,0 +1,13 @@
+#test return 3277
+
+int rec(n : int) {
+  if (n == 0) return 0;
+  else if (n == 1) return 1;
+  else return 3 * rec(n - 1) + 4 * rec(n - 2);
+}
+
+int main() {
+  return rec(7);
+}
+
+ 

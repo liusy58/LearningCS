@@ -1,0 +1,18 @@
+#test exception 8
+
+int main ()
+{
+  var x: int;
+  x = return1() / return0();
+  return x;
+}
+
+int return1 ()
+{
+  return 1;
+}
+
+int return0 ()
+{
+  return 0;
+}

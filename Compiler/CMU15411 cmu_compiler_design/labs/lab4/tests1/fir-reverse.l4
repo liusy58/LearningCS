@@ -1,0 +1,30 @@
+#test return 99
+
+/* Reverse a list. */
+
+int reverse(arr: int[], len: int) {
+	var i: int;
+	var temp: int;
+	for (i = 0; i < (len / 2); i += 1) {
+		temp = arr[i];
+		arr[i] = arr[len - (i + 1)];
+		arr[len - (i + 1)] = temp;
+	}
+	return 0;
+}
+
+int main() {
+	var foo: int[];
+	var i: int;
+
+	foo = new(int[100]);
+
+	for (i = 0; i < 100; i += 1) {
+		foo[i] = i + 1;
+	}
+
+	reverse(foo, 100);
+
+	return foo[1];
+
+}

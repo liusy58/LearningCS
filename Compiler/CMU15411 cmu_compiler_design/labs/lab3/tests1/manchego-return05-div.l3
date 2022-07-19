@@ -1,0 +1,12 @@
+#test return 27
+
+int main() {
+	return div(411, 15);
+}
+
+int div(q : int, d : int) {
+	if (q < 0) return -1;
+	else if (q == 0) return 0;
+	else
+		return div(q - d, d) + 1;
+}

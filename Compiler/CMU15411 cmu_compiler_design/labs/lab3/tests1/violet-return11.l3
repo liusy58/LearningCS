@@ -1,0 +1,27 @@
+#test return 243
+
+/* Mutually recursive exponentiation, not very insightful of a function. */
+
+int exp_odd(b : int, expp : int) {
+  return b * exp(b, expp-1);
+}
+
+int exp_even(b : int, expp : int) {
+  return exp(b*b, expp/2);
+}
+
+int exp(b : int, expp : int) {
+  if(expp <= 0)
+    return 1;
+  if(expp == 1)
+    return b;
+
+  if(expp%2 == 0)
+    return exp_even(b, expp);
+  else
+    return exp_odd(b, expp);
+}
+
+int main() {
+  return exp(3,5);
+}

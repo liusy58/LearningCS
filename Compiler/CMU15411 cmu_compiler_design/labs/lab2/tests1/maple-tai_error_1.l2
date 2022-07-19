@@ -1,0 +1,19 @@
+#test error
+// Variable names cannot be reserved keywords 
+{
+  _return = 88;
+  _break = 100;
+  _continue = 0;
+  for (_for = 1; _for < _break; _for += 1)
+    if (_for == _return)
+      break;
+    else
+    {
+      _continue += 1;
+      continue;
+    }
+  if = _for == _break;
+  if (if)
+    return !1;
+  return _return;
+}

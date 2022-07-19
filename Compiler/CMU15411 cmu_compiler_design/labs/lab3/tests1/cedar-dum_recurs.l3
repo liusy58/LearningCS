@@ -1,0 +1,54 @@
+#test return 62
+
+int a(x: int, i: int)
+{
+	for(; i; i = i - 1) {
+		x = (x + i) % 2;
+	}
+	if(!x)
+		return 1;
+	return b(x,x) + c(x,x) + d(x,x);
+}
+
+int b(x: int, i: int)
+{
+	for(; i; i = i - 1) {
+		x = (x + i) % 2;
+	}
+
+	if(!x)
+		return 20;
+
+	return a(x,x) + c(x,x) + d(x,x);
+
+}
+
+int c(x: int, i: int)
+{
+	for(; i; i = i - 1) {
+		x = (x + i) % 2;
+	}
+
+	if(!x)
+		return 1;
+
+	return a(x,x) + b(x,x) + d(x,x);
+
+}
+
+int d(x: int, i: int)
+{
+	for(; i; i = i - 1) {
+		x = (x + i) % 2;
+	}
+
+	if(!x)
+		return 8;
+
+	return a(x,x) + b(x,x) + c(x,x);
+}
+
+int main()
+{
+	return a(10,10) + b(2,2) + c(1,1) + d(2,2);
+}

@@ -1,0 +1,12 @@
+#test return -396
+
+int main() {
+	return 15 + neg(411);
+}
+
+int neg(x : int) {
+	if (x <= 0)
+		return 0;
+	else
+		return neg(x - 1) - 1;
+}

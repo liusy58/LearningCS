@@ -1,0 +1,14 @@
+#test error
+// return type not small
+struct s {
+  k:int;
+};
+
+s get_struct() {
+  t = new(s);
+  return t;
+}
+
+int main() {
+  return 1;
+}

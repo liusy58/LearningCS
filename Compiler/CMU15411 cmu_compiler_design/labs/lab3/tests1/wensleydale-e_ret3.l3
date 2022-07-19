@@ -1,0 +1,17 @@
+#test return 20
+
+int main() {
+	return -(f(100));
+}
+int f(x:int) {
+	if(x<0) {
+		return x*2;
+	}
+	return g(x-10);
+}
+int g(x:int) {
+	if(x>20) {
+		return f(x+5);
+	}
+	return f(x);
+}

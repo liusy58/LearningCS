@@ -1,0 +1,10 @@
+#test return 0
+// tests that continue uses the step statement
+
+int main () {
+  var i : int;
+  i = 0;
+  for(; !i; i=1)
+    continue;
+  return 0;
+}

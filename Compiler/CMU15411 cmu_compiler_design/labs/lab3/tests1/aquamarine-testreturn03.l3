@@ -1,0 +1,14 @@
+#test return 120
+// Tests recursive functions via a simple factorial function
+
+int factorial(n : int) {
+	if(n < 1) return 0;
+	if(n == 1) return 1;
+	return n * factorial(n-1);
+}
+
+int main() {
+	var a : int;
+	a = factorial(5);
+	return a;
+}

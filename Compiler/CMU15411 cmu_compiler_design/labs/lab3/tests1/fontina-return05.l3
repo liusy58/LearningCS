@@ -1,0 +1,21 @@
+#test return 4
+
+int main()
+{
+    var i,j:int;
+
+    j = 100;
+
+    for(i = 0; i < bob(j); i += 1)
+    {
+        j = bob(j);
+    }
+
+    return i;
+}
+
+
+int bob(v1:int)
+{
+    return v1 / 2;
+}

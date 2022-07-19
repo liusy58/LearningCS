@@ -1,0 +1,35 @@
+#test return 0
+
+# Wastes a lot of cycles before doing nothing.
+
+int foo (n : int, m : int)
+{
+    var i, j, k : int;
+
+    i = n * m;
+    j = n;
+    k = m;
+
+    while (i != 0)
+    {
+        while (j != 0)
+        {
+            while (k != 0)
+            {
+                k = k - 1;
+            }
+            j = j - 1;
+            k = j * m;
+        }
+        i = i - 1;
+        j = j * i;
+    }
+
+    return i + j + k;
+}
+
+int main ()
+{
+    return (foo (256, 256));
+}
+

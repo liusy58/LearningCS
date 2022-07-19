@@ -1,0 +1,20 @@
+#test return 120
+// calculates n choose k
+
+int main()
+{
+  return nCk(10,3);
+}
+
+int nCk(n:int, k:int)
+{
+  return fact(n)/(fact(k)*fact(n-k));
+}
+
+int fact(n:int)
+{
+  if(n == 0)
+    return 1;
+  else
+    return n*fact(n-1);
+}

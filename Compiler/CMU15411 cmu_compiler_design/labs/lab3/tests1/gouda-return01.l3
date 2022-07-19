@@ -1,0 +1,20 @@
+#test return 1
+// lazysqrt returns 1 if a number is a square number, 0 otws
+
+int main () {
+  var a,b,c:int;
+  a = 40 * 40;
+  b = 39 * 41;
+  return lazysqrt(a) + lazysqrt(b);
+}
+
+int lazysqrt(n:int) {
+  var i, sq:int;
+  i = 1;
+  sq = 1;
+  while (sq < n) {
+    i += 1;
+    sq = i * i;
+  }
+  return (sq == n);
+}

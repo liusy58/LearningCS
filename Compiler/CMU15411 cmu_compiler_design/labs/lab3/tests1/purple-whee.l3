@@ -1,0 +1,9 @@
+#test exception 8
+int rec(i : int)
+{
+	return i +(3 / i) + rec(i-1);
+}
+int main()
+{
+	return rec (3);
+}

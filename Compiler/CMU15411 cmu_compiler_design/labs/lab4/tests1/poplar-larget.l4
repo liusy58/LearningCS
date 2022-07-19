@@ -1,0 +1,13 @@
+#test error
+// cannot define large types
+
+struct s {
+        foo : int;
+        bar : int******;
+};
+
+int main ()
+{
+        var a : s;
+        return a.foo;
+}

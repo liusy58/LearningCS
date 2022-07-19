@@ -1,0 +1,23 @@
+#test return 100
+// computes the manhatten distance
+{
+  X1 = 30;
+  Y1 = 30;
+  X2 = 70;
+  Y2 =-30;
+
+  if (X1 > X2)
+    if (Y1 > Y2)
+      return X1 - X2 + Y1 - Y2;
+    else
+      return X1 - X2 + Y2 - Y1;
+  else
+    if (Y1 > Y2)
+      return X2 - X1 + Y1 - Y2;
+    else
+      return X2 - X1 + Y2 - Y1;
+
+ unreachableCode = no ^ errors;
+}
+
+

@@ -1,0 +1,14 @@
+#test error
+
+int blarg(a:int, b:int)
+{
+	return a/b;
+}
+
+int main()
+{
+	var a, b :int;
+	a = 0;
+	b = 1;
+	return blarg(blarg(a),blarg(b));
+}

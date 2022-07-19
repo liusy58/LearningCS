@@ -1,0 +1,6 @@
+#test error
+// Improperly nested comments
+/* foo /* bar */ */ */
+int main() {
+  return 1;
+}

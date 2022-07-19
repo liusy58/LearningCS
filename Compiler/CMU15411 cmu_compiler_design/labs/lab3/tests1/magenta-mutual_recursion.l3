@@ -1,0 +1,16 @@
+#test return 3
+/* tests mutual recursive functions */
+
+int recfun1 (n : int) {
+    if(n <= 0)
+        return n;
+    return recfun2(n-1);
+}
+
+int recfun2 (n : int) {
+    return (1 + recfun1(n/2));
+}
+
+int main () {
+    return recfun2(8);
+}

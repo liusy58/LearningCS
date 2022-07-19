@@ -1,0 +1,10 @@
+#test exception
+// Divide by zero
+{
+  a = 2;
+  if (a > 0) {
+    a += 3;
+  }
+  a %= 5;
+  return 4 / a;
+}

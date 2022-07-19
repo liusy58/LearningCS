@@ -1,0 +1,17 @@
+#test return 43057796
+int big(a: int, b: int, c: int, d: int, e: int, f: int, g: int)
+{
+	if ( g == 0 )
+	{
+	   return a + b + c + d + e + f;
+	}
+	else
+	{
+	  return g + big(a*a, b*2, d * d, c + c, e * f, e + f, g-1);
+	}
+}
+
+int main()
+{
+	return big(9,8,7,6,5,4,3);
+}

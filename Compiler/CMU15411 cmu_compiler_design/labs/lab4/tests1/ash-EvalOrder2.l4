@@ -1,0 +1,38 @@
+#test return 10
+
+// should raise a NULL-dereference exception and nothing else
+
+int first(p : int***) {
+ if (p != NULL && *p != NULL && **p != NULL) ***p = 0;
+  return 1;
+}
+
+int second(p : int***) {
+  if (p != NULL && *p != NULL && **p != NULL && ***p == 0) **p = NULL;
+  return 2;
+}
+
+int third(p : int***) {
+  if (p != NULL && *p != NULL && **p == NULL) *p = NULL;
+  return 3;
+}
+
+int last(p : int***) {
+  // *p should be NULL by now, if not the program returns a wrong value.
+  if (p != NULL && *p == NULL) return 4;
+  else return 5;
+}
+
+int harmless(a : int, b : int, c : int, d : int) {
+  return a+b+c+d;
+}
+
+int main() {
+  var p : int***;
+  p = new(int**);
+  *p = new(int*);
+  **p = new(int);
+  ***p = 6;
+  
+  return harmless(first(p), second(p), third(p), last(p));
+}

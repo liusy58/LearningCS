@@ -1,0 +1,28 @@
+#test exception 11
+// Segfault on a NULL pointer at the end of a linked list.
+struct List {
+    head : int;
+    tail : List *;
+};
+
+int main() {
+    var i, sum : int;
+    var list, next : List *;
+
+    list = NULL;
+    for (i = 0; i < 10; i += 1) {
+        next = new(List);
+        next->head = i;
+        next->tail = list;
+        list = next;
+    }
+
+    sum = 0;
+    while (true) {
+        // list may be NULL!
+        sum += list->head;
+        list = list->tail;
+    }
+
+    return sum;
+}

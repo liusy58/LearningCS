@@ -1,0 +1,28 @@
+#test return 25
+
+int pifunction( n : int ) {
+	var count, i, j, a, factors : int;
+	
+	count = 0;
+	for ( i = 2 ; i <= n ; i += 1 ) {
+		
+		a = i;
+		factors = 0;
+		for ( j = 2 ; j < a ; j += 1 ) {
+			if ( a % j == 0 ) {
+				factors += 1;
+			}
+		}
+		
+		if ( factors == 0 ) {
+			count += 1;
+		}
+		
+	}
+	
+	return count;
+}
+
+int main() {
+	return pifunction(100);
+}

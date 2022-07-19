@@ -1,0 +1,31 @@
+#test return 12345
+
+// compute x^n (mod m)
+int modexp(x : int, n : int, m : int) {
+  var sq : int ;
+  if (n == 0) return 1;
+  else {
+    sq =  modexp(x*x % m, n / 2, m);
+    if (n % 2) return x * sq % m;
+    else return sq;
+  }
+}
+
+// do some RSA operations
+int main() {
+  var M, C, e, d, p, q, n : int;
+
+  p = 401;
+  q = 79;
+  n = p * q;
+
+  e = 199;
+  d = 25399;
+
+  M = 12345;
+  
+  C = modexp(M, e, n);
+
+  return modexp(C, d, n);
+}
+

@@ -1,0 +1,19 @@
+#test error
+// Variable declarations do not span functions
+int one() {
+    var x : int;
+    x = 42;
+    return x;
+}
+
+int two(y : int) {
+    var z : int;
+    z = x + y;
+    return z;
+}
+
+int main() {
+    var _ : int;
+    _ = one();
+    return two(24);
+}

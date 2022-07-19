@@ -1,0 +1,12 @@
+#test error
+int main_(){
+  return 0;
+}
+
+int mian(){
+  return main_();
+}
+
+int ma1n(){
+  return main_()/mian();
+}

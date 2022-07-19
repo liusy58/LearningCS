@@ -1,0 +1,25 @@
+#test return 2147483647
+// Verify the closed form for the Towers of Hanoi problem with the recurrence
+int hanoi_rec(n : int) {
+    if (n == 0) {
+        return 0;
+    } else {
+        return 2 * hanoi_rec(n - 1) + 1;
+    }
+}
+
+int hanoi_closed(n : int) {
+    // 2 ** n - 1
+    return (1 << n) - 1;
+}
+
+int main() {
+    var n, r, c : int;
+    n = 31;
+    r = hanoi_rec(n);
+    c = hanoi_closed(n);
+    if (r != c) {
+       return 1/0;
+    }
+    return r;
+}

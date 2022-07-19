@@ -1,0 +1,26 @@
+#test return 5188421
+extern int printchar(c:int);
+int main() {
+  var dummy : int;
+  dummy = printchar(84);
+  dummy = printchar(72);
+  dummy = printchar(73);
+  dummy = printchar(83);
+  dummy = printchar(45);
+  dummy = printchar(73);
+  dummy = printchar(83);
+  dummy = printchar(45);
+  dummy = printchar(83);
+  dummy = printchar(79);
+  dummy = printchar(45);
+  dummy = printchar(65);
+  dummy = printchar(78);
+  dummy = printchar(78);
+  dummy = printchar(79);
+  dummy = printchar(89);
+  dummy = printchar(73);
+  dummy = printchar(78);
+  dummy = printchar(71);
+  dummy = printchar(33);
+  return 5188421;
+}

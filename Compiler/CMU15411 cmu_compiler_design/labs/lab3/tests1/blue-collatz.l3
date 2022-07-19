@@ -1,0 +1,26 @@
+#test return 102
+/* Team Blue
+ * Collatz sequence
+ */
+
+int collatz(x: int) {
+	if ((x % 2) == 0)
+		return x / 2;
+		
+	return 3 * x + 1;
+}
+
+/* Will it terminate?  Yes.  Why?  No one knows (yet) */
+int main() {
+	var x, accum: int;
+	
+	x = 71;
+	accum = 0;
+	
+	while (x != 1) {
+		x = collatz(x);
+		accum += 1;
+	}
+	
+	return accum;
+}

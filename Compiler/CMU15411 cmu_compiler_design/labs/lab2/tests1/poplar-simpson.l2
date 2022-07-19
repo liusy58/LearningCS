@@ -1,0 +1,15 @@
+#test return 23687392
+// compute integral x^3 from 0 to 1 by Simpson's rule
+{
+        a = 0;
+        b = 100;
+        sum = 0;
+        for (i = a; i < b; i += (b - a)/4) {
+                mid = i + (b - a)/8;
+                i1 = i + (b - a)/4;
+                sum += (b - a)/24 * ((i*i*i) + 4 * (mid*mid*mid)
+                        + (i1*i1*i1));
+        }
+        return sum;
+
+}

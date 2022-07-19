@@ -1,0 +1,30 @@
+#test return 37
+
+// Tests for over-zealous struct typechecking and basic struct usage
+
+struct one {
+  val : int;
+};
+
+struct One {
+  val : one;
+};
+
+struct node {
+  next : node*;
+  number : int;
+};
+
+int main() {
+  return *do_struct_stuff(new(One), new(node), new(int));
+}
+
+int* do_struct_stuff(one : One*, node : node*, intp : int*) {
+  node->next = new(node);
+  node->next->number = 26;
+
+  one->val.val = 11;
+  *intp = one->val.val + node->next->number;
+
+  return intp;
+}

@@ -1,0 +1,34 @@
+#test exception 11
+// Convoluted NULL dereference
+
+struct node {
+  number : int;
+  next   : node*;
+};
+
+int main() {
+  var l : node*;
+  l = make_list(20);
+
+  while (true) {
+    l = l->next;
+  }
+  
+  return 4;
+}
+
+node* make_list(amount : int) {
+  var curr : node*;
+  var n : node*;
+  var i : int;
+  curr = NULL;
+  
+  for (i = 0; i < amount; i += 1) {
+    n = new(node);
+    n->number = i;
+    n->next = curr;
+    curr = n;
+  }
+  
+  return curr;
+}

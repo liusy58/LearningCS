@@ -1,0 +1,17 @@
+#test return 0
+
+int main() {
+	return bang(8932928);
+}
+
+/* Computes !x without using !x. Thanks again, bitlab! */
+
+int bang(x : int) {
+	x = x | x >> 1;
+    x = x | x >> 2;
+    x = x | x >> 4;
+    x = x | x >> 8;
+    x = x | x >> 16;
+
+	return (~x) & 1;
+}

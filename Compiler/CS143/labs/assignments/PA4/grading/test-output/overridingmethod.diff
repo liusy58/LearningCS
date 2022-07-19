@@ -1,0 +1,50 @@
+1,47c1
+< 
+< _program
+< 
+<   _class
+<     A
+<     Object
+<     filename
+<     (
+< 
+<     _method
+<       foo
+<       Int
+< 
+<       _int
+<         6
+<       : Int
+<     )
+< 
+<   _class
+<     B
+<     A
+<     filename
+<     (
+< 
+<     _method
+<       foo
+<       Int
+< 
+<       _int
+<         7
+<       : Int
+<     )
+< 
+<   _class
+<     Main
+<     Object
+<     filename
+<     (
+< 
+<     _method
+<       main
+<       Int
+< 
+<       _int
+<         6
+<       : Int
+<     )
+---
+> ./mysemant: line 8: syntax error: unexpected end of file

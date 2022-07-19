@@ -1,0 +1,8 @@
+#test error
+
+//Should fail due to trying to use reserved words as variables
+{
+  while = 1;
+  for = 2;
+  return while * for;
+}

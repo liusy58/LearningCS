@@ -1,0 +1,18 @@
+#test return 5050
+
+int sum (n:int) {
+  var i,sum:int;
+  sum = 0;
+  for (i = 1; i <= n; i += 1)
+    sum	+= i;
+  return sum;
+}
+
+int main () {
+  var result:int;
+  result = sum(100);
+  if (result == 100*(100+1)/2)
+    return result;
+  else
+    return -1;
+}

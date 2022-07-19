@@ -1,0 +1,69 @@
+#test return 7
+
+# Godel numbering to represent linked lists.  A linked list is a triple
+# of (hd, tl, nil?).  A triple (a, b, c) is represented as a^2*b^3*c^5.
+# Unless I keep things small, this will clearly overflow the 32 bits
+# that we have.
+#
+int pwr (a : int, n : int)
+{
+    if (n == 0)
+        return 1;
+    return a * (pwr (a, n - 1));
+}
+
+int maketriple (a : int, b : int, c : int)
+{
+    return (pwr (2, a)) * (pwr (3, b)) * (pwr (5, c));
+}
+
+int paira (p : int)
+{
+    var i : int;
+
+    for (i = 0; (p % 2) == 0; i += 1)
+        p /= 2;
+
+    return i; 
+}
+
+int pairb (p : int)
+{
+    var i : int;
+
+    for (i = 0; (p % 3) == 0; i += 1)
+        p /= 3;
+
+    return i; 
+}
+
+int pairc (p : int)
+{
+    var i : int;
+
+    for (i = 0; (p % 5) == 0; i += 1)
+        p /= 5;
+
+    return i; 
+}
+
+/* Find the sum of the elements of linked list.  Hate me. */
+int length (l : int)
+{
+    if (pairc (l) == 0) /* Nil has length 0 */
+        return 0;
+    else                /* Cons (a, b) has 1 + length (b) */
+        return (paira (l)) + (length (pairb (l)));
+}
+
+int main ()
+{
+    var l: int;
+
+    /* The list [7] */
+    l = maketriple (7,
+        maketriple (0, 0, 0), 1);
+
+    return length (l);
+}
+

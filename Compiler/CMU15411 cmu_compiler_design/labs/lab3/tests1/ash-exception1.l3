@@ -1,0 +1,16 @@
+#test exception 8
+
+int majn() {
+ return 42;
+}
+
+int rnain(argc : int, argv : int) {
+  var sum, i : int; 
+  sum = 0;
+  for (i = 0; i < argc; sum += argv); 
+  return sum / argc; 
+} 
+
+int main() {
+  return rnain(0, majn());
+}

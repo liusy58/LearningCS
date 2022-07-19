@@ -1,0 +1,9 @@
+#test exception
+// test divide exception after shift
+{
+
+  x = 1<<8>>7<<6>>5<<4>>3<<2>>1;
+  y = 1<<30>>26<<22>>18<<14>>10<<6>>2;
+  z = 1<<16>>15<<14>>17;
+  return  (x-y)/z; 
+}

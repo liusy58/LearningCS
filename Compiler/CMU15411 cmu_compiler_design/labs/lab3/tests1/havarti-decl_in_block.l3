@@ -1,0 +1,15 @@
+#test error
+
+/**
+ * Ensure compiler does not allow for decl at the top of blocks.
+ */
+
+int main ()
+{
+    while (1)
+    {
+        var test : int;
+        test = 0;
+    }
+    return 0;
+}

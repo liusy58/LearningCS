@@ -1,0 +1,15 @@
+#test error
+
+int fun(){
+	return 5;
+}
+
+int main(){
+
+	var i:int;
+	i = 5;
+	fun = i;
+
+	return fun;
+
+}

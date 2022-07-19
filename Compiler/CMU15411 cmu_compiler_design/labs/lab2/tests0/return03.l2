@@ -1,0 +1,11 @@
+#test return 2
+
+{
+  x = 1;
+  if (x)
+    return x+1;
+  else
+    return x-1;
+  x = y + z;			/* no error, because not reachable */
+  return u;			/* ditto */
+}

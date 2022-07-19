@@ -1,0 +1,30 @@
+#test error
+/* define the same function twice */
+
+int func (n : int) {
+  var x, y : int;
+
+  x = 3;
+  for (y = 0; y < 10; y+=1)
+  {
+    x *= n;
+  }
+  
+  return x;
+}
+
+int func (n : int) {
+  var x, y : int;
+
+  x = 5;
+  for (y = 0; y < 10; y+=1)
+  {
+    x *= n;
+  }
+  
+  return x;
+}
+
+int main () {
+  return func(7);
+}
