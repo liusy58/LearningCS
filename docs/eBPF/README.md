@@ -1,5 +1,7 @@
 
 
+## Type of eBPF programs
+
 
 
 ## Map
@@ -71,7 +73,17 @@
 |`bpftool prog dump xlated id 52`|Dump the eBPF binary with id 52|
 |`sysctl -w kernel.bpf_stats_enabled=1` + `bpftool prog show`|get two more pieces of information: run_cnt / run_time_ns |
 |`pftool map show`||
+|`bpftool cgroup tree`||
 
 
 
+
+
+## Linux Networking and BPF
+
+|||
+|-|-|
+|`tcpdump -n 'ip and tcp port 8080'`||
+|`tcpdump -d 'ip and tcp port 8080'`||
+|||
 
